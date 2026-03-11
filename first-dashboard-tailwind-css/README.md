@@ -89,27 +89,27 @@ Follow the steps in [how to start a coding project](https://4geeks.com/lesson/ho
 
 ## 💻 What you need to do
 
-Create a dashboard that allows identifying at least **three KPIs**, **three drivers**, and operational details (tables/lists), as mentioned above. The dashboard must display correctly on any device (mobile, tablets, and desktops).
+Build a dashboard that shows at least **three KPIs**, **three drivers**, and **operational details** (tables or lists) in the three blocks described above. It must work well on **mobile, tablet, and desktop** (at least three breakpoints; design **mobile-first**).
 
-- [ ] First, identify the visual elements (components) you need. For example:
-  - Does it need a navbar/header or sidebar?
-  - How many sections does the main content split into?
-  - What types of charts can you use for each indicator?
-- [ ] Start with the mobile layout, which is the most constrained format, but always think about how those elements will translate to desktop.
-- [ ] For charts you can use [Chart CSS](https://chartscss.org/), a CSS-only library (data can be made up; what matters is visual hierarchy and organization).
+- [ ] **Plan the layout:** Decide the main structure: navbar/header or sidebar, and how the content is split (top block = KPIs, middle = drivers, bottom = tables/lists). Think in **reusable components** (cards, widget boxes, tables) and section-based structure.
+- [ ] **Design mobile-first:** Start from the smallest screen; then adapt with Tailwind breakpoints (`sm:`, `md:`, `lg:`) so the same components work on tablet and desktop. Avoid pixel-based sizes; use Tailwind spacing and sizing utilities.
+- [ ] **Use semantic HTML:** Use appropriate tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<table>`, etc.) so the dashboard has a clear document outline.
+- [ ] **Use Tailwind only:** Apply styles with Tailwind utility classes (and Preflight if you use the Tailwind build). Do not mix in other CSS frameworks or custom CSS except for Chart CSS if needed.
+- [ ] **Charts (optional):** For KPIs or drivers you can use [Chart CSS](https://chartscss.org/) (CSS-only). Data can be sample data; focus on clear hierarchy and readability.
+- [ ] **Consistency:** Reuse the same patterns for similar elements (e.g. all KPI cards share the same structure and style).
 
-⚠️ **IMPORTANT:** In this project we only use **HTML and Tailwind CSS**. Make sure your AI Copilot **does not include more advanced technologies** (e.g. React). State this from the beginning of the work.
+⚠️ **IMPORTANT:** This project uses **only HTML and Tailwind CSS**. Tell your AI Copilot **not to use other technologies** (e.g. React, Vue). Say this at the start.
 
 ---
 
 ## ✅ What we will evaluate
 
-- [ ] **Correct use of semantic HTML**
-- [ ] **Appropriate use of Tailwind CSS**
-- [ ] **Proper layout and grouping of visual components**
-- [ ] **Responsive design implementation**
+- [ ] **Semantic HTML:** Correct use of structural and landmark tags; clear, logical hierarchy.
+- [ ] **Tailwind CSS:** Styles applied via utility classes; no conflicting or redundant custom CSS; appropriate use of breakpoints and layout utilities (flex/grid).
+- [ ] **Layout and components:** Clear separation of the three blocks (KPIs, drivers, operational); consistent grouping and visual hierarchy; reusable-looking components (cards, sections, tables).
+- [ ] **Responsive design:** Usable on at least three device sizes (e.g. phone, tablet, desktop); mobile-first approach; no horizontal scroll or broken layout on small screens.
 
-> Note: The suitability of the chosen indicators will not be taken into account.
+> Note: We do not grade whether the chosen KPIs or drivers are “correct” for the business; we evaluate structure, Tailwind usage, and responsiveness.
 
 ---
 
@@ -119,4 +119,4 @@ You must submit a repository that includes the HTML document with the full struc
 
 ---
 
-This and many other projects are built by students as part of the [Coding Bootcamps](https://4geeksacademy.com/) at 4Geeks Academy. Find out more about the [Full-Stack Software Developer](https://4geeksacademy.com/coding-bootcamps/full-stack-developer), [Data Science & Machine Learning](https://4geeksacademy.com/coding-bootcamps/data-science-machine-learning), [Cybersecurity](https://4geeksacademy.com/coding-bootcamps/cybersecurity), and [AI Engineering](https://4geeksacademy.com/coding-bootcamps/ai-engineering) [courses](https://4geeksacademy.com/en/program-comparison).
+This and many other projects are built by students as part of the [Coding Bootcamps](https://4geeksacademy.com/) at 4Geeks Academy. Find out more about the [AI Engineering](https://4geeksacademy.com/coding-bootcamps/ai-engineering), [Data Science & Machine Learning](https://4geeksacademy.com/coding-bootcamps/data-science-ml), [Cybersecurity](https://4geeksacademy.com/coding-bootcamps/cybersecurity), and [Full-Stack Software Developer](https://4geeksacademy.com/coding-bootcamps/full-stack-developer) [courses](https://4geeksacademy.com/en/program-comparison).

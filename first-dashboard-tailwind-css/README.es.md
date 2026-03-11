@@ -90,27 +90,27 @@ Sigue los pasos en [cómo comenzar un proyecto de codificación](https://4geeks.
 
 ## 💻 Qué debes hacer
 
-Crea un dashboard que permita identificar al menos **tres KPIs**, **tres drivers** y detalles operacionales (tablas/listados), como los mencionados previamente. El dashboard debe verse correctamente en cualquier dispositivo (móviles, tabletas y computadoras).
+Construye un dashboard que muestre al menos **tres KPIs**, **tres drivers** y **detalles operacionales** (tablas o listados) en los tres bloques descritos arriba. Debe verse y usarse bien en **móvil, tablet y escritorio** (al menos tres breakpoints; diseña **mobile-first**).
 
-- [ ]Primero, identifica los elementos visuales (componentes) necesarios. Por ejemplo:
-  - ¿Requiere navbar/cabecera o sidebar?
-  - ¿En cuántas secciones se divide el contenido principal?
-  - ¿Qué tipos de gráficos se pueden usar para cada indicador?
-- [ ] Empieza por el diseño móvil, que es el formato más restringido, pero pensando siempre en cómo se trasladarán esos elementos a pantalla de escritorio.
-- [ ] Para gráficos puedes utilizar [Chart CSS](https://chartscss.org/), una biblioteca solo de CSS (los datos pueden ser inventados; lo importante es la jerarquía visual y la organización).
+- [ ] **Planificar el layout:** Definir la estructura principal: navbar/cabecera o sidebar, y cómo se divide el contenido (bloque superior = KPIs, intermedio = drivers, inferior = tablas/listados). Pensar en **componentes reutilizables** (cards, cajas de widget, tablas) y estructura por secciones.
+- [ ] **Diseño mobile-first:** Empezar por la pantalla más pequeña; luego adaptar con breakpoints de Tailwind (`sm:`, `md:`, `lg:`) para que los mismos componentes funcionen en tablet y escritorio. Evitar tamaños en píxeles; usar utilidades de espaciado y tamaño de Tailwind.
+- [ ] **HTML semántico:** Usar etiquetas adecuadas (`<header>`, `<nav>`, `<main>`, `<section>`, `<table>`, etc.) para que el dashboard tenga un esquema de documento claro.
+- [ ] **Solo Tailwind:** Aplicar estilos con clases utility de Tailwind (y Preflight si usas el build de Tailwind). No mezclar otros frameworks CSS ni CSS personalizado, salvo Chart CSS si lo usas para gráficos.
+- [ ] **Gráficos (opcional):** Para KPIs o drivers puedes usar [Chart CSS](https://chartscss.org/) (solo CSS). Los datos pueden ser de ejemplo; importa la jerarquía visual y la legibilidad.
+- [ ] **Consistencia:** Reutilizar los mismos patrones para elementos similares (p. ej. todas las cards de KPI comparten la misma estructura y estilo).
 
-⚠️ **IMPORTANTE:** En este proyecto solo usaremos **HTML y Tailwind CSS**. Asegúrate de que tu IA Copiloto **no incluya tecnologías más avanzadas** (por ejemplo, React). Indícalo desde el inicio del trabajo.
+⚠️ **IMPORTANTE:** En este proyecto solo se usa **HTML y Tailwind CSS**. Indica a tu IA Copiloto que **no use otras tecnologías** (p. ej. React, Vue). Dilo desde el inicio.
 
 ---
 
 ## ✅ Qué vamos a evaluar
 
-- [ ] **Uso correcto de de HTML semántico**
-- [ ] **Uso adecuado de Tailwind CSS**
-- [ ] **Correcta diagramación y agrupación de componentes visuales**
-- [ ] **Aplicación de diseño responsivo**
+- [ ] **HTML semántico:** Uso correcto de etiquetas estructurales y landmarks; jerarquía clara y lógica.
+- [ ] **Tailwind CSS:** Estilos aplicados con clases utility; sin CSS personalizado contradictorio o redundante; uso adecuado de breakpoints y utilidades de layout (flex/grid).
+- [ ] **Layout y componentes:** Separación clara de los tres bloques (KPIs, drivers, operativo); agrupación y jerarquía visual coherentes; componentes con aspecto reutilizable (cards, secciones, tablas).
+- [ ] **Diseño responsivo:** Uso correcto en al menos tres tamaños de dispositivo (p. ej. móvil, tablet, escritorio); enfoque mobile-first; sin scroll horizontal ni layout roto en pantallas pequeñas.
 
-> Nota: No se tendrá en cuenta la idoneidad de los indicadores escogidos.
+> Nota: No se valora si los KPIs o drivers elegidos son “correctos” para el negocio; se evalúa la estructura, el uso de Tailwind y la responsividad.
 
 ---
 
@@ -120,4 +120,4 @@ Debes entregar un repositorio que incluya el documento HTML con toda la estructu
 
 ---
 
-Este y muchos otros proyectos son construidos por estudiantes como parte de los [Coding Bootcamps](https://4geeksacademy.com/) de 4Geeks Academy. Encuentra más acerca de los [cursos](https://4geeksacademy.com/es/comparar-programas) de [Full-Stack Software Developer](https://4geeksacademy.com/es/programas-de-carrera/desarrollo-full-stack), [Data Science & Machine Learning](https://4geeksacademy.com/en/career-programs/data-science-ml), [Ciberseguridad](https://4geeksacademy.com/es/programas-de-carrera/ciberseguridad) e [Ingeniería de IA](https://4geeksacademy.com/es/programas-de-carrera/ingenieria-ia).
+Este y muchos otros proyectos son construidos por estudiantes como parte de los [Coding Bootcamps](https://4geeksacademy.com/) de 4Geeks Academy. Encuentra más acerca de los [cursos](https://4geeksacademy.com/es/comparar-programas) de [Ingeniería de IA](https://4geeksacademy.com/es/programas-de-carrera/ingenieria-ia), [Data Science & Machine Learning](https://4geeksacademy.com/en/career-programs/data-science-ml), [Ciberseguridad](https://4geeksacademy.com/es/programas-de-carrera/ciberseguridad) y [Full-Stack Software Developer](https://4geeksacademy.com/es/programas-de-carrera/desarrollo-full-stack).

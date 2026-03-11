@@ -7,16 +7,17 @@
 [![build by developers](https://img.shields.io/badge/build_by-Developers-blue)](https://4geeks.com)
 [![build by developers](https://img.shields.io/twitter/follow/4geeksacademy?style=social&logo=twitter)](https://twitter.com/4geeksacademy)
 
-*Estas instrucciones están [disponibles en español](https://github.com/4GeeksAcademy/html-css-artist-landing-seo-access/blob/main/README.es.md)*
+_Estas instrucciones están [disponibles en español](https://github.com/4GeeksAcademy/html-css-artist-landing-seo-access/blob/main/README.es.md)_
 
 ### Before you start...
 
 > We need you! These exercises are built and maintained in collaboration with contributors such as yourself. If you find any bugs or misspellings please contribute and/or report them.
+
 <!-- endhide -->
 
 ## Your challenge
 
-You've decided to dive headfirst into the world of AI Engineering. And while you're learning the fundamentals of HTML, CSS, and SEO, your first opportunity to build a *website* has come up — for an artist friend who needs to get noticed and showcase their talent.
+You've decided to dive headfirst into the world of AI Engineering. And while you're learning the fundamentals of HTML, CSS, and SEO, your first opportunity to build a _website_ has come up — for an artist friend who needs to get noticed and showcase their talent.
 
 You're just getting started, so you'll create an initial version that you can grow later on, but that doesn't mean it won't be quality work — especially if you do it alongside AI. So give it your best! 😁
 
@@ -28,7 +29,6 @@ And keep in mind that on the internet there are two very important things:
 
 1. Not everyone has the same visual capabilities, so it's important to identify elements with accessibility labels so that people with visual impairments or screen reader users can navigate the site.
 2. Search engine indexing is crucial so people can find you, so don't forget SEO principles and add the markup you see fit, using both semantic HTML and Schema.org.
-
 
 ## 🌱 How to Start This Project
 
@@ -48,33 +48,38 @@ https://github.com/4GeeksAcademy/html-hello
 
 ## 📝 Instructions
 
-Before you start developing, you should determine from the problem statement: what are the structure requirements you agreed on with your artist friend?
+Before you start developing, determine from the problem statement **what structure you agreed on with your artist friend**: which sections exist, how they are ordered, and what content each one has. Think of the page as a set of **boxes** (header, hero, about, career, shows, footer) and plan the layout from the outside in.
 
-This will allow you to build a **strategy**.
+This will allow you to build a **strategy** and use **semantic HTML** (e.g. `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) so the structure has meaning for both users and search engines.
 
-> **Note:** The website should be visually appealing, so feel free to incorporate visual elements and, as a bonus, animations (optional).
+> **Note:** The website should be visually appealing; you can use Flexbox for layout, keep CSS DRY, and optionally use a methodology like BEM. As a bonus, add animations if you like.
+
+---
 
 ## 💻 What You Need to Do
 
-To fulfill your friend's request, you will need to:
+To fulfill your friend's request:
 
-- [ ] Create an HTML document (`index.html`) following the instructions above.
-- [ ] Add styles through a CSS document (`styles.css`).
-- [ ] Use accessibility labels to make it usable for visually impaired users.
-- [ ] Use semantic HTML and **Schema.org** markup tags to make the document crawlable by search engines.
+- [ ] **Structure:** Create a single HTML document (`index.html`) with a clear hierarchy: document outline, navbar with links to sections (about me, career, upcoming shows), hero section, and one full-height section per topic (~viewport height each).
+- [ ] **Semantic HTML:** Use semantic tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`, etc.) so the content is meaningful and indexable. Avoid using only `<div>` for structure.
+- [ ] **Layout and styles:** Use a separate CSS file (`styles.css`). Prefer **Flexbox** for layout; avoid `float` or `display: inline-block` for page structure. Keep styles maintainable (DRY, clear selectors).
+- [ ] **Accessibility:** Add labels and roles so screen reader users can navigate: `aria-label` where needed, `alt` on images, correct heading levels (`h1` → `h2` → …), and focusable interactive elements.
+- [ ] **SEO / Schema.org:** Add **Schema.org** structured data (JSON-LD or Microdata) that describes the artist or their work (e.g. Person, CreativeWork) so search engines can understand the page.
+- [ ] **File organization:** Keep HTML and CSS in separate, correctly linked files.
 
-> **⚠️ IMPORTANT:** You must tell the AI that **you will only work with HTML and CSS**, and that it should not incorporate any other technology (such as JS or Frameworks) to develop it.
+> **⚠️ IMPORTANT:** Tell the AI that you **only use HTML and CSS** for this project—no JavaScript, no frameworks. Ask it not to use a pre-made template; you are building the structure from the requirements above.
 
-## ✅ Evaluation Criteria
+---
 
-- [ ] The HTML must be correctly formatted.
-- [ ] HTML tags must be correctly organized according to their hierarchy.
-- [ ] Strict use of **semantic HTML** to give meaning to the structure.
-- [ ] CSS styles must produce an attractive and modern presentation.
-- [ ] Correct file organization (HTML and CSS).
-- [ ] Suitable for screen readers (correct use of `aria-label` attributes, alt text, etc.).
-- [ ] Implementation of **Schema.org** structured data (JSON-LD or Microdata) describing the artist or their work.
-- [ ] Meet the requirements desired by the artist.
+## ✅ What We Will Evaluate
+
+- [ ] **Valid, well-formatted HTML** and correct tag hierarchy (no unclosed or misnested tags).
+- [ ] **Strict use of semantic HTML** so sections and landmarks (header, nav, main, footer) are identifiable.
+- [ ] **CSS quality:** Attractive, modern presentation; layout with Flexbox; organized and non-redundant styles.
+- [ ] **Correct file organization:** Separate `index.html` and `styles.css`, properly linked.
+- [ ] **Accessibility:** Usable with screen readers (e.g. `aria-label`, `alt`, heading hierarchy, focus management).
+- [ ] **Schema.org:** Structured data (JSON-LD or Microdata) describing the artist or their work.
+- [ ] **Requirements:** All agreed sections (navbar, hero, about, career, upcoming shows) present and navigable.
 
 ## 📦 How to Submit
 

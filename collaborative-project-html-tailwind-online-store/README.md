@@ -2,7 +2,7 @@
 
 <!-- hide -->
 
-By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](https://github.com/4GeeksAcademy/first-dashboard-tailwind-css/graphs/contributors) at [4Geeks Academy](https://4geeksacademy.com/)
+By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](https://github.com/4GeeksAcademy/collaborative-project-html-tailwind-online-store/graphs/contributors) at [4Geeks Academy](https://4geeksacademy.com/)
 
 [![build by developers](https://img.shields.io/badge/build_by-Developers-blue)](https://4geeks.com)
 [![4Geeks Academy](https://img.shields.io/twitter/follow/4geeksacademy?style=social&logo=x)](https://x.com/4geeksacademy)
@@ -125,42 +125,36 @@ Follow the steps in [how to start a coding project](https://4geeks.com/lesson/ho
 
 ## 💻 What you need to do
 
-You must develop an e-commerce _website_ in collaboration with your teammate, using good practices in both development and project management with Git.
+Develop the e-commerce prototype **as a team**, applying what you’ve learned: **semantic HTML**, **Tailwind**, **Schema.org**, responsive design, and **Git** (branches, commits, pull requests). Use AI step by step and keep the scope to HTML + Tailwind only.
 
-Apply everything you’ve learned so far: **semantic HTML**, **Tailwind**, **Schema.org**, responsive design, **Git**…
+**Views to implement (and link between them):**
 
-Use AI to work more efficiently, but step by step and with quality.
+- [ ] **Home** — navbar, Hero, “New arrivals” and “Best sellers” product lists, footer (navbar and footer reused on all pages).
+- [ ] **Catalog** — navbar, filter bar (category, size), product grid (e.g. 4×5), footer.
+- [ ] **Product view** — two columns (image + details: name, code, size, price, quantity, “Add to cart”), description section; navbar and footer.
+- [ ] **Cart** — full-page cart: list of items (thumbnail, unit price, quantity, line total), summary (subtotal, tax, total), “Purchase” button; e.g. 3 sample products to show behavior; navbar and footer.
+- [ ] **Payment form (checkout)** — 3 steps: (1) Personal details, (2) Shipping address, (3) Card payment; navbar and footer.
 
-You only need to build the views mentioned above and connect them:
+**Git and collaboration (Skill 5):**
 
-- [ ] **Home** — navigation bar, Hero, new products list, best-selling products list, footer
-- [ ] **Catalog** — product list and filter bar
-- [ ] **Product view** — image, details, price and description
-- [ ] **Cart** — full view of cart content with products, totals and purchase button
-- [ ] **Payment form** — personal details, shipping address and card details
-
-**Regarding change management:**
-
-- [ ] Work with _branches_ for each view (they will make deliveries easier).
-- [ ] Submit each branch via a _pull request_ (PR) to merge it into the main branch.
-- [ ] Update your branch before submitting to avoid errors and conflicts.
-- [ ] If there are conflicts, work with your team to resolve them together.
-- It’s a good idea to ask the AI to make a _commit_ on the branch whenever you add something that’s already working.
+- [ ] Use **one branch per view or feature** (e.g. `feature/home`, `feature/catalog`). Do not work directly on `main`.
+- [ ] **Open a pull request (PR)** for each branch before merging into `main`. Describe what the PR contains.
+- [ ] **Update your branch** with `main` (e.g. `git pull origin main`) before submitting the PR to reduce conflicts.
+- [ ] **Resolve conflicts** together as a team; do not force-push or overwrite each other’s work without agreeing.
+- [ ] **Commit often** with clear messages (e.g. “Add navbar and hero to home”, “Add catalog grid and filters”). Prefer one logical change per commit.
 
 ---
 
 ## ✅ What we will evaluate
 
-Application of everything learned so far:
+- [ ] **Semantic HTML:** Correct structure and landmarks; meaningful tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<form>`, etc.) across all views.
+- [ ] **Tailwind CSS:** Consistent use of utility classes; responsive breakpoints (mobile, tablet, desktop); no unrelated frameworks.
+- [ ] **Layout and components:** Clear layout and grouping; navbar and footer reused across views; content matches the specifications per view.
+- [ ] **Responsive design:** All five views usable on different screen sizes; no broken layout or horizontal scroll on small screens.
+- [ ] **Schema.org:** Structured data (e.g. Product, Organization) where it makes sense (e.g. product or home page).
+- [ ] **Git workflow:** Branches used for features/views; at least one PR per major part; meaningful commits; no long-term work directly on `main`.
 
-- [ ] **Proper use of semantic HTML**
-- [ ] **Proper use of Tailwind CSS**
-- [ ] **Correct layout and grouping of visual components**
-- [ ] **Application of responsive design**
-- [ ] **Use of Schema.org**
-- [ ] **Proper use of Git**
-
-The submitted project must have **at least 5 HTML documents** (one per view) and its stylesheet, if applicable.
+Deliverable: **at least 5 HTML files** (one per view), linked to each other, plus shared styles (Tailwind and any extra CSS).
 
 ---
 
@@ -172,4 +166,4 @@ Follow the usual submission steps to push your repository to GitHub and share it
 
 ## Contributors
 
-This and many other projects are built by students as part of the [Coding Bootcamps](https://4geeksacademy.com/) at 4Geeks Academy. By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](https://github.com/4GeeksAcademy/first-dashboard-tailwind-css/graphs/contributors). Find out more about [Full-Stack Software Developer](https://4geeksacademy.com/en/career-programs/full-stack), [Data Science & Machine Learning](https://4geeksacademy.com/en/career-programs/data-science-ml), [Cybersecurity](https://4geeksacademy.com/en/career-programs/cybersecurity) and [AI Engineering](https://4geeksacademy.com/en/career-programs/ai-engineering).
+This and many other projects are built by students as part of the [Coding Bootcamps](https://4geeksacademy.com/) at 4Geeks Academy. By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](https://github.com/4GeeksAcademy/collaborative-project-html-tailwind-online-store/graphs/contributors). Find out more about [Full-Stack Software Developer](https://4geeksacademy.com/en/career-programs/full-stack), [Data Science & Machine Learning](https://4geeksacademy.com/en/career-programs/data-science-ml), [Cybersecurity](https://4geeksacademy.com/en/career-programs/cybersecurity) and [AI Engineering](https://4geeksacademy.com/en/career-programs/ai-engineering).
