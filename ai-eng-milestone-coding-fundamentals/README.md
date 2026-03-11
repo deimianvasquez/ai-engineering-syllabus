@@ -1,4 +1,4 @@
-# Milestone 2 — Programming Fundamentals
+# Milestone 2 — Building Scripts to Automate Tasks
 
 <!-- hide -->
 
@@ -9,7 +9,7 @@ By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](htt
 
 _Estas instrucciones están [disponibles en español](./README.es.md)._
 
-**Before you start**: Read your **[CONTEXT-company.md](https://github.com/4GeeksAcademy/ai-engineeirng-milestone-contexts)** before writing any code — it defines the specific company data, field names, data structures, and constraints for your implementation.
+**Before you start**: Read your **[CONTEXT-company.md](https://github.com/4GeeksAcademy/ai-engineering-milestone-contexts)** before writing any code — it defines the specific company data, field names, data structures, and constraints for your implementation.
 
 <!-- endhide -->
 
@@ -68,7 +68,7 @@ This milestone focuses exclusively on programming logic and data manipulation wi
 
 Your implementation should be organized in separate TypeScript files by responsibility:
 
-```
+```text
 src/
 ├── types/
 │   └── models.ts          # Interfaces and types

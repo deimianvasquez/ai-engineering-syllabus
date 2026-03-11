@@ -1,4 +1,4 @@
-# Hito 2 — Fundamentos de Programación
+# Hito 2 — Desarrollando scripts para automatizar tareas
 
 <!-- hide -->
 
@@ -9,7 +9,7 @@ Por [@marcogonzalo](https://github.com/marcogonzalo) y [otros colaboradores](htt
 
 _These instructions are [available in English](./README.md)._
 
-**Antes de comenzar**: Lee tu **[CONTEXT-company.md](https://github.com/4GeeksAcademy/ai-engineeirng-milestone-contexts)** antes de escribir cualquier código — define los datos específicos de tu empresa, nombres de campos, estructuras de datos y restricciones para tu implementación.
+**Antes de comenzar**: Lee tu **[CONTEXT-company.md](https://github.com/4GeeksAcademy/ai-engineering-milestone-contexts)** antes de escribir cualquier código — define los datos específicos de tu empresa, nombres de campos, estructuras de datos y restricciones para tu implementación.
 
 <!-- endhide -->
 
@@ -68,16 +68,16 @@ Este hito se enfoca exclusivamente en lógica de programación y manipulación d
 
 Tu implementación debe organizarse en archivos TypeScript separados por responsabilidad:
 
-```markdown
+```text
 src/
 ├── types/
-│ └── models.ts # Interfaces y tipos
+│   └── models.ts          Interfaces y tipos
 ├── utils/
-│ ├── collections.ts # Funciones para arrays
-│ ├── search.ts # Búsquedas lineal y binaria
-│ ├── transformations.ts # Agregaciones y reportes
-│ └── validations.ts # Validaciones de negocio
-└── index.html # Página de prueba (opcional)
+│   ├── collections.ts     # Funciones para arrays
+│   ├── search.ts          # Búsquedas lineal y binaria
+│   ├── transformations.ts # Agregaciones y reportes
+│   └── validations.ts     # Validaciones de negocio
+└── index.html             # Página de prueba (opcional)
 ```
 
 Puedes incluir una página HTML simple con Tailwind CSS para probar tus funciones manualmente si lo deseas, pero el foco principal está en la lógica TypeScript.
