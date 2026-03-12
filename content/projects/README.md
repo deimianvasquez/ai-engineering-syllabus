@@ -15,7 +15,7 @@ Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, acce
    Responsive dashboard with HTML and Tailwind showing KPIs, drivers, and operational details (no React).
 
 3. **[Company Project Milestone: Web Fundamentals](/ai-engineering-syllabus/content/projects/ai-eng-milestone-web-fundamentals)**  
-   Milestone 1 — Your company's public website: landing page plus application/sign-up form with semantic HTML5, Tailwind, Schema.org, and JavaScript validation. Follow `CONTEXT.md` for data and form fields.
+   **Milestone 1** — Your company's public website: landing page plus application/sign-up form with semantic HTML5, Tailwind, Schema.org, and JavaScript validation. Follow `CONTEXT.md` for data and form fields.
 
 4. **[Collaborative project: online store with HTML and Tailwind](/ai-engineering-syllabus/content/projects/collaborative-project-html-tailwind-online-store)**  
    Collaborative e-commerce prototype (min. 5 pages: Home, Catalog, Product, Cart, Checkout) with HTML and Tailwind, teamwork with branches and pull requests.
@@ -23,8 +23,8 @@ Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, acce
 5. **[Cinema Seat Manager (TypeScript)](/ai-engineering-syllabus/content/projects/seats-management-typescript)**  
    Command-line cinema seat reservation system using a 2D array, with reserve, count, and adjacent-seat search functions.
 
-6. **[Programming Fundamentals Milestone (TypeScript)](/ai-engineering-syllabus/content/projects/ai-eng-milestone-coding-fundamentals)**  
-   Milestone 2 — Programming fundamentals with TypeScript: small, testable modules focusing on control flow, arrays, objects, functions, and edge cases, using clean code practices.
+6. **[Company Project Milestone: Coding Fundamentals (TypeScript)](/ai-engineering-syllabus/content/projects/ai-eng-milestone-coding-fundamentals)**  
+   **Milestone 2** — Programming fundamentals with TypeScript: small, testable modules focusing on control flow, arrays, objects, functions, and edge cases, using clean code practices.
 
 ---
 
