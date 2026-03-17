@@ -1,0 +1,33 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Data modeling and class diagrams",
+    "es": "Modelado de datos y diagramas de clases"
+  },
+  "status": "published",
+  "template_url": "self",
+  "slug": "data-modeling-and-class-diagrams",
+  "description": {
+    "en": "Model two systems using class diagrams in diagram.4geeks.com: a music playlist player and a digital wallet with transaction history. Deliver both diagrams exported as PNG files.",
+    "es": "Modela dos sistemas usando diagramas de clases en diagram.4geeks.com: un reproductor de playlist de musica y una billetera digital con historial de movimientos. Entrega ambos diagramas exportados en archivos PNG."
+  },
+  "difficulty": "beginner",
+  "duration": 1,
+  "technologies": ["uml", "class-diagrams", "data-modeling", "system-design"],
+  "talents": [
+    { "badge": "data-modeler", "points": 3 },
+    { "badge": "system-designer", "points": 2 },
+    { "badge": "uml-practitioner", "points": 2 }
+  ],
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "delivery": {
+    "instructions": {
+      "us": "Upload the two PNG files exported from your diagrams: one for the music playlist player and one for the digital wallet.",
+      "es": "Sube los dos archivos PNG exportados de tus diagramas: uno del reproductor de playlist de musica y otro de la billetera digital."
+    },
+    "formats": ["png"],
+    "quantity": 2
+  },
+  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id="
+}
