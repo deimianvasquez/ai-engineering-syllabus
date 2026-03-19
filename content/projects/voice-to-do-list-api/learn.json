@@ -1,0 +1,33 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Voice Command API - Talk to Your Task List",
+    "es": "Voice Command API - Habla con tu Lista de Tareas"
+  },
+  "status": "published",
+  "template_url": "https://github.com/4GeeksAcademy/voice-command-api",
+  "slug": "voice-to-do-list-api",
+  "description": {
+    "en": "Build a FastAPI backend that powers a voice-first to-do app: implement in-memory CRUD task endpoints and a POST /instruction endpoint that uses Groq to return strict routing JSON (endpoint, method, params) from user transcriptions.",
+    "es": "Construye un backend en FastAPI para una app de tareas controlada por voz: implementa endpoints CRUD en memoria y un endpoint POST /instruction que use Groq para devolver JSON de enrutamiento estricto (endpoint, method, params) a partir de transcripciones del usuario."
+  },
+  "difficulty": "beginner",
+  "duration": 2,
+  "technologies": [
+    "python",
+    "fastapi",
+    "rest-api",
+    "prompt-engineering",
+    "llm"
+  ],
+  "talents": [
+    { "badge": "python-developer", "points": 3 },
+    { "badge": "backend-developer", "points": 3 },
+    { "badge": "api-developer", "points": 2 },
+    { "badge": "prompt-engineer", "points": 2 }
+  ],
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=",
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/voice-to-do-list-api/.learn/solution/README.md"
+}
