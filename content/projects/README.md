@@ -17,7 +17,7 @@ Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, acce
 3. **[Company Project Milestone: Web Fundamentals](./ai-eng-milestone-web-fundamentals)**  
    `Milestone 1` — Your company's public website: landing page plus application/sign-up form with semantic HTML5, Tailwind, Schema.org, and JavaScript validation. Follow `CONTEXT.md` for data and form fields.
 
-4. **[Collaborative project: online store with HTML and Tailwind](.//collaborative-project-html-tailwind-online-store)**  
+4. **[Collaborative project: online store with HTML and Tailwind](./collaborative-project-html-tailwind-online-store)**  
    Collaborative e-commerce prototype (min. 5 pages: Home, Catalog, Product, Cart, Checkout) with HTML and Tailwind, teamwork with branches and pull requests.
 
 5. **[Cinema Seat Manager (TypeScript)](./seats-management-typescript)**  
@@ -28,6 +28,15 @@ Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, acce
 
 7. **[Company Project Milestone: Coding Fundamentals (TypeScript)](./ai-eng-milestone-coding-fundamentals)**  
    `Milestone 2` — Programming fundamentals with TypeScript: small, testable modules focusing on control flow, arrays, objects, functions, and edge cases, using clean code practices.
+
+8. **[AI Agent Rental Platform: Admin panel prototype](./agent-hub-ui-specs-and-prompts)**  
+   Spec-driven frontend project for a multi-view admin panel: write `SPECS.md` first, then build dashboard and management views with HTML, Tailwind, and vanilla JavaScript interactions.
+
+9. **[Talk to the Machine: Chat interface with a real AI API](./chat-interface-real-ai-api)**  
+   Build a browser-based chat interface that calls the Groq API with `fetch`, sends full conversation history, and tracks cumulative token usage plus response metrics.
+
+10. **[Voice to-do list with AI API](./voice-to-do-list-api)**  
+    Build a voice-powered to-do flow that captures user input, integrates with an AI API, and transforms spoken requests into actionable task management behavior.
 
 ---
 
