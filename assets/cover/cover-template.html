@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Cover Template</title>
+    <style>
+      :root {
+        --canvas-width: 1024px;
+        --canvas-height: 576px;
+        --background: #dcdcdc;
+        --text-color: #111111;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+        background: #f3f4f6;
+      }
+
+      .cover {
+        position: relative;
+        width: var(--canvas-width);
+        height: var(--canvas-height);
+        overflow: hidden;
+        background: var(--background);
+        color: var(--text-color);
+      }
+
+      .left {
+        position: absolute;
+        top: 56px;
+        left: 60px;
+        width: 440px;
+      }
+
+      .title {
+        margin: 0;
+        font-weight: 800;
+        font-size: 60px;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        white-space: pre-line;
+      }
+
+      .author {
+        margin: 18px 0 0;
+        font-size: 24px;
+        line-height: 1.25;
+        font-weight: 600;
+      }
+
+      .logo {
+        position: absolute;
+        left: 58px;
+        bottom: 48px;
+        width: 56px;
+        height: 56px;
+        object-fit: contain;
+      }
+
+      .illustration {
+        position: absolute;
+        right: 36px;
+        bottom: 8px;
+        width: 495px;
+        height: 548px;
+        object-fit: contain;
+        object-position: right bottom;
+        transform: scale(0.75);
+        transform-origin: right bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="cover" id="cover">
+      <section class="left">
+        <h1 class="title" id="title"></h1>
+        <p class="author" id="author"></p>
+      </section>
+
+      <img class="illustration" id="illustrationImage" alt="" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="logo"
+        viewBox="0 0 1496 1269"
+        fill="none"
+      >
+        <path
+          d="M1260.65 1040.03L1268.7 962.482H1345.53C1399.69 962.482 1444.44 911.847 1444.44 854.289V557.645C1461.61 552.587 1496 538.98 1496 511.345V483.168C1496 460.53 1469.04 435.242 1449.73 435.242H1424.68C1407 410.738 1378.13 398.455 1345.53 398.455H1292.84C1272.69 355.527 1241.84 315.489 1205.99 285.806C1213.87 282.254 1221.19 278.1 1228.17 273.885C1274.32 245.889 1301.79 209.343 1309.9 165.632C1323.97 89.5892 1273.82 19.9288 1271.68 17.0388L1259.24 0L1252.31 20.1696C1252.03 20.9523 1225.29 95.61 1126.73 95.61C1119.69 95.61 1112.37 95.2488 1104.89 94.466C1034.8 87.3615 986.507 70.8646 935.394 53.4645C858.387 27.2139 778.791 0.0602078 617.573 0.0602078C532.798 0.0602078 458.437 19.2063 396.573 57.077C346.868 87.4217 305.156 129.748 272.619 182.791C222.351 264.674 209.911 346.315 207.772 363.053C200.566 374.432 194.149 386.233 188.576 398.455H140.503C107.911 398.455 79.0331 410.738 61.3576 435.242H36.3079C14.9172 435.242 0 462.095 0 483.168V511.345C0 540.245 34.3941 553.129 51.5629 557.886V854.289C51.5629 882.466 59.0497 909.861 75.3179 929.488C92.3742 950.14 114.553 962.482 140.503 962.482H212.669L214.02 976.33L215.146 986.987H215.202L220.719 1040.39C229.838 1114.27 262.937 1173.75 316.47 1214.03C365.05 1250.52 428.659 1269 500.543 1269H980.878C1049.72 1269 1115.41 1247.99 1165.79 1208.31C1219.38 1166.04 1252.26 1108.43 1260.65 1040.03ZM630.464 854.289C630.464 865.909 606.652 882.827 591.285 882.827H140.447C138.533 882.827 137.07 882.406 136.507 881.804C133.917 879.034 132.848 866.812 132.904 858.744C132.904 857.299 131.778 855.734 131.778 854.289V501.892C131.778 500.387 132.904 498.942 132.904 497.497C132.848 489.851 133.354 476.846 135.662 474.377C136.056 473.956 137.97 472.029 140.447 472.029H573.947C610.086 472.029 630.464 506.829 630.464 520.436V854.289ZM894.695 882.767C878.484 882.767 876.907 857.179 876.907 854.228V520.436C876.907 488.105 887.884 472.029 912.033 472.029H1345.53C1361.52 472.029 1387.08 491.055 1387.08 501.892V854.228C1387.08 865.367 1361.13 882.767 1345.53 882.767H894.695Z"
+          fill="black"
+        />
+      </svg>
+    </main>
+
+    <script>
+      // Editable defaults for quick reuse.
+      const COVER_CONFIG = {
+        title: "Building Your Product\nRequirements\nwith AI",
+        author: "by 4Geeks Academy",
+        background: "#dcdcdc",
+        illustrationImage: "./software-agent.svg",
+      };
+
+      // Optional URL overrides:
+      // ?title=Mi%20Titulo&author=by%20@tuusuario&image=./mi-imagen.png&logo=./mi-logo.png&bg=%23dcdcdc
+      const params = new URLSearchParams(window.location.search);
+
+      const cfg = {
+        title: params.get("title") ?? COVER_CONFIG.title,
+        author: params.get("author") ?? COVER_CONFIG.author,
+        background: params.get("bg") ?? COVER_CONFIG.background,
+        illustrationImage:
+          params.get("image") ?? COVER_CONFIG.illustrationImage,
+        logoImage: params.get("logo") ?? COVER_CONFIG.logoImage,
+      };
+
+      const titleEl = document.getElementById("title");
+      const authorEl = document.getElementById("author");
+      const illustrationImageEl = document.getElementById("illustrationImage");
+      const logoImageEl = document.getElementById("logoImage");
+      const coverEl = document.getElementById("cover");
+
+      titleEl.textContent = cfg.title;
+      authorEl.textContent = cfg.author;
+      illustrationImageEl.src = cfg.illustrationImage;
+      logoImageEl.src = cfg.logoImage;
+      coverEl.style.setProperty("--background", cfg.background);
+    </script>
+  </body>
+</html>

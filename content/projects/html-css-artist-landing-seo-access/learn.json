@@ -13,17 +13,44 @@
   },
   "difficulty": "beginner",
   "duration": 1,
-  "technologies": ["html", "css", "accessibility", "seo"],
-  "talents": [
-    { "badge": "html-developer", "points": 6 },
-    { "badge": "css-developer", "points": 3 },
-    { "badge": "seo-expert", "points": 5 },
-    { "badge": "accessibility-expert", "points": 5 },
-    { "badge": "responsive-designer", "points": 5 },
-    { "badge": "performance-optimizer", "points": 5 }
+  "technologies": [
+    "html",
+    "css",
+    "accessibility",
+    "seo"
   ],
-  "translations": ["es", "en"],
+  "talents": [
+    {
+      "badge": "html-developer",
+      "points": 6
+    },
+    {
+      "badge": "css-developer",
+      "points": 3
+    },
+    {
+      "badge": "seo-expert",
+      "points": 5
+    },
+    {
+      "badge": "accessibility-expert",
+      "points": 5
+    },
+    {
+      "badge": "responsive-designer",
+      "points": 5
+    },
+    {
+      "badge": "performance-optimizer",
+      "points": 5
+    }
+  ],
+  "translations": [
+    "es",
+    "en"
+  ],
   "projectType": "project",
   "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/html-css-artist-landing-seo-access/.learn/solution/README.md",
-  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id="
+  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/html-css-artist-landing-seo-access/.learn/preview.png"
 }

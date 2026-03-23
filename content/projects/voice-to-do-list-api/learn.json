@@ -21,13 +21,29 @@
     "llm"
   ],
   "talents": [
-    { "badge": "python-developer", "points": 3 },
-    { "badge": "backend-developer", "points": 3 },
-    { "badge": "api-developer", "points": 2 },
-    { "badge": "prompt-engineer", "points": 2 }
+    {
+      "badge": "python-developer",
+      "points": 3
+    },
+    {
+      "badge": "backend-developer",
+      "points": 3
+    },
+    {
+      "badge": "api-developer",
+      "points": 2
+    },
+    {
+      "badge": "prompt-engineer",
+      "points": 2
+    }
   ],
-  "translations": ["es", "en"],
+  "translations": [
+    "es",
+    "en"
+  ],
   "projectType": "project",
   "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=",
-  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/voice-to-do-list-api/.learn/solution/README.md"
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/voice-to-do-list-api/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/voice-to-do-list-api/.learn/preview.png"
 }
