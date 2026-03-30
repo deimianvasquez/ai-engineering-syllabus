@@ -44,5 +44,100 @@ Ha reunido un equipo de AI Engineering para construir los sistemas, las automati
 
 ---
 
+## Los departamentos y sus problemas
+
+### 🌐 Marketing y Comunicación
+
+**Responsable:** Carmen Ruiz
+
+La web corporativa se construyó en 2019 y no se ha actualizado de forma significativa — es lenta, no es accesible y no refleja el posicionamiento actual de la empresa. El contenido se produce manualmente y el equipo no mide el impacto real de su trabajo: saben cuántas visitas reciben, pero no qué convierte.
+
+**Qué necesitan:** Un rediseño completo de la web corporativa con optimización SEO/GEO y marcado schema.org, un pipeline de contenido asistido por IA, y un dashboard de métricas de marketing con visitas, fuentes de tráfico y tasas de conversión.
+
+---
+
+### 💼 Ventas y Desarrollo de Negocio
+
+**Responsable:** Marcos Ibáñez (equipo de 18 personas: 6 account managers, 12 SDRs)
+
+Los SDRs prospectan manualmente en LinkedIn, exportan listas a Excel y hacen seguimiento por email sin ninguna automatización. Tienen un CRM (HubSpot) pero solo el 40% del equipo lo actualiza con regularidad. Muchos deals se pierden por falta de seguimiento y no hay visibilidad sobre qué prospectos tienen más probabilidad de cerrar.
+
+**Qué necesitan:** Un dashboard del pipeline de ventas, una automatización de secuencias de prospección (primer contacto → seguimiento → cierre o descarte), alertas para conversaciones sin actividad, y un agente de IA que sugiera el ángulo de propuesta más adecuado para cada prospecto.
+
+---
+
+### 🧑‍🤝‍🧑 Recursos Humanos (interno)
+
+**Responsable:** Patricia Solís
+
+Las solicitudes de vacaciones, ausencias y consultas de RRHH se gestionan por email y hojas de cálculo. El onboarding de nuevos empleados es manual. Las evaluaciones de desempeño se hacen dos veces al año mediante Google Forms que nadie revisa de forma sistemática. No existen métricas de seguimiento: sin tasa de rotación, sin datos de absentismo, sin tiempo medio de cobertura de vacantes internas.
+
+**Qué necesitan:** Un portal interno de RRHH, un flujo automatizado de onboarding con checklists progresivos, un dashboard de KPIs de RRHH, y un agente interno que responda las preguntas del equipo sobre políticas y beneficios.
+
+---
+
+### 🔍 Operaciones de Selección (negocio principal)
+
+**Responsable:** Javier Almeida (40 consultores de selección)
+
+El cribado de CVs es manual: cada consultor lee entre 30 y 80 CVs por proceso. La comunicación con candidatos se hace por email individual sin plantillas. No hay ningún sistema para conocer el estado en tiempo real de cada candidato — los clientes llaman a preguntar. El matching entre candidato y vacante depende completamente de la intuición del consultor.
+
+**Qué necesitan:** Un pipeline de selección asistido por IA con scoring y ranking automático de CVs, un sistema RAG sobre la base de datos de candidatos ("encuentra perfiles con experiencia en ventas B2B y nivel C1 de inglés"), un portal de candidatos con estado en tiempo real, y un agente de comunicación que envíe emails automáticos de seguimiento.
+
+---
+
+### 🎓 Formación Corporativa
+
+**Responsable:** Elena Vargas (equipo de 12 personas)
+
+El catálogo de formación vive en un PDF que se actualiza trimestralmente. Las inscripciones se gestionan a través de un Google Form que alguien administra manualmente en una hoja de cálculo. No hay registro de quién completó qué formación más allá de listas de asistencia en Excel. La personalización es cero: todos los clientes reciben la misma propuesta de catálogo.
+
+**Qué necesitan:** Una plataforma de catálogo de formación con búsqueda e inscripción online, un sistema de recomendación que sugiera programas en función del perfil del cliente, un portal del alumno con seguimiento de progreso, y un chatbot de asesoramiento formativo que construya planes personalizados.
+
+---
+
+### 📞 Atención al Cliente (servicio externalizado)
+
+**Responsable:** Roberto Díaz (30 agentes)
+
+Los 30 agentes gestionan incidencias de los clientes de outsourcing de Nexova (tech, retail, finanzas) por teléfono, email y chat web. No hay base de conocimiento centralizada — los agentes resuelven por experiencia y un documento Word compartido en Drive. El tiempo medio de resolución es de 48 horas; el SLA comprometido es de 24. Los supervisores no tienen visibilidad en tiempo real sobre la carga de trabajo ni el estado del backlog.
+
+**Qué necesitan:** Un chatbot de soporte de primera línea que resuelva el 40% de las consultas sin intervención humana usando RAG, una base de conocimiento centralizada con búsqueda semántica, un dashboard de soporte en tiempo real, y un análisis de sentimiento de tickets para identificar clientes insatisfechos antes de que escalen.
+
+---
+
+### 💻 Tecnología e Infraestructura
+
+**CTO:** Sergio Molina (equipo de 6 personas)
+
+El stack tecnológico es un mosaico de herramientas desconectadas: HubSpot, Zendesk legacy, Google Workspace, un ATS hecho a medida de la década de 2010 y múltiples hojas de cálculo actuando como sistemas de gestión. No hay telemetría ni logging centralizado. Cuando algo falla, el equipo se entera a través de los usuarios. Los despliegues son manuales.
+
+**Qué necesitan:** Telemetría y logging centralizados, un pipeline de datos que alimente todos los dashboards de la empresa, monitorización en tiempo real con alertas automáticas, y un agente de ingeniería interna que responda preguntas de arquitectura consultando la documentación técnica.
+
+---
+
+### 📊 Dirección Ejecutiva
+
+**CEO:** Laura Mendoza
+
+Laura recibe un informe semanal en PDF preparado manualmente por cada responsable de área — su preparación lleva entre 4 y 8 horas por manager. No hay una visión unificada del negocio. Las decisiones estratégicas se toman con datos de hace una semana.
+
+**Qué necesita:** Un dashboard ejecutivo unificado con KPIs de todas las áreas en tiempo real, un informe semanal generado automáticamente, alertas por umbrales estratégicos, y un asistente de IA al que pueda consultar en lenguaje natural.
+
+---
+
+## ¿Por qué elegir Nexova?
+
+Elige Nexova si te atraen:
+
+- **Personas y datos** — construir sistemas que rankean candidatos, hacen seguimiento de alumnos y miden el rendimiento del equipo de ventas.
+- **Servicios B2B** — tus usuarios no son consumidores anónimos sino equipos profesionales con flujos de trabajo y expectativas concretas.
+- **La IA en el núcleo del negocio** — en Nexova la IA no apoya el producto; _es_ la ventaja competitiva. El scoring de CVs, el matching de candidatos, el RAG sobre base de conocimiento y los agentes de soporte de primera línea son entregables centrales, no mejoras opcionales.
+- **Complejidad multifuncional** — construirás para cinco equipos muy distintos (operaciones, ventas, RRHH, formación, soporte), cada uno con datos diferentes, usuarios diferentes y definiciones de éxito diferentes.
+
+Los retos de IA en Nexova incluyen búsqueda semántica sobre una base de datos de candidatos, automatización de soporte de primera línea que debe respetar SLAs, un pipeline de scoring de CVs con rankings explicables, y un motor de recomendación para programas formativos. Si quieres que tu portfolio demuestre AI Engineering aplicada directamente a las operaciones principales de una empresa — no solo a sus herramientas internas — Nexova es tu empresa.
+
+---
+
 _Documento interno — 4Geeks Academy · AI Engineering Track_
 _Uso exclusivo para la generación de proyectos del programa_

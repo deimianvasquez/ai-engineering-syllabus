@@ -40,5 +40,90 @@ Mariana has created an internal team called **Brasaland Digital** to change this
 
 ---
 
+## The Departments and Their Problems
+
+### 🍖 Restaurant Operations
+
+**Director:** Felipe Guerrero
+
+Each of the 14 locations operates largely in isolation. There is no centralised visibility: Felipe doesn't know in real time how many covers were served today at the Medellín downtown location or whether the Miami restaurant is having a slow week. Ingredient orders are placed by WhatsApp or phone, resulting in overstock in some locations and stockouts in others. Shift reports are filled out on paper or Excel and sent to HR weekly.
+
+**What they need:** Real-time sales dashboard per location (in COP and USD), an intelligent ingredient ordering system based on historical sales and current stock, and automated alerts when a location shows no sales during opening hours.
+
+---
+
+### 🛒 Procurement and Suppliers
+
+**Manager:** Lucía Fernández
+
+Brasaland works with around 20 suppliers split between Colombia and Florida — meat, vegetables, sauces, beverages, packaging, cleaning products. Price negotiation happens by email and Excel. Lucía finds out about raw material price changes when the invoice arrives. There is no consolidated purchasing data across the chain.
+
+**What they need:** A supplier management platform with price history and alerts, and consolidated purchasing visibility to enable central negotiations across both markets.
+
+---
+
+### 📱 Marketing and Digital Experience
+
+**Manager:** Camila Ospina
+
+The Brasaland website is from 2019, accepts no online orders, and has a 2.8 app store rating. The loyalty programme ("Brasa Points") runs on physical stamp cards — 60% of customers don't use them, and the cards generate no data. There is no information about who Brasaland's customers actually are.
+
+**What they need:** A digital loyalty and ordering app, a customer CRM with order history and preferences, and a personalisation engine that suggests relevant products based on behaviour.
+
+---
+
+### 🧑‍🤝‍🧑 People and Culture
+
+**Manager:** Ashley Turner (Miami)
+
+Managing 115 people across 14 locations in two countries with very different labour laws creates significant administrative overhead. Most HR processes run by email and Excel. Onboarding new kitchen staff — who turn over frequently — is entirely manual.
+
+**What they need:** An internal HR portal for holiday requests and absence management, an automated onboarding flow, and an HR KPI dashboard tracking turnover, absenteeism, and vacancy fill times — segmented by country.
+
+---
+
+### 🎓 Training and Quality Standards
+
+**Manager:** Jake Morrison (Miami)
+
+Every location must follow the same recipes, preparation techniques, and presentation standards regardless of country. Training materials are stored in a shared Google Drive that nobody can navigate. When a recipe or procedure changes, communicating the update to all 14 locations in two languages takes days and often creates confusion.
+
+**What they need:** A bilingual training platform with a searchable recipe catalogue, a structured onboarding path for new staff, and a system that pushes recipe updates to all locations simultaneously in Spanish and English.
+
+---
+
+### 💻 Technology
+
+**CTO:** Nicolás Park (Medellín)
+
+Brasaland's current tech stack is minimal: a static website, an outdated app, a different POS terminal in each country with no integration, and spreadsheets acting as management systems. There is no internal API, no consolidated data, and no telemetry. Nicolás has the mandate to build Brasaland's digital platform from near-zero.
+
+**What they need:** A Brasaland central API covering locations, menus, sales, customers, and suppliers; real-time telemetry from each location; and a data pipeline feeding the operations, marketing, and finance dashboards.
+
+---
+
+### 📊 Executive Direction
+
+**CEO:** Mariana Restrepo
+
+Mariana manages a 14-location chain across two markets without a unified dashboard. Her decisions are based on calls with the operations team, PDF reports that arrive on Tuesday, and intuition. She cannot answer in real time: "how much did we sell this week in Florida?" or "which location has the highest average ticket this month?"
+
+**What she needs:** An executive dashboard with total chain sales in USD and COP, an AI assistant she can query in natural language, and an automated weekly report generated and sent every Monday at 7am.
+
+---
+
+## Why Choose Brasaland?
+
+Choose Brasaland if you are drawn to:
+
+- **Consumer-facing products** — a loyalty app, a bilingual website, a customer CRM — built for real people who eat at restaurants.
+- **Multi-market complexity** — building systems that work simultaneously in two countries, two currencies, and two languages.
+- **Operations at scale** — 14 physical locations generating data that needs to be captured, unified, and surfaced in real time.
+- **A domain that is universally relatable** — everyone understands what a restaurant does, which makes it easier to focus on the engineering.
+
+The AI challenges at Brasaland range from ingredient demand forecasting and menu personalisation to multilingual support agents and real-time sales telemetry. If you want to build systems that a non-technical business owner will immediately understand the value of, Brasaland is your company.
+
+---
+
 _Internal document — 4Geeks Academy · AI Engineering Track_
 _For exclusive use in programme project generation_

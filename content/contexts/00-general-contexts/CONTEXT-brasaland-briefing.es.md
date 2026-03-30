@@ -40,5 +40,90 @@ Mariana ha creado un equipo interno llamado **Brasaland Digital** para cambiar e
 
 ---
 
+## Los departamentos y sus problemas
+
+### 🍖 Operaciones de restaurante
+
+**Director:** Felipe Guerrero
+
+Cada uno de los 14 locales opera en gran medida de forma aislada. No hay visibilidad centralizada: Felipe no sabe en tiempo real cuántos cubiertos se sirvieron hoy en el local del centro de Medellín ni si el restaurante de Miami está teniendo una semana floja. Los pedidos de ingredientes se hacen por WhatsApp o teléfono, lo que provoca exceso de stock en algunos locales y roturas en otros. Los informes de turno se rellenan en papel o Excel y se envían a RRHH semanalmente.
+
+**Qué necesitan:** Un dashboard de ventas en tiempo real por local (en COP y USD), un sistema inteligente de pedidos de ingredientes basado en ventas históricas y stock actual, y alertas automáticas cuando un local no registra ventas durante el horario de apertura.
+
+---
+
+### 🛒 Compras y proveedores
+
+**Responsable:** Lucía Fernández
+
+Brasaland trabaja con alrededor de 20 proveedores entre Colombia y Florida — carne, verduras, salsas, bebidas, packaging, productos de limpieza. La negociación de precios se hace por email y Excel. Lucía se entera de los cambios en el precio de las materias primas cuando llega la factura. No existe ningún dato consolidado de compras a nivel de cadena.
+
+**Qué necesitan:** Una plataforma de gestión de proveedores con historial de precios y alertas, y visibilidad consolidada de compras para facilitar negociaciones centralizadas en ambos mercados.
+
+---
+
+### 📱 Marketing y experiencia digital
+
+**Responsable:** Camila Ospina
+
+La web de Brasaland es de 2019, no acepta pedidos online y tiene una valoración de 2,8 en la app store. El programa de fidelización ("Brasa Points") funciona con tarjetas físicas de sellos — el 60% de los clientes no las usa y las tarjetas no generan ningún dato. No hay ninguna información sobre quiénes son realmente los clientes de Brasaland.
+
+**Qué necesitan:** Una app digital de fidelización y pedidos, un CRM de clientes con historial de pedidos y preferencias, y un motor de personalización que sugiera productos relevantes en función del comportamiento.
+
+---
+
+### 🧑‍🤝‍🧑 Personas y cultura
+
+**Responsable:** Ashley Turner (Miami)
+
+Gestionar 115 personas en 14 locales de dos países con legislaciones laborales muy distintas genera una carga administrativa enorme. La mayoría de los procesos de RRHH se gestionan por email y Excel. La incorporación de nuevo personal de cocina — con alta rotación — es completamente manual.
+
+**Qué necesitan:** Un portal interno de RRHH para solicitudes de vacaciones y gestión de ausencias, un flujo automatizado de onboarding, y un dashboard de KPIs de RRHH con rotación, absentismo y tiempos de cobertura de vacantes — segmentado por país.
+
+---
+
+### 🎓 Formación y estándares de calidad
+
+**Responsable:** Jake Morrison (Miami)
+
+Todos los locales deben seguir las mismas recetas, técnicas de preparación y estándares de presentación independientemente del país. Los materiales de formación están en un Google Drive compartido que nadie sabe navegar. Cuando cambia una receta o un procedimiento, comunicar la actualización a los 14 locales en dos idiomas lleva días y suele generar confusión.
+
+**Qué necesitan:** Una plataforma de formación bilingüe con un catálogo de recetas con búsqueda, un itinerario de incorporación estructurado para el nuevo personal, y un sistema que distribuya actualizaciones de recetas a todos los locales simultáneamente en español e inglés.
+
+---
+
+### 💻 Tecnología
+
+**CTO:** Nicolás Park (Medellín)
+
+El stack tecnológico actual de Brasaland es mínimo: una web estática, una app desactualizada, un terminal de punto de venta diferente en cada país sin integración, y hojas de cálculo que actúan como sistemas de gestión. No hay API interna, ni datos consolidados, ni telemetría. Nicolás tiene el mandato de construir la plataforma digital de Brasaland desde casi cero.
+
+**Qué necesitan:** Una API central de Brasaland que cubra locales, menús, ventas, clientes y proveedores; telemetría en tiempo real desde cada local; y un pipeline de datos que alimente los dashboards de operaciones, marketing y finanzas.
+
+---
+
+### 📊 Dirección ejecutiva
+
+**CEO:** Mariana Restrepo
+
+Mariana gestiona una cadena de 14 locales en dos mercados sin un dashboard unificado. Sus decisiones se basan en llamadas con el equipo de operaciones, informes en PDF que llegan los martes y la intuición. No puede responder en tiempo real: "¿cuánto vendimos esta semana en Florida?" o "¿qué local tiene el ticket medio más alto este mes?"
+
+**Qué necesita:** Un dashboard ejecutivo con las ventas totales de la cadena en USD y COP, un asistente de IA al que pueda consultar en lenguaje natural, y un informe semanal automatizado generado y enviado cada lunes a las 7 de la mañana.
+
+---
+
+## ¿Por qué elegir Brasaland?
+
+Elige Brasaland si te atraen:
+
+- **Productos orientados al consumidor** — una app de fidelización, una web bilingüe, un CRM de clientes — construidos para personas reales que van a restaurantes.
+- **Complejidad multipaís** — construir sistemas que funcionen simultáneamente en dos países, dos monedas y dos idiomas.
+- **Operaciones a escala** — 14 locales físicos generando datos que hay que capturar, unificar y mostrar en tiempo real.
+- **Un dominio universalmente comprensible** — todo el mundo entiende qué hace un restaurante, lo que facilita centrarse en la ingeniería.
+
+Los retos de IA en Brasaland van desde la predicción de demanda de ingredientes y la personalización del menú hasta agentes de soporte multilingüe y telemetría de ventas en tiempo real. Si quieres construir sistemas cuyo valor una persona no técnica entienda de inmediato, Brasaland es tu empresa.
+
+---
+
 _Documento interno — 4Geeks Academy · AI Engineering Track_
 _Uso exclusivo para la generación de proyectos del programa_
