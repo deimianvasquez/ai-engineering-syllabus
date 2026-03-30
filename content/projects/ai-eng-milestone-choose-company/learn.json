@@ -1,0 +1,36 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Milestone 0 — Choose Your Company",
+    "es": "Hito 0 — Elige tu empresa"
+  },
+  "status": "published",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "slug": "ai-eng-mileston-choose-company",
+  "description": {
+    "en": "Pick the company you will automate with AI Engineering and record your decision in company-choice.md after reading the provided CONTEXT-company profiles.",
+    "es": "Elige la empresa que automatizarás con AI Engineering y registra tu decisión en company-choice.md después de leer los perfiles proporcionados CONTEXT-company."
+  },
+  "difficulty": "beginner",
+  "duration": 1,
+  "technologies": ["ai-engineering", "company-research", "writing"],
+  "talents": [
+    {
+      "badge": "prompt-engineer",
+      "points": 3
+    },
+    {
+      "badge": "system-designer",
+      "points": 2
+    },
+    {
+      "badge": "problem-solver",
+      "points": 2
+    }
+  ],
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=",
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-mileston-choose-company/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-mileston-choose-company/.learn/preview.png"
+}
