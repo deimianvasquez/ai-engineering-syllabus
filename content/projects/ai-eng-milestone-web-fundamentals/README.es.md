@@ -11,7 +11,7 @@ _These instructions are [available in English](./README.md)._
 
 <!-- endhide -->
 
-**Antes de comenzar**: Lee tu **[CONTEXT.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts/tree/main/01-web-fundamentals)** antes de escribir cualquier código — define los datos específicos de tu empresa, nombres de campos, valores de dominio y restricciones para tu implementación. También lee las [instrucciones](https://4geeks.com/es/lesson/como-comenzar-un-proyecto-de-programacion) sobre cómo comenzar un proyecto de programación.
+**Antes de comenzar**: Lee tu **[CONTEXT.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts/01-web-fundamentals)** antes de escribir cualquier código — define los datos específicos de tu empresa, nombres de campos, valores de dominio y restricciones para tu implementación. También lee las [instrucciones](https://4geeks.com/es/lesson/como-comenzar-un-proyecto-de-programacion) sobre cómo comenzar un proyecto de programación.
 
 ---
 
@@ -74,7 +74,7 @@ No clones este repositorio porque vamos a usar una plantilla diferente.
 
 2. Una vez tengas tu propio repositorio, ábrelo en un Codespace o clónalo localmente.
 
-3. Lee completamente tu archivo `CONTEXT.md` — contiene los datos específicos de tu empresa, los campos exactos que tu formulario debe incluir, y cualquier restricción o regla de validación específica del dominio.
+3. Lee completamente tu archivo [`CONTEXT.md`](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts/01-web-fundamentals) — contiene los datos específicos de tu empresa, los campos exactos que tu formulario debe incluir, y cualquier restricción o regla de validación específica del dominio.
 
 4. Crea la estructura básica de tu proyecto:
 

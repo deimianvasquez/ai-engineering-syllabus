@@ -9,8 +9,6 @@ Por [@marcogonzalo](https://github.com/marcogonzalo) y [otros colaboradores](htt
 
 _These instructions are [available in English](./README.md)._
 
-**Antes de comenzar**: Lee tu **[CONTEXT-company.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts)** antes de escribir cualquier código — define los datos específicos de tu empresa, nombres de campos, estructuras de datos y restricciones para tu implementación.
-
 <!-- endhide -->
 
 ---
@@ -90,7 +88,7 @@ Puedes incluir una página HTML simple con Tailwind CSS para probar tus funcione
 
 2. Una vez tengas tu propio repositorio, ábrelo en un Codespace o clónalo localmente.
 
-3. Lee completamente tu archivo **CONTEXT-company.md** antes de escribir código. Allí encontrarás:
+3. Lee completamente tu archivo **[CONTEXT-company.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts)** antes de escribir código. Allí encontrarás:
    - Las entidades específicas que debes modelar (productos, clientes, pedidos, etc.)
    - Los nombres exactos de los campos y sus tipos
    - Las reglas de validación específicas de tu empresa

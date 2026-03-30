@@ -9,8 +9,6 @@ By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](htt
 
 _Estas instrucciones están [disponibles en español](./README.es.md)._
 
-**Before you start**: Read your **[CONTEXT-company.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts)** before writing any code — it defines the specific company data, field names, data structures, and constraints for your implementation.
-
 <!-- endhide -->
 
 ---
@@ -95,7 +93,7 @@ You can include a simple HTML page with Tailwind CSS to manually test your funct
    cd transversal-project
    ```
 
-3. Read your **CONTEXT-company.md** file completely before writing code. There you will find:
+3. Read your **[CONTEXT-company.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts)** file completely before writing code. There you will find:
    - The specific entities you must model (products, customers, orders, etc.)
    - The exact field names and their types
    - Your company's specific validation rules
@@ -181,7 +179,7 @@ Implement the following functionalities in TypeScript. All entity names, fields,
 
 ## 📦 How to Submit
 
-1. Make sure all your changes are in the `milestone-2-programming-fundamentals` branch
+1. Make sure all your changes are in the `milestone-2-coding-fundamentals` branch
 
 2. Commit your changes with descriptive messages. Example:
 
