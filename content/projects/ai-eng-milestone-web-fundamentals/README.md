@@ -74,7 +74,7 @@ Do not clone this repository because we are going to use a different template.
 
 2. Once you have your own repository, open it in a Codespace or clone it locally.
 
-3. Read your `CONTEXT.md` file completely — it contains your company's specific data, the exact fields your form must include, and any domain-specific validation rules or constraints.
+3. Read your [`CONTEXT.md`](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts/01-web-fundamentals) file completely — it contains your company's specific data, the exact fields your form must include, and any domain-specific validation rules or constraints.
 
 4. Create the basic structure of your project:
 
