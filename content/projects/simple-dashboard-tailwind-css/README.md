@@ -67,9 +67,7 @@ Organize the dashboard into broad blocks:
 - Alerts: sharp drops in conversion, conversion spikes, performance anomalies
 - Lists with filters: "top products", "top platforms", "top campaigns", "improvement opportunities"
 
-> Example of an administrative dashboard:
-
-![Dashboard example](https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/simple-dashboard-tailwind-css/.learn/solution.png "Dashboard example")
+> [Dashboard example](https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/simple-dashboard-tailwind-css/.learn/solution.png)
 
 ---
 

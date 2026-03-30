@@ -68,9 +68,7 @@ Organiza el dashboard en grandes bloques:
 - Alertas: caídas fuertes en conversión, picos de conversión, anomalías en el rendimiento
 - Listados con filtros: “top productos”, “top plataformas", "top campañas", "oportunidades de mejora”
 
-> Ejemplo visual de dashboard administrativo:
-
-![Dashboard example](https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/simple-dashboard-tailwind-css/.learn/solution.png "Dashboard example")
+> Ejemplo visual de un [tablero administrativo](https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/simple-dashboard-tailwind-css/.learn/solution.png)
 
 ---
 
