@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate preview covers for projects and update learn.json."""
+"""Generate project previews and social sharing copy in learn.json."""
 
 from __future__ import annotations
 
@@ -23,7 +23,10 @@ IMAGE_MAP = {
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Generate project cover previews from learn.json metadata."
+        description=(
+            "Generate project cover previews and social-sharing messages "
+            "from learn.json metadata."
+        )
     )
     parser.add_argument(
         "--project-root",
@@ -69,6 +72,29 @@ def parse_args() -> argparse.Namespace:
         "--write-both-preview-keys",
         action="store_true",
         help="Also write the alternate preview key (preview or preview_url).",
+    )
+    parser.add_argument(
+        "--sharing-key",
+        default="sharing",
+        help="learn.json key used to store social-sharing messages.",
+    )
+    parser.add_argument(
+        "--skip-sharing",
+        action="store_true",
+        help="Skip writing social-sharing messages to learn.json.",
+    )
+    parser.add_argument(
+        "--sharing-brand",
+        default="@4GeeksAcademy",
+        help="Brand tag included in sharing messages.",
+    )
+    parser.add_argument(
+        "--sharing-link-template",
+        default="https://github.com/4GeeksAcademy/{slug}",
+        help=(
+            "Template for project URL included in sharing messages. "
+            "Use {slug} placeholder."
+        ),
     )
     parser.add_argument(
         "--dry-run",
@@ -140,6 +166,74 @@ def run_playwright_screenshot(page_url: str, output_file: Path, dry_run: bool) -
     subprocess.run(cmd, check=True)
 
 
+def get_lang_text(multilang_value: dict | str | None, preferred: list[str]) -> str:
+    if isinstance(multilang_value, str):
+        return multilang_value
+    if not isinstance(multilang_value, dict):
+        return ""
+    for lang in preferred:
+        value = multilang_value.get(lang)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return ""
+
+
+def normalize_hashtag(token: str) -> str:
+    cleaned = "".join(ch for ch in token if ch.isalnum())
+    return cleaned
+
+
+def build_hashtags(technologies: list[str]) -> str:
+    tags = ["AIEngineering", "LearnPack", "4GeeksAcademy"]
+    for tech in technologies:
+        normalized = normalize_hashtag(tech)
+        if normalized:
+            tags.append(normalized)
+        if len(tags) >= 6:
+            break
+    unique_tags = []
+    for tag in tags:
+        if tag and tag not in unique_tags:
+            unique_tags.append(tag)
+    return " ".join(f"#{tag}" for tag in unique_tags)
+
+
+def build_sharing_messages(learn_data: dict, brand: str, link_template: str) -> list[dict[str, str]]:
+    slug = (learn_data.get("slug") or "").strip()
+    title_obj = learn_data.get("title", {}) or {}
+    title_en = get_lang_text(
+        title_obj, ["en", "us", "es"]) or slug or "this project"
+    title_es = get_lang_text(title_obj, ["es", "en", "us"]) or title_en
+    technologies = learn_data.get("technologies", []) or []
+    if not isinstance(technologies, list):
+        technologies = []
+    hashtags = build_hashtags([str(t) for t in technologies])
+    share_link = link_template.format(slug=slug) if slug else link_template
+
+    return [
+        {
+            "en": (
+                f"I just completed {title_en} with LearnPack {brand}. "
+                f"Check it out: {share_link} {hashtags}"
+            ),
+            "es": (
+                f"Acabo de completar {title_es} con LearnPack {brand}. "
+                f"Mira el proyecto: {share_link} {hashtags}"
+            ),
+        },
+        {
+            "en": (
+                f"Built and shipped: {title_en}. "
+                f"Learning by building with {brand}. {share_link} {hashtags}"
+            ),
+            "es": (
+                f"Construido y publicado: {title_es}. "
+                f"Aprendiendo con proyectos reales en {brand}. {share_link} {hashtags}"
+            ),
+        },
+    ]
+
+
 def main() -> int:
     args = parse_args()
     root = Path(args.project_root).resolve()
@@ -164,6 +258,7 @@ def main() -> int:
 
     generated = 0
     updated = 0
+    sharing_updated = 0
     skipped = 0
 
     for learn_file in learn_files:
@@ -211,10 +306,20 @@ def main() -> int:
         if args.write_both_preview_keys:
             alternate = "preview" if args.preview_key == "preview_url" else "preview_url"
             learn_data[alternate] = preview_absolute_url
+        if not args.skip_sharing:
+            learn_data[args.sharing_key] = build_sharing_messages(
+                learn_data,
+                brand=args.sharing_brand,
+                link_template=args.sharing_link_template,
+            )
+            sharing_updated += 1
 
         if args.dry_run:
             print("dry_run_update_json", str(learn_file),
                   args.preview_key, preview_absolute_url)
+            if not args.skip_sharing:
+                print("dry_run_update_json", str(learn_file),
+                      args.sharing_key, "generated_messages")
         else:
             with learn_file.open("w", encoding="utf-8") as f:
                 json.dump(learn_data, f, indent=2, ensure_ascii=False)
@@ -223,6 +328,7 @@ def main() -> int:
 
     print("summary_generated", generated)
     print("summary_updated", updated)
+    print("summary_sharing_updated", sharing_updated)
     print("summary_skipped", skipped)
     return 0
 
