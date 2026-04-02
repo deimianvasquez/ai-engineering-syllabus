@@ -21,6 +21,41 @@ A reference implementation should include:
 - Correct use of `useEffect` to simulate async loading in Home and Room Detail.
 - Internal navigation with Next.js `Link` (no full page reloads).
 
+## Correct `useState` and `useEffect` usage in this project
+
+Use this quick guide while reviewing or implementing the three pages:
+
+- Keep `useState` for UI state only: search text, selected category, sort option, active photo index, guest count, and loading flags.
+- Derive visible lists from state instead of storing duplicated state when possible (for example, derive filtered cards from `search` and `selectedCategory`).
+- Update state with functional setters when next value depends on previous value, such as guest counters:
+  - `setGuests((prev) => Math.min(MAX_GUESTS, prev + 1))`
+  - `setGuests((prev) => Math.max(MIN_GUESTS, prev - 1))`
+- Group related state by feature so each component owns one responsibility (search logic in search/list area, gallery state in gallery component, etc.).
+
+For `useEffect`, follow these rules:
+
+- Use it for side effects only (simulated fetch with `setTimeout`, subscriptions, timers), not for pure calculations.
+- Home and Room Detail should trigger loading effects on mount, then clean up timers to avoid updates after unmount:
+  - Create timeout inside `useEffect`.
+  - Return cleanup with `clearTimeout(timeoutId)`.
+- Include all external dependencies in the dependency array.
+  - Mount-only simulated load: `[]`
+  - Load by route param (room detail): `[id]`
+- Avoid using `useEffect` to sync values that can be computed directly in render.
+
+Practical patterns for this project:
+
+- Home (`/`): `useState` for `search`, `activeCategory`, `isLoading`; `useEffect` for initial simulated data loading.
+- Catalog (`/catalog`): `useState` for sort order; derive sorted cards from base data and selected order.
+- Room Detail (`/rooms/[id]`): `useState` for `photoIndex`, `guests`, `isLoading`; `useEffect` to load room data when `id` changes.
+
+Common mistakes to avoid:
+
+- Duplicating the same list in multiple states (`allListings` and `visibleListings`) without a reason.
+- Forgetting effect cleanup for timeouts.
+- Missing dependencies in `useEffect`, causing stale values.
+- Using `useEffect` for every state change when plain render logic is enough.
+
 ## Expected behavior checklist
 
 Use this checklist to validate student submissions:
