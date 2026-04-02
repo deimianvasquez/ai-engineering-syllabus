@@ -1,0 +1,59 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Wanderlust Explorer with React and Next.js",
+    "es": "Wanderlust Explorer con React y Next.js"
+  },
+  "status": "published",
+  "slug": "nextjs-wanderlust-explorer",
+  "description": {
+    "en": "Build a multi-page Next.js app to explore travel experiences with URL-driven search and filters, dynamic routes, and favorites managed with React state.",
+    "es": "Construye una app multipagina en Next.js para explorar experiencias de viaje con busqueda y filtros en la URL, rutas dinamicas y favoritos gestionados con estado de React."
+  },
+  "difficulty": "intermediate",
+  "duration": 2,
+  "technologies": [
+    "next.js",
+    "react",
+    "typescript",
+    "tailwind-css",
+    "url-state"
+  ],
+  "talents": [
+    {
+      "badge": "react-developer",
+      "points": 3
+    },
+    {
+      "badge": "typescript-developer",
+      "points": 2
+    },
+    {
+      "badge": "tailwind-css-developer",
+      "points": 2
+    },
+    {
+      "badge": "front-end-developer",
+      "points": 2
+    },
+    {
+      "badge": "responsive-designer",
+      "points": 2
+    }
+  ],
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=",
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/nextjs-wanderlust-explorer/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/nextjs-wanderlust-explorer/.learn/preview.png",
+  "sharing": [
+    {
+      "en": "I just completed Wanderlust Explorer with React and Next.js with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/nextjs-wanderlust-explorer #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript",
+      "es": "Acabo de completar Wanderlust Explorer con React y Next.js con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/nextjs-wanderlust-explorer #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript"
+    },
+    {
+      "en": "Built and shipped: Wanderlust Explorer with React and Next.js. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/nextjs-wanderlust-explorer #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript",
+      "es": "Construido y publicado: Wanderlust Explorer con React y Next.js. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/nextjs-wanderlust-explorer #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript"
+    }
+  ]
+}
