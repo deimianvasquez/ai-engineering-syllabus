@@ -2,7 +2,7 @@
 
 <!-- hide -->
 
-Por [@4GeeksAcademy](https://github.com/4GeeksAcademy) y [otros colaboradores](https://github.com/4GeeksAcademy/ai-engineering-syllabus/graphs/contributors) en [4Geeks Academy](https://4geeksacademy.com/)
+Por [@4GeeksAcademy](https://github.com/4GeeksAcademy) y [otros colaboradores](https://github.com/4GeeksAcademy/talking-to-apis-project/graphs/contributors) en [4Geeks Academy](https://4geeksacademy.com/)
 
 [![build by developers](https://img.shields.io/badge/build_by-Developers-blue)](https://4geeks.com)
 [![4Geeks Academy](https://img.shields.io/twitter/follow/4geeksacademy?style=social&logo=x)](https://x.com/4geeksacademy)
@@ -19,33 +19,44 @@ _Estas instrucciones están [disponibles en inglés](./README.md)._
 
 Una pequeña consultora digital ha sido contratada por un cliente que quiere explorar interfaces con IA para uso interno. Antes de comprometerse con un producto completo, el tech lead del equipo te ha pedido que construyas un **prototipo de interfaz de chat** que se comunique con un modelo de lenguaje real a través de una API externa.
 
-El objetivo no es solo conseguir que el modelo responda — es hacer que los datos de la conversación sean **visibles y medibles**. El cliente quiere entender qué ocurre por dentro: cuántos tokens está consumiendo, cómo evoluciona el uso a lo largo de una sesión, y qué otras métricas ofrece el modelo. Esta visibilidad es algo que cualquier integración de IA seria necesita desde el primer día.
+El objetivo no es solo conseguir que el modelo responda — es hacer que los datos de la conversación sean **visibles y medibles**. El cliente quiere entender qué ocurre por dentro: cuántos tokens está consumiendo, cómo se acumula el uso a lo largo de una sesión y qué otras métricas ofrece el modelo. Esta visibilidad es algo que cualquier integración de IA seria necesita desde el primer día.
 
-Vas a usar [Groq](https://groq.com/), una plataforma que ofrece inferencia ultrarrápida para modelos de lenguaje de código abierto y devuelve metadatos detallados con cada respuesta. Tu trabajo es construir un frontend que se integre directamente con la API de Groq — sin backend, sin proxy, solo el navegador comunicándose con un endpoint de IA real.
+Vas a usar [Groq](https://groq.com/), una plataforma que ofrece inferencia ultrarrápida para modelos de lenguaje de código abierto y devuelve metadatos detallados con cada respuesta. Tu trabajo es construir un **frontend en React/Next.js** que se integre con la API de Groq — gestionando correctamente el flujo de datos asíncrono, el estado de la interfaz y la persistencia de la sesión.
 
 > Tu tech lead ha compartido el siguiente brief:
 >
 > #### Lo que necesitamos
 >
-> - Una interfaz de chat donde el usuario pueda escribir mensajes y recibir respuestas del modelo
-> - Una cuenta en [Groq](https://console.groq.com/) con una API Key configurada en el proyecto
-> - La API debe ser llamada directamente desde el frontend usando `fetch` — el modelo a usar es la variante de `llama3` (META) que ofrece Groq.
-> - Cada respuesta de Groq incluye un objeto `usage`. La interfaz debe usarlo para registrar y mostrar el consumo de tokens (tokens de prompt, tokens de completado y totales acumulados de la conversación entera)
-> - Al menos una métrica adicional de la respuesta de Groq debe mostrarse en la interfaz (tiempo de respuesta, tokens por segundo o nombre del modelo son opciones válidas)
+> - Una interfaz de chat donde el usuario pueda escribir mensajes y recibir respuestas de la IA
+> - Una cuenta en [Groq](https://console.groq.com/) con una API Key almacenada como variable de entorno
+> - Usar el **modelo Llama 3 de Meta** disponible en el plan gratuito de Groq
+> - Cada respuesta de Groq incluye un objeto `usage` — registra y muestra el consumo de tokens (tokens de prompt, tokens de completado y totales acumulados) para toda la sesión
+> - Al menos una métrica adicional de la respuesta debe aparecer en la interfaz: nombre del modelo, tiempo de respuesta o tokens por segundo son opciones válidas
+> - El historial de la conversación debe sobrevivir una recarga de página — el usuario no debería perder su sesión por haber cerrado accidentalmente la pestaña
 
-El tech lead recordó que esto es un prototipo — la UI no tiene que ser compleja, pero los datos deben ser precisos y actualizarse en tiempo real tras cada intercambio de mensajes.
+El tech lead también mencionó que esto es un prototipo, así que la interfaz no tiene que ser perfecta visualmente — pero los datos deben ser precisos y siempre actualizados.
+
+### Una nota sobre la autenticación con una API externa
+
+Cuando llamas a una API externa como usuario registrado de ese servicio, estableces tu identidad usando un **Bearer Token** — una credencial que obtuviste al registrarte, que se envía en la cabecera `Authorization` de cada petición:
+
+```text
+Authorization: Bearer TU_API_KEY_AQUÍ
+```
+
+Piensa en él como el pase de sesión que te da acceso. Sin él, el servidor de la API no sabe quién eres y rechazará tu petición con un error `401 Unauthorized`. En este proyecto, tu Bearer Token es la API Key que generarás en tu cuenta de Groq. Es lo que abre la sesión entre tu aplicación y la API — y debe almacenarse siempre en un archivo `.env`, nunca escrita directamente en el código ni subida a GitHub.
 
 ---
 
 ## 🌱 Cómo iniciar el proyecto
 
-Haz un fork del boilerplate desde el siguiente repositorio y sigue las instrucciones en el README:
+Este proyecto parte de cero — generarás la interfaz inicial usando [v0.dev](https://v0.dev/), el generador de componentes de Vercel basado en IA.
 
-[https://github.com/4GeeksAcademy/html-hello](https://github.com/4GeeksAcademy/html-hello)
+1. Ve a [https://v0.dev](https://v0.dev) y describe la interfaz que necesitas — por ejemplo: _"una interfaz de chat con un panel de historial de mensajes y una barra lateral con estadísticas de consumo de tokens"_
+2. Exporta o copia el código del componente React generado en un nuevo proyecto Next.js
+3. Crea tu propio repositorio público en GitHub, sube el código inicial y trabaja desde ahí
 
-Puedes trabajar en Codespaces (recomendado) o clonarlo localmente. En cualquier caso, crea tu propio repositorio público en GitHub y actualiza la URL remota para que tu trabajo se suba a tu cuenta.
-
-> 💡 Vas a llamar a la API de Groq directamente desde el navegador. Guarda tu API Key de forma que sea fácil de configurar — pero ten cuidado: nunca subas secretos a un repositorio público. Para este proyecto, un archivo `.env` o una constante con nombre claro al inicio de tu script es suficiente.
+> 💡 v0 te dará un punto de partida — no un producto terminado. Tendrás que conectar las llamadas a la API, la gestión del estado y la persistencia tú mismo. Ese es el trabajo real.
 
 ---
 
@@ -54,40 +65,52 @@ Puedes trabajar en Codespaces (recomendado) o clonarlo localmente. En cualquier 
 ### Cuenta y configuración
 
 - [ ] Crea una cuenta gratuita en [https://console.groq.com/](https://console.groq.com/)
-- [ ] Genera una API Key desde el panel de Groq
-- [ ] Confirma que puedes alcanzar el endpoint de la API de Groq (`https://api.groq.com/openai/v1/chat/completions`) con una petición de prueba usando tu clave
+- [ ] Genera una API Key y guárdala en un archivo `.env` (por ejemplo, `NEXT_PUBLIC_GROQ_API_KEY`)
+- [ ] Confirma que la clave funciona haciendo una llamada `fetch` de prueba a `https://api.groq.com/openai/v1/chat/completions` con el Bearer token en la cabecera `Authorization`
 
 ### Interfaz de chat
 
-- [ ] Construye una UI de chat con un campo de texto y un botón de envío
-- [ ] Muestra el historial de la conversación como una lista de mensajes — con los mensajes del usuario y las respuestas de la IA visualmente diferenciados
-- [ ] Cada vez que el usuario envíe un mensaje, agrégalo a la conversación y envía el **historial completo** (todos los mensajes anteriores) a la API de Groq
-- [ ] Muestra la respuesta de la IA en el chat en cuanto se reciba
-- [ ] Usa el modelo `llama3-8b-8192` en todas las llamadas a la API
+- [ ] Genera el layout inicial de la interfaz con v0.dev y expórtalo a tu proyecto Next.js
+- [ ] Construye un campo de texto y un botón de envío que disparen la llamada a la API
+- [ ] Muestra el historial completo de la conversación — mensajes del usuario y respuestas de la IA visualmente diferenciados
+- [ ] Usa `useState` para gestionar la lista de mensajes y el valor del campo de texto
+- [ ] Cada vez que el usuario envíe un mensaje, agrégalo al estado y envía el **historial completo de la conversación** (todos los turnos anteriores) a la API de Groq — usa el modelo Llama 3 de Meta disponible en Groq
 
-⚠️ **IMPORTANTE:** La API debe llamarse usando `fetch` — sin SDK de terceros ni librerías de envoltorio. Esta es la habilidad central que se practica.
+⚠️ **IMPORTANTE:** La API debe llamarse usando `fetch` — sin SDK de terceros ni librerías de envoltorio. Debes configurar manualmente las cabeceras `Authorization: Bearer <tu_clave>` y `Content-Type: application/json` en cada petición.
+
+### Promesas y flujo asíncrono
+
+- [ ] Gestiona la llamada `fetch` usando `async/await`
+- [ ] Mientras la API procesa la petición, muestra un indicador de carga o un estado "pensando…" en la interfaz — usa `useState` para controlarlo
+- [ ] Si la API devuelve un error (código de estado no 2xx), captúralo y muestra al usuario un mensaje claro y legible en lugar de dejar que la aplicación falle
 
 ### Panel de uso de tokens y métricas
 
 - [ ] Tras cada respuesta, lee el objeto `usage` de la respuesta de la API de Groq
-- [ ] Muestra un total acumulado de **tokens de prompt enviados** durante toda la sesión
-- [ ] Muestra un total acumulado de **tokens de completado recibidos** durante toda la sesión
-- [ ] Muestra el **total combinado de tokens** consumidos hasta el momento
-- [ ] Muestra al menos una métrica adicional de la respuesta de Groq: nombre del modelo, tiempo de respuesta (cabecera `x-groq-request-time` o cualquier medición de tiempo que puedas capturar), o tokens por segundo
+- [ ] Acumula y muestra el total acumulado de **tokens de prompt enviados** durante toda la sesión
+- [ ] Acumula y muestra el total acumulado de **tokens de completado recibidos** durante toda la sesión
+- [ ] Muestra el **total combinado de tokens** consumidos hasta el momento en la sesión
+- [ ] Muestra al menos una métrica adicional de la respuesta de Groq: nombre del modelo, tiempo de respuesta o tokens por segundo
 
-> El panel de métricas debe actualizarse automáticamente tras cada mensaje — los datos deben reflejar siempre la conversación completa hasta ese punto, no solo el último intercambio.
+### Persistencia de sesión
+
+- [ ] Usa `useEffect` para cargar el historial de la conversación desde `localStorage` cuando el componente se monte
+- [ ] Guarda el historial de la conversación en `localStorage` después de cada nuevo mensaje para que la sesión sobreviva una recarga de página
+- [ ] Incluye un botón "Borrar conversación" que reinicie el estado de mensajes y limpie el `localStorage`
 
 ---
 
 ## ✅ Qué vamos a evaluar
 
-- [ ] La API de Groq se llama correctamente usando `fetch` con las cabeceras correctas (`Authorization: Bearer`, `Content-Type: application/json`) y un cuerpo de petición válido
-- [ ] El historial completo de la conversación se envía en cada petición (no solo el último mensaje)
-- [ ] La respuesta se muestra en la UI sin necesidad de recargar la página
-- [ ] Los datos de tokens del objeto `usage` se leen correctamente y se acumulan a lo largo de la sesión
-- [ ] El panel de métricas se actualiza tras cada intercambio de mensajes y muestra totales acumulados correctos
-- [ ] Se muestra al menos una métrica adicional más allá del conteo de tokens
-- [ ] Los códigos de estado HTTP de la respuesta se gestionan correctamente — si la API devuelve un error, el usuario ve un mensaje comprensible en lugar de un fallo silencioso
+- [ ] La API de Groq se llama correctamente con `fetch` incluyendo las cabeceras `Authorization: Bearer` y `Content-Type: application/json` en cada petición
+- [ ] El historial completo de la conversación se envía en cada llamada a la API (comunicación stateless gestionada correctamente en el cliente)
+- [ ] La promesa se gestiona con `async/await` y se muestra un estado de carga mientras se espera la respuesta
+- [ ] Los errores de la API se capturan y se muestran al usuario como mensajes comprensibles — sin fallos silenciosos ni errores técnicos en pantalla
+- [ ] `useState` gestiona correctamente los mensajes, el estado de carga y las métricas
+- [ ] `useEffect` se usa para cargar y sincronizar el historial de la conversación desde `localStorage`
+- [ ] Los datos de tokens del objeto `usage` se acumulan y muestran correctamente a lo largo de toda la sesión
+- [ ] La conversación persiste tras una recarga de página y puede borrarse manualmente
+- [ ] Al menos una métrica adicional más allá del conteo de tokens es visible en la interfaz
 
 > **Nota:** El diseño visual no se evalúa. Un layout funcional y legible es suficiente.
 
