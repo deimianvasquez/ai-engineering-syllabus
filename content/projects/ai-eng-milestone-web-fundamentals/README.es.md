@@ -148,6 +148,7 @@ No clones este repositorio porque vamos a usar una plantilla diferente.
 - [ ] Los breakpoints de Tailwind (`sm:`, `md:`, `lg:`) se usan apropiadamente
 - [ ] No hay CSS personalizado innecesario (solo Tailwind)
 - [ ] El diseño es visualmente coherente y profesional
+- [ ] El rendimiento se verifica en la URL pública con [PageSpeed Insights](https://pagespeed.web.dev/) con una puntuación mínima de **80** (ideal: **por encima de 90**)
 
 ### Accesibilidad
 
