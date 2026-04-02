@@ -1,0 +1,62 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Building an Airbnb UI Clone with Next.js and React",
+    "es": "Clonando la interfaz de Airbnb con Next.js y React"
+  },
+  "status": "published",
+  "slug": "nextjs-airbnb-ui-clone",
+  "description": {
+    "en": "Build a mobile-first Airbnb UI clone in Next.js 16 using React components and a vision-to-spec workflow. Implement Home, Catalog, and Room Detail views with reusable components, client-side state, and route-based navigation.",
+    "es": "Construye un clon mobile-first de la UI de Airbnb en Next.js 16 usando componentes de React y un flujo de vision-to-spec. Implementa las vistas Home, Catalogo y Room Detail con componentes reutilizables, estado del cliente y navegacion por rutas."
+  },
+  "difficulty": "intermediate",
+  "duration": 2,
+  "technologies": [
+    "next.js",
+    "react",
+    "typescript",
+    "tailwind-css",
+    "vision-prompting"
+  ],
+  "talents": [
+    {
+      "badge": "react-developer",
+      "points": 3
+    },
+    {
+      "badge": "typescript-developer",
+      "points": 2
+    },
+    {
+      "badge": "tailwind-css-developer",
+      "points": 2
+    },
+    {
+      "badge": "front-end-developer",
+      "points": 2
+    },
+    {
+      "badge": "responsive-designer",
+      "points": 2
+    }
+  ],
+  "translations": [
+    "es",
+    "en"
+  ],
+  "projectType": "project",
+  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=",
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/nextjs-airbnb-ui-clone/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/nextjs-airbnb-ui-clone/.learn/preview.png",
+  "sharing": [
+    {
+      "en": "I just completed Building an Airbnb UI Clone with Next.js and React with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/nextjs-airbnb-ui-clone #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript",
+      "es": "Acabo de completar Clonando la interfaz de Airbnb con Next.js y React con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/nextjs-airbnb-ui-clone #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript"
+    },
+    {
+      "en": "Built and shipped: Building an Airbnb UI Clone with Next.js and React. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/nextjs-airbnb-ui-clone #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript",
+      "es": "Construido y publicado: Clonando la interfaz de Airbnb con Next.js y React. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/nextjs-airbnb-ui-clone #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript"
+    }
+  ]
+}
