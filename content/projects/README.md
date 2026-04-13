@@ -15,7 +15,7 @@ Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, acce
    Responsive dashboard with HTML and Tailwind showing KPIs, drivers, and operational details (no React).
 
 3. **[Company Project Milestone: Web Fundamentals](./ai-eng-milestone-web-fundamentals)**  
-   `Milestone 1
+    `Milestone 1
 ` — Your company's public website: landing page plus application/sign-up form with semantic HTML5, Tailwind, Schema.org, and JavaScript validation. Follow `CONTEXT.md` for data and form fields.
 
 4. **[Collaborative project: online store with HTML and Tailwind](./collaborative-project-html-tailwind-online-store)**  
@@ -39,7 +39,10 @@ Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, acce
 10. **[Company Project Milestone: Talent Pipeline Tracker](./ai-eng-milestone-talent-pipeline-tracker)**  
     `Milestone 3` — Next.js App Router frontend for the recruitment API: candidate list and detail, filters and search, notes CRUD, register and edit forms, async UI states, and TypeScript types aligned with CONTEXT-company.md.
 
-11. **[Voice to-do list with AI API](./voice-to-do-list-api)**  
+11. **[Company financial dashboard context project](./company-financial-dashboard-context-project)**  
+    Module project focused on repository stewardship: fork an existing full-stack repo, validate AI-generated project understanding, define and test actionable rules under `.agents/rules`, and generate a `memory-bank` with product, stack, and current status.
+
+12. **[Voice to-do list with AI API](./voice-to-do-list-api)**  
     Build a voice-powered to-do flow that captures user input, integrates with an AI API, and transforms spoken requests into actionable task management behavior.
 
 ---

@@ -1,0 +1,51 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Company financial dashboard context project",
+    "es": "Proyecto de contexto del dashboard financiero de empresa"
+  },
+  "status": "draft",
+  "slug": "company-financial-dashboard-context-project",
+  "description": {
+    "en": "Audit and operationalize an existing full-stack repository with AI support: validate generated understanding, define actionable rules in .agents/rules, and produce a memory-bank with product, stack, and current status.",
+    "es": "Audita y operacionaliza un repositorio full-stack existente con apoyo de IA: valida la comprensión generada, define reglas accionables en .agents/rules y crea un memory-bank con producto, stack y estado actual."
+  },
+  "difficulty": "intermediate",
+  "duration": 2,
+  "technologies": [
+    "ai",
+    "documentation",
+    "repository-management",
+    "git",
+    "docker",
+    "governance"
+  ],
+  "talents": [
+    {
+      "badge": "git-collaborator",
+      "points": 2
+    },
+    {
+      "badge": "ai-engineer",
+      "points": 3
+    },
+    {
+      "badge": "context-engineer",
+      "points": 2
+    }
+  ],
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=",
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/company-financial-dashboard-context-project/.learn/solution/README.md",
+  "sharing": [
+    {
+      "en": "I just completed the Company financial dashboard context project with LearnPack @4GeeksAcademy: repo analysis with AI, actionable rules, and a project memory-bank. https://github.com/4GeeksAcademy/company-financial-dashboard-context-project #AIEngineering #LearnPack #4GeeksAcademy #Git #Documentation",
+      "es": "Acabo de completar el Company financial dashboard context project con LearnPack @4GeeksAcademy: análisis de repo con IA, reglas accionables y memory-bank del proyecto. https://github.com/4GeeksAcademy/company-financial-dashboard-context-project #AIEngineering #LearnPack #4GeeksAcademy #Git #Documentacion"
+    },
+    {
+      "en": "Built and documented: Company financial dashboard context project. From sparse handover to clear engineering rules and memory-bank with @4GeeksAcademy. https://github.com/4GeeksAcademy/company-financial-dashboard-context-project #AIEngineering #RepositoryStewardship #4GeeksAcademy",
+      "es": "Construido y documentado: Company financial dashboard context project. De un handover limitado a reglas de ingeniería claras y memory-bank con @4GeeksAcademy. https://github.com/4GeeksAcademy/company-financial-dashboard-context-project #AIEngineering #RepositoryStewardship #4GeeksAcademy"
+    }
+  ]
+}
