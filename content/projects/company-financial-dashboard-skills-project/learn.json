@@ -1,0 +1,54 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Company financial dashboard skills project",
+    "es": "Proyecto de skills para agentes del dashboard financiero de empresa"
+  },
+  "status": "draft",
+  "slug": "company-financial-dashboard-skills-project",
+  "description": {
+    "en": "Apply agent skills (accessibility, vercel-react-best-practices) to the existing financial dashboard, explore skills.sh via npx skills find, author a custom project skill under .skills/, and update the memory bank—without rebuilding the app from scratch.",
+    "es": "Aplica skills de agente (accessibility, vercel-react-best-practices) al dashboard financiero existente, explora skills.sh con npx skills find, escribe una skill propia del proyecto en .skills/ y actualiza el memory bank—sin rehacer la app desde cero."
+  },
+  "difficulty": "intermediate",
+  "duration": 2,
+  "technologies": [
+    "ai",
+    "nextjs",
+    "react",
+    "accessibility",
+    "vercel",
+    "documentation",
+    "git"
+  ],
+  "talents": [
+    {
+      "badge": "git-collaborator",
+      "points": 2
+    },
+    {
+      "badge": "ai-engineer",
+      "points": 3
+    },
+    {
+      "badge": "context-engineer",
+      "points": 2
+    }
+  ],
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=",
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/company-financial-dashboard-skills-project/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/company-financial-dashboard-skills-project/.learn/preview.png",
+  "preview_url": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/company-financial-dashboard-skills-project/.learn/preview.png",
+  "sharing": [
+    {
+      "en": "I just completed the Company financial dashboard skills project with LearnPack @4GeeksAcademy: agent skills for a11y and Vercel/React, ecosystem discovery with npx skills find, and a custom .skills/ artifact. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-skills-project #AIEngineering #LearnPack #4GeeksAcademy #AgentSkills #Accessibility",
+      "es": "Acabo de completar el Company financial dashboard skills project con LearnPack @4GeeksAcademy: skills de agente para a11y y Vercel/React, exploración del ecosistema con npx skills find y una skill propia en .skills/. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-skills-project #AIEngineering #LearnPack #4GeeksAcademy #AgentSkills #Accesibilidad"
+    },
+    {
+      "en": "Scaled quality with composable agent skills on a real Next.js dashboard with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-skills-project #AIEngineering #skills.sh #4GeeksAcademy",
+      "es": "Escalé calidad con skills de agente componibles en un dashboard Next.js real con @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-skills-project #AIEngineering #skills.sh #4GeeksAcademy"
+    }
+  ]
+}

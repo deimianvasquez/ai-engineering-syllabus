@@ -42,7 +42,13 @@ Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, acce
 11. **[Company financial dashboard context project](./company-financial-dashboard-context-project)**  
     Module project focused on repository stewardship: fork an existing full-stack repo, validate AI-generated project understanding, define and test actionable rules under `.agents/rules`, and generate a `memory-bank` with product, stack, and current status.
 
-12. **[Voice to-do list with AI API](./voice-to-do-list-api)**  
+12. **[Company financial dashboard specs project](./company-financial-dashboard-specs-project)**  
+    Spec-first assignment on the existing financial dashboard repo: TypeScript types aligned with `/docs`, `components.md`, and a data-contract README for a date range filter, anomaly alerts table, and B2B vs B2C revenue comparison—no React implementation.
+
+13. **[Company financial dashboard skills project](./company-financial-dashboard-skills-project)**  
+    Continue on the same financial dashboard repo: apply agent skills (`accessibility`, `vercel-react-best-practices`), explore `skills.sh` with `npx skills find`, author a custom skill under `.skills/`, and update the memory bank—targeted improvements, not a full rebuild.
+
+14. **[Voice to-do list with AI API](./voice-to-do-list-api)**  
     Build a voice-powered to-do flow that captures user input, integrates with an AI API, and transforms spoken requests into actionable task management behavior.
 
 ---
