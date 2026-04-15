@@ -41,7 +41,7 @@ There is no starter template for this project. Your first task is to ask your AI
 
 Use a prompt similar to this one:
 
-> "Set up a new Next.js 16 project with TypeScript, Tailwind CSS, and the App Router. Use `npx create-next-app` with the appropriate flags. Name the project `airbnb-clone`. Organize the folder structure with a `/components` folder for reusable UI pieces."
+> "Set up a new Next.js 16 project with TypeScript, Tailwind CSS, and the App Router. Use `npx create-next-app` with the appropriate flags. Organize the folder structure with a `/components` folder for reusable UI pieces."
 
 Once the agent generates the setup commands, review them, run them in your terminal, and make sure the dev server starts correctly before writing any component.
 

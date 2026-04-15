@@ -41,7 +41,7 @@ No hay plantilla de inicio para este proyecto. Tu primera tarea es pedirle a tu 
 
 Usa un prompt similar a este:
 
-> "Configura un nuevo proyecto de Next.js 16 con TypeScript, Tailwind CSS y el App Router. Usa `npx create-next-app` con las opciones adecuadas. Llama al proyecto `airbnb-clone`. Organiza la estructura de carpetas con una carpeta `/components` para las piezas de UI reutilizables."
+> "Configura un nuevo proyecto de Next.js 16 con TypeScript, Tailwind CSS y el App Router. Usa `npx create-next-app` con las opciones adecuadas. Organiza la estructura de carpetas con una carpeta `/components` para las piezas de UI reutilizables."
 
 Una vez que el agente genere los comandos, revísalos, ejecútalos en tu terminal y asegúrate de que el servidor de desarrollo arranque correctamente antes de escribir ningún componente.
 
