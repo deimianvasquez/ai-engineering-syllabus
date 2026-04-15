@@ -1,8 +1,8 @@
 {
   "gitpod": true,
   "title": {
-    "en": "Company financial dashboard specs project",
-    "es": "Proyecto de especificaciones del dashboard financiero de empresa"
+    "en": "Applying Spec Driven Development - Financial dashboard",
+    "es": "Applying Spec Driven Development - Financial dashboard"
   },
   "status": "draft",
   "slug": "company-financial-dashboard-specs-project",
@@ -35,8 +35,8 @@
   "preview_url": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/company-financial-dashboard-specs-project/.learn/preview.png",
   "sharing": [
     {
-      "en": "I just completed the Company financial dashboard specs project with LearnPack @4GeeksAcademy: TypeScript types from /docs, component specs, and data contracts for three dashboard features. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-specs-project #AIEngineering #LearnPack #4GeeksAcademy #TypeScript #Specs",
-      "es": "Acabo de completar el Company financial dashboard specs project con LearnPack @4GeeksAcademy: tipos TypeScript desde /docs, especificación de componentes y contratos de datos para tres funcionalidades del dashboard. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-specs-project #AIEngineering #LearnPack #4GeeksAcademy #TypeScript #Especificaciones"
+      "en": "I just completed the Applying Spec Driven Development - Financial dashboard with LearnPack @4GeeksAcademy: TypeScript types from /docs, component specs, and data contracts for three dashboard features. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-specs-project #AIEngineering #LearnPack #4GeeksAcademy #TypeScript #Specs",
+      "es": "Acabo de completar el Applying Spec Driven Development - Financial dashboard con LearnPack @4GeeksAcademy: tipos TypeScript desde /docs, especificación de componentes y contratos de datos para tres funcionalidades del dashboard. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-specs-project #AIEngineering #LearnPack #4GeeksAcademy #TypeScript #Especificaciones"
     },
     {
       "en": "Spec before build: financial dashboard features documented for devs and AI agents with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-specs-project #AIEngineering #Documentation #4GeeksAcademy",

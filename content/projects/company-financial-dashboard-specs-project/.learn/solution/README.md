@@ -1,4 +1,4 @@
-# Company financial dashboard specs project — Solución de referencia
+# Applying Spec Driven Development - Financial dashboard — Solución de referencia
 
 Este README describe qué debe incluir una entrega sólida y ofrece **ejemplos de especificaciones en lenguaje humano** (el tipo de instrucciones que se le darían a una IA o a otro desarrollador), alineadas con el [README principal del proyecto](../README.md).
 

@@ -1,4 +1,4 @@
-# Company financial dashboard context project
+# Building context from an existing project - Financial dashboard
 
 <!-- hide -->
 

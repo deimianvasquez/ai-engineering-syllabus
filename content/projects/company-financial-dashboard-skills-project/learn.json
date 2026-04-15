@@ -1,8 +1,8 @@
 {
   "gitpod": true,
   "title": {
-    "en": "Company financial dashboard skills project",
-    "es": "Proyecto de skills para agentes del dashboard financiero de empresa"
+    "en": "Enhacing development with agent skills - Financial dashboard",
+    "es": "Enhacing development with agent skills - Financial dashboard"
   },
   "status": "draft",
   "slug": "company-financial-dashboard-skills-project",
@@ -43,8 +43,8 @@
   "preview_url": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/company-financial-dashboard-skills-project/.learn/preview.png",
   "sharing": [
     {
-      "en": "I just completed the Company financial dashboard skills project with LearnPack @4GeeksAcademy: agent skills for a11y and Vercel/React, ecosystem discovery with npx skills find, and a custom .skills/ artifact. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-skills-project #AIEngineering #LearnPack #4GeeksAcademy #AgentSkills #Accessibility",
-      "es": "Acabo de completar el Company financial dashboard skills project con LearnPack @4GeeksAcademy: skills de agente para a11y y Vercel/React, exploración del ecosistema con npx skills find y una skill propia en .skills/. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-skills-project #AIEngineering #LearnPack #4GeeksAcademy #AgentSkills #Accesibilidad"
+      "en": "I just completed the Enhacing development with agent skills - Financial dashboard with LearnPack @4GeeksAcademy: agent skills for a11y and Vercel/React, ecosystem discovery with npx skills find, and a custom .skills/ artifact. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-skills-project #AIEngineering #LearnPack #4GeeksAcademy #AgentSkills #Accessibility",
+      "es": "Acabo de completar el Enhacing development with agent skills - Financial dashboard con LearnPack @4GeeksAcademy: skills de agente para a11y y Vercel/React, exploración del ecosistema con npx skills find y una skill propia en .skills/. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-skills-project #AIEngineering #LearnPack #4GeeksAcademy #AgentSkills #Accesibilidad"
     },
     {
       "en": "Scaled quality with composable agent skills on a real Next.js dashboard with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-eng-financial-dashboard-skills-project #AIEngineering #skills.sh #4GeeksAcademy",

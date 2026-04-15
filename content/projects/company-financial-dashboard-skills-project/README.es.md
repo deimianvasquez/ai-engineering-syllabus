@@ -1,4 +1,4 @@
-# Enseñándole nuevos trucos a tu agente — Skills para agentes
+# Enhacing development with agent skills - Financial dashboard
 
 <!-- hide -->
 

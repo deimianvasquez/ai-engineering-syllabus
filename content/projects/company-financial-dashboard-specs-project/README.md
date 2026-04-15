@@ -1,4 +1,4 @@
-# Specifying the Financial Dashboard New Features
+# Applying Spec Driven Development - Financial dashboard
 
 <!-- hide -->
 

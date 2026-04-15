@@ -1,6 +1,6 @@
-# Company financial dashboard context project - Reference solution
+# Building context from an existing project - Financial dashboard - Reference solution
 
-This README defines what a correct reference delivery should include for the **"Company financial dashboard context project"**.
+This README defines what a correct reference delivery should include for the **"Building context from an existing project - Financial dashboard"**.
 
 The goal is not to rebuild the app. The goal is to produce a reliable repository handover package based on evidence from the codebase.
 

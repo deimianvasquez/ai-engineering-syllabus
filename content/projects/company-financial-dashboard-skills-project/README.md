@@ -1,4 +1,4 @@
-# Teaching Your Agent New Tricks — Agent Skills
+# Enhacing development with agent skills - Financial dashboard
 
 <!-- hide -->
 
