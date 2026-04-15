@@ -1,4 +1,4 @@
-# Company financial dashboard context project
+# Construyendo contexto desde un proyecto existente - Dashboard financiero
 
 <!-- hide -->
 

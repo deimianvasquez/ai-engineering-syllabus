@@ -1,4 +1,4 @@
-# Enseñándole nuevos trucos a tu agente — Skills para agentes
+# Mejorando el desarrollo con skills de agentes - Dashboard financiero
 
 <!-- hide -->
 
@@ -9,7 +9,7 @@ By [@4GeeksAcademy](https://github.com/4GeeksAcademy) y [otros colaboradores](ht
 
 _Estas instrucciones están [disponibles en inglés](./README.md)._
 
-**Antes de empezar**: 📗 [Lee las instrucciones](https://4geeks.com/lesson/how-to-start-a-project) sobre cómo iniciar un proyecto de código.
+**Antes de empezar**: 📗 [Lee las instrucciones](https://4geeks.com/es/lesson/como-comenzar-un-proyecto-de-codificacion) sobre cómo iniciar un proyecto de código.
 
 <!-- endhide -->
 

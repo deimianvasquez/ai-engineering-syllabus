@@ -1,4 +1,4 @@
-# Especificando las Nuevas Funcionalidades del Dashboard Financiero
+# Aplicando desarrollo guiado por especificaciones - Dashboard financiero
 
 <!-- hide -->
 
@@ -9,7 +9,7 @@ By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](htt
 
 _Estas instrucciones están [disponibles en inglés](./README.md)._
 
-**Antes de empezar**: 📗 [Lee las instrucciones](https://4geeks.com/lesson/how-to-start-a-project) sobre cómo iniciar un proyecto de programación.
+**Antes de empezar**: 📗 [Lee las instrucciones](https://4geeks.com/es/lesson/como-comenzar-un-proyecto-de-codificacion) sobre cómo iniciar un proyecto de programación.
 
 <!-- endhide -->
 

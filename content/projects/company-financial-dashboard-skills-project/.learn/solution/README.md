@@ -1,6 +1,6 @@
-# Company financial dashboard skills project — Reference solution
+# Enhacing development with agent skills - Financial dashboard — Reference solution
 
-This README defines what a correct reference delivery should include for the **Company financial dashboard skills project**.
+This README defines what a correct reference delivery should include for the **Enhacing development with agent skills - Financial dashboard**.
 
 The goal is not to rebuild the dashboard. The goal is **targeted improvements** driven by agent skills, plus a transferable custom skill and updated project memory.
 

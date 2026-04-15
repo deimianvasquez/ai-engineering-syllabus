@@ -9,7 +9,7 @@ Por [@marcogonzalo](https://github.com/marcogonzalo) y [@ehiber](https://github.
 
 🌐 _Estas instrucciones también están [disponibles en inglés](./README.md)._
 
-**Antes de empezar**: 📗 [Lee las instrucciones](https://4geeks.com/lesson/how-to-start-a-project) sobre cómo iniciar un proyecto de programación.
+**Antes de empezar**: 📗 [Lee las instrucciones](https://4geeks.com/es/lesson/como-comenzar-un-proyecto-de-codificacion) sobre cómo iniciar un proyecto de programación.
 
 > ¡Te necesitamos! Estos ejercicios se construyen y mantienen en colaboración con personas como tú. Si encuentras algún error 🐞 o falta de ortografía, por favor contribuye y/o repórtalo.
 
