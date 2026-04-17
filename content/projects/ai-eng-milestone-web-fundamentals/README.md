@@ -80,13 +80,16 @@ Do not clone this repository because we are going to use a different template.
 
    ```markdown
    /
+   ├── server.py (or an equivalent script to serve the project locally and in Codespaces)
    ├── index.html (landing page)
    ├── application.html (application/sign-up form)
    ├── styles.css (only if Tailwind CDN isn't enough)
    └── validation.js (form validation logic)
    ```
 
-5. Start with the landing page HTML structure, then add Tailwind styles, then work on the form, and finally implement validation.
+5. Create a run script so the project can be served in the browser during development. It must be compatible with Codespaces and executable with a clear root-level command. For example, you can include a `server.py`.
+
+6. Start with the landing page HTML structure, then add Tailwind styles, then work on the form, and finally implement validation.
 
 ---
 
@@ -95,6 +98,7 @@ Do not clone this repository because we are going to use a different template.
 ### Landing Page
 
 - [ ] Create `index.html` with semantic HTML5 structure
+- [ ] Create a root-level server script, such as `server.py`, so the application can be viewed during development
 - [ ] Implement a `<header>` with company logo/name and navigation
 - [ ] Create a hero section that presents the company and its value proposition
 - [ ] Add at least two additional sections (features, benefits, how it works, experience, etc.)
@@ -143,6 +147,7 @@ Do not clone this repository because we are going to use a different template.
 ### Responsive Design and Tailwind
 
 - [ ] The site is fully responsive (adapts to mobile, tablet, and desktop)
+- [ ] There is a documented and working script, compatible with Codespaces, to run the project locally
 - [ ] Mobile-first design is used
 - [ ] All styles use Tailwind utility classes
 - [ ] Tailwind breakpoints (`sm:`, `md:`, `lg:`) are used appropriately
@@ -183,6 +188,7 @@ Do not clone this repository because we are going to use a different template.
 1. Make sure your code is pushed to your repository
 
 2. Verify that the main files are present:
+   - `server.py` (or an equivalent script to serve the project)
    - `index.html`
    - `application.html`
    - `validation.js`
