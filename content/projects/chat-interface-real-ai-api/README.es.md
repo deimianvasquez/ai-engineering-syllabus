@@ -50,13 +50,13 @@ Piensa en él como el pase de sesión que te da acceso. Sin él, el servidor de 
 
 ## 🌱 Cómo iniciar el proyecto
 
-Este proyecto parte de cero — generarás la interfaz inicial usando [v0.dev](https://v0.dev/), el generador de componentes de Vercel basado en IA.
+Este proyecto parte de cero — usarás [Google Stitch](https://stitch.withgoogle.com/) para generar una propuesta visual de la interfaz y luego la adaptarás a los requisitos del proyecto.
 
-1. Ve a [https://v0.dev](https://v0.dev) y describe la interfaz que necesitas — por ejemplo: _"una interfaz de chat con un panel de historial de mensajes y una barra lateral con estadísticas de consumo de tokens"_
-2. Crea tu propio repositorio público en GitHub y ábrelo en Codespaces
-3. Exporta o copia el código del componente React/Next generado en V0 y pégalo en tu proyecto
+1. Ve a [https://stitch.withgoogle.com/](https://stitch.withgoogle.com/) y describe la interfaz que necesitas — por ejemplo: _"una interfaz de chat con un panel de historial de mensajes y una barra lateral con estadísticas de consumo de tokens"_
+2. Usa el diseño generado como referencia visual y recréalo en tu proyecto React/Next.js
+3. Crea tu propio repositorio público en GitHub y ábrelo en Codespaces
 
-> 💡 v0 te dará un punto de partida — no un producto terminado. Tendrás que conectar las llamadas a la API, la gestión del estado y la persistencia tú mismo. Ese es el trabajo real.
+> 💡 Stitch te dará un punto de partida visual — no un producto terminado. Tendrás que traducir el diseño a componentes React funcionales, conectar las llamadas a la API, la gestión del estado y la persistencia tú mismo. Ese es el trabajo real.
 
 ---
 
@@ -70,7 +70,7 @@ Este proyecto parte de cero — generarás la interfaz inicial usando [v0.dev](h
 
 ### Interfaz de chat
 
-- [ ] Genera el layout inicial de la interfaz con v0.dev y expórtalo a tu proyecto Next.js
+- [ ] Usa [Google Stitch](https://stitch.withgoogle.com/) para generar una propuesta visual y adáptala a tu proyecto Next.js
 - [ ] Construye un campo de texto y un botón de envío que disparen la llamada a la API
 - [ ] Muestra el historial completo de la conversación — mensajes del usuario y respuestas de la IA visualmente diferenciados
 - [ ] Usa `useState` para gestionar la lista de mensajes y el valor del campo de texto

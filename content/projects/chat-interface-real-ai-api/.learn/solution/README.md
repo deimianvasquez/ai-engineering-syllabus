@@ -10,7 +10,7 @@ Core behavior expected:
 
 - A chat interface where users can type a message and receive a model response.
 - Conversation history persisted in memory during the session and sent in full on every request.
-- Requests made to `https://api.groq.com/openai/v1/chat/completions` using the model `llama3-8b-8192`.
+- Requests made to `https://api.groq.com/openai/v1/chat/completions` using the model `llama3`.
 - Token usage read from the API response `usage` object and accumulated across the whole conversation.
 - At least one additional metric displayed (for example: response time, tokens per second, or model name).
 

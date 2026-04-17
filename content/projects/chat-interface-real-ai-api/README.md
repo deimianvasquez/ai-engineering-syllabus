@@ -50,13 +50,13 @@ Think of it as the session pass that grants you access. Without it, the API serv
 
 ## 🌱 How to Start the Project
 
-This project starts from scratch — you'll generate the initial UI using [v0.dev](https://v0.dev/), Vercel's AI-powered component generator.
+This project starts from scratch — you'll use [Google Stitch](https://stitch.withgoogle.com/) to generate a visual proposal for your interface and then adapt it to the project requirements.
 
-1. Go to [https://v0.dev](https://v0.dev) and describe the interface you need — for example: _"a chat interface with a message history panel and a token usage stats sidebar"_
-2. Create your own public GitHub repository and open it in Codespaces
-3. Export or copy the generated React/Next component code from V0 and paste it into your project
+1. Go to [https://stitch.withgoogle.com/](https://stitch.withgoogle.com/) and describe the interface you need — for example: _"a chat interface with a message history panel and a token usage stats sidebar"_
+2. Use the generated design as a visual reference and recreate it in your React/Next.js project
+3. Create your own public GitHub repository and open it in Codespaces
 
-> 💡 v0 will give you a starting point — not a finished product. You'll need to wire up the API calls, state management, and persistence yourself. That's the actual work.
+> 💡 Stitch will give you a visual starting point — not a finished product. You'll need to translate the design into working React components, wire up the API calls, state management, and persistence yourself. That's the actual work.
 
 ---
 
@@ -70,7 +70,7 @@ This project starts from scratch — you'll generate the initial UI using [v0.de
 
 ### Chat Interface
 
-- [ ] Generate the initial UI layout using v0.dev and export it into your Next.js project
+- [ ] Use [Google Stitch](https://stitch.withgoogle.com/) to generate a visual proposal and adapt it into your Next.js project
 - [ ] Build a message input field and send button that trigger the API call
 - [ ] Display the full conversation history — user messages and AI responses visually differentiated
 - [ ] Use `useState` to manage the list of messages and the current input value
