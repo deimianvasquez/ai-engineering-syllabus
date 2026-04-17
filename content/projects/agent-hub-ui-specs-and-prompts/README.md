@@ -59,7 +59,9 @@ The panel should feel professional and immediately usable as a reference for fut
 2. Create your own GitHub repository and update the remote URL to point to it.
 3. Open the project in GitHub Codespaces or clone it locally.
 4. Read the full brief carefully before writing the specification.
-5. Need help getting started? [Follow these instructions](https://4geeks.com/lesson/how-to-start-a-project).
+5. Once you have a first draft of `SPECS.md`, use those specs as a prompt in [Google Stitch](https://stitch.withgoogle.com/) to generate an initial visual proposal for the panel.
+6. Use that visual proposal as reference and manually adapt it to satisfy all project requirements.
+7. Need help getting started? [Follow these instructions](https://4geeks.com/lesson/how-to-start-a-project).
 
 ---
 
@@ -75,8 +77,11 @@ The panel should feel professional and immediately usable as a reference for fut
   - [ ] A component inventory: a list of the reusable UI components shared across sections (sidebar, metric card, action dropdown, modal, badge, collapsible skill list, dark mode toggle).
   - [ ] Acceptance criteria: a numbered list of verifiable conditions that must be true for the prototype to be considered complete — include at least one criterion per interactive behavior (dropdown, modal, collapsible, dark mode).
 - [ ] Commit `SPECS.md` to the repository **before** starting any HTML work.
+- [ ] Use `SPECS.md` as input to generate a visual proposal in [Google Stitch](https://stitch.withgoogle.com/) and use it as design guidance (not as the final deliverable).
 
 > ⚠️ **IMPORTANT:** The specification must be committed before the first HTML file. Use a separate Git commit for the spec — the Git history will be checked. An AI coding agent should be able to read your `SPECS.md` and build the panel from it without asking any questions. That is your quality bar.
+>
+> ⚠️ **IMPORTANT:** Stitch's visual proposal is only a starting point. You must adapt structure, components, and interactions so they match this project's requirements exactly.
 
 ### Build the prototype
 

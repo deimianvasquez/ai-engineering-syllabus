@@ -59,7 +59,9 @@ El panel debe sentirse profesional e inmediatamente utilizable como referencia p
 2. Crea tu propio repositorio en GitHub y actualiza la URL del remote para que apunte a él.
 3. Abre el proyecto en GitHub Codespaces o clónalo localmente.
 4. Lee el briefing completo con atención antes de escribir la especificación.
-5. ¿Necesitas ayuda para empezar? [Sigue estas instrucciones](https://4geeks.com/es/lesson/how-to-start-a-coding-project).
+5. Cuando tengas un primer borrador de `SPECS.md`, usa esas specs como prompt en [Google Stitch](https://stitch.withgoogle.com/) para obtener una propuesta visual inicial del panel.
+6. Toma esa propuesta visual como referencia y adáptala manualmente para cumplir todos los requisitos del proyecto.
+7. ¿Necesitas ayuda para empezar? [Sigue estas instrucciones](https://4geeks.com/es/lesson/how-to-start-a-coding-project).
 
 ---
 
@@ -75,8 +77,11 @@ El panel debe sentirse profesional e inmediatamente utilizable como referencia p
   - [ ] Un inventario de componentes: una lista de los componentes de UI reutilizables que aparecen en varias secciones (sidebar, tarjeta de métrica, dropdown de acciones, modal, badge, lista de skills colapsable, toggle de modo oscuro).
   - [ ] Criterios de aceptación: una lista numerada de condiciones verificables que deben cumplirse para que el prototipo se considere completo — incluye al menos un criterio por comportamiento interactivo (dropdown, modal, colapsable, modo oscuro).
 - [ ] Commitea `SPECS.md` al repositorio **antes** de comenzar cualquier trabajo en HTML.
+- [ ] Usa el contenido de `SPECS.md` para generar una propuesta visual en [Google Stitch](https://stitch.withgoogle.com/) y úsala como guía de diseño (no como entrega final).
 
 > ⚠️ **IMPORTANTE:** La especificación debe estar commiteada antes del primer archivo HTML. Usa un commit separado para la spec — se revisará el historial de Git. Un agente de código IA debería poder leer tu `SPECS.md` y construir el panel desde él sin hacer ninguna pregunta. Ese es tu estándar de calidad.
+>
+> ⚠️ **IMPORTANTE:** La propuesta visual de Stitch es solo un punto de partida. Debes adaptar estructura, componentes e interacciones para que coincidan exactamente con los requisitos de este proyecto.
 
 ### Construye el prototipo
 
