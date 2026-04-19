@@ -64,36 +64,42 @@ This milestone focuses exclusively on programming logic and data manipulation wi
 
 **Expected file structure:**
 
-Your implementation should be organized in separate TypeScript files by responsibility:
+Your implementation should live inside an application folder in the monorepo and be organized in separate TypeScript files by responsibility:
 
 ```text
-src/
-├── types/
-│   └── models.ts          # Interfaces and types
-├── utils/
-│   ├── collections.ts     # Array functions
-│   ├── search.ts          # Linear and binary searches
-│   ├── transformations.ts # Aggregations and reports
-│   └── validations.ts     # Business validations
-└── index.html             # Test page (optional)
+apps/
+└── your-coding-fundamentals-app/
+    ├── package.json       # Optional scripts such as typecheck / console
+    ├── tsconfig.json      # TypeScript configuration
+    ├── src/
+    │   ├── types/
+    │   │   └── models.ts          # Interfaces and types
+    │   ├── utils/
+    │   │   ├── collections.ts     # Array functions
+    │   │   ├── search.ts          # Linear and binary searches
+    │   │   ├── transformations.ts # Aggregations and reports
+    │   │   └── validations.ts     # Business validations
+    │   └── demo.ts                # Optional local demo entry
+    └── index.html                 # Test page (optional)
 ```
 
 You can include a simple HTML page with Tailwind CSS to manually test your functions if you wish, but the main focus is on the TypeScript logic.
+At minimum, your project must include a clear command to validate or execute the TypeScript code during development, such as `npx tsc --noEmit`, `npm run typecheck`, or `npx tsx src/demo.ts`.
 
 ---
 
 ## 🌱 How to Start the Project
 
-1. Fork the base repository: [https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepot](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepot)
+1. Fork the base repository: [https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo)
 
-2. Clone your fork to your local machine:
+2. Open your fork in **GitHub Codespaces** or clone it locally:
 
    ```bash
    git clone <your-fork-url>
    cd transversal-project
    ```
 
-3. Read your **[CONTEXT-company.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts)** file completely before writing code. There you will find:
+3. Read your **[CONTEXT.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts)** file completely before writing code. There you will find:
    - The specific entities you must model (products, customers, orders, etc.)
    - The exact field names and their types
    - Your company's specific validation rules
@@ -105,7 +111,15 @@ You can include a simple HTML page with Tailwind CSS to manually test your funct
    git checkout -b milestone-2-programming-fundamentals
    ```
 
-5. Organize your code in the proposed folder structure and start implementing the functions.
+5. Create a folder for this milestone inside `apps/`, add a `tsconfig.json`, and organize your code in the proposed folder structure.
+
+6. Make sure the project can be validated or executed with a clear TypeScript command from that app folder. Example:
+
+   ```bash
+   npx tsc --noEmit
+   ```
+
+7. Start implementing the functions.
 
 ---
 
@@ -124,6 +138,7 @@ Implement the following functionalities in TypeScript. All entity names, fields,
 - [ ] Implement **business validations** that verify objects comply with the rules in your CONTEXT.md before being processed
 - [ ] All functions must have **explicit types** in parameters and return values
 - [ ] The code must follow the **single responsibility principle**: each function does one thing
+- [ ] The project includes a clear command to validate or execute the TypeScript code during development
 
 ⚠️ **IMPORTANT:** Field names, entity types, and validation rules in your implementation must match exactly what is specified in your CONTEXT.md. A generic implementation that ignores the context will not be accepted.
 
@@ -156,6 +171,7 @@ Implement the following functionalities in TypeScript. All entity names, fields,
 - [ ] Aggregations correctly calculate totals, averages, counts, and extreme values
 - [ ] Validations reject data that does not comply with the business rules in CONTEXT.md
 - [ ] There are no TypeScript compilation errors in any file
+- [ ] There is a documented command to run TypeScript validation or execution locally (`npx tsc --noEmit`, `npm run typecheck`, etc.)
 
 ### Structure and organization
 
@@ -179,7 +195,7 @@ Implement the following functionalities in TypeScript. All entity names, fields,
 
 ## 📦 How to Submit
 
-1. Make sure all your changes are in the `milestone-2-coding-fundamentals` branch
+1. Make sure all your changes are in the `milestone-2-programming-fundamentals` branch
 
 2. Commit your changes with descriptive messages. Example:
 
@@ -199,6 +215,7 @@ Implement the following functionalities in TypeScript. All entity names, fields,
 5. In the PR description include:
    - What functionalities you implemented
    - What challenges you encountered and how you solved them
+   - The command used to validate or run the TypeScript project
    - Screenshots if you implemented the test interface (optional)
 
 6. Submit the link to your Pull Request on the 4Geeks platform

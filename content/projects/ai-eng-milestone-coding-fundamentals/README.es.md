@@ -64,21 +64,27 @@ Este hito se enfoca exclusivamente en lógica de programación y manipulación d
 
 **Estructura de archivos esperada:**
 
-Tu implementación debe organizarse en archivos TypeScript separados por responsabilidad:
+Tu implementación debe vivir dentro de una aplicación del monorepo y organizarse en archivos TypeScript separados por responsabilidad:
 
 ```text
-src/
-├── types/
-│   └── models.ts          Interfaces y tipos
-├── utils/
-│   ├── collections.ts     # Funciones para arrays
-│   ├── search.ts          # Búsquedas lineal y binaria
-│   ├── transformations.ts # Agregaciones y reportes
-│   └── validations.ts     # Validaciones de negocio
-└── index.html             # Página de prueba (opcional)
+apps/
+└── tu-app-fundamentos-typescript/
+    ├── package.json       # Scripts opcionales como typecheck / console
+    ├── tsconfig.json      # Configuración de TypeScript
+    ├── src/
+    │   ├── types/
+    │   │   └── models.ts          # Interfaces y tipos
+    │   ├── utils/
+    │   │   ├── collections.ts     # Funciones para arrays
+    │   │   ├── search.ts          # Búsquedas lineal y binaria
+    │   │   ├── transformations.ts # Agregaciones y reportes
+    │   │   └── validations.ts     # Validaciones de negocio
+    │   └── demo.ts                # Entrada local opcional
+    └── index.html                 # Página de prueba (opcional)
 ```
 
 Puedes incluir una página HTML simple con Tailwind CSS para probar tus funciones manualmente si lo deseas, pero el foco principal está en la lógica TypeScript.
+Como mínimo, tu proyecto debe incluir un comando claro para validar o ejecutar el código TypeScript durante el desarrollo, por ejemplo `npx tsc --noEmit`, `npm run typecheck` o `npx tsx src/demo.ts`.
 
 ---
 
@@ -100,7 +106,15 @@ Puedes incluir una página HTML simple con Tailwind CSS para probar tus funcione
    git checkout -b hito-2-fundamentos-programacion
    ```
 
-5. Organiza tu código en la estructura de carpetas propuesta y comienza a implementar las funciones.
+5. Crea una carpeta para este hito dentro de `apps/`, añade un `tsconfig.json` y organiza tu código según la estructura propuesta.
+
+6. Asegúrate de que el proyecto pueda validarse o ejecutarse con un comando claro de TypeScript desde la carpeta de la app. Ejemplo:
+
+   ```bash
+   npx tsc --noEmit
+   ```
+
+7. Comienza a implementar las funciones.
 
 ---
 
@@ -119,6 +133,7 @@ Implementa las siguientes funcionalidades en TypeScript. Todos los nombres de en
 - [ ] Implementa **validaciones de negocio** que verifiquen que los objetos cumplen con las reglas de tu CONTEXT.md antes de ser procesados
 - [ ] Todas las funciones deben tener **tipos explícitos** en parámetros y valores de retorno
 - [ ] El código debe seguir el principio de **responsabilidad única**: cada función hace una sola cosa
+- [ ] El proyecto incluye un comando claro para validar o ejecutar el código TypeScript durante el desarrollo
 
 ⚠️ **IMPORTANTE:** Los nombres de campos, tipos de entidades y reglas de validación en tu implementación deben coincidir exactamente con lo especificado en tu CONTEXT.md. Una implementación genérica que ignore el contexto no será aceptada.
 
@@ -151,6 +166,7 @@ Implementa las siguientes funcionalidades en TypeScript. Todos los nombres de en
 - [ ] Las agregaciones calculan correctamente totales, promedios, conteos y valores extremos
 - [ ] Las validaciones rechazan datos que no cumplen con las reglas de negocio del CONTEXT.md
 - [ ] No hay errores de compilación de TypeScript en ningún archivo
+- [ ] Existe un comando documentado para validar o ejecutar TypeScript en local (`npx tsc --noEmit`, `npm run typecheck`, etc.)
 
 ### Estructura y organización
 
@@ -194,6 +210,7 @@ Implementa las siguientes funcionalidades en TypeScript. Todos los nombres de en
 5. En la descripción del PR incluye:
    - Qué funcionalidades implementaste
    - Qué desafíos encontraste y cómo los resolviste
+   - El comando que usaste para validar o ejecutar el proyecto TypeScript
    - Capturas de pantalla si implementaste la interfaz de prueba (opcional)
 
 6. Entrega el enlace de tu Pull Request en la plataforma de 4Geeks
