@@ -86,7 +86,9 @@ Do not clone this repository because we are going to use a different template.
    └── validation.js (form validation logic)
    ```
 
-5. Start with the landing page HTML structure, then add Tailwind styles, then work on the form, and finally implement validation.
+5. Make sure you can serve the project in the browser during development using a Codespaces-compatible command from the repository root. For example: `npx http-server . -p 3000 -a 0.0.0.0`
+
+6. Start with the landing page HTML structure, then add Tailwind styles, then work on the form, and finally implement validation.
 
 ---
 
@@ -95,6 +97,7 @@ Do not clone this repository because we are going to use a different template.
 ### Landing Page
 
 - [ ] Create `index.html` with semantic HTML5 structure
+- [ ] The project can be run locally with an `npx` command compatible with Codespaces
 - [ ] Implement a `<header>` with company logo/name and navigation
 - [ ] Create a hero section that presents the company and its value proposition
 - [ ] Add at least two additional sections (features, benefits, how it works, experience, etc.)
@@ -143,6 +146,7 @@ Do not clone this repository because we are going to use a different template.
 ### Responsive Design and Tailwind
 
 - [ ] The site is fully responsive (adapts to mobile, tablet, and desktop)
+- [ ] There is a documented and working command, compatible with Codespaces, to run the project locally with `npx`
 - [ ] Mobile-first design is used
 - [ ] All styles use Tailwind utility classes
 - [ ] Tailwind breakpoints (`sm:`, `md:`, `lg:`) are used appropriately
