@@ -37,7 +37,7 @@ Tu tech lead ha dejado una tarea pendiente en el tablero desde hace dos semanas:
 >
 > Por último, quiero que formalicemos al menos una skill que capture una tarea recurrente de nuestro flujo de trabajo — algo que el agente pueda ejecutar de forma consistente y que podamos reutilizar en los próximos hitos. Que tenga criterios de aceptación explícitos: si no se puede verificar, no vale.
 >
-> En cuanto a la app, la web corporativa tiene que vivir en Next.js — no como copia, sino como una versión mejorada con componentes reutilizables. Si quieres separar alguna sección en su propia vista, puedes hacerlo de forma opcional una vez tengas lo importante terminado. Y crea ya la estructura de `/internal-app` con su propio layout y una vista de entrada, porque en el próximo hito empezamos a llenarla. Mete ahí el script de TypeScript del módulo de lógica de negocio (Hito 2) para tener algo que mostrar.
+> En cuanto a la app, la web pública tiene que vivir en `./uis/website` como app Next.js — no como copia, sino como una versión mejorada con componentes reutilizables. En paralelo, crea `./uis/application` para desarrollar toda la lógica interna de la empresa con su propio layout y vista de entrada, e integra ahí el script de TypeScript del módulo de lógica de negocio (Hito 2) para tener algo visible desde el primer día. Cualquier API debe crearse dentro de `/services`.
 >
 > Cuando termines, PR y avísame.
 >
@@ -103,15 +103,16 @@ Lee tu `CONTEXT-company.md` antes de hacer nada más. El banco de memoria que va
 
 ### Aplicación Next.js + TypeScript
 
-- [ ] Inicializar el proyecto Next.js + TypeScript dentro del monorepo siguiendo la estructura del repositorio de plantilla
-- [ ] Migrar y mejorar la web corporativa del Hito 1 como ruta de inicio (`/`):
+- [ ] Inicializar la estructura frontend dentro de `/uis` en el monorepo siguiendo la estructura del repositorio de plantilla
+- [ ] Crear el proyecto web público en `./uis/website` (Next.js + TypeScript)
+- [ ] Migrar y mejorar la web corporativa del Hito 1 en `./uis/website` como ruta de inicio (`/`):
   - [ ] Todas las secciones del Hito 1 presentes y completas
   - [ ] Implementada con componentes React reutilizables y tipado TypeScript correcto
   - [ ] Estilos consistentes con la identidad visual establecida en el Hito 1
-- [ ] Crear la carpeta `/internal-app` dentro del proyecto Next.js:
-  - [ ] Ruta `/internal-app` accesible con una vista de entrada básica (pantalla de bienvenida o estructura vacía de dashboard)
-  - [ ] Layout propio, separado del layout público de la web corporativa
-- [ ] Integrar el script de TypeScript del módulo de lógica de negocio (Hito 2) dentro de `/internal-app`:
+- [ ] Crear la aplicación interna en `./uis/application`:
+  - [ ] Ruta `/` de `./uis/application` accesible con una vista de entrada básica (pantalla de bienvenida o estructura vacía de dashboard)
+  - [ ] Layout propio, separado del layout público de la web corporativa en `./uis/website`
+- [ ] Integrar el script de TypeScript del módulo de lógica de negocio (Hito 2) dentro de `./uis/application`:
   - [ ] El código se importa desde su ubicación original en el monorepo — no se copia
   - [ ] El resultado de la lógica de negocio es visible en la interfaz (no solo en consola)
 
@@ -123,10 +124,10 @@ Lee tu `CONTEXT-company.md` antes de hacer nada más. El banco de memoria que va
 - [ ] `AGENTS.md` especifica un flujo de trabajo con al menos 4 pasos ordenados antes del commit
 - [ ] La carpeta `.agents/` contiene al menos una regla con alcance de aplicación explícito
 - [ ] La skill implementada tiene objetivo único, inputs documentados y criterios de aceptación verificables
-- [ ] La aplicación Next.js arranca sin errores con `npm run dev`
-- [ ] La ruta `/` renderiza el contenido completo de la web corporativa con componentes TypeScript
-- [ ] La ruta `/internal-app` existe, tiene layout propio y renderiza sin errores
-- [ ] El script de TypeScript (Hito 2) está integrado en `/internal-app` y produce output visible en pantalla
+- [ ] La web pública en `./uis/website` arranca sin errores con `npm run dev`
+- [ ] La ruta `/` en `./uis/website` renderiza el contenido completo de la web corporativa con componentes TypeScript
+- [ ] `./uis/application` existe, tiene layout propio y renderiza sin errores
+- [ ] El script de TypeScript (Hito 2) está integrado en `./uis/application` y produce output visible en pantalla
 - [ ] No hay código de lógica de negocio duplicado — se importa desde su ubicación original en el monorepo
 
 ---
@@ -137,8 +138,8 @@ Lee tu `CONTEXT-company.md` antes de hacer nada más. El banco de memoria que va
 2. Ejecuta el flujo de entrega definido en tu `AGENTS.md` antes del commit final
 3. Abre una Pull Request hacia la rama `main` de tu fork
 4. En la descripción de la PR incluye:
-   - Captura de pantalla de la web corporativa renderizada en Next.js
-   - Captura de pantalla de `/internal-app` con el script de TypeScript (Hito 2) visible en pantalla
+   - Captura de pantalla de la web corporativa renderizada desde `./uis/website`
+   - Captura de pantalla de `./uis/application` con el script de TypeScript (Hito 2) visible en pantalla
    - Enlace directo a tu `AGENTS.md`
 5. Entrega el enlace a tu PR en el campus de 4Geeks
 

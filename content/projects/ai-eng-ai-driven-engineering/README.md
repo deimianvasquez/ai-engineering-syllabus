@@ -37,7 +37,7 @@ Your tech lead has had a ticket sitting on the board for two weeks:
 >
 > Finally, I want us to formalise at least one skill that captures a recurring task in our workflow — something the agent can execute consistently and that we can reuse in upcoming milestones. It needs explicit acceptance criteria: if it can't be verified, it doesn't count.
 >
-> As for the app, the corporate website needs to live in Next.js — not as a copy, but as an improved version with reusable components. If you want to split any section into its own view, you can do that optionally once you have the important things done. And go ahead and set up the `/internal-app` structure with its own layout and an entry view, because we start filling it in the next milestone. Drop the TypeScript script from the business logic module (Milestone 2) in there so we have something to show.
+> As for the app, the public website needs to live in `./uis/website` as a Next.js app — not as a copy, but as an improved version with reusable components. In parallel, create `./uis/application` to host all internal company logic with its own layout and entry view, and integrate the TypeScript script from the business logic module (Milestone 2) there so we have something visible from day one. Any APIs must be created under `/services`.
 >
 > When you're done, open a PR and let me know.
 >
@@ -103,15 +103,16 @@ Read your `CONTEXT-company.md` before doing anything else. The memory bank you a
 
 ### Next.js + TypeScript Application
 
-- [ ] Initialise the Next.js + TypeScript project inside the monorepo following the template repository structure
-- [ ] Migrate and improve the corporate website from Milestone 1 as the home route (`/`):
+- [ ] Initialise the frontend structure under `/uis` inside the monorepo following the template repository structure
+- [ ] Create the public web project in `./uis/website` (Next.js + TypeScript)
+- [ ] Migrate and improve the corporate website from Milestone 1 in `./uis/website` as the home route (`/`):
   - [ ] All sections from Milestone 1 present and complete
   - [ ] Implemented with reusable React components and correct TypeScript typing
   - [ ] Styles consistent with the visual identity established in Milestone 1
-- [ ] Create the `/internal-app` folder inside the Next.js project:
-  - [ ] Route `/internal-app` accessible with a basic entry view (welcome screen or empty dashboard structure)
-  - [ ] Its own layout, separate from the public corporate website layout
-- [ ] Integrate the TypeScript script from the business logic module (Milestone 2) inside `/internal-app`:
+- [ ] Create the internal app in `./uis/application`:
+  - [ ] Route `/` in `./uis/application` accessible with a basic entry view (welcome screen or empty dashboard structure)
+  - [ ] Its own layout, separate from the public corporate website layout in `./uis/website`
+- [ ] Integrate the TypeScript script from the business logic module (Milestone 2) inside `./uis/application`:
   - [ ] Code is imported from its original location in the monorepo — not copied
   - [ ] The output of the business logic is visible in the interface (not just in the console)
 
@@ -123,10 +124,10 @@ Read your `CONTEXT-company.md` before doing anything else. The memory bank you a
 - [ ] `AGENTS.md` specifies a workflow with at least 4 ordered steps before the commit
 - [ ] The `.agents/` folder contains at least one rule with an explicit scope of application
 - [ ] The implemented skill has a single objective, documented inputs, and verifiable acceptance criteria
-- [ ] The Next.js application starts without errors with `npm run dev`
-- [ ] The `/` route renders the complete corporate website with TypeScript components
-- [ ] The `/internal-app` route exists, has its own layout, and renders without errors
-- [ ] The TypeScript script (Milestone 2) is integrated in `/internal-app` and produces visible output on screen
+- [ ] The public web in `./uis/website` starts without errors with `npm run dev`
+- [ ] The `/` route in `./uis/website` renders the complete corporate website with TypeScript components
+- [ ] `./uis/application` exists, has its own layout, and renders without errors
+- [ ] The TypeScript script (Milestone 2) is integrated in `./uis/application` and produces visible output on screen
 - [ ] No business logic code is duplicated — it is imported from its original location in the monorepo
 
 ---
@@ -137,8 +138,8 @@ Read your `CONTEXT-company.md` before doing anything else. The memory bank you a
 2. Run the delivery workflow defined in your `AGENTS.md` before the final commit
 3. Open a Pull Request targeting the `main` branch of your fork
 4. In the PR description include:
-   - Screenshot of the corporate website rendered in Next.js
-   - Screenshot of `/internal-app` with the TypeScript script (Milestone 2) visible on screen
+   - Screenshot of the corporate website rendered from `./uis/website`
+   - Screenshot of `./uis/application` with the TypeScript script (Milestone 2) visible on screen
    - Direct link to your `AGENTS.md`
 5. Submit the link to your PR on the 4Geeks campus
 

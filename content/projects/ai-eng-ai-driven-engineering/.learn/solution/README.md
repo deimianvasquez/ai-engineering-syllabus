@@ -53,24 +53,33 @@ Example categories that fit this milestone: “run delivery checklist before PR�
 
 ## Part B — Next.js + TypeScript application
 
-Work happens inside the monorepo following the **template’s** intended app location (typically an `uis/*` or `services/*` or documented package—students must follow the template READMEs, not invent a second parallel tree).
+Work happens inside the monorepo with this expected structure:
 
-### Public site on `/`
+- Frontend projects under `/uis`
+- Public website in `./uis/website`
+- Internal company application in `./uis/application`
+- APIs under `/services`
 
-- Full corporate website from Milestone 1 is present on the **home route** `/`.
+### Public site (`./uis/website`)
+
+- Full corporate website from Milestone 1 is present on the **home route** `/` of `./uis/website`.
 - Implemented with **reusable React components** and sound **TypeScript** typing (no large copy-paste blocks of JSX across pages).
 - Visual identity remains consistent with Milestone 1 (colors, typography, spacing—not necessarily pixel-perfect, but clearly the same brand).
 
-### `/internal-app`
+### Internal app (`./uis/application`)
 
-- Route **`/internal-app`** exists and renders without runtime errors.
-- **Dedicated layout** for internal app routes, separate from the public marketing layout (nested `layout.tsx` under `internal-app` or equivalent App Router pattern).
-- Entry view: welcome screen or empty dashboard shell—enough structure that the next milestone can add features without restructuring.
+- `./uis/application` exists and renders without runtime errors.
+- **Dedicated layout** for the internal app, separate from the public marketing layout in `./uis/website`.
+- Entry view on `/` in `./uis/application`: welcome screen or empty dashboard shell—enough structure that the next milestone can add features without restructuring.
 
 ### Milestone 2 TypeScript integration
 
 - Business logic from Milestone 2 is **imported** from its **original package/path** in the monorepo (no duplicated copy-paste of the same module into the Next.js tree).
-- Output of that logic is **visible in the UI** on `/internal-app` (not only `console.log`).
+- Output of that logic is **visible in the UI** inside `./uis/application` (not only `console.log`).
+
+### API location
+
+- Any API service required for the milestone is placed under `/services`.
 
 ---
 
@@ -90,10 +99,11 @@ Use this checklist against student submissions:
 
 ### Application
 
-- [ ] `npm run dev` (or the template’s documented dev command) starts the Next.js app without errors.
-- [ ] `/` shows the complete Milestone 1 corporate site as React/TS components.
-- [ ] `/internal-app` loads with its own layout and a clear entry view.
-- [ ] Milestone 2 logic is consumed via **import from original location**; UI shows a meaningful result.
+- [ ] `./uis/website` starts without errors using the documented dev command.
+- [ ] `/` in `./uis/website` shows the complete Milestone 1 corporate site as React/TS components.
+- [ ] `./uis/application` loads with its own layout and a clear entry view.
+- [ ] Milestone 2 logic is consumed via **import from original location**; UI in `./uis/application` shows a meaningful result.
+- [ ] API services are located under `/services`.
 - [ ] No unjustified duplication of business logic source files.
 
 ### Delivery
