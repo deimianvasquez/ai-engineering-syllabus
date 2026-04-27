@@ -11,23 +11,17 @@ _These instructions are also available in [English](./README.md)._
 
 <!-- endhide -->
 
-**Antes de empezar**: Lee tu **[CONTEXT.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts)** asignado antes de escribir código. Ese archivo define los datos específicos de la empresa, las convenciones de nomenclatura, los KPIs, las reglas de negocio y las restricciones para tu implementación.
+**Antes de empezar**: Lee tu **[CONTEXT-company.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts)** antes de escribir ningún código — define los datos específicos de la empresa, las convenciones de nomenclatura, los KPIs y las restricciones para tu implementación.
 
 ---
 
-## 🎯 El desafío
+## 🎯 El Desafío
 
-Ya construiste tres piezas de tu caso de empresa:
+Ya tienes tres hitos construidos: la web pública, la lógica de negocio en TypeScript y los primeros componentes generados con IA. Tienes piezas. Lo que aún no tienes es el sistema que las une y que va a crecer con ellas.
 
-- la web pública,
-- la lógica de negocio en TypeScript,
-- y los primeros componentes generados con IA.
+A partir de este hito, el monorepo deja de ser un repositorio de proyectos separados y se convierte en el núcleo técnico de tu empresa. Todo lo que construyas de aquí en adelante — APIs, agentes, automatizaciones — vivirá en este mismo espacio. Por eso, antes de añadir más código, hay que construir la infraestructura que hará que ese código sea coherente, mantenible y AI-ready.
 
-Lo que todavía no tienes es el sistema que conecta esas piezas y permite que crezcan sin volverse caóticas.
-
-A partir de este hito, el monorepo deja de ser una colección de ejercicios aislados y se convierte en el núcleo técnico de tu empresa. Las próximas APIs, agentes, herramientas internas, automatizaciones y sistemas de conocimiento vivirán aquí. Antes de añadir más código de producto, primero debes crear la estructura que hará posible ese crecimiento de forma coherente, mantenible y AI-ready.
-
-Tu tech lead ha tenido una tarea bloqueada en el tablero durante dos semanas:
+Tu tech lead ha dejado una tarea pendiente en el tablero desde hace dos semanas:
 
 > **Asunto: Monorepo AI Setup — necesitamos esto esta semana**
 >
@@ -35,27 +29,25 @@ Tu tech lead ha tenido una tarea bloqueada en el tablero durante dos semanas:
 >
 > He revisado el estado del repo y veo que estamos acumulando código sin estructura de soporte. Si meto un agente sobre esto ahora mismo va a cometer errores que nos van a costar el triple de tiempo.
 >
-> Necesito que el repositorio tenga un contexto claro y persistente antes de que sigamos añadiendo features: qué es la empresa, qué estamos construyendo y cuáles son las reglas del proyecto. Eso va al banco de memoria. El agente tiene que leerlo antes de tocar nada, y tiene que incluir tanto contexto de negocio como contexto técnico.
+> Necesito que el repositorio tenga un contexto claro y persistente antes de que sigamos añadiendo features: qué es la empresa, qué estamos construyendo, cuáles son las reglas del proyecto. Eso va al banco de memoria. El agente tiene que leerlo antes de tocar nada — y tiene que incluir tanto el contexto de negocio como el técnico, no solo uno de los dos.
 >
-> También quiero un `AGENTS.md` que defina cómo opera cualquier agente en este repo y qué flujo debe seguir antes de hacer un commit. Nada de agentes escribiendo código sin pasar por el proceso de entrega.
+> También quiero un `AGENTS.md` que defina cómo opera cualquier agente en este repo — qué flujo tiene que seguir antes de hacer un commit. Nada de agentes que escriban código sin pasar por el proceso de entrega.
 >
 > Para las reglas más específicas usaremos la carpeta `.agents/`. Piensa en qué convenciones necesita conocer el agente para no romper lo que ya tenemos, y documéntalas ahí con el alcance correcto.
 >
-> Por último, quiero que formalicemos al menos una skill que capture una tarea recurrente de nuestro flujo de trabajo, algo que el agente pueda ejecutar de forma consistente y que podamos reutilizar en próximos hitos. Tiene que tener criterios de aceptación explícitos: si no se puede verificar, no vale.
+> Por último, quiero que formalicemos al menos una skill que capture una tarea recurrente de nuestro flujo de trabajo — algo que el agente pueda ejecutar de forma consistente y que podamos reutilizar en los próximos hitos. Que tenga criterios de aceptación explícitos: si no se puede verificar, no vale.
 >
-> En cuanto a la app, la web corporativa tiene que vivir en Next.js, no como copia, sino como una versión mejorada con componentes reutilizables. Una vez que lo esencial esté listo, puedes separar secciones en vistas adicionales de forma opcional. Además, deja preparada la ruta `/internal-app` con su propio layout y una pantalla de entrada básica, porque empezaremos a llenarla en el próximo hito. Integra ahí el script de TypeScript del módulo de lógica de negocio (Hito 2) para que haya algo visible.
+> En cuanto a la app, la web corporativa tiene que vivir en Next.js — no como copia, sino como una versión mejorada con componentes reutilizables. Si quieres separar alguna sección en su propia vista, puedes hacerlo de forma opcional una vez tengas lo importante terminado. Y crea ya la estructura de `/internal-app` con su propio layout y una vista de entrada, porque en el próximo hito empezamos a llenarla. Mete ahí el script de TypeScript del módulo de lógica de negocio (Hito 2) para tener algo que mostrar.
 >
-> Cuando termines, abre una PR y avísame.
+> Cuando termines, PR y avísame.
 >
 > — [Tu tech lead]
 
 ### 💡 Banco de memoria, reglas y skills: qué son y por qué importan
 
-Un **banco de memoria** es un conjunto de archivos Markdown que el agente de programación lee antes de cada sesión. No es documentación estática. Es el contexto activo del proyecto: descripción del negocio, decisiones de arquitectura tomadas, restricciones en vigor y estado actual del desarrollo. Sin él, cada sesión del agente empieza desde cero y repite los mismos errores.
+Un **banco de memoria** es un conjunto de archivos Markdown que el agente de programación lee antes de cada sesión. No es documentación estática — es el contexto activo del proyecto: negocio, decisiones de arquitectura tomadas, restricciones en vigor y estado actual del desarrollo. Sin él, cada sesión del agente empieza desde cero y repite los mismos errores. Por eso, el banco de memoria debe actualizarse cada vez que el proyecto evoluciona: nuevas decisiones, cambios de arquitectura, features completadas, problemas encontrados. Un banco de memoria que no se mantiene al día deja de ser útil en cuestión de días. **¡Nunca lo olvides!**
 
-Por eso el banco de memoria debe actualizarse cada vez que el proyecto evoluciona: nuevas decisiones, cambios de arquitectura, funcionalidades completadas o problemas encontrados. Un banco de memoria que no se mantiene al día deja de ser útil en cuestión de días.
-
-La estructura esperada para la configuración de agentes en el monorepo es:
+La estructura esperada para la configuración de agentes en el monorepo es la siguiente:
 
 ```text
 ./.agents
@@ -68,25 +60,24 @@ La estructura esperada para la configuración de agentes en el monorepo es:
 └─ <context>.md
 ```
 
-> ⚠️ **Atención:** No confundas `.agents/` con las carpetas `/agents` y `/skills` que ya existen en el monorepo. `.agents/` es el directorio de configuración para agentes de código (Cursor, Windsurf, Claude Code, etc.). Las carpetas `/agents` y `/skills` son espacios de código de producto que usarás en hitos posteriores. Una cosa configura cómo trabaja el agente de desarrollo en este repositorio; la otra contiene entregables de la empresa.
+> ⚠️ **Atención:** No confundas `.agents/` con las carpetas `/agents` y `/skills` que verás en el monorepo. `.agents/` es el directorio de configuración para los agentes de código (Cursor, Windsurf, Claude Code…) — aquí van las reglas y skills que le enseñan al agente cómo trabajar en este repositorio. Las carpetas `/agents` y `/skills` son para los agentes e integraciones que construirás para la empresa a partir de hitos posteriores. Son cosas distintas: una configura cómo trabaja tu herramienta de desarrollo, la otra es código de producto.
 
-Antes de crear una carpeta nueva, revisa el `README.md` dentro de cada carpeta del monorepo. El repositorio de plantilla ya explica qué debe vivir en cada espacio. Seguir esas instrucciones evita duplicidades y mantiene una estructura que el agente puede navegar sin ambigüedad.
+Antes de crear ninguna carpeta nueva, revisa el `README.md` de cada carpeta del monorepo — el repositorio de plantilla incluye instrucciones sobre qué debe ir en cada espacio. Siguiéndolas evitarás duplicidades y mantendrás una estructura que el agente pueda navegar sin ambigüedad.
 
-Las **reglas de desarrollo** (`AGENTS.md` y `.agents/rules/`) definen el protocolo que debe seguir el agente: qué leer al iniciar, qué pasos son obligatorios antes de cada commit, qué convenciones respetar y cuándo detenerse para pedir confirmación.
+Las **reglas de desarrollo** (`AGENTS.md` y `.agents/rules/`) son el protocolo que el agente sigue automáticamente: qué leer al empezar, qué pasos son obligatorios antes de cada commit, qué convenciones respetar y cuándo detenerse y preguntar. Actúan como el acuerdo de equipo que garantiza que el agente no tome decisiones por su cuenta donde no debería.
 
-Una **skill de agente** es una instrucción estructurada y reutilizable. Es más concreta que una regla genérica y debe incluir un objetivo claro, inputs definidos, output esperado y criterios de aceptación verificables. Una buena skill tiene un solo propósito y puede evaluarse de forma independiente.
+Una **skill de agente** es una instrucción estructurada y reutilizable: más concreta que una regla genérica, con inputs definidos, output esperado y criterios de aceptación verificables. Una buena skill tiene un único objetivo y puede testearse de forma independiente.
 
 ---
 
 ## 🌱 Cómo iniciar el proyecto
 
-Lee tu `CONTEXT.md` asignado antes de hacer cualquier otra cosa. El banco de memoria que construyas debe describir el escenario específico de tu empresa, no una empresa ficticia genérica.
+Lee tu `CONTEXT-company.md` antes de hacer nada más. El banco de memoria que vas a construir debe describir la empresa y el proyecto de tu escenario específico — no una empresa ficticia genérica.
 
 1. Haz fork del repositorio de plantilla: [ai-engineering-company-project-monorepo](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo)
-2. Ábrelo en **GitHub Codespaces** o clónalo localmente
-3. Revisa la estructura actual del monorepo antes de crear carpetas o archivos
-4. Configura tu agente de programación con acceso al repositorio completo
-5. Documenta las decisiones iniciales de setup en el banco de memoria **antes** de escribir código de aplicación
+2. Ábrelo en **GitHub Codespaces** o clónalo localmente y revisa la estructura existente antes de crear carpetas nuevas
+3. Configura tu agente de programación con acceso al repositorio completo
+4. Documenta las decisiones de configuración inicial en el banco de memoria **antes** de escribir código de aplicación
 
 ---
 
@@ -94,79 +85,63 @@ Lee tu `CONTEXT.md` asignado antes de hacer cualquier otra cosa. El banco de mem
 
 ### Infraestructura de agentes
 
-- [ ] Crea la carpeta `memory-bank/` en la raíz del monorepo con al menos los siguientes archivos:
-  - [ ] `projectbrief.md` — descripción del negocio, objetivos del proyecto y problema que resuelve
-  - [ ] `techContext.md` — stack tecnológico, decisiones de arquitectura ya tomadas y restricciones técnicas
-  - [ ] `progress.md` — estado actual del desarrollo, trabajo completado y próximos pasos previstos
-- [ ] Asegúrate de que esos archivos del memory bank sean específicos de la empresa descrita en `CONTEXT.md`; no se aceptará texto genérico del template
-- [ ] Crea el archivo `AGENTS.md` en la raíz del monorepo definiendo:
-  - [ ] qué archivos del memory bank debe leer el agente al inicio de cada sesión
-  - [ ] el flujo obligatorio antes de cada commit, con un mínimo de 4 pasos explícitos y ordenados
-  - [ ] las carpetas y archivos que el agente **no debe modificar** sin confirmación explícita del desarrollador
-- [ ] Crea la carpeta `.agents/` con al menos una regla de desarrollo documentada con alcance explícito:
-  - [ ] siempre activa, o
-  - [ ] basada en patrón de archivos, o
-  - [ ] activada a petición del agente
-- [ ] Implementa al menos una **skill de agente** para una tarea recurrente del flujo de trabajo, con:
-  - [ ] un único objetivo claramente definido
-  - [ ] inputs documentados
-  - [ ] un procedimiento documentado
-  - [ ] criterios de aceptación explícitos y verificables
+- [ ] Crear la carpeta `memory-bank/` en la raíz del monorepo con al menos los siguientes archivos:
+  - [ ] `projectbrief.md` — descripción del negocio, los objetivos del proyecto y el problema que resuelve
+  - [ ] `techContext.md` — stack tecnológico, decisiones de arquitectura tomadas y restricciones técnicas
+  - [ ] `progress.md` — estado actual del desarrollo y próximos pasos previstos
+- [ ] Crear el archivo `AGENTS.md` en la raíz del monorepo que defina:
+  - [ ] Qué archivos del banco de memoria debe leer el agente al inicio de cada sesión
+  - [ ] El flujo obligatorio antes de cada commit (mínimo 4 pasos ordenados y explícitos)
+  - [ ] Las carpetas y archivos que el agente **no debe modificar** sin confirmación explícita del desarrollador
+- [ ] Crear la carpeta `.agents/` con al menos una regla de desarrollo documentada con su alcance de aplicación (siempre activa, por patrón de archivo, o solicitada por el agente)
+- [ ] Implementar al menos una **skill de agente** para una tarea recurrente del flujo de trabajo, con:
+  - [ ] Un objetivo único y claramente definido
+  - [ ] Inputs documentados
+  - [ ] Criterios de aceptación explícitos y verificables
 
-⚠️ **IMPORTANTE:** El banco de memoria, las reglas y la skill deben estar alineados con los datos, procesos y restricciones definidos en tu `CONTEXT.md` asignado. No se aceptará una infraestructura que ignore el contexto de la empresa.
+⚠️ **IMPORTANTE:** El banco de memoria, las reglas y la skill deben estar alineados con los datos, procesos y restricciones definidos en tu `CONTEXT.md`. Una infraestructura genérica que ignore el contexto de la empresa no será aceptada.
 
 ### Aplicación Next.js + TypeScript
 
-- [ ] Crea una nueva aplicación Next.js + TypeScript dentro del monorepo, siguiendo la estructura del repositorio de plantilla
-- [ ] Ubica esa aplicación dentro de `apps/`
-- [ ] Migra y mejora la web corporativa del Hito 1 como ruta de inicio (`/`):
-  - [ ] todas las secciones del Hito 1 están presentes y completas
-  - [ ] la página está implementada con componentes React reutilizables y tipado TypeScript correcto
-  - [ ] la identidad visual se mantiene consistente con la del Hito 1
-- [ ] Implementa la ruta `/internal-app` dentro de la misma aplicación Next.js:
-  - [ ] la ruta `/internal-app` es accesible
-  - [ ] tiene su propio layout, separado del layout público de la web corporativa
-  - [ ] renderiza una pantalla de entrada básica o una estructura inicial de dashboard
-- [ ] Integra el script de TypeScript del módulo de lógica de negocio (Hito 2) dentro de `/internal-app`:
-  - [ ] el código se importa desde su ubicación original en el monorepo
-  - [ ] la lógica **no se copia ni se reescribe** dentro de la app Next.js
-  - [ ] el resultado de esa lógica es visible en la interfaz, no solo en la consola
-- [ ] Documenta cómo ejecutar la app en desarrollo para que pueda probarse en Codespaces sin ambigüedad
-
-### Mejoras opcionales
-
-- [ ] Opcionalmente, separa secciones de la web corporativa en vistas adicionales **después** de completar los entregables obligatorios
+- [ ] Inicializar el proyecto Next.js + TypeScript dentro del monorepo siguiendo la estructura del repositorio de plantilla
+- [ ] Migrar y mejorar la web corporativa del Hito 1 como ruta de inicio (`/`):
+  - [ ] Todas las secciones del Hito 1 presentes y completas
+  - [ ] Implementada con componentes React reutilizables y tipado TypeScript correcto
+  - [ ] Estilos consistentes con la identidad visual establecida en el Hito 1
+- [ ] Crear la carpeta `/internal-app` dentro del proyecto Next.js:
+  - [ ] Ruta `/internal-app` accesible con una vista de entrada básica (pantalla de bienvenida o estructura vacía de dashboard)
+  - [ ] Layout propio, separado del layout público de la web corporativa
+- [ ] Integrar el script de TypeScript del módulo de lógica de negocio (Hito 2) dentro de `/internal-app`:
+  - [ ] El código se importa desde su ubicación original en el monorepo — no se copia
+  - [ ] El resultado de la lógica de negocio es visible en la interfaz (no solo en consola)
 
 ---
 
 ## ✅ Lo que evaluaremos
 
-- [ ] El banco de memoria contiene contexto de negocio **y** contexto técnico
-- [ ] El contenido del memory bank es específico del caso de empresa asignado, no boilerplate genérico
-- [ ] `AGENTS.md` especifica un flujo con al menos 4 pasos ordenados antes del commit
+- [ ] El banco de memoria contiene contexto de negocio **y** contexto técnico — no solo uno de los dos
+- [ ] `AGENTS.md` especifica un flujo de trabajo con al menos 4 pasos ordenados antes del commit
 - [ ] La carpeta `.agents/` contiene al menos una regla con alcance de aplicación explícito
-- [ ] La skill implementada tiene un solo objetivo, inputs documentados, procedimiento definido y criterios de aceptación verificables
+- [ ] La skill implementada tiene objetivo único, inputs documentados y criterios de aceptación verificables
 - [ ] La aplicación Next.js arranca sin errores con `npm run dev`
-- [ ] La ruta `/` renderiza la web corporativa completa con componentes TypeScript reutilizables
+- [ ] La ruta `/` renderiza el contenido completo de la web corporativa con componentes TypeScript
 - [ ] La ruta `/internal-app` existe, tiene layout propio y renderiza sin errores
-- [ ] El script de TypeScript del Hito 2 está integrado en `/internal-app` y produce output visible en pantalla
-- [ ] No hay código de lógica de negocio duplicado; se importa desde su ubicación original en el monorepo
-- [ ] El proyecto puede ejecutarse en Codespaces siguiendo las instrucciones documentadas
+- [ ] El script de TypeScript (Hito 2) está integrado en `/internal-app` y produce output visible en pantalla
+- [ ] No hay código de lógica de negocio duplicado — se importa desde su ubicación original en el monorepo
 
 ---
 
 ## 📦 Cómo entregar
 
-1. Asegúrate de que tu rama de trabajo se llama `milestone-4`
+1. Asegúrate de que tu rama de trabajo tenga el nombre `milestone-4`
 2. Ejecuta el flujo de entrega definido en tu `AGENTS.md` antes del commit final
 3. Abre una Pull Request hacia la rama `main` de tu fork
 4. En la descripción de la PR incluye:
-   - captura de pantalla de la web corporativa renderizada en Next.js
-   - captura de pantalla de `/internal-app` con la lógica TypeScript del Hito 2 visible en pantalla
-   - enlace directo a tu `AGENTS.md`
-   - una nota breve explicando desde qué módulo original se está importando la lógica del Hito 2
+   - Captura de pantalla de la web corporativa renderizada en Next.js
+   - Captura de pantalla de `/internal-app` con el script de TypeScript (Hito 2) visible en pantalla
+   - Enlace directo a tu `AGENTS.md`
 5. Entrega el enlace a tu PR en el campus de 4Geeks
 
 ---
 
-Este y muchos otros proyectos son construidos por estudiantes como parte de los [Coding Bootcamps](https://4geeksacademy.com/) de 4Geeks Academy. Encuentra más acerca de [Full-Stack Software Developer](https://4geeksacademy.com/es/programas-de-carrera/desarrollo-full-stack), [Data Science & Machine Learning](https://4geeksacademy.com/es/programas-de-carrera/ciencia-de-datos-ml), [Cybersecurity](https://4geeksacademy.com/es/programas-de-carrera/ciberseguridad) e [AI Engineering](https://4geeksacademy.com/es/programas-de-carrera/ingenieria-ia).
+Este y muchos otros proyectos son construidos por estudiantes como parte de los [Coding Bootcamps](https://4geeksacademy.com/) de 4Geeks Academy. Encuentra más acerca de los [cursos](https://4geeksacademy.com/es/comparar-programas) de [Full-Stack Software Developer](https://4geeksacademy.com/es/programas-de-carrera/desarrollo-full-stack), [Data Science & Machine Learning](https://4geeksacademy.com/es/programas-de-carrera/ciencia-de-datos-ml), [Ciberseguridad](https://4geeksacademy.com/es/programas-de-carrera/ciberseguridad) e [Ingeniería de IA](https://4geeksacademy.com/es/programas-de-carrera/ingenieria-ia).

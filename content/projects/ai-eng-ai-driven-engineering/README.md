@@ -11,21 +11,15 @@ _Estas instrucciones tambien estan disponibles en [espanol](./README.es.md)._
 
 <!-- endhide -->
 
-**Before you start**: Read your assigned **[CONTEXT.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts)** before writing any code. It defines the specific company data, naming conventions, KPIs, business rules, and constraints for your implementation.
+**Before you start**: Read your **[CONTEXT-company.md](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts)** before writing any code — it defines the specific company data, naming conventions, KPIs, and constraints for your implementation.
 
 ---
 
 ## 🎯 The Challenge
 
-You have already built three pieces of your company case:
+You have three milestones behind you: the public website, the business logic in TypeScript, and the first AI-generated components. You have pieces. What you don't have yet is the system that connects them and will grow alongside them.
 
-- the public website,
-- the business logic in TypeScript,
-- and the first AI-generated components.
-
-What you still do not have is the system that connects those pieces and allows them to grow without becoming chaotic.
-
-From this milestone onward, the monorepo stops being a collection of isolated exercises and becomes the technical core of your company. Future APIs, agents, internal tools, automations, and knowledge systems will all live here. Before adding more product code, you must first create the structure that makes that growth coherent, maintainable, and AI-ready.
+From this milestone on, the monorepo stops being a collection of separate projects and becomes the technical core of your company. Everything you build from here — APIs, agents, automations — will live in this same space. That's why, before adding more code, you need to build the infrastructure that will make that code coherent, maintainable, and AI-ready.
 
 Your tech lead has had a ticket sitting on the board for two weeks:
 
@@ -35,15 +29,15 @@ Your tech lead has had a ticket sitting on the board for two weeks:
 >
 > I've reviewed the state of the repo and we're accumulating code without any supporting structure. If I drop an agent on this right now it's going to make mistakes that will cost us triple the time to fix.
 >
-> I need the repository to have clear, persistent context before we keep adding features: what the company is, what we're building, and what the project rules are. That goes into the memory bank. The agent has to read it before touching anything, and it has to include both business context and technical context.
+> I need the repository to have clear, persistent context before we keep adding features: what the company is, what we're building, what the project rules are. That goes into the memory bank. The agent has to read it before touching anything — and it has to include both business context and technical context, not just one of the two.
 >
-> I also want an `AGENTS.md` that defines how any agent operates in this repo and what workflow it must follow before making a commit. No agents writing code without going through the delivery process.
+> I also want an `AGENTS.md` that defines how any agent operates in this repo — what workflow it has to follow before making a commit. No agents writing code without going through the delivery process.
 >
 > For more specific rules we'll use the `.agents/` folder. Think about what conventions the agent needs to know to not break what we already have, and document them there with the correct scope.
 >
-> Finally, I want us to formalise at least one skill that captures a recurring task in our workflow, something the agent can execute consistently and that we can reuse in upcoming milestones. It needs explicit acceptance criteria: if it can't be verified, it doesn't count.
+> Finally, I want us to formalise at least one skill that captures a recurring task in our workflow — something the agent can execute consistently and that we can reuse in upcoming milestones. It needs explicit acceptance criteria: if it can't be verified, it doesn't count.
 >
-> As for the app, the corporate website needs to live in Next.js, not as a copy, but as an improved version with reusable components. Once the essentials are complete, you may optionally split sections into additional views. Also set up the `/internal-app` route with its own layout and a basic entry screen, because we start filling it in next milestone. Bring in the TypeScript script from the business logic module (Milestone 2) so we have something visible there.
+> As for the app, the corporate website needs to live in Next.js — not as a copy, but as an improved version with reusable components. If you want to split any section into its own view, you can do that optionally once you have the important things done. And go ahead and set up the `/internal-app` structure with its own layout and an entry view, because we start filling it in the next milestone. Drop the TypeScript script from the business logic module (Milestone 2) in there so we have something to show.
 >
 > When you're done, open a PR and let me know.
 >
@@ -51,11 +45,9 @@ Your tech lead has had a ticket sitting on the board for two weeks:
 
 ### 💡 Memory bank, rules, and skills: what they are and why they matter
 
-A **memory bank** is a set of Markdown files that the coding agent reads before each session. It is not static documentation. It is the active context of the project: business description, architectural decisions made, active constraints, and the current state of development. Without it, every agent session starts from scratch and repeats the same mistakes.
+A **memory bank** is a set of Markdown files that the coding agent reads before each session. It is not static documentation — it is the active context of the project: business description, architectural decisions made, active constraints, and the current state of development. Without it, every agent session starts from scratch and repeats the same mistakes. That's why the memory bank must be updated every time the project evolves: new decisions, architecture changes, completed features, problems encountered. A memory bank that isn't kept up to date stops being useful within days. **Never forget this!**
 
-That is why the memory bank must be updated whenever the project evolves: new decisions, architecture changes, completed features, or problems encountered. A memory bank that is not maintained stops being useful within days.
-
-The expected structure for agent configuration in the monorepo is:
+The expected structure for agent configuration in the monorepo is the following:
 
 ```text
 ./.agents
@@ -68,25 +60,24 @@ The expected structure for agent configuration in the monorepo is:
 └─ <context>.md
 ```
 
-> ⚠️ **Attention:** Do not confuse `.agents/` with the `/agents` and `/skills` folders already present in the monorepo. `.agents/` is the configuration directory for coding agents (Cursor, Windsurf, Claude Code, etc.). The `/agents` and `/skills` folders are product-code spaces you will use in later milestones. One configures how the development agent works in this repository; the other contains company deliverables.
+> ⚠️ **Attention:** Do not confuse `.agents/` with the `/agents` and `/skills` folders you will see in the monorepo. `.agents/` is the configuration directory for coding agents (Cursor, Windsurf, Claude Code…) — this is where the rules and skills that teach the agent how to work in this repository go. The `/agents` and `/skills` folders are for the agents and integrations you will build for the company starting in later milestones. They are different things: one configures how your development tool works, the other is product code.
 
-Before creating any new folder, review the `README.md` inside each monorepo folder. The template repository already explains what belongs in each space. Following those instructions prevents duplication and keeps a structure the agent can navigate without ambiguity.
+Before creating any new folder, review the `README.md` inside each folder of the monorepo — the template repository includes instructions on what should go in each space. Following them will prevent duplication and keep a structure the agent can navigate without ambiguity.
 
-**Development rules** (`AGENTS.md` and `.agents/rules/`) define the protocol the agent must follow: what to read at the start, what steps are mandatory before each commit, which conventions to respect, and when to stop and ask for confirmation.
+**Development rules** (`AGENTS.md` and `.agents/rules/`) are the protocol the agent follows automatically: what to read at the start, what steps are mandatory before each commit, which conventions to respect, and when to stop and ask. They act as the team agreement that ensures the agent doesn't make decisions on its own where it shouldn't.
 
-An **agent skill** is a structured, reusable instruction. It is more concrete than a generic rule and must include a clear objective, defined inputs, expected output, and verifiable acceptance criteria. A good skill has one purpose and can be evaluated independently.
+An **agent skill** is a structured, reusable instruction: more concrete than a generic rule, with defined inputs, expected output, and verifiable acceptance criteria. A good skill has a single objective and can be tested independently.
 
 ---
 
 ## 🌱 How to Start the Project
 
-Read your assigned `CONTEXT.md` before doing anything else. The memory bank you build must describe your specific company scenario, not a generic fictional company.
+Read your `CONTEXT-company.md` before doing anything else. The memory bank you are going to build must describe the company and project from your specific scenario — not a generic fictional company.
 
 1. Fork the template repository: [ai-engineering-company-project-monorepo](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo)
-2. Open your fork in **GitHub Codespaces** or clone it locally
-3. Review the current monorepo structure before creating folders or files
-4. Configure your coding agent with access to the full repository
-5. Document the initial setup decisions in the memory bank **before** writing application code
+2. Open your fork in **GitHub Codespaces** or clone it locally, then review the existing structure before creating new folders
+3. Configure your coding agent with access to the full repository
+4. Document initial setup decisions in the memory bank **before** writing any application code
 
 ---
 
@@ -96,62 +87,47 @@ Read your assigned `CONTEXT.md` before doing anything else. The memory bank you 
 
 - [ ] Create the `memory-bank/` folder at the root of the monorepo with at least the following files:
   - [ ] `projectbrief.md` — business description, project objectives, and the problem it solves
-  - [ ] `techContext.md` — tech stack, architectural decisions already made, and technical constraints
-  - [ ] `progress.md` — current state of development, completed work, and planned next steps
-- [ ] Ensure those memory-bank files are specific to the company described in `CONTEXT.md`; generic template text will not be accepted
+  - [ ] `techContext.md` — tech stack, architectural decisions made, and technical constraints
+  - [ ] `progress.md` — current state of development and planned next steps
 - [ ] Create the `AGENTS.md` file at the root of the monorepo defining:
-  - [ ] which memory-bank files the agent must read at the start of each session
-  - [ ] the mandatory workflow before each commit, with a minimum of 4 explicit ordered steps
-  - [ ] the folders and files the agent **must not modify** without explicit developer confirmation
-- [ ] Create the `.agents/` folder with at least one development rule documented with an explicit scope:
-  - [ ] always active, or
-  - [ ] file-pattern based, or
-  - [ ] agent-requested
+  - [ ] Which memory bank files the agent must read at the start of each session
+  - [ ] The mandatory workflow before each commit (minimum 4 ordered, explicit steps)
+  - [ ] The folders and files the agent **must not modify** without explicit developer confirmation
+- [ ] Create the `.agents/` folder with at least one development rule documented with its scope (always active, file-pattern based, or agent-requested)
 - [ ] Implement at least one **agent skill** for a recurring workflow task, with:
-  - [ ] a single clearly defined objective
-  - [ ] documented inputs
-  - [ ] a documented procedure
-  - [ ] explicit and verifiable acceptance criteria
+  - [ ] A single, clearly defined objective
+  - [ ] Documented inputs
+  - [ ] Explicit and verifiable acceptance criteria
 
-⚠️ **IMPORTANT:** The memory bank, rules, and skill must be aligned with the data, processes, and constraints defined in your assigned `CONTEXT.md`. Infrastructure that ignores the company context will not be accepted.
+⚠️ **IMPORTANT:** The memory bank, rules, and skill must be aligned with the data, processes, and constraints defined in your `CONTEXT.md`. A generic infrastructure that ignores the company context will not be accepted.
 
 ### Next.js + TypeScript Application
 
-- [ ] Create a new Next.js + TypeScript application inside the monorepo, following the template repository structure
-- [ ] Place that application inside `apps/`
+- [ ] Initialise the Next.js + TypeScript project inside the monorepo following the template repository structure
 - [ ] Migrate and improve the corporate website from Milestone 1 as the home route (`/`):
-  - [ ] all Milestone 1 sections are present and complete
-  - [ ] the page is implemented with reusable React components and correct TypeScript typing
-  - [ ] the visual identity remains consistent with Milestone 1
-- [ ] Implement the `/internal-app` route inside the same Next.js application:
-  - [ ] the route `/internal-app` is accessible
-  - [ ] it has its own layout, separate from the public corporate website layout
-  - [ ] it renders a basic entry screen or starter dashboard structure
-- [ ] Integrate the TypeScript script from the business-logic module (Milestone 2) into `/internal-app`:
-  - [ ] the code is imported from its original location in the monorepo
-  - [ ] the logic is **not copied or rewritten** inside the Next.js app
-  - [ ] the output of that business logic is visible in the interface, not only in the console
-- [ ] Document how to run the app in development so it can be tested in Codespaces without ambiguity
-
-### Optional Enhancements
-
-- [ ] Optionally split sections of the corporate website into additional views **after** the required deliverables are complete
+  - [ ] All sections from Milestone 1 present and complete
+  - [ ] Implemented with reusable React components and correct TypeScript typing
+  - [ ] Styles consistent with the visual identity established in Milestone 1
+- [ ] Create the `/internal-app` folder inside the Next.js project:
+  - [ ] Route `/internal-app` accessible with a basic entry view (welcome screen or empty dashboard structure)
+  - [ ] Its own layout, separate from the public corporate website layout
+- [ ] Integrate the TypeScript script from the business logic module (Milestone 2) inside `/internal-app`:
+  - [ ] Code is imported from its original location in the monorepo — not copied
+  - [ ] The output of the business logic is visible in the interface (not just in the console)
 
 ---
 
 ## ✅ What We Will Evaluate
 
-- [ ] The memory bank contains both business context **and** technical context
-- [ ] The memory-bank content is specific to the assigned company case, not generic boilerplate
+- [ ] The memory bank contains both business context **and** technical context — not just one of the two
 - [ ] `AGENTS.md` specifies a workflow with at least 4 ordered steps before the commit
-- [ ] The `.agents/` folder contains at least one rule with an explicit application scope
-- [ ] The implemented skill has one objective, documented inputs, a defined procedure, and verifiable acceptance criteria
+- [ ] The `.agents/` folder contains at least one rule with an explicit scope of application
+- [ ] The implemented skill has a single objective, documented inputs, and verifiable acceptance criteria
 - [ ] The Next.js application starts without errors with `npm run dev`
-- [ ] The `/` route renders the complete corporate website with reusable TypeScript components
+- [ ] The `/` route renders the complete corporate website with TypeScript components
 - [ ] The `/internal-app` route exists, has its own layout, and renders without errors
-- [ ] The TypeScript script from Milestone 2 is integrated in `/internal-app` and produces visible output on screen
-- [ ] No business-logic code is duplicated; it is imported from its original location in the monorepo
-- [ ] The project can be run in Codespaces following the documented instructions
+- [ ] The TypeScript script (Milestone 2) is integrated in `/internal-app` and produces visible output on screen
+- [ ] No business logic code is duplicated — it is imported from its original location in the monorepo
 
 ---
 
@@ -161,10 +137,9 @@ Read your assigned `CONTEXT.md` before doing anything else. The memory bank you 
 2. Run the delivery workflow defined in your `AGENTS.md` before the final commit
 3. Open a Pull Request targeting the `main` branch of your fork
 4. In the PR description include:
-   - screenshot of the corporate website rendered in Next.js
-   - screenshot of `/internal-app` with the Milestone 2 TypeScript logic visible on screen
-   - direct link to your `AGENTS.md`
-   - a short note explaining where the original Milestone 2 business-logic module is being imported from
+   - Screenshot of the corporate website rendered in Next.js
+   - Screenshot of `/internal-app` with the TypeScript script (Milestone 2) visible on screen
+   - Direct link to your `AGENTS.md`
 5. Submit the link to your PR on the 4Geeks campus
 
 ---
