@@ -35,7 +35,7 @@ Al elegir, piensa más allá del sector que te resulte más familiar. Considera:
 
 1. Haz fork del repositorio plantilla: [https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo)
 2. Clona tu fork en tu máquina local o ábrelo en GitHub Codespaces.
-3. Lee los tres perfiles de empresa disponibles en los archivos [`CONTEXT-company.md`](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts/00-general-contexts) de este repositorio. Cada uno describe un escenario de empresa real con problemas por departamento, estructuras de datos, personajes y un milestone map.
+3. Lee los tres perfiles de empresa disponibles en los [archivos de contexto general `CONTEXT-company.md` de este repositorio](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts/00-general-contexts). Cada uno describe un escenario de empresa real con problemas por departamento, estructuras de datos, personajes y un milestone map.
 4. Completa el entregable que se describe a continuación.
 
 ---

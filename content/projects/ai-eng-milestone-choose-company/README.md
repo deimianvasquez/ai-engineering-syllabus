@@ -35,7 +35,7 @@ When choosing, think beyond the sector you find most familiar. Consider: which c
 
 1. Fork the template repository: [https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo)
 2. Clone your fork to your local machine or open it in GitHub Codespaces.
-3. Read the three company profiles available in the [`CONTEXT-*.md`](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts/00-general-contexts) files in this repository. Each one describes a real company scenario with department problems, data structures, characters, and a milestone map.
+3. Read the three company profiles available in the [general context files `CONTEXT-company.md` in this repository](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts/00-general-contexts). Each one describes a real company scenario with department problems, data structures, characters, and a milestone map.
 4. Complete the deliverable described below.
 
 ---
