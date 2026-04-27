@@ -115,6 +115,24 @@ Safety rule:
 - Do not run global regeneration across all projects unless the user explicitly requests it.
 - Apply social-sharing only to the target project.
 
+## Automation command (recommended)
+
+Use this command as the default execution path for new projects from README:
+
+```bash
+python3 .cursor/skills/readme-project-orchestrator/scripts/orchestrate_project_from_readme.py \
+  --repo-root . \
+  --target-slug "<target-slug>" \
+  --source-readme "<absolute-or-relative-path-to-readme>" \
+  --source-readme-es "<optional-path-to-readme-es>"
+```
+
+Notes:
+
+- The orchestrator bootstraps `README.md`, `README.es.md`, `.learn/solution/README.md`, and `learn.json`.
+- It then calls `generate-project-social-sharing` scoped by `--slug` to generate `.learn/preview.png` and `sharing` for the target project only.
+- If a translation file is not provided, it creates a fallback counterpart that must be replaced with a proper translation pass.
+
 ## Validation checklist (must pass)
 
 - [ ] `README.md` and `README.es.md` both exist and are aligned.

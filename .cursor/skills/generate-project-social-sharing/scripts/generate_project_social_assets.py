@@ -69,11 +69,6 @@ def parse_args() -> argparse.Namespace:
         help="Absolute base URL used to build preview URLs.",
     )
     parser.add_argument(
-        "--write-both-preview-keys",
-        action="store_true",
-        help="Also write the alternate preview key (preview or preview_url).",
-    )
-    parser.add_argument(
         "--sharing-key",
         default="sharing",
         help="learn.json key used to store social-sharing messages.",
@@ -100,6 +95,11 @@ def parse_args() -> argparse.Namespace:
         "--dry-run",
         action="store_true",
         help="Show planned operations without writing files.",
+    )
+    parser.add_argument(
+        "--slug",
+        default="",
+        help="Process only one project slug (default: all projects).",
     )
     return parser.parse_args()
 
@@ -252,8 +252,16 @@ def main() -> int:
         return 1
 
     learn_files = sorted(projects_dir.glob("*/learn.json"))
+    if args.slug:
+        learn_files = [
+            f for f in learn_files if f.parent.name == args.slug.strip()
+        ]
     if not learn_files:
-        print(f"No learn.json files found in: {projects_dir}")
+        if args.slug:
+            print(
+                f"No learn.json found for slug '{args.slug}' in: {projects_dir}")
+        else:
+            print(f"No learn.json files found in: {projects_dir}")
         return 1
 
     generated = 0
@@ -303,9 +311,11 @@ def main() -> int:
         generated += 1
 
         learn_data[args.preview_key] = preview_absolute_url
-        if args.write_both_preview_keys:
-            alternate = "preview" if args.preview_key == "preview_url" else "preview_url"
-            learn_data[alternate] = preview_absolute_url
+        # Keep only one preview field by convention.
+        if args.preview_key != "preview" and "preview" in learn_data:
+            del learn_data["preview"]
+        if args.preview_key != "preview_url" and "preview_url" in learn_data:
+            del learn_data["preview_url"]
         if not args.skip_sharing:
             learn_data[args.sharing_key] = build_sharing_messages(
                 learn_data,

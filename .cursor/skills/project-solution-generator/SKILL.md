@@ -1,13 +1,13 @@
 ---
 name: project-solution-file
-description: Define and maintain a canonical solution file per project under .learn/solution and link it from the project's .learn/learn.json via a solution attribute. Use when creating or updating project solutions so students and LLMs can compare their work against a reference implementation.
+description: Define and maintain a canonical solution file per project under .learn/solution and link it from the project's learn.json via a solution attribute. Use when creating or updating project solutions so students and LLMs can compare their work against a reference implementation.
 ---
 
 # Project Solution File
 
 ## Purpose
 
-Use this skill to ensure each project has one canonical reference solution under `.learn/solution/`, documented with a README, and linked from `.learn/learn.json` using `solution`.
+Use this skill to ensure each project has one canonical reference solution under `.learn/solution/`, documented with a README, and linked from `learn.json` using `solution`.
 
 This enables:
 
@@ -20,7 +20,7 @@ Use this skill whenever:
 
 - You create a new evaluable project (milestones, guided projects, collaborative projects).
 - You add or update a reference solution for an existing project.
-- You audit whether a project has a valid solution link in `.learn/learn.json`.
+- You audit whether a project has a valid solution link in `learn.json`.
 
 ## Required conventions
 
@@ -42,7 +42,7 @@ Use this skill whenever:
        - Any relevant deployment or infrastructure considerations
 
 3. **`learn.json` linkage**
-   - Add/update `"solution"` in `.learn/learn.json`.
+   - Add/update `"solution"` in `learn.json`.
    - The value must be the **full URL in the repository** pointing to `.learn/solution/README.*` (not a relative path).
    - Example: `"solution": "https://github.com/ORG/REPO/blob/BRANCH/path/to/project/.learn/solution/README.md"`
    - Use the repository's canonical pattern consistently.
@@ -138,7 +138,7 @@ Recommended files in `.learn/solution/`:
    - Include indicative examples (sample outputs, screenshots, annotated snippets) that make the expected result concrete.
    - If the project involves multiple services, queues, agent pipelines, or background processing, add an architecture section to the README.
 
-5. **Link in `.learn/learn.json`**
+5. **Link in `learn.json`**
    - Add/update `"solution"` with the full repository URL to `README.*`.
    - Ensure no duplicated or conflicting `solution` entries.
 
@@ -156,7 +156,7 @@ Recommended files in `.learn/solution/`:
 
 When evaluating:
 
-1. Read project instructions/context and `.learn/learn.json`.
+1. Read project instructions/context and `learn.json`.
 2. Read `.learn/solution/README.*` as the primary reference.
 3. Compare submission against required aspects from the reference solution.
 4. Use indicative examples to assess correctness of outputs or behavior.
@@ -164,11 +164,11 @@ When evaluating:
 
 ## Quick checklist
 
-- [ ] Project has `.learn/` and `.learn/learn.json`.
+- [ ] Project has `.learn/` and `learn.json`.
 - [ ] Project has `.learn/solution/`.
 - [ ] `.learn/solution/README.md` exists and is clear.
 - [ ] All solution files are inside `.learn/solution/`.
-- [ ] `.learn/learn.json` includes a valid `"solution"` attribute with a full repository URL pointing to `README.*`.
+- [ ] `learn.json` includes a valid `"solution"` attribute with a full repository URL pointing to `README.*`.
 - [ ] Solution covers all evaluated project requirements.
 - [ ] README includes indicative examples of correct deliverables (sample outputs, snippets, screenshots).
 - [ ] README includes architecture documentation if the project involves multiple services, queues, agent orchestration, or background processing.
