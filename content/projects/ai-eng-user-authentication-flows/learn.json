@@ -1,0 +1,37 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Connecting the Lock: Authentication Flows in the Frontend",
+    "es": "Conectando el Candado: Flujos de Autenticación en el Frontend"
+  },
+  "description": {
+    "en": "Complete the Connecting the Lock: Authentication Flows in the Frontend project following the README instructions.",
+    "es": "Completa el proyecto Conectando el Candado: Flujos de Autenticación en el Frontend siguiendo las instrucciones del README."
+  },
+  "status": "draft",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "slug": "ai-eng-user-authentication-flows",
+  "difficulty": "intermediate",
+  "duration": 2,
+  "technologies": [
+    "architecture",
+    "backend-design",
+    "fastapi",
+    "technical-documentation"
+  ],
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=",
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-user-authentication-flows/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-user-authentication-flows/.learn/preview.png",
+  "sharing": [
+    {
+      "en": "I just completed Connecting the Lock: Authentication Flows in the Frontend with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-user-authentication-flows #AIEngineering #LearnPack #4GeeksAcademy #architecture #backenddesign #fastapi",
+      "es": "Acabo de completar Conectando el Candado: Flujos de Autenticación en el Frontend con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-user-authentication-flows #AIEngineering #LearnPack #4GeeksAcademy #architecture #backenddesign #fastapi"
+    },
+    {
+      "en": "Built and shipped: Connecting the Lock: Authentication Flows in the Frontend. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-user-authentication-flows #AIEngineering #LearnPack #4GeeksAcademy #architecture #backenddesign #fastapi",
+      "es": "Construido y publicado: Conectando el Candado: Flujos de Autenticación en el Frontend. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-user-authentication-flows #AIEngineering #LearnPack #4GeeksAcademy #architecture #backenddesign #fastapi"
+    }
+  ]
+}
