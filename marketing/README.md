@@ -81,14 +81,15 @@ The technical heart of the program. You will build agents that can call tools, a
 
 ### Agentic Workflows
 
-`Multi-Agent Systems` `Routing` `Serverless` `Cronjobs`
+`Multi-Agent Systems` `LangGraph` `Routing` `Serverless` `Cronjobs`
 
-When one agent is not enough. You will learn to design systems where multiple agents collaborate, distribute tasks, and share memory. You will implement agentic pipelines with serverless functions and cron jobs that run autonomously, continuously, and at scale.
+When one agent is not enough. You will learn to design and orchestrate multi-agent systems with LangGraph, where multiple agents collaborate, route tasks, and share working context. You will implement agentic pipelines with serverless functions and cron jobs that run autonomously, continuously, and at scale.
 
 **Skills developed:**
 
 - Design multi-agent systems with routing and arbitration
 - Implement shared memory across agents
+- Implement multi-agent architectures with LangGraph and state control
 - Deploy agentic workflows with serverless and durable functions
 
 ---

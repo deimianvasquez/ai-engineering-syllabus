@@ -81,15 +81,16 @@ El corazón técnico del programa. Construirás agentes capaces de llamar herram
 
 ### Agentic Workflows
 
-`Multi-Agent Systems` `Routing` `Serverless` `Cronjobs`
+`Multi-Agent Systems` `LangGraph` `Routing` `Serverless` `Cronjobs`
 
-Cuando un agente no es suficiente. Aprenderás a diseñar sistemas donde múltiples agentes colaboran, se distribuyen tareas y comparten memoria. Implementarás pipelines agentic con funciones serverless y cronjobs que operan de forma autónoma, continua y escalable.
+Cuando un agente no es suficiente. Aprenderás a diseñar y orquestar sistemas multiagente con LangGraph, donde varios agentes colaboran, enrutan tareas y comparten contexto de trabajo. Implementarás pipelines agentic con funciones serverless y cronjobs que operan de forma autónoma, continua y escalable.
 
 **Habilidades desarrolladas:**
 
 - Diseñar sistemas multi-agente con routing y arbitraje
 - Implementar memoria compartida entre agentes
-- Desplegar workflows agentic con funciones serverless y durable
+- Implementar arquitecturas multiagente con LangGraph y control de estados
+- Desplegar workflows agentic con funciones serverless y ejecucion durable
 
 ---
 
