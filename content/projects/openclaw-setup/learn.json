@@ -21,7 +21,7 @@
   ],
   "translations": ["es", "en"],
   "projectType": "project",
-  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=",
+  "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3523",
   "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/openclaw-setup/.learn/solution/README.md",
   "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/openclaw-setup/.learn/preview.png",
   "sharing": [
