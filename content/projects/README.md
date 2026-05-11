@@ -29,67 +29,70 @@ Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, acce
 6. **[Connect Your Agent: Telegram, Google Drive & Calendar](./openclaw-connection)**  
    Configuration-only project: Telegram channel, Zapier MCP, Google Drive and Calendar actions, and an end-to-end flow confirmed in screenshots (after OpenClaw is running).
 
-7. **[Cinema Seat Manager (TypeScript)](./seats-management-typescript)**  
+7. **[My Agent, My Way: Teaching Your Personal Assistant New Skills](./openclaw-skills)**  
+   Continue in your existing OpenClaw environment and repo from prior assignments: fill the five `.openclaw` briefing files, commit `SKILLS_DESIGN.md`, and implement at least two OpenClaw skills using only Composio integrations you already have (Google apps, GitHub, Telegram); add any missing paths per your instructor and OpenClaw docs.
+
+8. **[Cinema Seat Manager (TypeScript)](./seats-management-typescript)**  
    Command-line cinema seat reservation system using a 2D array, with reserve, count, and adjacent-seat search functions.
 
-8. **[Music Playlist Player — Object modeling](./data-modeling-and-class-diagrams-music-player)**  
+9. **[Music Playlist Player — Object modeling](./data-modeling-and-class-diagrams-music-player)**  
    UML-style class diagram for a music playlist player in diagram.4geeks.com: entities, data types, and relationships.
 
-9. **[Digital Wallet — Object modeling](./data-modeling-and-class-diagrams-digital-wallet)**  
-   UML-style class diagram for a digital wallet with transaction history in diagram.4geeks.com: entities, data types, and relationships.
+10. **[Digital Wallet — Object modeling](./data-modeling-and-class-diagrams-digital-wallet)**  
+    UML-style class diagram for a digital wallet with transaction history in diagram.4geeks.com: entities, data types, and relationships.
 
-10. **[Company Project Milestone: Coding Fundamentals (TypeScript)](./ai-eng-milestone-coding-fundamentals)**  
+11. **[Company Project Milestone: Coding Fundamentals (TypeScript)](./ai-eng-milestone-coding-fundamentals)**  
     `Milestone 2` — Programming fundamentals with TypeScript: small, testable modules focusing on control flow, arrays, objects, functions, and edge cases, using clean code practices.
 
-11. **[AI Agent Rental Platform: Admin panel prototype](./agent-hub-ui-specs-and-prompts)**  
+12. **[AI Agent Rental Platform: Admin panel prototype](./agent-hub-ui-specs-and-prompts)**  
     Spec-driven frontend project for a multi-view admin panel: write `SPECS.md` first, then build dashboard and management views with HTML, Tailwind, and vanilla JavaScript interactions.
 
-12. **[Talk to the Machine: Chat interface with a real AI API](./chat-interface-real-ai-api)**  
+13. **[Talk to the Machine: Chat interface with a real AI API](./chat-interface-real-ai-api)**  
     Build a browser-based chat interface that calls the Groq API with `fetch`, sends full conversation history, and tracks cumulative token usage plus response metrics.
 
-13. **[Wanderlust Explorer with React and Next.js](./nextjs-wanderlust-explorer)**  
+14. **[Wanderlust Explorer with React and Next.js](./nextjs-wanderlust-explorer)**  
     Next.js App Router app from scratch: experiences list with URL-driven search and filters, detail pages, favorites in state, and a local TypeScript dataset.
 
-14. **[Building an Airbnb UI Clone with Next.js and React](./nextjs-airbnb-ui-clone)**  
+15. **[Building an Airbnb UI Clone with Next.js and React](./nextjs-airbnb-ui-clone)**  
     Next.js 16 + TypeScript + Tailwind UI clone from a product brief: layout, reusable components, and typed listing data.
 
-15. **[Company Project Milestone: Talent Pipeline Tracker](./ai-eng-milestone-talent-pipeline-tracker)**  
+16. **[Company Project Milestone: Talent Pipeline Tracker](./ai-eng-milestone-talent-pipeline-tracker)**  
     `Milestone 3` — Next.js App Router frontend for the recruitment API: candidate list and detail, filters and search, notes CRUD, register and edit forms, async UI states, and TypeScript types aligned with CONTEXT-company.md.
 
-16. **[Company financial dashboard context project](./company-financial-dashboard-context-project)**  
+17. **[Company financial dashboard context project](./company-financial-dashboard-context-project)**  
     Module project focused on repository stewardship: fork an existing full-stack repo, validate AI-generated project understanding, define and test actionable rules under `.agents/rules`, and generate a `memory-bank` with product, stack, and current status.
 
-17. **[Company financial dashboard specs project](./company-financial-dashboard-specs-project)**  
+18. **[Company financial dashboard specs project](./company-financial-dashboard-specs-project)**  
     Spec-first assignment on the existing financial dashboard repo: TypeScript types aligned with `/docs`, `components.md`, and a data-contract README for a date range filter, anomaly alerts table, and B2B vs B2C revenue comparison—no React implementation.
 
-18. **[Company financial dashboard skills project](./company-financial-dashboard-skills-project)**  
+19. **[Company financial dashboard skills project](./company-financial-dashboard-skills-project)**  
     Continue on the same financial dashboard repo: apply agent skills (`accessibility`, `vercel-react-best-practices`), explore `skills.sh` with `npx skills find`, author a custom skill under `.skills/`, and update the memory bank—targeted improvements, not a full rebuild.
 
-19. **[Voice to-do list with AI API](./voice-to-do-list-api)**  
+20. **[Voice to-do list with AI API](./voice-to-do-list-api)**  
     Build a voice-powered to-do flow that captures user input, integrates with an AI API, and transforms spoken requests into actionable task management behavior.
 
-20. **[Supplier Directory — Lightweight Storage API](./ai-eng-supplier-directory)**  
+21. **[Supplier Directory — Lightweight Storage API](./ai-eng-supplier-directory)**  
     FastAPI + TinyDB + Pydantic supplier API: seeded data from `CONTEXT`, validation, CRUD, and filter endpoints (by country and category) with rate-change timestamps.
 
-21. **[Securing the API: Authentication and Route Restriction in FastAPI](./ai-eng-user-authentication-api)**  
+22. **[Securing the API: Authentication and Route Restriction in FastAPI](./ai-eng-user-authentication-api)**  
     JWT-based auth on the supplier API: register, login, protected routes, password hashing, and ownership checks.
 
-22. **[Connecting the Lock: Authentication Flows in the Frontend](./ai-eng-user-authentication-flows)**  
+23. **[Connecting the Lock: Authentication Flows in the Frontend](./ai-eng-user-authentication-flows)**  
     Frontend flows against the secured API: login, register, session handling, and protected views.
 
-23. **[The Missing Piece: Password Reset Flow](./ai-eng-user-authentication-restore)**  
+24. **[The Missing Piece: Password Reset Flow](./ai-eng-user-authentication-restore)**  
     End-to-end password reset: secure tokens, email or dev stub, and UI/API alignment.
 
-24. **[Incident Analyzer — Script and Control Panel](./ai-eng-company-incidents-file-analyzer)**  
+25. **[Incident Analyzer — Script and Control Panel](./ai-eng-company-incidents-file-analyzer)**  
     Python script to validate and summarize incident CSVs (sensitive data stays internal), then FastAPI + web UI to upload files, view summaries, and export results.
 
-25. **[AI basic Inventory Agent Loop](./ai-basic-inventory-agent-loop)**  
+26. **[AI basic Inventory Agent Loop](./ai-basic-inventory-agent-loop)**  
     Build a basic FastAPI inventory API plus a Python AI agent loop that uses API endpoints as tools, logs each interaction to CSV, and supports natural-language stock operations.
 
-26. **[Backend Architecture Proposal](./ai-eng-architectural-proposal)**  
+27. **[Backend Architecture Proposal](./ai-eng-architectural-proposal)**  
     Produce an architecture document and diagrams for extending the company system (services, data, risks, and trade-offs).
 
-27. **[Milestone 4 — AI-driven Engineering](./ai-eng-ai-driven-engineering)**  
+28. **[Milestone 4 — AI-driven Engineering](./ai-eng-ai-driven-engineering)**  
     `Milestone 4` — Monorepo layout: public Next.js site, internal backoffice, services/APIs, and integration of prior milestones with an AI-assisted delivery workflow.
 
 ---
