@@ -61,7 +61,7 @@ No hay código de inicio. El proyecto parte desde cero.
 ### Seeder
 
 - [ ] Crea un script `seed.py` que cargue los proveedores iniciales definidos en tu CONTEXT en TinyDB.
-- [ ] El seeder debe poder ejecutarse con `pipenv run seed` sin modificar el código.
+- [ ] El seeder debe poder ejecutarse con `uv run seed` sin modificar el código.
 - [ ] Si la base de datos ya tiene datos, el seeder no debe duplicarlos — verifica antes de insertar.
 - [ ] Confirma en consola cuántos registros se han insertado al finalizar.
 
@@ -99,7 +99,7 @@ No hay código de inicio. El proyecto parte desde cero.
 
 ### Seeder
 
-- [ ] `pipenv run seed` se ejecuta sin errores y carga los proveedores del CONTEXT en la base de datos.
+- [ ] `uv run seed` se ejecuta sin errores y carga los proveedores del CONTEXT en la base de datos.
 - [ ] La ejecución repetida del seeder no produce duplicados.
 - [ ] El número de registros insertados se confirma en consola al finalizar.
 
@@ -151,7 +151,7 @@ uis/
 
 1. Sube tu rama con la estructura anterior y abre un Pull Request al repositorio original.
 2. Asegúrate de que el PR incluye:
-   - Una captura del resultado de `pipenv run seed` en la terminal.
+   - Una captura del resultado de `uv run seed` en la terminal.
    - Una captura de la respuesta de al menos uno de los endpoints de filtrado (por país o por categoría) en Swagger UI o un cliente HTTP.
    - Una captura del listado de proveedores en la interfaz web con al menos un filtro aplicado.
 
