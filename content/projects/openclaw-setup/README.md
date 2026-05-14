@@ -45,11 +45,6 @@ This project does not use a starter repository — it is a server configuration 
    ```
 
 3. Follow the 4Geeks OpenClaw installation guide (read the lesson "Setting Up Your Personal AI Assistant") step by step — do not skip any phase.
-4. Openclaw creates a git repository on your workspace folder, this is great, we need to make sure to commit and push it to github:
-
-     4.1 Create a **new GitHub repository** named `openclaw-setup-<your_github_username>` to save your entire openclaw workspace and files, Github will be used as the main backup for your agent.  
-     4.1 Navigate to your workspace folder by typing `$ cd ~/.openclaw/workspace` and git add, commit and push.  
-     4.2 After you push make sure the repo is updated on github.com, navigate to github.com and find your repo.
 
 > If you are working locally instead of on a VPS, confirm this with your instructor first. The setup steps differ.
 
@@ -68,7 +63,7 @@ This project does not use a starter repository — it is a server configuration 
 
 ### Core Configuration (in order)
 
-- [ ] Configure the **LiteLLM provider** as the model backend.
+- [ ] Configure the **LiteLLM provider** as the model provider.
 - [ ] Enter a valid **API Key** for the chosen model provider.
 - [ ] Skip the Skills configuration step (this will be addressed in a future session).
 - [ ] Enable **hooks** when prompted during setup.
@@ -87,18 +82,102 @@ Now that OpenClaw is running, it's time to make it truly yours. Instead of manua
 
 > **Tip:** You can say something like: _"I want to configure you. Set your name to Kai, your emoji to 🤖, and your greeting to 'Hello, I'm Kai, how can I help you today?'"_
 
-- [ ] Once configured, locate the `.openclaw/IDENTITY.md` file on your server.
-- [ ] Read through it to confirm your personalization was applied correctly.
-- [ ] Copy the `.openclaw/IDENTITY.md` file to your local machine and include it in your delivery repository.
+- [ ] Once configured, verify that your personalization was applied by checking the greeting in the chat interface.
 
-⚠️ **SECURITY WARNING:** Never commit files containing API keys, tokens, credentials, or sensitive data to GitHub. The `.openclaw/IDENTITY.md` file is safe to share because it only contains public personalization data (Name, Emoji, Greeting). However, **never upload** files like `openclaw.json`, `.env`, configuration files with secrets, or any file containing sensitive information.
+### Setting Up GitHub Backup
 
-### Delivery Evidence
+OpenClaw creates a workspace folder at `~/.openclaw/workspace` where it stores your assistant's configuration and chat history. You'll push this workspace to GitHub as your project delivery.
 
-- [ ] Take a screenshot of the OpenClaw local chat interface showing a successful AI response.
-- [ ] Add the screenshot to your GitHub repository as `proof.png` (or `.jpg`).
-- [ ] Add the `.openclaw/IDENTITY.md` file to your repository (this proves you successfully personalized your assistant).
-- [ ] Add a `README.md` to your repository with: the VPS provider used, the model chosen, and one sentence explaining why you selected that model for a general-purpose assistant task.
+#### Step 1: Create SSH Key on the Server
+
+> **GitHub guide:** For the official walkthrough (key generation, passphrase, and adding the key to the `ssh-agent` on Linux), see [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+
+- [ ] Generate an SSH key on your VPS:
+
+  ```bash
+  ssh-keygen -t ed25519 -C "your_email_in_github@example.com"
+  ```
+
+- [ ] Press Enter to accept the default file location.
+- [ ] Press Enter twice to skip the passphrase (optional, but recommended for automation).
+- [ ] Display your public key:
+
+  ```bash
+  cat ~/.ssh/id_ed25519.pub
+  ```
+
+- [ ] Copy the entire output (starts with `ssh-ed25519`).
+
+#### Step 2: Add SSH Key to GitHub
+
+- [ ] Go to [GitHub SSH Settings](https://github.com/settings/keys).
+- [ ] Click **"New SSH key"**.
+- [ ] Give it a title (e.g., "OpenClaw VPS").
+- [ ] Paste your public key into the "Key" field.
+- [ ] Click **"Add SSH key"**.
+
+#### Step 3: Create GitHub Repository
+
+- [ ] Go to [GitHub](https://github.com/new) and create a **new repository**.
+- [ ] Name it: `openclaw-setup-<your_github_username>` (replace with your actual username).
+- [ ] Make it **Public** or **Private** (your choice).
+- [ ] **Do NOT** initialize with README, .gitignore, or license.
+- [ ] Click **"Create repository"**.
+
+#### Step 4: Connect Workspace to GitHub
+
+- [ ] On your VPS, navigate to the OpenClaw workspace:
+
+  ```bash
+  cd ~/.openclaw/workspace
+  ```
+
+- [ ] Initialize git if not already initialized:
+
+  ```bash
+  git init
+  git branch -M main
+  ```
+
+- [ ] Add the GitHub remote (replace with your repository URL):
+
+  ```bash
+  git remote add origin git@github.com:your_username/openclaw-setup-your_username.git
+  ```
+
+- [ ] Stage all files:
+
+  ```bash
+  git add .
+  ```
+
+- [ ] Commit your changes:
+
+  ```bash
+  git commit -m "Initial OpenClaw setup with personalized identity"
+  ```
+
+- [ ] Push to GitHub:
+
+  ```bash
+  git push -u origin main
+  ```
+
+#### Step 5: Verify Upload
+
+- [ ] Go to `https://github.com/your_username/openclaw-setup-your_username` in your browser.
+- [ ] Confirm that your workspace files are visible, including `.openclaw/IDENTITY.md`.
+- [ ] Take a screenshot of your GitHub repository page showing the uploaded workspace.
+
+⚠️ **SECURITY WARNING:** The workspace folder should **only** contain safe files created by OpenClaw (like `IDENTITY.md` and chat logs). However, **before pushing**, verify that no sensitive files accidentally ended up in the workspace:
+
+```bash
+cd ~/.openclaw/workspace
+ls -la
+cat .gitignore  # Check what's being ignored
+```
+
+If you see files like `openclaw.json`, `.env`, or any configuration with API keys in the workspace, **do NOT push**. Contact your instructor first.
 
 ---
 
@@ -106,28 +185,46 @@ Now that OpenClaw is running, it's time to make it truly yours. Instead of manua
 
 - [ ] OpenClaw is correctly installed and accessible on the VPS.
 - [ ] LiteLLM provider is configured and connected to a working AI model.
-- [ ] The local chat interface returns a valid AI response (evidenced by screenshot).
+- [ ] The local chat interface returns a valid AI response (verified on server or by screenshot).
+- [ ] GitHub repository `openclaw-setup-<your_username>` exists and is accessible.
+- [ ] The workspace folder (`~/.openclaw/workspace`) has been successfully pushed to GitHub.
 - [ ] `.openclaw/IDENTITY.md` is present in the repository showing personalized Name, Emoji, and Greeting.
 - [ ] The personalization was done by conversing with OpenClaw (not by manually editing files).
-- [ ] The delivery `README.md` includes the required fields: VPS provider, model name, and model selection rationale.
+- [ ] SSH key was properly configured to enable git push from the VPS.
+- [ ] Git commit history shows at least one commit with workspace contents.
+- [ ] No sensitive files (API keys, tokens, credentials) were pushed to the repository.
 - [ ] SSH was used to connect to the VPS (not a web-based console or GUI tool).
 - [ ] Configuration steps were followed in the correct order as specified in the 4Geeks guide.
 
-> Note: The instructor may verify the assistant's personalization directly on the server to ensure the configuration was applied correctly.
+> Note: The instructor may verify the assistant's configuration directly on the server and review your Git commit history to ensure proper workflow was followed.
 
 ---
 
 ## 📦 How to Submit
 
-Push your repository to GitHub (it should contain `proof.png`, `.openclaw/IDENTITY.md`, and a `README.md` with your VPS/model documentation) and share the link according to your instructor's instructions.
+Your delivery is the entire `~/.openclaw/workspace` folder pushed to GitHub from your VPS. Share your repository URL according to your instructor's instructions.
 
-⚠️ **BEFORE PUSHING:** Double-check that you are NOT uploading any files with API keys, tokens, credentials, or sensitive configuration. Only upload:
+**Your repository should contain:**
 
-- `proof.png` (screenshot)
-- `.openclaw/IDENTITY.md` (safe - only Name, Emoji, Greeting)
-- `README.md` (your documentation)
+- `.openclaw/IDENTITY.md` (your personalized assistant identity)
+- Any chat logs or workspace files created by OpenClaw
+- Git commit history showing the push from the VPS
 
-**Never upload:** `openclaw.json`, `.env`, credential files, or any configuration containing secrets.
+**Submission format:** `https://github.com/your_username/openclaw-setup-your_username`
+
+⚠️ **FINAL SECURITY CHECK:** Before submitting, verify that your workspace does NOT contain:
+
+- `openclaw.json` (main config file - contains secrets)
+- `.env` files
+- API keys or tokens
+- Any credential files
+
+If you accidentally pushed sensitive files, **immediately**:
+
+1. Delete the repository on GitHub
+2. Remove sensitive files from workspace
+3. Create a new repository and push again
+4. Contact your instructor for guidance
 
 ---
 
