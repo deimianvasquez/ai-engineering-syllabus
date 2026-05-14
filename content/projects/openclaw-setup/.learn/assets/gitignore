@@ -1,0 +1,32 @@
+# By default we will ignore all files, and below we will start specifying which 
+# ones to include by adding an exclamation symbol at the beginning of each line
+*
+!.gitignore
+
+
+# We will ignore the openclaw configuration for now
+# because it has keys and secrets, but you can
+# uncomment the line below in the future to include your configuration
+#!openclaw.json
+
+
+# ABOUT THE CREDENTIALS
+!credentials/
+credentials/*
+!credentials/*.json
+
+
+# ABOUT THE WORKSPACE
+!workspace/
+workspace/*
+workspace/AGENTS.md
+workspace/BOOT.md
+workspace/SOUL.md
+workspace/MEMORY.md
+workspace/IDENTITY.md
+workspace/TOOLS.md
+
+
+# We want to make sure the skills are backed up in github as well
+!workspace/skills/
+!workspace/skills/**
