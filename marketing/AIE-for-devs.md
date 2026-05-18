@@ -1,4 +1,4 @@
-# AI Engineering from devs — Program modules
+# AI Engineering for devs — Program modules
 
 _Este contenido también está disponible en [espanol](./AIE-from-devs.es.md)._
 
@@ -16,7 +16,7 @@ If you have been building software professionally and want to reposition yoursel
 
 ### Personal Assistants with OpenClaw
 
-`AI` `Agents` `OpenClaw` `Deployment`
+`OpenClaw` `Setup` `Deploy`
 
 You will learn to deploy and configure an open-source, self-hosted AI assistant — yours, under your control, without relying on external vendors. The practical foundation for the program's more advanced agent modules.
 
@@ -44,7 +44,7 @@ You will take your basic assistant agent to a productive tool. You will learn to
 
 ### Working with AI Coding Agents
 
-`Coding Agents` `Context Engineering` `Agent Rules` `Memory Banks` `Skills`
+`Coding Agents` `Context Engineering` `Agent Rules` `Memory Banks` `Skills` `SDD`
 
 The leap from "using AI" to "working professionally with AI." You will learn to build memory banks and context rules that turn a coding agent into a collaborator that understands your codebase. You will master writing specifications an agent can execute with precision.
 
@@ -138,7 +138,7 @@ Performance strategies for frontend and backend systems that serve AI workloads.
 
 ### Data Pipelines
 
-`Pandas` `ETL` `Data Pipelines`
+`Pandas` `ETL` `Data Pipelines` `Data optimization`
 
 Data is the fuel of any AI solution. You will learn to build pipelines that take raw data from an application, transform it, and leave it ready to feed models, reports, or agents — the link that determines output quality.
 
@@ -166,7 +166,7 @@ You cannot improve what you do not measure. You will learn to instrument applica
 
 ### Asynchronous Processing and Agentic Deployment
 
-`Queues` `Background Jobs` `Workers` `Redis` `Serverless` `Durable Execution` `Cronjobs`
+`Queues` `Background Jobs` `Workers` `RabbitMQ` `Serverless` `Durable Execution` `Cronjobs`
 
 Tasks that must not block the user go to the queue — and agent workflows that must run reliably go here too. You will learn to implement background processing and queue systems that let agents and applications delegate heavy work without sacrificing response time. Then you will take it further: deploying agentic workflows into production with serverless functions, durable execution patterns, and cron-triggered pipelines. You will implement retry and resume from checkpoints, trigger LangGraph pipelines via webhooks, and build the infrastructure that keeps multi-agent systems running autonomously, continuously, and at scale.
 

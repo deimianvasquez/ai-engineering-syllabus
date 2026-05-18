@@ -1,4 +1,4 @@
-# AI Engineering from devs — Módulos del programa
+# AI Engineering for devs — Módulos del programa
 
 _This content is also available in [English](./AIE-from-devs.md)._
 
@@ -16,7 +16,7 @@ Si llevas años construyendo software de forma profesional y quieres reposiciona
 
 ### Asistentes personales con OpenClaw
 
-`IA` `Agentes` `OpenClaw` `Despliegue`
+`OpenClaw` `Setup` `Deploy`
 
 Aprenderás a desplegar y configurar un asistente de IA de código abierto y autoalojado — tuyo, bajo tu control, sin depender de proveedores externos. La base práctica sobre la que se construyen los módulos de agentes más avanzados del programa.
 
@@ -44,7 +44,7 @@ Convertirás tu agente asistente básico en una herramienta productiva. Aprender
 
 ### Trabajar con agentes de codificación IA
 
-`Coding Agents` `Context Engineering` `Reglas de agente` `Memory Banks` `Habilidades`
+`Coding Agents` `Context Engineering` `Reglas de agente` `Memory Banks` `Habilidades` `SDD`
 
 El salto de "usar IA" a "trabajar profesionalmente con IA." Aprenderás a construir memory banks y reglas de contexto que convierten a un agente de codificación en un colaborador que entiende tu base de código. Dominarás la escritura de especificaciones que un agente puede ejecutar con precisión.
 
@@ -138,7 +138,7 @@ Estrategias de rendimiento para sistemas frontend y backend que sirven cargas de
 
 ### Pipelines de datos
 
-`Pandas` `ETL` `Pipelines de datos`
+`Pandas` `ETL` `Pipelines de datos` `Data optimization`
 
 Los datos son el combustible de cualquier solución de IA. Aprenderás a construir pipelines que toman datos brutos de una aplicación, los transforman y los dejan listos para alimentar modelos, informes o agentes — el eslabón que determina la calidad del resultado.
 
@@ -166,7 +166,7 @@ No puedes mejorar lo que no mides. Aprenderás a instrumentar aplicaciones para 
 
 ### Procesamiento asíncrono y despliegue agéntico
 
-`Colas` `Jobs en background` `Workers` `Redis` `Serverless` `Ejecución durable` `Cronjobs`
+`Colas` `Jobs en background` `Workers` `RabbitMQ` `Serverless` `Ejecución durable` `Cronjobs`
 
 Las tareas que no deben bloquear al usuario van a la cola — y los flujos de trabajo agénticos que deben ejecutarse de forma fiable también. Aprenderás a implementar procesamiento en background y sistemas de colas que permiten a agentes y aplicaciones delegar trabajo pesado sin sacrificar el tiempo de respuesta. Después irás más lejos: desplegando flujos agénticos en producción con funciones serverless, patrones de ejecución durable y pipelines disparados por cron. Implementarás patrones de reintento y reanudación desde checkpoints, dispararás pipelines de LangGraph mediante webhooks, y construirás la infraestructura que mantiene a los sistemas multi-agente funcionando de forma autónoma, continua y a escala.
 
