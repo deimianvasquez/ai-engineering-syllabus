@@ -200,7 +200,7 @@ If you see files like `openclaw.json`, `.env`, or any configuration with API key
 
 ---
 
-## 📦 How to Submit.
+## 📦 How to Submit this Project
 
 Your delivery is the entire `~/.openclaw/workspace` folder pushed to GitHub from your VPS. Share your repository URL according to your instructor's instructions.
 
