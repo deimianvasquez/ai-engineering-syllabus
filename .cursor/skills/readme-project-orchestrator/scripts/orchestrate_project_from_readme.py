@@ -40,7 +40,7 @@ def parse_args() -> argparse.Namespace:
         default="ask",
         help=(
             "Whether to add an instructor classroom example brief under .learn/example/. "
-            "'ask' prompts after scaffolding when stdin is a TTY; otherwise defaults to no."
+            "'ask' prompts after scaffolding when stdin is a TTY; otherwise requires a later manual decision."
         ),
     )
     return parser.parse_args()
