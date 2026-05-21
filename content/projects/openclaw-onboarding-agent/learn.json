@@ -10,8 +10,8 @@
   },
   "status": "draft",
   "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
-  "slug": "openclaw-company",
-  "difficulty": "intermediate",
+  "slug": "openclaw-onboarding-agent",
+  "difficulty": "advanced",
   "duration": 4,
   "technologies": [
     "openclaw",
