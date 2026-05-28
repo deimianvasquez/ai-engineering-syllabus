@@ -17,6 +17,8 @@ _Estas instrucciones están [disponibles en español](./README.es.md)._
 
 Your team receives a repository that already contains a frontend and backend implementation, but the handover is incomplete: there is very little product documentation, almost no explicit coding standards, and no reliable project memory artifact for future contributors.
 
+You may find technologies, frameworks, or patterns you have not studied yet. That is expected — in AI Engineering you often join existing codebases instead of starting from scratch. The way forward is to use AI to handle the gap: your assistant can be the best partner for understanding a project without prior knowledge. Ask what the application does, how the pieces connect, and what unfamiliar files are for. Build context through questions and conversation, then validate every answer against the real code.
+
 Instead of rebuilding the application, your mission is to use AI as a technical collaborator to understand the repository, define engineering rules, and document operational memory so the project can be maintained safely. You are expected to work from evidence found in the codebase, not assumptions about product behavior.
 
 The tech lead has defined a delivery sequence that must be followed exactly:
@@ -47,6 +49,8 @@ Your output should read like professional repository stewardship, not like gener
    - API docs: `http://localhost:8000/docs`
 
 If you need a refresher on setup and delivery basics, check [how to start a coding project](https://4geeks.com/lesson/how-to-start-a-project).
+
+> **Tip:** You may run into a permissions error involving the `node_modules` folder (for example during install or when Docker mounts the project). If that happens, paste the exact error into your AI assistant and ask it to help you fix it step by step.
 
 ---
 

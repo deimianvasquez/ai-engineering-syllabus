@@ -17,6 +17,8 @@ _Estas instrucciones están [disponibles en inglés](./README.md)._
 
 Tu equipo recibe un repositorio que ya tiene una implementación de frontend y backend, pero el handover es incompleto: hay muy poca documentación de producto, casi no existen estándares de código explícitos y no hay un artefacto de memoria del proyecto útil para futuros contribuidores.
 
+Es posible que encuentres tecnologías, frameworks o patrones que aún no has estudiado. Eso es normal: en Ingeniería de IA a menudo te incorporas a codebases existentes en lugar de empezar desde cero. La forma de avanzar es usar la IA para cubrir esa brecha: tu asistente puede ser el mejor aliado para entender un proyecto sin conocimiento previo. Pregunta qué hace la aplicación, cómo se conectan las piezas y para qué sirven archivos que no reconoces. Construye el contexto con preguntas y conversación, y valida cada respuesta contra el código real.
+
 En lugar de reconstruir la aplicación, tu misión es usar IA como colaborador técnico para comprender el repositorio, definir reglas de ingeniería y documentar memoria operativa para que el proyecto pueda mantenerse de forma segura. Debes trabajar con evidencia real encontrada en el código, no con suposiciones sobre el comportamiento del producto.
 
 El tech lead definió una secuencia de entrega que debes seguir exactamente:
@@ -46,6 +48,8 @@ Tu entrega debe leerse como trabajo profesional de mantenimiento de repositorios
    - Documentación API: `http://localhost:8000/docs`
 
 Si necesitas un recordatorio de setup y entregas, revisa [cómo iniciar un proyecto de programación](https://4geeks.com/lesson/how-to-start-a-project).
+
+> **Tip:** Puedes encontrar un error de permisos con la carpeta `node_modules` (por ejemplo al instalar dependencias o cuando Docker monta el proyecto). Si ocurre, pega el error exacto en tu asistente de IA y pídele ayuda para resolverlo paso a paso.
 
 ---
 
