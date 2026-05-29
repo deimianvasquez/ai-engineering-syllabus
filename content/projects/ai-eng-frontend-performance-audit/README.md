@@ -53,6 +53,14 @@ Lighthouse gives you four top-level scores: **Performance**, **Accessibility**, 
 - **LCP (Largest Contentful Paint) < 2.5s** — How fast the main content appears.
 - **CLS (Cumulative Layout Shift) < 0.1** — Unexpected layout movement as the page loads.
 - **FID / INP (Interaction to Next Paint) < 200ms** — Responsiveness to user input.
+- **TTFB (Time to First Byte)** — How fast the server starts sending the HTML response.
+
+A full Lighthouse report can feel overwhelming the first few times you open it — dozens of audits, opportunities, and diagnostics on a single screen. **Do not try to fix everything at once.** A practical way to work through it:
+
+1. **Start with the main indicators** — the four scores plus Core Web Vitals and server timing signals such as **TTFB**, **LCP**, **CLS**, and **INP**. These tell you _where_ the pain is (network, render, layout, interactivity) before you dive into every sub-audit.
+2. **Use your AI agent as a tutor** — paste or describe one metric at a time and ask what it measures, what “good” looks like, and which fixes usually move it. Go step by step: understand the indicator, then the recommended actions for _your_ stack (Next.js, images, fonts, hydration, etc.).
+3. **Fix one issue per commit** — pick the highest-impact KPI, apply a targeted change, commit with a clear message, re-run Lighthouse on the same URL, and record the delta. Repeat until the main KPIs are in a healthy range.
+4. **Then tackle complementary issues** — accessibility hints, best-practices warnings, SEO opportunities, and lower-priority audits matter, but they come _after_ the metrics that directly affect real users on slow devices.
 
 Common root causes students overlook: unoptimised images, render-blocking resources, layout shifts caused by missing `width`/`height` attributes on images, fonts loaded without `display: swap`, and component hydration issues in Next.js.
 
@@ -92,6 +100,8 @@ This project does not use a new starter template. You work inside your existing 
 
 ### Corrections
 
+- [ ] Prioritise main KPIs (TTFB, LCP, CLS, INP, Performance score) before lower-priority Lighthouse audits; use your agent to interpret one indicator at a time.
+- [ ] Apply fixes incrementally — **one issue per commit**, re-run Lighthouse on the same URL after each change to confirm impact.
 - [ ] Apply the corrections the agent skills identify as required fixes (not suggestions).
 - [ ] Apply the refactors you identified during the code analysis — extract at least one reusable component or Custom Hook.
 
