@@ -19,11 +19,11 @@ AI Flex está diseñado para profesionales que ya saben qué habilidades necesit
 | **Cursos disponibles** | +8 |
 | **Cursos por estudiante** | Hasta 4 (a elección del estudiante) |
 | **Formato** | A tu propio ritmo — empieza cuando quieras |
-| **Mentoría** | Add-on opcional (+$5/mes) |
+| **Mentoría** | Add-on opcional (+$25/mes) |
 | **Herramientas incluidas** | LearnPack, AI Copilot (300 solicitudes/mes), Codespaces, tokens LLM (valor $5/mes), Comunidad/WhatsApp |
 | **Certificado** | Sí — uno por cada curso completado |
 | **Prueba gratuita** | 7 días |
-| **Precio** | $30/mes (mensual) o $199/año (anual) |
+| **Precio** | Trimestral ($149.97), semestral ($299.94) o anual ($449.88). El plan anual incluye 25% de descuento. Sin contratos, cancela cuando quieras. |
 
 ---
 
