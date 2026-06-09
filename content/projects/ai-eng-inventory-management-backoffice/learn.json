@@ -1,0 +1,64 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Milestone 5 — Backoffice: Inventory Management Interface",
+    "es": "Hito 5 — Backoffice: Interfaz de Gestión de Inventario"
+  },
+  "status": "published",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "slug": "ai-eng-inventory-management-backoffice",
+  "description": {
+    "en": "Build the inventory section of the internal backoffice on top of the course inventory API: product list with stock indicators, inbound and outbound order forms with reactive stock display and readable API errors, read-only order history, centralized API module, and route protection — aligned with CONTEXT-company.md.",
+    "es": "Construye la sección de inventario del backoffice interno sobre la API de inventario del curso: listado de productos con indicadores de stock, formularios de órdenes de entrada y salida con stock reactivo y errores legibles de la API, historial de órdenes de solo lectura, módulo centralizado de API y protección de rutas — alineado con CONTEXT-company.md."
+  },
+  "difficulty": "intermediate",
+  "duration": 3,
+  "technologies": [
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwind-css",
+    "rest-api",
+    "app-router"
+  ],
+  "talents": [
+    {
+      "badge": "typescript-developer",
+      "points": 3
+    },
+    {
+      "badge": "react-developer",
+      "points": 3
+    },
+    {
+      "badge": "front-end-developer",
+      "points": 2
+    },
+    {
+      "badge": "tailwind-css-developer",
+      "points": 2
+    },
+    {
+      "badge": "clean-code-advocate",
+      "points": 2
+    }
+  ],
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-inventory-management-backoffice/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-inventory-management-backoffice/.learn/preview.png",
+  "preview_url": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-inventory-management-backoffice/.learn/preview.png",
+  "sharing": [
+    {
+      "en": "I just completed Milestone 5 — Backoffice: Inventory Management Interface with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-inventory-management-backoffice #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript",
+      "es": "Acabo de completar Hito 5 — Backoffice: Interfaz de Gestión de Inventario con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-inventory-management-backoffice #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript"
+    },
+    {
+      "en": "Built and shipped: Milestone 5 — Backoffice: Inventory Management Interface. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-inventory-management-backoffice #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript",
+      "es": "Construido y publicado: Hito 5 — Backoffice: Interfaz de Gestión de Inventario. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-inventory-management-backoffice #AIEngineering #LearnPack #4GeeksAcademy #nextjs #react #typescript"
+    }
+  ],
+  "telemetry": {
+    "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id="
+  }
+}
