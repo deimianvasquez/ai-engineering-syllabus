@@ -22,7 +22,6 @@ AI Flex está diseñado para profesionales que ya saben qué habilidades necesit
 | **Mentoría** | Add-on opcional (+$25/mes) |
 | **Herramientas incluidas** | LearnPack, AI Copilot (300 solicitudes/mes), Codespaces, tokens LLM (valor $5/mes), Comunidad/WhatsApp |
 | **Certificado** | Sí — uno por cada curso completado |
-| **Prueba gratuita** | 7 días |
 | **Precio** | Trimestral ($149.97), semestral ($299.94) o anual ($449.88). El plan anual incluye 25% de descuento. Sin contratos, cancela cuando quieras. |
 
 ---
@@ -232,8 +231,6 @@ Dos proyectos: un reporte de exploración de datos (cargar un dataset real, limp
 | ⚡ **El Cambio de Carrera** | Deep Dive into Python + Backend Dev with Python + Vibe Coding + Applied AI | Personas que hacen un giro hacia la tecnología y quieren una base de programación más habilidades de IA aplicada |
 | 📊 **El Analista Orientado a Datos** | Deep Dive into Python + Data Science & ML + Applied AI + Prompt Engineering | Analistas, investigadores o consultores que trabajan con datos y quieren incorporar IA |
 | 🏗️ **El Constructor** | Vibe Coding with AI + Backend Dev with Python + No-Code & Automations + OpenClaw | Personas que quieren construir productos y automatizaciones, enfoque opcional en código |
-| 🤖 **El Especialista en Automatización** | No-Code & Automations + Prompt Engineering + OpenClaw + Applied AI | Profesionales de operaciones, administración y soporte enfocados en eficiencia de flujos de trabajo |
-
 ---
 
 ## Cómo te Gradúas
