@@ -33,8 +33,8 @@ When choosing, think beyond the sector you find most familiar. Consider: which c
 
 ## 🌱 How to Start the Project
 
-1. Fork the template repository: [https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo)
-2. Clone your fork to your local machine or open it in GitHub Codespaces.
+1. Create your copy of the [template repository](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo): click **Use this template** on GitHub (recommended) or fork it to your account.
+2. Open your repository in GitHub Codespaces (recommended) or clone it to your local machine.
 3. Read the three company profiles available in the [general context files `CONTEXT-company.md` in this repository](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts/00-general-contexts). Each one describes a real company scenario with department problems, data structures, characters, and a milestone map.
 4. Complete the deliverable described below.
 
@@ -43,20 +43,20 @@ When choosing, think beyond the sector you find most familiar. Consider: which c
 ## 💻 What You Need to Do
 
 - [ ] **Read all three company profiles** in full. Do not skim — the details matter.
-- [ ] **Choose one company** and record your decision in the `company-choice.md` file in the root of your fork.
+- [ ] **Choose one company** and record your decision in the `company-choice.md` file in the root of your repository (if it doesn't exist, create it).
   - State clearly: which company you chose and why (3–5 sentences minimum).
   - Identify at least two departments whose problems you find most interesting.
   - Identify one automation or AI challenge from the milestone map that you are most looking forward to building.
 - [ ] **Set up your working environment:**
-  - Confirm your GitHub account is connected to 4Geeks.com.
+  - Open the repository in GitHub Codespaces (recommended) and verify everything loads correctly.
   - Confirm you have access to GitHub Codespaces.
-  - Open the repository in Codespaces and verify everything loads correctly.
-- [ ] **Propose an AI Agent solution** for the automation challenge you identified: write 2–4 sentences in your `company-choice.md` explaining what the agent would do, what information it would need access to, and how it would interact with users or other systems. You do not need to build anything yet — this is a thinking exercise to start connecting what you have learned about AI with a real business problem.
+  - Confirm your GitHub account is connected to 4Geeks.com.
+  - Alternatively, clone the repository to your local machine if you prefer working locally.
 - [ ] **Propose an AI Agent solution** for the automation challenge you identified:
   - Describe in plain language what the agent would do, what information it would need, and what it would produce or trigger.
   - You do not need to write any code — this is a thinking exercise. A short paragraph or a bullet-point breakdown is enough.
   - Add this to your `company-choice.md` file under a section titled `## My AI Agent Idea`.
-- [ ] **Submit your fork URL** through the 4Geeks platform as instructed.
+- [ ] **Submit your repository URL** through the 4Geeks platform as instructed.
 
 ⚠️ **IMPORTANT:** A generic or incomplete submission will not be accepted — your reasoning must reflect a real reading of the context document. The company you record in `company-choice.md` will be locked at the start of Week 1.
 
@@ -64,20 +64,20 @@ When choosing, think beyond the sector you find most familiar. Consider: which c
 
 ## ✅ What We Will Evaluate
 
-- [ ] The `company-choice.md` file exists in the root of the submitted fork.
+- [ ] The `company-choice.md` file exists in the root of the submitted repository.
 - [ ] A specific company has been selected (not a general statement or "I haven't decided yet").
 - [ ] The written justification is at least 3 sentences and references specific details from the company's context file — not just the company name or sector.
 - [ ] Two or more departments have been identified with a brief explanation of why they are interesting.
 - [ ] At least one specific milestone or automation challenge has been named.
 - [ ] The GitHub Codespaces environment opens correctly with no errors.
-- [ ] The fork is submitted through the platform before the deadline.
+- [ ] The repository URL is submitted through the platform before the deadline.
 
 ---
 
 ## 📦 How to Submit
 
-1. Make sure your `company-choice.md` is committed and pushed to your fork.
-2. Copy the URL of your fork on GitHub.
+1. Make sure your `company-choice.md` is committed and pushed to your repository.
+2. Copy the URL of your repository on GitHub.
 3. Submit that URL through the 4Geeks platform assignment for Milestone 0.
 
 Your submission will be reviewed by your instructor before Week 1 begins. If anything is missing or incomplete, you will be asked to resubmit before the course starts.

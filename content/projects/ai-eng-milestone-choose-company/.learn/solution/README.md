@@ -6,7 +6,7 @@ This README describes what a correct reference submission should include for the
 
 No code is required in this milestone.
 
-The student must create (and commit) a `company-choice.md` file in the root of their fork, based on the three company profiles available in `CONTEXT-*.md` within the template repository.
+The student must create (and commit) a `company-choice.md` file in the root of their repository, based on the three company profiles available in `CONTEXT-*.md` within the template repository.
 
 ## What a correct `company-choice.md` must contain
 
@@ -39,7 +39,7 @@ The student must create (and commit) a `company-choice.md` file in the root of t
 
 ## Validation checklist (reviewer-ready)
 
-- [ ] `company-choice.md` exists in the root of the submitted fork.
+- [ ] `company-choice.md` exists in the root of the submitted repository.
 - [ ] A specific company has been selected.
 - [ ] The justification is at least 3 sentences and references the context file with concrete details.
 - [ ] Two or more departments are identified with short explanations.

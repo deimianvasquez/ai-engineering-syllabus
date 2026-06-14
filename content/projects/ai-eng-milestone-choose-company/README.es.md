@@ -33,8 +33,8 @@ Al elegir, piensa más allá del sector que te resulte más familiar. Considera:
 
 ## 🌱 Cómo empezar el proyecto
 
-1. Haz fork del repositorio plantilla: [https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo)
-2. Clona tu fork en tu máquina local o ábrelo en GitHub Codespaces.
+1. Crea tu copia del [repositorio plantilla](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo): haz clic en **Use this template** en GitHub (recomendado) o haz fork a tu cuenta.
+2. Abre tu repositorio en GitHub Codespaces (recomendado) o clónalo en tu máquina local.
 3. Lee los tres perfiles de empresa disponibles en los [archivos de contexto general `CONTEXT-company.md` de este repositorio](https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/contexts/00-general-contexts). Cada uno describe un escenario de empresa real con problemas por departamento, estructuras de datos, personajes y un milestone map.
 4. Completa el entregable que se describe a continuación.
 
@@ -43,19 +43,20 @@ Al elegir, piensa más allá del sector que te resulte más familiar. Considera:
 ## 💻 Qué tienes que hacer
 
 - [ ] **Lee los tres perfiles de empresa** completos. No hagas una lectura rápida — los detalles importan.
-- [ ] **Elige una empresa** y registra tu decisión en el archivo `company-choice.md` en la raíz de tu fork.
+- [ ] **Elige una empresa** y registra tu decisión en el archivo `company-choice.md` en la raíz de tu repositorio (si no existe, créalo).
   - Indica claramente: qué empresa elegiste y por qué (mínimo 3-5 frases).
   - Identifica al menos dos departamentos cuyos problemas encuentres más interesantes.
   - Identifica un reto de automatización o IA del milestone map que más ganas tengas de construir.
 - [ ] **Configura tu entorno de trabajo:**
-  - Confirma que tu cuenta de GitHub está conectada a 4Geeks.com.
+  - Abre el repositorio en GitHub Codespaces (recomendado) y verifica que todo carga correctamente.
   - Confirma que tienes acceso a GitHub Codespaces.
-  - Abre el repositorio en Codespaces y verifica que todo carga correctamente.
+  - Confirma que tu cuenta de GitHub está conectada a 4Geeks.com.
+  - Como alternativa, clona el repositorio en tu máquina local si prefieres trabajar en local.
 - [ ] **Propón una solución con un Agente de IA** para el reto de automatización que identificaste:
   - Describe en lenguaje sencillo qué haría el agente, qué información necesitaría y qué produciría o desencadenaría.
   - No hace falta escribir código — es un ejercicio de reflexión. Un párrafo corto o un desglose en puntos es suficiente.
   - Añade esto a tu archivo `company-choice.md` bajo una sección titulada `## Mi idea de Agente de IA`.
-- [ ] **Entrega la URL de tu fork** a través de la plataforma de 4Geeks según las instrucciones.
+- [ ] **Entrega la URL de tu repositorio** a través de la plataforma de 4Geeks según las instrucciones.
 
 ⚠️ **IMPORTANTE:** Una entrega genérica o incompleta no será aceptada — tu razonamiento debe reflejar una lectura real del documento de contexto. La empresa que registres en `company-choice.md` quedará bloqueada al inicio de la Semana 1.
 
@@ -63,20 +64,20 @@ Al elegir, piensa más allá del sector que te resulte más familiar. Considera:
 
 ## ✅ Qué evaluaremos
 
-- [ ] El archivo `company-choice.md` existe en la raíz del fork entregado.
+- [ ] El archivo `company-choice.md` existe en la raíz del repositorio entregado.
 - [ ] Se ha seleccionado una empresa concreta (no una afirmación genérica ni "aún no lo he decidido").
 - [ ] La justificación escrita tiene al menos 3 frases y hace referencia a detalles específicos del archivo de contexto de la empresa — no solo el nombre del sector.
 - [ ] Se han identificado dos o más departamentos con una breve explicación de por qué resultan interesantes.
 - [ ] Se ha nombrado al menos un milestone o reto de automatización concreto.
 - [ ] El entorno de GitHub Codespaces se abre correctamente sin errores.
-- [ ] El fork se ha entregado a través de la plataforma antes del plazo.
+- [ ] La URL del repositorio se ha entregado a través de la plataforma antes del plazo.
 
 ---
 
 ## 📦 Cómo entregar
 
-1. Asegúrate de que tu `company-choice.md` está commiteado y pusheado a tu fork.
-2. Copia la URL de tu fork en GitHub.
+1. Asegúrate de que tu `company-choice.md` está commiteado y pusheado a tu repositorio.
+2. Copia la URL de tu repositorio en GitHub.
 3. Entrega esa URL a través de la tarea del Milestone 0 en la plataforma de 4Geeks.
 
 Tu entrega será revisada por tu instructor antes de que comience la Semana 1. Si falta algo o está incompleto, se te pedirá que vuelvas a entregar antes de que empiece el curso.
