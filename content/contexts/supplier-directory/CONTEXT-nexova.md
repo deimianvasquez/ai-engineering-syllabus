@@ -1,36 +1,38 @@
-# CONTEXT — Directorio de Proveedores · Nexova
+# CONTEXT — Supplier Directory · Nexova
+
+_Estas instrucciones también están disponibles en [español](./CONTEXT-nexova.es.md)._
 
 > **Milestone:** 09 — Lightweight Storage API  
-> **Ruta en el repositorio:** `09-lightweight-storage/CONTEXT-nexova.md`
+> **Repository path:** `09-lightweight-storage/CONTEXT-nexova.md`
 
 ---
 
-## Tu empresa
+## Your company
 
-Eres parte del equipo de AI Engineering de **Nexova**, una consultora de recursos humanos y adquisición de talento con sede en Valencia (España) y oficina en Miami (Florida). Tu tech lead es **Sergio Molina**, CTO, y el proyecto ha sido solicitado por **Patricia Solís**, HR Manager, en coordinación con el área de operaciones.
+You are part of the AI Engineering team at **Nexova**, a human resources and talent acquisition consultancy headquartered in Valencia (Spain) with an office in Miami (Florida). Your tech lead is **Sergio Molina**, CTO, and the project was requested by **Patricia Solís**, HR Manager, in coordination with the operations area.
 
-Nexova contrata servicios externos de forma recurrente: plataformas de publicación de ofertas de empleo, herramientas de selección, proveedores de formación, software corporativo y servicios de outsourcing. Hasta ahora, este registro vive en una hoja de cálculo que Patricia actualiza manualmente y comparte por email cada vez que hay un cambio. El resultado son múltiples versiones circulando en paralelo sin que nadie sepa cuál es la vigente. Este proyecto crea el registro oficial y único.
+Nexova hires external services on a recurring basis: job posting platforms, selection tools, training providers, corporate software, and outsourcing services. Until now, this registry lives in a spreadsheet that Patricia updates manually and shares by email whenever there is a change. The result is multiple versions circulating in parallel with no one knowing which is current. This project creates the official, single source of truth.
 
 ---
 
-## Modelo de proveedor
+## Supplier model
 
-Cada proveedor en el directorio de Nexova tiene la siguiente estructura:
+Each supplier in the Nexova directory has the following structure:
 
-| Campo                   | Tipo                                  | Descripción                                             |
-| ----------------------- | ------------------------------------- | ------------------------------------------------------- |
-| `name`                  | string, requerido                     | Nombre comercial del proveedor o plataforma             |
-| `country`               | string, requerido                     | País del contrato activo: `"Spain"` o `"USA"`           |
-| `categories`            | lista de strings, requerido, mínimo 1 | Tipo de servicio que provee (ver lista válida)          |
-| `monthly_rate`          | float, requerido, > 0                 | Coste mensual vigente en la moneda del contrato         |
-| `currency`              | string, requerido                     | `"EUR"` para Spain, `"USD"` para USA                    |
-| `rate_updated_at`       | datetime, generado por el sistema     | Timestamp de la última actualización de tarifa          |
-| `status`                | string, requerido                     | `"active"` o `"suspended"`                              |
-| `contract_renewal_date` | string, opcional                      | Fecha de renovación del contrato (formato `YYYY-MM-DD`) |
-| `contact_email`         | string, opcional                      | Email del account manager del proveedor                 |
-| `notes`                 | string, opcional                      | Observaciones internas                                  |
+| Field                   | Type                                 | Description                                   |
+| ----------------------- | ------------------------------------ | --------------------------------------------- |
+| `name`                  | string, required                     | Supplier or platform trade name               |
+| `country`               | string, required                     | Active contract country: `"Spain"` or `"USA"` |
+| `categories`            | list of strings, required, minimum 1 | Type of service provided (see valid list)     |
+| `monthly_rate`          | float, required, > 0                 | Current monthly cost in the contract currency |
+| `currency`              | string, required                     | `"EUR"` for Spain, `"USD"` for USA            |
+| `rate_updated_at`       | datetime, system-generated           | Timestamp of the last rate update             |
+| `status`                | string, required                     | `"active"` or `"suspended"`                   |
+| `contract_renewal_date` | string, optional                     | Contract renewal date (format `YYYY-MM-DD`)   |
+| `contact_email`         | string, optional                     | Supplier account manager email                |
+| `notes`                 | string, optional                     | Internal notes                                |
 
-### Categorías válidas
+### Valid categories
 
 ```python
 VALID_CATEGORIES = [
@@ -46,7 +48,7 @@ VALID_CATEGORIES = [
 ]
 ```
 
-### Estados válidos
+### Valid statuses
 
 ```python
 VALID_STATUSES = ["active", "suspended"]
@@ -54,9 +56,9 @@ VALID_STATUSES = ["active", "suspended"]
 
 ---
 
-## Datos iniciales del seeder
+## Seeder initial data
 
-El seeder debe cargar exactamente los siguientes proveedores, que representan el estado actual del directorio de Patricia.
+The seeder must load exactly the following suppliers, representing Patricia's current directory state.
 
 ```python
 SUPPLIERS_SEED = [
@@ -69,7 +71,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "contract_renewal_date": "2025-03-31",
         "contact_email": "account@linkedin.com",
-        "notes": "Licencia corporativa para publicación de ofertas y búsqueda de candidatos."
+        "notes": "Corporate license for job posting and candidate search."
     },
     {
         "name": "InfoJobs Premium",
@@ -89,7 +91,7 @@ SUPPLIERS_SEED = [
         "currency": "USD",
         "status": "active",
         "contact_email": "sales@indeed.com",
-        "notes": "Campañas de pago por clic para perfiles de customer support en Miami."
+        "notes": "Pay-per-click campaigns for customer support profiles in Miami."
     },
     {
         "name": "Workable",
@@ -100,7 +102,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "contract_renewal_date": "2025-09-15",
         "contact_email": "support@workable.com",
-        "notes": "ATS principal para el equipo de selección de Valencia."
+        "notes": "Primary ATS for the Valencia selection team."
     },
     {
         "name": "Greenhouse",
@@ -110,7 +112,7 @@ SUPPLIERS_SEED = [
         "currency": "USD",
         "status": "suspended",
         "contact_email": "accounts@greenhouse.io",
-        "notes": "Suspendido tras no renovar. Sergio está evaluando si migrar todo a Workable."
+        "notes": "Suspended after non-renewal. Sergio is evaluating migrating everything to Workable."
     },
     {
         "name": "Thomas International",
@@ -121,7 +123,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "contract_renewal_date": "2025-12-01",
         "contact_email": "clientes@thomas.es",
-        "notes": "Tests de personalidad y aptitud para procesos de mandos intermedios."
+        "notes": "Personality and aptitude tests for middle-management hiring processes."
     },
     {
         "name": "HireVue",
@@ -142,7 +144,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "contract_renewal_date": "2026-01-15",
         "contact_email": "business@udemy.com",
-        "notes": "Licencias para el equipo interno. Gestionado por Elena Vargas."
+        "notes": "Licenses for the internal team. Managed by Elena Vargas."
     },
     {
         "name": "Coursera for Teams",
@@ -152,7 +154,7 @@ SUPPLIERS_SEED = [
         "currency": "USD",
         "status": "suspended",
         "contact_email": "teams@coursera.com",
-        "notes": "Suspendido por bajo uso. Revisar antes de Q4."
+        "notes": "Suspended due to low usage. Review before Q4."
     },
     {
         "name": "Sage HR",
@@ -163,7 +165,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "contract_renewal_date": "2025-10-01",
         "contact_email": "soporte@sage.com",
-        "notes": "Software de nóminas y gestión de personal para la sede de Valencia."
+        "notes": "Payroll and personnel management software for the Valencia headquarters."
     },
     {
         "name": "Gusto",
@@ -173,7 +175,7 @@ SUPPLIERS_SEED = [
         "currency": "USD",
         "status": "active",
         "contact_email": "support@gusto.com",
-        "notes": "Gestión de nóminas para los empleados de la oficina de Miami."
+        "notes": "Payroll management for Miami office employees."
     },
     {
         "name": "Checkr",
@@ -193,7 +195,7 @@ SUPPLIERS_SEED = [
         "currency": "EUR",
         "status": "active",
         "contact_email": "enterprise@microsoft.com",
-        "notes": "Licencias para toda la plantilla de Valencia y Miami."
+        "notes": "Licenses for the entire Valencia and Miami workforce."
     },
     {
         "name": "Regus Valencia",
@@ -204,7 +206,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "contract_renewal_date": "2025-07-01",
         "contact_email": "valencia@regus.com",
-        "notes": "Alquiler de la oficina principal en Valencia. Incluye sala de reuniones."
+        "notes": "Lease for the main Valencia office. Includes meeting room."
     },
     {
         "name": "WeWork Miami",
@@ -221,26 +223,26 @@ SUPPLIERS_SEED = [
 
 ---
 
-## Restricciones de negocio
+## Business constraints
 
-- **Moneda por país:** Un proveedor de `"Spain"` debe tener `currency = "EUR"`. Un proveedor de `"USA"` debe tener `currency = "USD"`. La API debe rechazar combinaciones inconsistentes.
-- **Trazabilidad de tarifas:** Cada actualización de `monthly_rate` debe registrar el `rate_updated_at` automáticamente. Patricia usa este dato para justificar variaciones de presupuesto ante dirección.
-- **Renovaciones próximas:** El campo `contract_renewal_date` es opcional pero relevante — los proveedores con renovación en los próximos 60 días deben destacarse visualmente en el frontend.
-- **Suspensión controlada:** Los proveedores suspendidos no se eliminan. Permanecen en el directorio con estado `"suspended"` para mantener el historial de relaciones comerciales.
-
----
-
-## Lo que verá Patricia en el frontend
-
-La página del directorio debe permitirle a Patricia:
-
-1. Ver todos los proveedores agrupados o filtrables por país (Spain / USA).
-2. Filtrar por categoría para responder preguntas como "¿qué herramientas de ATS tenemos activas?".
-3. Distinguir de un vistazo los proveedores activos de los suspendidos.
-4. Registrar un proveedor nuevo desde un formulario.
-5. Actualizar la tarifa mensual de un proveedor y ver el cambio reflejado inmediatamente.
-6. Activar o suspender un proveedor con un control visible en cada fila.
+- **Currency by country:** A supplier from `"Spain"` must have `currency = "EUR"`. A supplier from `"USA"` must have `currency = "USD"`. The API must reject inconsistent combinations.
+- **Rate traceability:** Every update to `monthly_rate` must automatically record `rate_updated_at`. Patricia uses this data to justify budget variations to management.
+- **Upcoming renewals:** The `contract_renewal_date` field is optional but relevant — suppliers with renewal within the next 60 days must be visually highlighted in the frontend.
+- **Controlled suspension:** Suspended suppliers are not deleted. They remain in the directory with `"suspended"` status to preserve commercial relationship history.
 
 ---
 
-_Documento interno — 4Geeks Academy · AI Engineering Track_
+## What Patricia will see in the frontend
+
+The directory page must allow Patricia to:
+
+1. See all suppliers grouped or filterable by country (Spain / USA).
+2. Filter by category to answer questions like "what active ATS tools do we have?".
+3. Distinguish active suppliers from suspended ones at a glance.
+4. Register a new supplier from a form.
+5. Update a supplier's monthly rate and see the change reflected immediately.
+6. Activate or suspend a supplier with a visible control in each row.
+
+---
+
+_Internal document — 4Geeks Academy · AI Engineering Track_

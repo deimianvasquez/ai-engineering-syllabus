@@ -1,35 +1,37 @@
-# CONTEXT — Directorio de Proveedores · Brasaland
+# CONTEXT — Supplier Directory · Brasaland
+
+_Estas instrucciones también están disponibles en [español](./CONTEXT-brasaland.es.md)._
 
 > **Milestone:** 09 — Lightweight Storage API  
-> **Ruta en el repositorio:** `09-lightweight-storage/CONTEXT-brasaland.md`
+> **Repository path:** `09-lightweight-storage/CONTEXT-brasaland.md`
 
 ---
 
-## Tu empresa
+## Your company
 
-Eres parte del equipo **Brasaland Digital**, la unidad tecnológica interna de Brasaland, una cadena de restaurantes de comida a la brasa con **14 locales** en Colombia y Florida. Tu tech lead es **Nicolás Park**, CTO, y quien ha solicitado este proyecto es **Lucía Fernández**, Procurement Manager.
+You are part of the **Brasaland Digital** team, the internal technology unit of Brasaland, a grilled-food restaurant chain with **14 locations** in Colombia and Florida. Your tech lead is **Nicolás Park**, CTO, and **Lucía Fernández**, Procurement Manager, requested this project.
 
-Brasaland trabaja con alrededor de **20 proveedores activos** distribuidos entre Colombia y Florida. Hasta ahora, Lucía gestiona el directorio en una hoja de cálculo compartida por correo. Cada vez que cambia la tarifa de un proveedor o hay que incorporar uno nuevo, hay tres versiones del fichero en circulación y nadie sabe cuál es la oficial. Este proyecto crea la fuente de verdad única.
+Brasaland works with around **20 active suppliers** split between Colombia and Florida. Until now, Lucía manages the directory in a spreadsheet shared by email. Every time a supplier's rate changes or a new one must be added, three versions of the file circulate and no one knows which is official. This project creates the single source of truth.
 
 ---
 
-## Modelo de proveedor
+## Supplier model
 
-Cada proveedor en el directorio de Brasaland tiene la siguiente estructura:
+Each supplier in the Brasaland directory has the following structure:
 
-| Campo             | Tipo                                  | Descripción                                              |
-| ----------------- | ------------------------------------- | -------------------------------------------------------- |
-| `name`            | string, requerido                     | Nombre comercial del proveedor                           |
-| `country`         | string, requerido                     | País de operación: `"Colombia"` o `"USA"`                |
-| `categories`      | lista de strings, requerido, mínimo 1 | Categorías de producto que suministra (ver lista válida) |
-| `rate_per_unit`   | float, requerido, > 0                 | Tarifa vigente por unidad en la moneda del país          |
-| `currency`        | string, requerido                     | `"COP"` para Colombia, `"USD"` para USA                  |
-| `rate_updated_at` | datetime, generado por el sistema     | Timestamp de la última actualización de tarifa           |
-| `status`          | string, requerido                     | `"active"` o `"suspended"`                               |
-| `contact_email`   | string, opcional                      | Email de contacto del proveedor                          |
-| `notes`           | string, opcional                      | Observaciones internas del equipo de compras             |
+| Field             | Type                                 | Description                                   |
+| ----------------- | ------------------------------------ | --------------------------------------------- |
+| `name`            | string, required                     | Supplier trade name                           |
+| `country`         | string, required                     | Operating country: `"Colombia"` or `"USA"`    |
+| `categories`      | list of strings, required, minimum 1 | Product categories supplied (see valid list)  |
+| `rate_per_unit`   | float, required, > 0                 | Current rate per unit in the country currency |
+| `currency`        | string, required                     | `"COP"` for Colombia, `"USD"` for USA         |
+| `rate_updated_at` | datetime, system-generated           | Timestamp of the last rate update             |
+| `status`          | string, required                     | `"active"` or `"suspended"`                   |
+| `contact_email`   | string, optional                     | Supplier contact email                        |
+| `notes`           | string, optional                     | Internal procurement team notes               |
 
-### Categorías válidas
+### Valid categories
 
 ```python
 VALID_CATEGORIES = [
@@ -44,7 +46,7 @@ VALID_CATEGORIES = [
 ]
 ```
 
-### Estados válidos
+### Valid statuses
 
 ```python
 VALID_STATUSES = ["active", "suspended"]
@@ -52,9 +54,9 @@ VALID_STATUSES = ["active", "suspended"]
 
 ---
 
-## Datos iniciales del seeder
+## Seeder initial data
 
-El seeder debe cargar exactamente los siguientes proveedores. Son los que Lucía tiene en su hoja de cálculo actual — la que este proyecto reemplaza.
+The seeder must load exactly the following suppliers. They are what Lucía has in her current spreadsheet — the one this project replaces.
 
 ```python
 SUPPLIERS_SEED = [
@@ -66,7 +68,7 @@ SUPPLIERS_SEED = [
         "currency": "COP",
         "status": "active",
         "contact_email": "ventas@carnesdelvalle.co",
-        "notes": "Proveedor principal de res y cerdo para Medellín. Entrega martes y viernes."
+        "notes": "Primary beef and pork supplier for Medellín. Delivery Tuesday and Friday."
     },
     {
         "name": "Frigorífico Antioqueño",
@@ -76,7 +78,7 @@ SUPPLIERS_SEED = [
         "currency": "COP",
         "status": "active",
         "contact_email": "pedidos@frigorificoa.co",
-        "notes": "Proveedor secundario. Usado cuando Carnes del Valle no tiene stock."
+        "notes": "Secondary supplier. Used when Carnes del Valle is out of stock."
     },
     {
         "name": "Verduras La Cosecha",
@@ -86,7 +88,7 @@ SUPPLIERS_SEED = [
         "currency": "COP",
         "status": "active",
         "contact_email": "lacosecha@gmail.com",
-        "notes": "Mercado mayorista de Medellín. Entrega diaria antes de las 7am."
+        "notes": "Medellín wholesale market. Daily delivery before 7am."
     },
     {
         "name": "Condimentos El Sabor",
@@ -114,7 +116,7 @@ SUPPLIERS_SEED = [
         "currency": "COP",
         "status": "active",
         "contact_email": "ventas@empaquesymas.co",
-        "notes": "Suministra cajas, bolsas y servilletas para todos los locales de Colombia."
+        "notes": "Supplies boxes, bags, and napkins for all Colombia locations."
     },
     {
         "name": "Limpiahogar Profesional",
@@ -124,7 +126,7 @@ SUPPLIERS_SEED = [
         "currency": "COP",
         "status": "suspended",
         "contact_email": "limpiahogar@promail.co",
-        "notes": "Suspendido por incumplimiento en entregas. En revisión por Lucía."
+        "notes": "Suspended for delivery non-compliance. Under review by Lucía."
     },
     {
         "name": "CarboCo",
@@ -134,7 +136,7 @@ SUPPLIERS_SEED = [
         "currency": "COP",
         "status": "active",
         "contact_email": "pedidos@carboco.co",
-        "notes": "Único proveedor homologado de carbón para las brasas. Contrato anual."
+        "notes": "Only approved charcoal supplier for the grills. Annual contract."
     },
     {
         "name": "Miami Meat Distributors LLC",
@@ -144,7 +146,7 @@ SUPPLIERS_SEED = [
         "currency": "USD",
         "status": "active",
         "contact_email": "orders@miamimeat.com",
-        "notes": "Proveedor principal de carne para los locales de Florida."
+        "notes": "Primary meat supplier for Florida locations."
     },
     {
         "name": "Sunshine Produce FL",
@@ -163,7 +165,7 @@ SUPPLIERS_SEED = [
         "currency": "USD",
         "status": "active",
         "contact_email": "orders@latinflavors.com",
-        "notes": "Importa salsas colombianas para el mercado de Florida."
+        "notes": "Imports Colombian sauces for the Florida market."
     },
     {
         "name": "PackRight USA",
@@ -191,7 +193,7 @@ SUPPLIERS_SEED = [
         "currency": "USD",
         "status": "active",
         "contact_email": "supply@grillfuel.com",
-        "notes": "Proveedor de carbón para Florida. Precio sujeto a revisión trimestral."
+        "notes": "Charcoal supplier for Florida. Price subject to quarterly review."
     },
     {
         "name": "Bebidas Andinas",
@@ -201,33 +203,33 @@ SUPPLIERS_SEED = [
         "currency": "COP",
         "status": "suspended",
         "contact_email": "ventas@bebidasandinas.co",
-        "notes": "Suspendido. Precio por encima del mercado tras última renegociación."
+        "notes": "Suspended. Price above market after last renegotiation."
     }
 ]
 ```
 
 ---
 
-## Restricciones de negocio
+## Business constraints
 
-- **Moneda por país:** Un proveedor de `"Colombia"` debe tener `currency = "COP"`. Un proveedor de `"USA"` debe tener `currency = "USD"`. La API debe rechazar combinaciones inconsistentes.
-- **Categorías múltiples:** Un proveedor puede suministrar más de una categoría (por ejemplo, bebidas y lácteos). La lista `categories` debe tener al menos un elemento válido.
-- **Trazabilidad de tarifas:** Cada vez que se actualiza `rate_per_unit`, el campo `rate_updated_at` debe registrar el timestamp exacto del cambio. Este dato es requerido por Lucía para auditorías de precios.
-- **Suspensión, no borrado:** En la operativa real de Brasaland, los proveedores no se eliminan del sistema — se suspenden. El endpoint `DELETE` existe para correcciones de datos erróneos, no como flujo habitual.
-
----
-
-## Lo que verá Lucía en el frontend
-
-La página del directorio debe permitirle a Lucía:
-
-1. Ver todos los proveedores de un vistazo, con indicación clara de cuáles están activos y cuáles suspendidos.
-2. Filtrar por país (Colombia / USA) para ver solo los proveedores relevantes a cada mercado.
-3. Filtrar por categoría para responder preguntas como "¿qué proveedores de carne tenemos activos en USA?".
-4. Registrar un proveedor nuevo desde un formulario.
-5. Actualizar la tarifa de un proveedor existente desde la interfaz.
-6. Activar o suspender un proveedor con un solo clic.
+- **Currency by country:** A supplier from `"Colombia"` must have `currency = "COP"`. A supplier from `"USA"` must have `currency = "USD"`. The API must reject inconsistent combinations.
+- **Multiple categories:** A supplier can supply more than one category (for example, beverages and dairy). The `categories` list must have at least one valid element.
+- **Rate traceability:** Every time `rate_per_unit` is updated, the `rate_updated_at` field must record the exact timestamp of the change. Lucía requires this data for price audits.
+- **Suspension, not deletion:** In Brasaland's real operations, suppliers are not removed from the system — they are suspended. The `DELETE` endpoint exists for correcting erroneous data, not as the usual workflow.
 
 ---
 
-_Documento interno — 4Geeks Academy · AI Engineering Track_
+## What Lucía will see in the frontend
+
+The directory page must allow Lucía to:
+
+1. See all suppliers at a glance, with a clear indication of which are active and which are suspended.
+2. Filter by country (Colombia / USA) to see only suppliers relevant to each market.
+3. Filter by category to answer questions like "what active meat suppliers do we have in the USA?".
+4. Register a new supplier from a form.
+5. Update an existing supplier's rate from the interface.
+6. Activate or suspend a supplier with a single click.
+
+---
+
+_Internal document — 4Geeks Academy · AI Engineering Track_

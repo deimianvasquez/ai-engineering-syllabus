@@ -1,36 +1,38 @@
-# CONTEXT — Directorio de Proveedores · TrackFlow
+# CONTEXT — Supplier Directory · TrackFlow
+
+_Estas instrucciones también están disponibles en [español](./CONTEXT-trackflow.es.md)._
 
 > **Milestone:** 09 — Lightweight Storage API  
-> **Ruta en el repositorio:** `09-lightweight-storage/CONTEXT-trackflow.md`
+> **Repository path:** `09-lightweight-storage/CONTEXT-trackflow.md`
 
 ---
 
-## Tu empresa
+## Your company
 
-Eres parte del equipo **TrackFlow Tech**, la unidad tecnológica interna de TrackFlow, una empresa de logística de última milla y gestión de almacenes con operaciones en **Los Ángeles (USA) y Zaragoza (España)**. Tu tech lead es **Andrés Kim**, CTO, y el proyecto ha sido solicitado por **Carlos Vega**, Head of Carrier Operations, con el respaldo de **Ana Whitfield**, Head of Warehouse Operations.
+You are part of the **TrackFlow Tech** team, the internal technology unit of TrackFlow, a last-mile logistics and warehouse management company with operations in **Los Angeles (USA) and Zaragoza (Spain)**. Your tech lead is **Andrés Kim**, CTO, and the project was requested by **Carlos Vega**, Head of Carrier Operations, with the backing of **Ana Whitfield**, Head of Warehouse Operations.
 
-TrackFlow trabaja con una red de proveedores que incluye carriers, suministros de almacén, embalaje y software operacional. Cada país negocia con sus propios proveedores y gestiona los contratos de forma independiente. El resultado es que ni Carlos ni Ana tienen visibilidad del directorio completo — cada uno lleva su propia hoja de cálculo. Este proyecto crea el registro centralizado que unifica ambos mercados.
+TrackFlow works with a network of suppliers that includes carriers, warehouse supplies, packaging, and operational software. Each country negotiates with its own suppliers and manages contracts independently. The result is that neither Carlos nor Ana has visibility into the full directory — each maintains their own spreadsheet. This project creates the centralized registry that unifies both markets.
 
 ---
 
-## Modelo de proveedor
+## Supplier model
 
-Cada proveedor en el directorio de TrackFlow tiene la siguiente estructura:
+Each supplier in the TrackFlow directory has the following structure:
 
-| Campo               | Tipo                                  | Descripción                                                             |
-| ------------------- | ------------------------------------- | ----------------------------------------------------------------------- |
-| `name`              | string, requerido                     | Nombre comercial del proveedor                                          |
-| `country`           | string, requerido                     | País del contrato: `"USA"` o `"Spain"`                                  |
-| `categories`        | lista de strings, requerido, mínimo 1 | Tipo de servicio o producto que provee (ver lista válida)               |
-| `rate_per_shipment` | float, requerido, > 0                 | Tarifa vigente por envío o unidad de servicio en la moneda del contrato |
-| `currency`          | string, requerido                     | `"USD"` para USA, `"EUR"` para Spain                                    |
-| `rate_updated_at`   | datetime, generado por el sistema     | Timestamp de la última actualización de tarifa                          |
-| `status`            | string, requerido                     | `"active"` o `"suspended"`                                              |
-| `service_zone`      | string, opcional                      | Zona de cobertura del proveedor (ej. `"West Coast"`, `"Aragón"`)        |
-| `contact_email`     | string, opcional                      | Email de contacto del proveedor                                         |
-| `notes`             | string, opcional                      | Observaciones del equipo de operaciones                                 |
+| Field               | Type                                 | Description                                                        |
+| ------------------- | ------------------------------------ | ------------------------------------------------------------------ |
+| `name`              | string, required                     | Supplier trade name                                                |
+| `country`           | string, required                     | Contract country: `"USA"` or `"Spain"`                             |
+| `categories`        | list of strings, required, minimum 1 | Type of service or product supplied (see valid list)               |
+| `rate_per_shipment` | float, required, > 0                 | Current rate per shipment or service unit in the contract currency |
+| `currency`          | string, required                     | `"USD"` for USA, `"EUR"` for Spain                                 |
+| `rate_updated_at`   | datetime, system-generated           | Timestamp of the last rate update                                  |
+| `status`            | string, required                     | `"active"` or `"suspended"`                                        |
+| `service_zone`      | string, optional                     | Supplier coverage zone (e.g. `"West Coast"`, `"Aragón"`)           |
+| `contact_email`     | string, optional                     | Supplier contact email                                             |
+| `notes`             | string, optional                     | Operations team notes                                              |
 
-### Categorías válidas
+### Valid categories
 
 ```python
 VALID_CATEGORIES = [
@@ -45,7 +47,7 @@ VALID_CATEGORIES = [
 ]
 ```
 
-### Estados válidos
+### Valid statuses
 
 ```python
 VALID_STATUSES = ["active", "suspended"]
@@ -53,9 +55,9 @@ VALID_STATUSES = ["active", "suspended"]
 
 ---
 
-## Datos iniciales del seeder
+## Seeder initial data
 
-El seeder debe cargar exactamente los siguientes proveedores, que representan el directorio actual de Carlos y Ana combinado.
+The seeder must load exactly the following suppliers, representing Carlos and Ana's combined current directory.
 
 ```python
 SUPPLIERS_SEED = [
@@ -68,7 +70,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "service_zone": "West Coast",
         "contact_email": "business@ups.com",
-        "notes": "Carrier principal para entregas locales en Los Ángeles y alrededores."
+        "notes": "Primary carrier for local deliveries in Los Angeles and surrounding areas."
     },
     {
         "name": "FedEx Ground",
@@ -89,7 +91,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "service_zone": "Continental USA + International",
         "contact_email": "business.us@dhl.com",
-        "notes": "Usado para envíos urgentes y exportaciones a Europa."
+        "notes": "Used for urgent shipments and exports to Europe."
     },
     {
         "name": "OnTrac",
@@ -100,7 +102,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "service_zone": "West Coast",
         "contact_email": "solutions@ontrac.com",
-        "notes": "Carrier regional. Mejor tarifa en la zona de Los Ángeles."
+        "notes": "Regional carrier. Best rate in the Los Angeles area."
     },
     {
         "name": "Laser Ship",
@@ -111,7 +113,7 @@ SUPPLIERS_SEED = [
         "status": "suspended",
         "service_zone": "East Coast",
         "contact_email": "business@lasership.com",
-        "notes": "Suspendido. Tasa de incidencias superior al 8% en Q3."
+        "notes": "Suspended. Incident rate above 8% in Q3."
     },
     {
         "name": "PackSource LA",
@@ -121,7 +123,7 @@ SUPPLIERS_SEED = [
         "currency": "USD",
         "status": "active",
         "contact_email": "orders@packsource.com",
-        "notes": "Cajas, relleno y precinto para el almacén de Los Ángeles."
+        "notes": "Boxes, filler, and tape for the Los Angeles warehouse."
     },
     {
         "name": "CleanTeam West",
@@ -131,7 +133,7 @@ SUPPLIERS_SEED = [
         "currency": "USD",
         "status": "active",
         "contact_email": "accounts@cleanteamwest.com",
-        "notes": "Tarifa mensual por servicio de limpieza del almacén de LA."
+        "notes": "Monthly rate for LA warehouse cleaning service."
     },
     {
         "name": "MRW España",
@@ -142,7 +144,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "service_zone": "Península Ibérica",
         "contact_email": "clientes.empresa@mrw.es",
-        "notes": "Carrier principal para entregas en España. Contrato negociado por volumen."
+        "notes": "Primary carrier for deliveries in Spain. Volume-negotiated contract."
     },
     {
         "name": "SEUR",
@@ -163,7 +165,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "service_zone": "España + Internacional",
         "contact_email": "business.es@dhl.com",
-        "notes": "Envíos urgentes y exportaciones desde Zaragoza."
+        "notes": "Urgent shipments and exports from Zaragoza."
     },
     {
         "name": "Nacex",
@@ -174,7 +176,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "service_zone": "Aragón y zona norte",
         "contact_email": "empresas@nacex.es",
-        "notes": "Carrier regional con buena cobertura en Aragón."
+        "notes": "Regional carrier with good coverage in Aragón."
     },
     {
         "name": "Logística Inversa Iberia",
@@ -184,7 +186,7 @@ SUPPLIERS_SEED = [
         "currency": "EUR",
         "status": "active",
         "contact_email": "operaciones@liiberia.es",
-        "notes": "Gestión de devoluciones para el almacén de Zaragoza."
+        "notes": "Returns management for the Zaragoza warehouse."
     },
     {
         "name": "Embalajes Zaragoza S.L.",
@@ -203,7 +205,7 @@ SUPPLIERS_SEED = [
         "currency": "USD",
         "status": "suspended",
         "contact_email": "enterprise@sap.com",
-        "notes": "Suspendido. Andrés está evaluando alternativas más ligeras para el almacén de LA."
+        "notes": "Suspended. Andrés is evaluating lighter alternatives for the LA warehouse."
     },
     {
         "name": "ReturnBear",
@@ -214,33 +216,33 @@ SUPPLIERS_SEED = [
         "status": "active",
         "service_zone": "West Coast",
         "contact_email": "partnerships@returnbear.com",
-        "notes": "Gestión de devoluciones para clientes de Los Ángeles."
+        "notes": "Returns management for Los Angeles customers."
     }
 ]
 ```
 
 ---
 
-## Restricciones de negocio
+## Business constraints
 
-- **Moneda por país:** Un proveedor de `"USA"` debe tener `currency = "USD"`. Un proveedor de `"Spain"` debe tener `currency = "EUR"`. La API rechaza combinaciones inconsistentes.
-- **Trazabilidad de tarifas:** Cada actualización de `rate_per_shipment` debe registrar `rate_updated_at` automáticamente. Carlos usa este histórico para revisar la evolución de costes por carrier.
-- **Suspensión por incidencias:** El flujo habitual en TrackFlow es suspender proveedores con alta tasa de incidencias, no eliminarlos. El historial de suspensiones es información operativa relevante.
-- **Carriers con doble categoría:** Es válido que un carrier opere tanto en última milla como en internacional (como DHL). El campo `categories` admite múltiples valores simultáneamente.
-
----
-
-## Lo que verá Carlos en el frontend
-
-La página del directorio debe permitirle a Carlos:
-
-1. Ver todos los proveedores con sus categorías, tarifa y estado de un vistazo.
-2. Filtrar por país (USA / Spain) para gestionar cada mercado por separado.
-3. Filtrar por categoría para responder preguntas como "¿qué carriers activos tenemos en España?".
-4. Registrar un proveedor nuevo desde un formulario.
-5. Actualizar la tarifa por envío de un proveedor y ver el cambio reflejado de inmediato.
-6. Suspender o reactivar un proveedor con un control visible en la fila.
+- **Currency by country:** A supplier from `"USA"` must have `currency = "USD"`. A supplier from `"Spain"` must have `currency = "EUR"`. The API rejects inconsistent combinations.
+- **Rate traceability:** Every update to `rate_per_shipment` must automatically record `rate_updated_at`. Carlos uses this history to review cost evolution by carrier.
+- **Suspension for incidents:** The usual TrackFlow workflow is to suspend suppliers with a high incident rate, not delete them. Suspension history is operationally relevant information.
+- **Dual-category carriers:** It is valid for a carrier to operate in both last mile and international (like DHL). The `categories` field accepts multiple values simultaneously.
 
 ---
 
-_Documento interno — 4Geeks Academy · AI Engineering Track_
+## What Carlos will see in the frontend
+
+The directory page must allow Carlos to:
+
+1. See all suppliers with their categories, rate, and status at a glance.
+2. Filter by country (USA / Spain) to manage each market separately.
+3. Filter by category to answer questions like "what active carriers do we have in Spain?".
+4. Register a new supplier from a form.
+5. Update a supplier's per-shipment rate and see the change reflected immediately.
+6. Suspend or reactivate a supplier with a visible control in the row.
+
+---
+
+_Internal document — 4Geeks Academy · AI Engineering Track_

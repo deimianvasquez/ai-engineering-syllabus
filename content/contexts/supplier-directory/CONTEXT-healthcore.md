@@ -1,37 +1,39 @@
-# CONTEXT — Directorio de Proveedores · HealthCore
+# CONTEXT — Supplier Directory · HealthCore
+
+_Estas instrucciones también están disponibles en [español](./CONTEXT-healthcore.es.md)._
 
 > **Milestone:** 09 — Lightweight Storage API  
-> **Ruta en el repositorio:** `09-lightweight-storage/CONTEXT-healthcore.md`
+> **Repository path:** `09-lightweight-storage/CONTEXT-healthcore.md`
 
 ---
 
-## Tu empresa
+## Your company
 
-Eres parte del equipo **HealthCore Digital**, la unidad tecnológica interna de HealthCore, una red de **12 clínicas ambulatorias** con operaciones en Estados Unidos (Texas, Florida, Georgia) y el Reino Unido (Londres y Manchester). Tu tech lead es **James Osei**, CTO, y el proyecto ha sido solicitado conjuntamente por **Diane Foster** (VP of People) y **Claire Whitfield** (Chief Compliance Officer).
+You are part of the **HealthCore Digital** team, the internal technology unit of HealthCore, a network of **12 outpatient clinics** with operations in the United States (Texas, Florida, Georgia) and the United Kingdom (London and Manchester). Your tech lead is **James Osei**, CTO, and the project was requested jointly by **Diane Foster** (VP of People) and **Claire Whitfield** (Chief Compliance Officer).
 
-HealthCore trabaja con proveedores externos en dos categorías amplias: proveedores clínicos y operacionales (material médico, laboratorio, limpieza) y proveedores tecnológicos (software, plataformas, servicios en la nube). Hasta ahora, cada departamento gestiona su propio listado en hojas de cálculo separadas. Claire, además, necesita tener visibilidad de todos los proveedores tecnológicos para verificar que tienen firmados los acuerdos de cumplimiento requeridos (BAA en USA, DPA en UK). Este proyecto crea el registro centralizado que da respuesta a ambas necesidades.
+HealthCore works with external suppliers in two broad categories: clinical and operational suppliers (medical supplies, laboratory, cleaning) and technology suppliers (software, platforms, cloud services). Until now, each department manages its own list in separate spreadsheets. Claire also needs visibility into all technology suppliers to verify they have signed the required compliance agreements (BAA in the USA, DPA in the UK). This project creates the centralized registry that addresses both needs.
 
 ---
 
-## Modelo de proveedor
+## Supplier model
 
-Cada proveedor en el directorio de HealthCore tiene la siguiente estructura:
+Each supplier in the HealthCore directory has the following structure:
 
-| Campo                   | Tipo                                  | Descripción                                                                                |
-| ----------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `name`                  | string, requerido                     | Nombre comercial del proveedor o plataforma                                                |
-| `country`               | string, requerido                     | País del contrato: `"USA"` o `"UK"`                                                        |
-| `categories`            | lista de strings, requerido, mínimo 1 | Tipo de servicio o producto que provee (ver lista válida)                                  |
-| `monthly_rate`          | float, requerido, > 0                 | Coste mensual vigente en la moneda del contrato                                            |
-| `currency`              | string, requerido                     | `"USD"` para USA, `"GBP"` para UK                                                          |
-| `rate_updated_at`       | datetime, generado por el sistema     | Timestamp de la última actualización de tarifa                                             |
-| `status`                | string, requerido                     | `"active"` o `"suspended"`                                                                 |
-| `compliance_agreement`  | string, opcional                      | Tipo de acuerdo de cumplimiento firmado: `"BAA"`, `"DPA"`, `"both"`, o `null` si no aplica |
-| `contract_renewal_date` | string, opcional                      | Fecha de renovación del contrato (formato `YYYY-MM-DD`)                                    |
-| `contact_email`         | string, opcional                      | Email del account manager del proveedor                                                    |
-| `notes`                 | string, opcional                      | Observaciones internas                                                                     |
+| Field                   | Type                                 | Description                                                                               |
+| ----------------------- | ------------------------------------ | ----------------------------------------------------------------------------------------- |
+| `name`                  | string, required                     | Supplier or platform trade name                                                           |
+| `country`               | string, required                     | Contract country: `"USA"` or `"UK"`                                                       |
+| `categories`            | list of strings, required, minimum 1 | Type of service or product supplied (see valid list)                                      |
+| `monthly_rate`          | float, required, > 0                 | Current monthly cost in the contract currency                                             |
+| `currency`              | string, required                     | `"USD"` for USA, `"GBP"` for UK                                                           |
+| `rate_updated_at`       | datetime, system-generated           | Timestamp of the last rate update                                                         |
+| `status`                | string, required                     | `"active"` or `"suspended"`                                                               |
+| `compliance_agreement`  | string, optional                     | Signed compliance agreement type: `"BAA"`, `"DPA"`, `"both"`, or `null` if not applicable |
+| `contract_renewal_date` | string, optional                     | Contract renewal date (format `YYYY-MM-DD`)                                               |
+| `contact_email`         | string, optional                     | Supplier account manager email                                                            |
+| `notes`                 | string, optional                     | Internal notes                                                                            |
 
-### Categorías válidas
+### Valid categories
 
 ```python
 VALID_CATEGORIES = [
@@ -48,7 +50,7 @@ VALID_CATEGORIES = [
 ]
 ```
 
-### Estados válidos
+### Valid statuses
 
 ```python
 VALID_STATUSES = ["active", "suspended"]
@@ -56,9 +58,9 @@ VALID_STATUSES = ["active", "suspended"]
 
 ---
 
-## Datos iniciales del seeder
+## Seeder initial data
 
-El seeder debe cargar exactamente los siguientes proveedores, que representan el estado actual del directorio combinado de Diane y Claire.
+The seeder must load exactly the following suppliers, representing Diane and Claire's combined current directory state.
 
 ```python
 SUPPLIERS_SEED = [
@@ -72,7 +74,7 @@ SUPPLIERS_SEED = [
         "compliance_agreement": "BAA",
         "contract_renewal_date": "2025-06-30",
         "contact_email": "accounts@mckesson.com",
-        "notes": "Proveedor principal de material clínico para las 9 clínicas de USA."
+        "notes": "Primary clinical supplies provider for the 9 USA clinics."
     },
     {
         "name": "NHS Supply Chain",
@@ -94,7 +96,7 @@ SUPPLIERS_SEED = [
         "compliance_agreement": "BAA",
         "contract_renewal_date": "2025-12-15",
         "contact_email": "business@questdiagnostics.com",
-        "notes": "Procesamiento de laboratorio para clínicas de Texas y Florida."
+        "notes": "Laboratory processing for Texas and Florida clinics."
     },
     {
         "name": "Synnovis UK",
@@ -116,7 +118,7 @@ SUPPLIERS_SEED = [
         "compliance_agreement": "BAA",
         "contract_renewal_date": "2026-01-01",
         "contact_email": "enterprise@epic.com",
-        "notes": "EHR principal para las clínicas de USA. Contrato de largo plazo."
+        "notes": "Primary EHR for USA clinics. Long-term contract."
     },
     {
         "name": "EMIS Health",
@@ -128,7 +130,7 @@ SUPPLIERS_SEED = [
         "compliance_agreement": "DPA",
         "contract_renewal_date": "2025-09-01",
         "contact_email": "accounts@emishealth.com",
-        "notes": "EHR para las clínicas de Londres y Manchester."
+        "notes": "EHR for London and Manchester clinics."
     },
     {
         "name": "Availity",
@@ -139,7 +141,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "compliance_agreement": "BAA",
         "contact_email": "enterprise@availity.com",
-        "notes": "Plataforma de verificación de elegibilidad y envío de claims."
+        "notes": "Eligibility verification and claims submission platform."
     },
     {
         "name": "Twilio",
@@ -151,7 +153,7 @@ SUPPLIERS_SEED = [
         "compliance_agreement": "BAA",
         "contract_renewal_date": "2025-10-31",
         "contact_email": "healthcare@twilio.com",
-        "notes": "SMS y email automatizados para recordatorios de citas."
+        "notes": "Automated SMS and email for appointment reminders."
     },
     {
         "name": "AWS Healthcare",
@@ -162,7 +164,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "compliance_agreement": "BAA",
         "contact_email": "aws-health@amazon.com",
-        "notes": "Infraestructura cloud principal. BAA firmado y auditado anualmente."
+        "notes": "Primary cloud infrastructure. BAA signed and audited annually."
     },
     {
         "name": "Microsoft Azure UK",
@@ -184,7 +186,7 @@ SUPPLIERS_SEED = [
         "compliance_agreement": None,
         "contract_renewal_date": "2025-08-15",
         "contact_email": "enterprise@workday.com",
-        "notes": "HRIS para toda la plantilla de USA. No maneja PHI."
+        "notes": "HRIS for the entire USA workforce. Does not handle PHI."
     },
     {
         "name": "Sage Payroll UK",
@@ -205,7 +207,7 @@ SUPPLIERS_SEED = [
         "status": "active",
         "compliance_agreement": None,
         "contact_email": "healthcare@servicemaster.com",
-        "notes": "Limpieza clínica para las 9 ubicaciones de USA."
+        "notes": "Clinical cleaning for the 9 USA locations."
     },
     {
         "name": "Healthstream LMS",
@@ -216,7 +218,7 @@ SUPPLIERS_SEED = [
         "status": "suspended",
         "compliance_agreement": "BAA",
         "contact_email": "enterprise@healthstream.com",
-        "notes": "Suspendido. Diane está evaluando reemplazarlo por una solución interna."
+        "notes": "Suspended. Diane is evaluating replacing it with an in-house solution."
     },
     {
         "name": "Nuffield Health Supplies",
@@ -233,27 +235,27 @@ SUPPLIERS_SEED = [
 
 ---
 
-## Restricciones de negocio
+## Business constraints
 
-- **Moneda por país:** Un proveedor de `"USA"` debe tener `currency = "USD"`. Un proveedor de `"UK"` debe tener `currency = "GBP"`. La API rechaza combinaciones inconsistentes.
-- **Acuerdo de cumplimiento:** El campo `compliance_agreement` es opcional, pero los proveedores con categorías `clinical_software`, `it_infrastructure`, `patient_communication` o `billing_and_coding_software` deberían tenerlo registrado. No es una validación automática de la API, sino una responsabilidad de quien registra el proveedor.
-- **Trazabilidad de tarifas:** Cada actualización de `monthly_rate` debe registrar `rate_updated_at`. Claire usa este dato en auditorías para verificar que los cambios de coste tienen trazabilidad.
-- **Suspensión, no borrado:** Los proveedores no se eliminan del directorio. Se suspenden. Mantener el historial es especialmente relevante en HealthCore por el entorno regulatorio: una auditoría puede preguntar con qué proveedores se trabajó en un período determinado.
-
----
-
-## Lo que verán Diane y Claire en el frontend
-
-La página del directorio debe permitirles:
-
-1. Ver todos los proveedores con categoría, tarifa mensual, acuerdo de cumplimiento y estado.
-2. Filtrar por país (USA / UK) para gestionar cada mercado de forma independiente.
-3. Filtrar por categoría para localizar rápidamente proveedores de una tipología concreta.
-4. Distinguir visualmente los proveedores activos de los suspendidos.
-5. Registrar un proveedor nuevo desde un formulario.
-6. Actualizar la tarifa mensual de un proveedor y ver el cambio reflejado inmediatamente.
-7. Activar o suspender un proveedor con un control visible en cada fila.
+- **Currency by country:** A supplier from `"USA"` must have `currency = "USD"`. A supplier from `"UK"` must have `currency = "GBP"`. The API rejects inconsistent combinations.
+- **Compliance agreement:** The `compliance_agreement` field is optional, but suppliers with categories `clinical_software`, `it_infrastructure`, `patient_communication`, or `billing_and_coding_software` should have it recorded. This is not automatic API validation — it is the responsibility of whoever registers the supplier.
+- **Rate traceability:** Every update to `monthly_rate` must record `rate_updated_at`. Claire uses this data in audits to verify that cost changes are traceable.
+- **Suspension, not deletion:** Suppliers are not removed from the directory — they are suspended. Preserving history is especially relevant at HealthCore due to the regulatory environment: an audit may ask which suppliers were used in a given period.
 
 ---
 
-_Documento interno — 4Geeks Academy · AI Engineering Track_
+## What Diane and Claire will see in the frontend
+
+The directory page must allow them to:
+
+1. See all suppliers with category, monthly rate, compliance agreement, and status.
+2. Filter by country (USA / UK) to manage each market independently.
+3. Filter by category to quickly locate suppliers of a specific type.
+4. Visually distinguish active suppliers from suspended ones.
+5. Register a new supplier from a form.
+6. Update a supplier's monthly rate and see the change reflected immediately.
+7. Activate or suspend a supplier with a visible control in each row.
+
+---
+
+_Internal document — 4Geeks Academy · AI Engineering Track_
