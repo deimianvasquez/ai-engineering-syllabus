@@ -1,4 +1,4 @@
-# Telemetry – Frontend capture
+# Company's Telemetry – Frontend capture
 
 <!-- hide -->
 
