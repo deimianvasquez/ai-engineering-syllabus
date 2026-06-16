@@ -10,7 +10,7 @@ This repository contains the **AI Engineering syllabus** and related learning ma
 
 ## Projects (hands-on practice)
 
-You can find the practical projects in [`content/projects`](./content/projects). **Suggested order** (OpenClaw modules appear before the first TypeScript milestone project):
+You can find the practical projects in [`content/projects`](./content/projects). **Suggested order** (48 projects): web fundamentals and Tailwind first, then OpenClaw setup through memory/onboarding, TypeScript and UML modeling, React/Next.js and company milestones, AI-assisted specs and monorepo work, APIs and auth, incidents and SQL audits, inventory backend/backoffice, Docker, performance, and telemetry.
 
 **Technologies and skills developed in the projects:**
 
@@ -21,15 +21,19 @@ You can find the practical projects in [`content/projects`](./content/projects).
 - **Collaborative design & version control:** Git, branching, pull requests, best practices for teamwork.
 - **Object modeling & diagrams:** UML, class design, and business model relationships.
 - **Interface prototyping:** UI/UX, creation of admin panels and interactive forms.
-- **APIs & Backend:** FastAPI, TinyDB, Pydantic, JWT for authentication and security, RESTful endpoints, data handling, advanced filtering.
-- **Integration with external tools:** OpenClaw, Telegram, Zapier, Google Drive & Calendar.
-- **Agent development and automation:** Creation and integration of AI agents, operation cycles, artifact and evidence management.
-- **File and data processing:** CSV analysis, Python scripts, automated exports and summaries.
+- **APIs & Backend:** FastAPI, TinyDB, Pydantic, SQLModel, Supabase/PostgreSQL, JWT, RESTful endpoints, serialization, and caching.
+- **SQL & data analysis:** Single-table and multi-table queries, data-quality audits, JOINs.
+- **Integration with external tools:** OpenClaw, Telegram, Zapier, Google Drive & Calendar, 4Geeks API.
+- **Agent development and automation:** Skills, memory, onboarding flows, agent loops, artifact and evidence management.
+- **File and data processing:** CSV analysis, Python scripts, Pandas reporting, automated exports and summaries.
 - **Systems architecture:** Proposals, diagrams, documentation, and modular application extension.
-- **Cybersecurity:** Authentication flows, user state management, password resets.
+- **Cybersecurity:** Authentication flows, user state management, password resets, unit-tested auth logic.
+- **Docker & containers:** Dockerfiles, Compose, multi-service local orchestration, production-ready environments.
+- **Performance engineering:** Core Web Vitals, Lighthouse audits, payload optimization, frontend and API caching.
+- **Telemetry:** Event design, frontend capture, batch storage, and reporting pipelines.
 - **Monorepo development:** Organization and coordination of frontend, backend, and auxiliary services within a single repository.
 
-For more detail on each item, open the project folder and read `README.md` (and `README.es.md` when available). The same ordered list lives in [`content/projects/README.md`](./content/projects/README.md).
+For more detail on each item, open the project folder and read `README.md` (and `README.es.md` when available). The same ordered list lives in [`content/projects/README.md`](./content/projects/README.md). Company-specific scenario files live under [`content/contexts`](./content/contexts) (see [`content/contexts/README.md`](./content/contexts/README.md)).
 
 ---
 
