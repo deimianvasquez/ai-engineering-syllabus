@@ -68,9 +68,11 @@ Este hito extiende el servicio FastAPI ya presente en tu monorepo. No crearás u
 
 ### Conexión con Supabase
 
-En el panel de Supabase (**Connect → Direct**), elige **Direct connection** como método de conexión y **URI** como tipo — luego copia esa cadena en `DATABASE_URL`.
+En el panel de Supabase (**Connect → Direct**), elige **Transaction pooler** como método de conexión y **URI** como tipo — luego copia esa cadena en `DATABASE_URL`.
 
-![Configuración de conexión en Supabase: método Direct connection y tipo URI](https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-milestone-backend-development/.learn/supabase-direct-connection-uri.png)
+![Configuración de conexión en Supabase: método Transaction pooler y tipo URI](https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-milestone-backend-development/.learn/supabase-transaction-pooler-uri.png)
+
+![Cadena de conexión en Supabase: detalles del URI con Transaction pooler](https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-milestone-backend-development/.learn/supabase-transaction-pooler-connection-string.png)
 
 ---
 
