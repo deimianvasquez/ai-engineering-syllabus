@@ -18,6 +18,14 @@ Automates project social publishing setup for `content/projects`:
 
 This skill is aligned with LearnPack docs (`preview`, multilingual metadata, and `learn.json` conventions) and with the 4Geeks/BreatheCode workflow where social share copy can be carried in project metadata.
 
+## When invoked from project creation (not optional)
+
+If `readme-project-orchestrator` is running — or the user asked to create a project from README — this skill **must** run before the task is complete.
+
+- Do not set `learn.json.preview` without generating `.learn/preview.png` on disk.
+- Scope with `--slug <target-slug>`; do not regenerate all projects unless explicitly requested.
+- If preview generation fails, fix the environment (Playwright, cover template, image assets) and retry — do not skip Phase 4.
+
 ## Output contract (important)
 
 - Write sharing texts only inside `learn.json` under the configured `sharing` key.
@@ -102,6 +110,7 @@ Example output shape:
 - Confirm `npx playwright` is available
 - Confirm `assets/cover/cover-template.html` exists
 - Confirm images exist in `assets/cover/images`
+- Verify `.learn/preview.png` exists on disk for the target project (non-zero file size)
 - Verify at least one generated image and updated `preview` URL
 - Verify `sharing` is present in `learn.json`
 - Verify no standalone markdown file was created for sharing messages

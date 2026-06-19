@@ -55,6 +55,17 @@ def write_text(path: Path, content: str) -> None:
     path.write_text(content, encoding="utf-8")
 
 
+def assert_preview_generated(preview_path: Path) -> None:
+    if not preview_path.is_file():
+        raise SystemExit(
+            f"preview_missing: expected {preview_path} after social-sharing step"
+        )
+    if preview_path.stat().st_size == 0:
+        raise SystemExit(
+            f"preview_empty: {preview_path} was created but has zero bytes"
+        )
+
+
 def first_heading(markdown: str) -> str:
     for line in markdown.splitlines():
         clean = line.strip()
@@ -301,6 +312,7 @@ def main() -> int:
     solution_readme = solution_dir / "README.md"
     write_text(solution_readme, build_solution_readme(title_en, readme_en))
 
+    preview_path = learn_dir / "preview.png"
     social_script = (
         repo_root
         / ".cursor"
@@ -309,20 +321,25 @@ def main() -> int:
         / "scripts"
         / "generate_project_social_assets.py"
     )
-    if social_script.exists():
-        subprocess.run(
-            [
-                "python3",
-                str(social_script),
-                "--project-root",
-                str(repo_root),
-                "--slug",
-                args.target_slug,
-                "--sharing-link-template",
-                "https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/{slug}",
-            ],
-            check=True,
+    if not social_script.exists():
+        raise SystemExit(
+            f"social_script_missing: expected {social_script} for preview generation"
         )
+    subprocess.run(
+        [
+            "python3",
+            str(social_script),
+            "--project-root",
+            str(repo_root),
+            "--slug",
+            args.target_slug,
+            "--sharing-link-template",
+            "https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/{slug}",
+        ],
+        check=True,
+    )
+    assert_preview_generated(preview_path)
+    print("preview_generated", str(preview_path))
 
     classroom_example = resolve_classroom_example_choice(
         args.classroom_example)

@@ -14,8 +14,29 @@ Cuando el usuario pida crear/generar un proyecto desde uno o dos README, es obli
 Aplicar esta regla cuando el prompt incluya intención equivalente a:
 
 - "genera/crea proyecto a partir de README"
+- "gen a @ai-engineering-syllabus/ project"
 - "nuevo proyecto usando este README"
 - "create project from readme"
+
+## Primera acción obligatoria
+
+**No crear archivos a mano.** Ejecutar primero:
+
+```bash
+python3 ai-engineering-syllabus/.cursor/skills/readme-project-orchestrator/scripts/orchestrate_project_from_readme.py \
+  --repo-root ai-engineering-syllabus \
+  --target-slug "<slug>" \
+  --source-readme "<path>" \
+  --source-readme-es "<path-opcional>" \
+  --classroom-example ask
+```
+
+## Anti-patrones (cierre inválido)
+
+- Escribir `README.md` + `learn.json` sin ejecutar el script orquestador.
+- `learn.json` con URL en `preview` pero sin `.learn/preview.png` en disco.
+- Declarar la tarea terminada sin Phase 4 (social-sharing / preview).
+- Declarar la tarea terminada sin `README.md` y `README.es.md`.
 
 ## Pregunta obligatoria antes de generar
 
@@ -33,7 +54,8 @@ Antes de crear o copiar archivos del proyecto, **preguntar solo** si quiere el *
   - `solution`
   - `preview`
   - `sharing` bilingüe (`en` y `es`)
-- Debe existir `.learn/preview.png` generado para ese `slug`.
+- Debe existir `.learn/preview.png` generado para ese `slug` **en disco** (no basta con la URL en `learn.json`).
+- El informe final debe incluir `preview_generated: yes` solo si el archivo existe.
 
 ## Alcance
 

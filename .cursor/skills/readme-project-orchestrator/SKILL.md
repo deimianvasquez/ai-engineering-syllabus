@@ -5,6 +5,38 @@ description: Orchestrate end-to-end project creation from one or two README file
 
 # README Project Orchestrator
 
+## CRITICAL — first and last actions
+
+**Do NOT scaffold projects by hand.** Manual copy of READMEs + hand-written `learn.json` skips preview generation.
+
+### First action (required)
+
+Run the orchestrator script from workspace root (`AIE-Projects`):
+
+```bash
+python3 ai-engineering-syllabus/.cursor/skills/readme-project-orchestrator/scripts/orchestrate_project_from_readme.py \
+  --repo-root ai-engineering-syllabus \
+  --target-slug "<target-slug>" \
+  --source-readme "<absolute-or-relative-path-to-readme>" \
+  --source-readme-es "<optional-path-to-readme-es>" \
+  --classroom-example ask
+```
+
+The script bootstraps Phases 0–4 and invokes `generate-project-social-sharing` for `.learn/preview.png` + `sharing`.
+
+### Last check before closing the task (required)
+
+- Confirm `ai-engineering-syllabus/content/projects/<target_slug>/.learn/preview.png` **exists on disk** (not only a URL in `learn.json`).
+- If missing, run Phase 4 (social-sharing script scoped to `--slug`) before reporting completion.
+
+### Anti-patterns (invalid completion)
+
+- Writing `README.md`, `learn.json`, and solution files without running the orchestrator script first.
+- Setting `learn.json.preview` to a GitHub raw URL without generating the local `preview.png` file.
+- Marking the task done when Phase 4 was never executed.
+
+Manual phases below are **fallback only** when the script fails or needs enrichment (solution quality, classroom brief, translation pass).
+
 ## Purpose
 
 Use this skill to build a complete project folder under `content/projects/<slug>` from README input, applying existing specialized skills in a safe order.
@@ -32,6 +64,10 @@ Do **not** ask the user whether to include narrative blocks inside the student R
 A **classroom example brief** (Spanish curriculum label: _enunciado de ejemplo_) means only the instructor files under `.learn/example/` (Phase 5 + `classroom-example-brief`). Ask about that once before scaffolding if `--classroom-example ask`, or respect `yes` / `no` flags.
 
 ## Workflow
+
+The **required default path** is the automation command at the end of this document. It runs Phases 0–4 in one step.
+
+Use the manual phase descriptions below only as **fallback** when the script fails or when enriching outputs after a successful script run.
 
 ### Phase 0 - Prepare target project folder
 
@@ -95,39 +131,30 @@ Example:
 
 Keep values consistent with README scope and rubric.
 
-### Phase 4 - Social sharing + preview (specialized skill)
+### Phase 4 - Social sharing + preview
 
-Use the social-sharing skill:
+Skill: `ai-engineering-syllabus/.cursor/skills/generate-project-social-sharing/SKILL.md`
 
-- Skill: `generate-project-social-sharing/SKILL.md`
-- Generate `.learn/preview.png` for the **target project only**
-- Update `learn.json.preview` with the raw GitHub URL
-- Generate/refresh bilingual `learn.json.sharing`
+**This phase is not optional.** Every new project must have:
 
-This phase is **mandatory** for every new project created with this orchestrator.
+- `.learn/preview.png` on disk for the target slug
+- `learn.json.preview` pointing to the raw GitHub URL
+- Bilingual `learn.json.sharing` (`en` + `es`)
 
-Recommended execution for single-project scope:
-
-1. Generate preview image directly from the cover template (target project only):
+**Required execution** (scoped to target slug only):
 
 ```bash
-npx playwright screenshot --viewport-size=1024,576 "file://<workspace-root>/ai-engineering-syllabus/assets/cover/cover-template.html?title=<url-encoded-title-en>&author=by%204Geeks%20Academy&image=<url-encoded-image-path>" "ai-engineering-syllabus/content/projects/<target_slug>/.learn/preview.png"
+python3 ai-engineering-syllabus/.cursor/skills/generate-project-social-sharing/scripts/generate_project_social_assets.py \
+  --project-root ai-engineering-syllabus \
+  --slug "<target-slug>" \
+  --sharing-link-template "https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/{slug}"
 ```
 
-2. Set in `content/projects/<target_slug>/learn.json`:
+The orchestrator script runs this automatically after scaffolding. If you scaffolded manually, you **must** run it before closing the task.
 
-```json
-"preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/<target_slug>/.learn/preview.png"
-```
+Do not run global regeneration across all projects unless the user explicitly requests it.
 
-3. Add or refresh `sharing` with at least 2 bilingual entries (`en` + `es`) and project URL based on `<target_slug>`.
-
-If you choose to run the automation script from `generate-project-social-sharing`, you must ensure the change set is limited to `content/projects/<target_slug>/...` and avoid unintended updates to other projects.
-
-Safety rule:
-
-- Do not run global regeneration across all projects unless the user explicitly requests it.
-- Apply social-sharing only to the target project.
+**Fallback only:** if the script is unavailable, use Playwright against `assets/cover/cover-template.html` — but prefer fixing the script environment over manual screenshots.
 
 ### Phase 5 - Classroom example brief for instructors (post-generation)
 
@@ -152,9 +179,9 @@ The script `orchestrate_project_from_readme.py` runs this step **after** scaffol
 
 If the user answers yes, apply `classroom-example-brief` before closing the task (unless they explicitly defer generation).
 
-## Automation command (recommended)
+## Automation command (required default path)
 
-Use this command as the default execution path for new projects from README:
+Run from workspace root (`AIE-Projects`) for every new project from README:
 
 ```bash
 python3 ai-engineering-syllabus/.cursor/skills/readme-project-orchestrator/scripts/orchestrate_project_from_readme.py \
@@ -172,12 +199,13 @@ Notes:
 - If a translation file is not provided, it creates a fallback counterpart that must be replaced with a proper translation pass.
 - After scaffolding, use `--classroom-example ask` (default) to prompt for instructor example briefs, or pass `yes` / `no` when running non-interactively.
 
-## Validation checklist (must pass)
+## Validation checklist (must pass — task incomplete if any fail)
 
+- [ ] Orchestrator script ran successfully (or social-sharing script ran after manual fallback).
 - [ ] `README.md` and `README.es.md` both exist and are aligned.
 - [ ] `.learn/solution/README.md` exists and matches project requirements.
 - [ ] `learn.json` is valid JSON and includes `solution`, `preview`, and `telemetry.batch` (not a top-level `batch`).
-- [ ] `.learn/preview.png` exists and is not an empty placeholder.
+- [ ] **`.learn/preview.png` exists on disk** and is not an empty file — a `preview` URL alone is insufficient.
 - [ ] `learn.json.sharing` exists with bilingual (`en`, `es`) messages.
 - [ ] All URLs in `learn.json` point to `content/projects/<target_slug>/...`.
 - [ ] Phase 4 was executed (preview generated + sharing updated) before finalizing.
@@ -192,4 +220,4 @@ Return a concise report with:
 2. Translation actions performed
 3. Which specialized skills were used per phase
 4. `classroom_example`: `yes` | `no` | `ask_required` (and next step if `yes`)
-5. Final validation status
+5. Final validation status (must include `preview_generated: yes` only when `.learn/preview.png` exists on disk)
