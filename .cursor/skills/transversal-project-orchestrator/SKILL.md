@@ -1,5 +1,5 @@
 ---
-name: transversal-project-generator
+name: transversal-project-orchestrator
 description: Orchestrates the generation of all artifacts for a 4Geeks Academy transversal project milestone — the universal project statement and the company-specific context files. Use this skill when a user wants to generate everything for a milestone at once, or when it is unclear whether they need only the README, only the CONTEXT files, or both. Trigger on phrases like "generate milestone N", "create all the files for hito X", "set up milestone N for these companies", or any request that involves a milestone number and one or more company descriptions without specifying which artifact they want. For targeted requests ("only generate the README", "only generate the context"), this skill will detect the intent and delegate accordingly. Always use this skill as the entry point when the scope of the request is ambiguous.
 ---
 
@@ -13,12 +13,12 @@ This skill is the single entry point for transversal project generation. It dete
 
 Before asking for any inputs, determine which artifacts the request requires:
 
-| Situation                           | What to generate           | Skills to invoke                                                      |
-| ----------------------------------- | -------------------------- | --------------------------------------------------------------------- |
-| No README exists for this milestone | README + all CONTEXT files | `transversal-readme-generator` → then `transversal-context-generator` |
-| README exists, new company needed   | CONTEXT file(s) only       | `transversal-context-generator`                                       |
-| README exists, needs rewrite        | README only                | `transversal-readme-generator`                                        |
-| Explicit "everything" request       | README + all CONTEXT files | Both skills in order                                                  |
+| Situation                           | What to generate           | Skills to invoke                                                                      |
+| ----------------------------------- | -------------------------- | ------------------------------------------------------------------------------------- |
+| No README exists for this milestone | README + all CONTEXT files | `transversal-project-readme-generator` → then `transversal-project-context-generator` |
+| README exists, new company needed   | CONTEXT file(s) only       | `transversal-project-context-generator`                                               |
+| README exists, needs rewrite        | README only                | `transversal-project-readme-generator`                                                |
+| Explicit "everything" request       | README + all CONTEXT files | Both skills in order                                                                  |
 
 If the situation is ambiguous, ask one clarifying question before proceeding:
 
@@ -62,11 +62,11 @@ When both artifacts are needed, always generate the README first and the CONTEXT
 
 ### Generating the README
 
-Read and follow `/mnt/skills/user/transversal-project-readme-generator/SKILL.md` in full before writing any README content.
+Read and follow `.cursor/skills/transversal-project-readme-generator/SKILL.md` in full before writing any README content.
 
 ### Generating the CONTEXT files
 
-Once the README is complete (either just generated or provided as input), read and follow `/mnt/skills/user/transversal-project-context-generator/SKILL.md` in full before writing any CONTEXT content.
+Once the README is complete (either just generated or provided as input), read and follow `.cursor/skills/transversal-project-context-generator/SKILL.md` in full before writing any CONTEXT content.
 
 Pass the completed README as the `existing_readme` input to the context generator — even when it was just generated in the same session. The context generator must read it to extract the implied structure.
 

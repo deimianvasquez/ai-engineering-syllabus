@@ -146,7 +146,7 @@ _[Cross-link line EN/ES]_
 
 ## Coordination with other skills
 
-- **`project-solution-file`**: Canonical student reference stays in `.learn/solution/` and `learn.json`. The classroom example may mention expected behaviors but must not pretend to be the official solution package.
+- **`module-project-solution-reference-generator`**: Canonical student reference stays in `.learn/solution/` and `learn.json`. The classroom example may mention expected behaviors but must not pretend to be the official solution package.
 - **`readme-project-orchestrator`**: Applies when **scaffolding a whole project** from READMEs; this skill only adds **instructor example briefs**, not full project generation.
 
 ## Reference

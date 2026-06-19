@@ -1,6 +1,11 @@
 ---
-name: project-solution-file
-description: Define and maintain a canonical solution file per project under .learn/solution and link it from the project's learn.json via a solution attribute. Use when creating or updating project solutions so students and LLMs can compare their work against a reference implementation.
+name: module-project-solution-reference-generator
+description: >-
+  Define and maintain a canonical solution file per project under .learn/solution
+  and link it from the project's learn.json via a solution attribute. Use when
+  creating or updating module project solutions so students and LLMs can compare
+  their work against a reference implementation. Trigger on "solution reference",
+  ".learn/solution", or "project solution file".
 ---
 
 # Project Solution File

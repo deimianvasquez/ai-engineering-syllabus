@@ -1,5 +1,5 @@
 ---
-name: project-readme-generator
+name: module-project-readme-generator
 description: 'Generates professional project README files (project statements) for 4Geeks Academy bootcamp modules. Use this skill whenever a user asks to create, write, or generate a project README, project statement, or module instructions for 4Geeks Academy — including any course track (Full-Stack, Data Science, Cybersecurity, AI Engineering). Trigger even if the user says things like "write a new project for the syllabus", "create a module statement", "generate README for this topic", or "I need a bootcamp project about X". Always use this skill when 4Geeks Academy context is present and a project document is needed.'
 ---
 

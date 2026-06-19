@@ -1,6 +1,14 @@
 ---
-name: 4geeks-transversal-project-readme-generator
-description: Generates the universal project statement (README.md + README.es.md) for a single milestone of a 4Geeks Academy transversal project. The README is written in generic "your company" framing — no sector, no company name — so it applies equally to every student regardless of their assigned scenario. Use this skill when a milestone needs a new README from scratch, or when an existing README needs to be rewritten. Trigger on phrases like "write the README for milestone N", "create the project statement for hito X", "generate the universal statement for this milestone", or "rewrite the milestone README". Do NOT use this skill to generate CONTEXT files — use 4geeks-transversal-context-generator for that.
+name: transversal-project-readme-generator
+description: >-
+  Generates the universal project statement (README.md + README.es.md) for a
+  single milestone of a 4Geeks Academy transversal project. The README is written
+  in generic "your company" framing — no sector, no company name — so it applies
+  equally to every student regardless of their assigned scenario. Use when a
+  milestone needs a new README from scratch, or when an existing README needs to
+  be rewritten. Trigger on "write the README for milestone N", "create the
+  project statement for hito X", or "rewrite the milestone README". Do NOT use
+  for CONTEXT files — use transversal-project-context-generator instead.
 ---
 
 # 4Geeks Academy — Transversal README Generator

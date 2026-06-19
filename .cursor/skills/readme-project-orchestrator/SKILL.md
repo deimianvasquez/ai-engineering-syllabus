@@ -56,7 +56,7 @@ Do not change markdown structure, links, code blocks, or section layout.
 
 Use the project solution skill:
 
-- Skill: `project-solution-generator/SKILL.md` (project solution file workflow)
+- Skill: `module-project-solution-reference-generator/SKILL.md` (project solution file workflow)
 - Create/update `.learn/solution/README.md` as canonical solution entry.
 - Add any additional solution artifacts only if required by the project type.
 
