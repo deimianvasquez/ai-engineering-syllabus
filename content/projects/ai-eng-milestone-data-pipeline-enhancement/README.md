@@ -1,4 +1,4 @@
-# Milestone 6 — Pipeline Enhancements: Subflows, Tests and Deployment (Part 3 of 3)
+# Milestone 6 — Company's Data Pipeline Enhancement: Subflows and Tests (3/3)
 
 <!-- hide -->
 

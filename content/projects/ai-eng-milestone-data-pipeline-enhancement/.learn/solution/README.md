@@ -1,4 +1,4 @@
-# Milestone 6 — Pipeline Enhancements: Subflows, Tests and Deployment (Part 3 of 3) — Reference Solution
+# Milestone 6 — Company's Data Pipeline Enhancement: Subflows and Tests (3/3) — Reference Solution
 
 This reference solution defines the expected quality bar for deliverables in the student's company monorepo fork:
 

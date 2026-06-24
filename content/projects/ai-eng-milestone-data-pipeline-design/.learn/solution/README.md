@@ -1,4 +1,4 @@
-# Milestone 6 — Company's Data Pipeline Design (Part 1 of 3) — Reference Solution
+# Milestone 6 — Company's Data Pipeline Design (1/3) — Reference Solution
 
 This reference solution defines the expected quality bar for deliverables in the student's company monorepo fork:
 

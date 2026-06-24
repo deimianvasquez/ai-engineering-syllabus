@@ -1,4 +1,4 @@
-# Implementing a Resilient Data Pipeline
+# Milestone 6 — Implementing a Resilient Data Pipeline (2/3)
 
 <!-- hide -->
 

@@ -1,4 +1,4 @@
-# Company's Data Pipeline Design
+# Milestone 6 — Company's Data Pipeline Design (1/3)
 
 <!-- hide -->
 

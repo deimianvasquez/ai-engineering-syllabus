@@ -1,4 +1,4 @@
-# Milestone 6 — Implementing a Resilient Data Pipeline (Part 2 of 3) — Reference Solution
+# Milestone 6 — Implementing a Resilient Data Pipeline (2/3) — Reference Solution
 
 This reference solution defines the expected quality bar for deliverables in the student's company monorepo fork:
 

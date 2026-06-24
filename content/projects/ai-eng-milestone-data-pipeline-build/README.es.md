@@ -1,4 +1,4 @@
-# Implementación de un Data Pipeline Resiliente
+# Hito 6 — Implementación de un Data Pipeline Resiliente (2/3)
 
 <!-- hide -->
 

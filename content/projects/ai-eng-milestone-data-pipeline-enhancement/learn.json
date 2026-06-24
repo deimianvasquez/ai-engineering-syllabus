@@ -1,8 +1,8 @@
 {
   "gitpod": true,
   "title": {
-    "en": "Milestone 6 — Pipeline Enhancements: Subflows, Tests and Deployment (Part 3 of 3)",
-    "es": "Hito 6 — Mejoras al Pipeline: Subflows, Tests y Deployment (Parte 3 de 3)"
+    "en": "Milestone 6 — Company's Data Pipeline Enhancement: Subflows and Tests (3/3)",
+    "es": "Hito 6 — Mejora del pipeline de datos de la compañía: Subflows y tests (3/3)"
   },
   "description": {
     "en": "Bring your company Prefect data pipeline to production level in the monorepo: refactor the main flow into reusable extract-transform-load subflows with explicit inputs and outputs, add isolated unit tests for transformation tasks including defensive cases against malformed input, and complete the Docker deployment with schedule — verifying runs via Prefect Cloud CLI.",
@@ -23,7 +23,10 @@
     "pytest",
     "backend-design"
   ],
-  "translations": ["es", "en"],
+  "translations": [
+    "es",
+    "en"
+  ],
   "projectType": "project",
   "telemetry": {
     "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id="
@@ -32,12 +35,12 @@
   "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-milestone-data-pipeline-enhancement/.learn/preview.png",
   "sharing": [
     {
-      "en": "I just completed Milestone 6 — Pipeline Enhancements: Subflows, Tests and Deployment (Part 3 of 3) with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-enhancement #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl",
-      "es": "Acabo de completar Hito 6 — Mejoras al Pipeline: Subflows, Tests y Deployment (Parte 3 de 3) con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-enhancement #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl"
+      "en": "I just completed Milestone 6 — Company's Data Pipeline Enhancement: Subflows and Tests (3/3) with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-enhancement #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl",
+      "es": "Acabo de completar Hito 6 — Mejora del pipeline de datos de la compañía: Subflows y tests (3/3) con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-enhancement #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl"
     },
     {
-      "en": "Built and shipped: Milestone 6 — Pipeline Enhancements: Subflows, Tests and Deployment (Part 3 of 3). Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-enhancement #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl",
-      "es": "Construido y publicado: Hito 6 — Mejoras al Pipeline: Subflows, Tests y Deployment (Parte 3 de 3). Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-enhancement #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl"
+      "en": "Built and shipped: Milestone 6 — Company's Data Pipeline Enhancement: Subflows and Tests (3/3). Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-enhancement #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl",
+      "es": "Construido y publicado: Hito 6 — Mejora del pipeline de datos de la compañía: Subflows y tests (3/3). Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-enhancement #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl"
     }
   ]
 }
