@@ -1,42 +1,36 @@
 {
-  "gitpod": true,
-  "title": {
-    "en": "Milestone 6 — Company's Data Pipeline Design (Part 1 of 3)",
-    "es": "Hito 6 — Diseño del pipeline de datos de la compañía (Parte 1 de 3)"
-  },
-  "description": {
-    "en": "Design a production-ready data pipeline for your company monorepo: document current telemetry state and Pandas report limitations, define ETL purpose and extraction format, diagram extract-transform-load with real entity names, specify idempotency and update-handling strategies, design an auditable execution log, and map flows, tasks, states, and Prefect blocks — before writing orchestration code.",
-    "es": "Diseña un pipeline de datos listo para producción en el monorepo de tu empresa: documenta el estado actual de telemetría y las limitaciones de los informes con Pandas, define propósito ETL y formato de extracción, diagrama extracción-transformación-carga con nombres reales de entidades, especifica estrategias de idempotencia y manejo de actualizaciones, diseña un log de ejecución auditable y mapea flows, tasks, estados y bloques de Prefect — antes de escribir código de orquestación."
-  },
-  "status": "draft",
-  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
-  "slug": "ai-eng-milestone-data-pipeline-design",
-  "coverImage": "workflow.svg",
-  "difficulty": "intermediate",
-  "duration": 3,
-  "technologies": [
-    "architecture",
-    "data-engineering",
-    "etl",
-    "prefect",
-    "backend-design",
-    "technical-documentation"
-  ],
-  "translations": ["es", "en"],
-  "projectType": "project",
-  "telemetry": {
-    "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3685"
-  },
-  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-milestone-data-pipeline-design/.learn/solution/README.md",
-  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-milestone-data-pipeline-design/.learn/preview.png",
-  "sharing": [
-    {
-      "en": "I just completed Milestone 6 — Company's Data Pipeline Design (Part 1 of 3) with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-design #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl",
-      "es": "Acabo de completar Hito 6 — Diseño del pipeline de datos de la compañía (Parte 1 de 3) con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-design #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl"
+    "slug": "ai-eng-data-pipeline-design-es",
+    "title": {
+        "es": "Dise\u00f1o del pipeline de datos de la compa\u00f1\u00eda",
+        "us": "Company's Data Pipeline Design"
     },
-    {
-      "en": "Built and shipped: Milestone 6 — Company's Data Pipeline Design (Part 1 of 3). Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-design #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl",
-      "es": "Construido y publicado: Hito 6 — Diseño del pipeline de datos de la compañía (Parte 1 de 3). Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-design #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl"
+    "description": {
+        "es": "Dise\u00f1a un pipeline de datos listo para producci\u00f3n en el monorepo de tu empresa: documenta el estado actual de telemetr\u00eda y las limitaciones de los informes con Pandas, define prop\u00f3sito ETL y formato de extracci\u00f3n, diagrama extracci\u00f3n-transformaci\u00f3n-carga con nombres reales de entidades, especifica estrategias de idempotencia y manejo de actualizaciones, dise\u00f1a un log de ejecuci\u00f3n auditable y mapea flows, tasks, estados y bloques de Prefect \u2014 antes de escribir c\u00f3digo de orquestaci\u00f3n.",
+        "us": "Design a production-ready data pipeline for your company monorepo: document current telemetry state and Pandas report limitations, define ETL purpose and extraction format, diagram extract-transform-load with real entity names, specify idempotency and update-handling strategies, design an auditable execution log, and map flows, tasks, states, and Prefect blocks \u2014 before writing orchestration code."
+    },
+    "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-data-pipeline-design/.learn/preview.png",
+    "difficulty": "INTERMEDIATE",
+    "duration": 3,
+    "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+    "gitpod": true,
+    "technologies": [
+        "architecture",
+        "data-engineering",
+        "etl",
+        "prefect",
+        "backend-design",
+        "technical-documentation"
+    ],
+    "projectType": "project",
+    "solution": {
+        "es": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-milestone-data-pipeline-design/.learn/solution/README.md",
+        "us": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-milestone-data-pipeline-design/.learn/solution/README.md"
+    },
+    "delivery": {
+        "instructions": "",
+        "formats": [
+            "url"
+        ],
+        "regex": ""
     }
-  ]
 }
