@@ -1,8 +1,8 @@
 {
     "slug": "ai-eng-data-pipeline-design",
     "title": {
-        "us": "Company's Data Pipeline Design",
-        "es": "Dise\u00f1o del pipeline de datos de la compa\u00f1\u00eda"
+        "us": "Milestone 6 \u2014 Company's Data Pipeline Design (1/3)",
+        "es": "Hito 6 \u2014 Dise\u00f1o del pipeline de datos de la compa\u00f1\u00eda (1/3)"
     },
     "description": {
         "us": "Design a production-ready data pipeline for your company monorepo: document current telemetry state and Pandas report limitations, define ETL purpose and extraction format, diagram extract-transform-load with real entity names, specify idempotency and update-handling strategies, design an auditable execution log, and map flows, tasks, states, and Prefect blocks \u2014 before writing orchestration code.",
@@ -24,7 +24,7 @@
     "projectType": "project",
     "solution": {
         "us": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-milestone-data-pipeline-design/.learn/solution/README.md",
-        "es": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-data-pipeline-design/.learn/solution/README.md"
+        "es": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-milestone-data-pipeline-design/.learn/solution/README.md"
     },
     "delivery": {
         "instructions": "",
