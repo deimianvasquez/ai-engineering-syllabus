@@ -1,4 +1,4 @@
-# Hito 6 — Diseño del pipeline de datos de la compañía (Parte 1 de 3)
+# Diseño del pipeline de datos de la compañía
 
 <!-- hide -->
 
@@ -18,12 +18,6 @@ _These instructions are [available in English](./README.md)._
 ## 🎯 El Reto
 
 > 📌 Estás construyendo sobre **tu copia** del **[monorepo](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo)** de la empresa seleccionada al inicio del curso — no en un repositorio nuevo.
-
-Este proyecto forma parte del **Hito 6 — Telemetría y Data Pipelines**, que se completa en tres etapas:
-
-- **Parte 1 (este README):** diseñas el pipeline en `data/pipelines/PIPELINE_DESIGN.md`.
-- **Parte 2:** construyes el pipeline base con Prefect — flows, tasks, resiliencia, idempotencia y endpoints en el backend.
-- **Parte 3:** refactorizas en subflows, añades tests unitarios y completas el deployment en Docker con schedule.
 
 Has pasado las últimas semanas capturando eventos de telemetría, almacenándolos en base de datos y generando informes básicos con Pandas. Ahora tu tech lead quiere algo más: un pipeline de datos que sea robusto, auditable y que tu equipo pueda ejecutar con confianza en producción.
 
