@@ -1,0 +1,43 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Milestone 6 — Implementing a Resilient Data Pipeline (Part 2 of 3)",
+    "es": "Hito 6 — Implementación de un Data Pipeline Resiliente (Parte 2 de 3)"
+  },
+  "description": {
+    "en": "Build a resilient Prefect data pipeline in your company monorepo: implement extract-transform-load flows and tasks, configure retries caching and partial-failure tolerance, ensure idempotent loads with execution metadata, create a scheduled Docker deployment, and expose pipeline status and manual trigger endpoints in the backend — implementing your approved PIPELINE_DESIGN.md.",
+    "es": "Construye un pipeline de datos resiliente con Prefect en el monorepo de tu empresa: implementa flows y tasks de extracción-transformación-carga, configura reintentos, caché y tolerancia a fallos parciales, garantiza cargas idempotentes con metadatos de ejecución, crea un deployment programado en Docker y expone endpoints de estado y disparo manual en el backend — implementando tu PIPELINE_DESIGN.md aprobado."
+  },
+  "status": "draft",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "slug": "ai-eng-milestone-data-pipeline-build",
+  "coverImage": "workflow.svg",
+  "difficulty": "intermediate",
+  "duration": 3,
+  "technologies": [
+    "architecture",
+    "data-engineering",
+    "etl",
+    "prefect",
+    "docker",
+    "fastapi",
+    "backend-design"
+  ],
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "telemetry": {
+    "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id="
+  },
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-milestone-data-pipeline-build/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-milestone-data-pipeline-build/.learn/preview.png",
+  "sharing": [
+    {
+      "en": "I just completed Milestone 6 — Implementing a Resilient Data Pipeline (Part 2 of 3) with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-build #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl",
+      "es": "Acabo de completar Hito 6 — Implementación de un Data Pipeline Resiliente (Parte 2 de 3) con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-build #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl"
+    },
+    {
+      "en": "Built and shipped: Milestone 6 — Implementing a Resilient Data Pipeline (Part 2 of 3). Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-build #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl",
+      "es": "Construido y publicado: Hito 6 — Implementación de un Data Pipeline Resiliente (Parte 2 de 3). Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-milestone-data-pipeline-build #AIEngineering #LearnPack #4GeeksAcademy #architecture #dataengineering #etl"
+    }
+  ]
+}

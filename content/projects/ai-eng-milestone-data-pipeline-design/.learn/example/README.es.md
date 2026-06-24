@@ -1,6 +1,6 @@
 # GreenPatch Co-op — Diseño de pipeline de telemetría (Ejemplo de clase)
 
-> **Para instructores:** Escenario paralelo en aula para `ai-eng-data-pipeline-design`. Misma columna vertebral (estado actual, propósito ETL, diagrama de flujo, estrategia de actualización/dedup, idempotencia, log de ejecución, mapa a Prefect), dominio distinto. Los estudiantes siguen el enunciado completo del monorepo en el `README.md` raíz del proyecto.
+> **Para instructores:** Escenario paralelo en aula para `ai-eng-milestone-data-pipeline-design`. Misma columna vertebral (estado actual, propósito ETL, diagrama de flujo, estrategia de actualización/dedup, idempotencia, log de ejecución, mapa a Prefect), dominio distinto. Los estudiantes siguen el enunciado completo del monorepo en el `README.md` raíz del proyecto.
 
 _These instructions are also available in [English](./README.md)._
 
@@ -14,11 +14,11 @@ En una sesión, redacta un **mini `data/PIPELINE_DESIGN.md`** — sin código.
 
 ### Nota de alcance
 
-| Proyecto evaluable (`ai-eng-data-pipeline-design`) | Este ejemplo de clase                              |
-| -------------------------------------------------- | -------------------------------------------------- |
-| CONTEXT de empresa + monorepo de inventario        | CONTEXT ficticio GreenPatch (abajo)                |
-| Brief completo del CTO + mapa Prefect              | Mismos encabezados de sección, narrativa más corta |
-| Commit al monorepo del estudiante                  | Solo Markdown local                                |
+| Proyecto evaluable (`ai-eng-milestone-data-pipeline-design`) | Este ejemplo de clase                              |
+| ------------------------------------------------------------ | -------------------------------------------------- |
+| CONTEXT de empresa + monorepo de inventario                  | CONTEXT ficticio GreenPatch (abajo)                |
+| Brief completo del CTO + mapa Prefect                        | Mismos encabezados de sección, narrativa más corta |
+| Commit al monorepo del estudiante                            | Solo Markdown local                                |
 
 ---
 

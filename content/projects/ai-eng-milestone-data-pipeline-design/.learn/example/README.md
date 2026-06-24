@@ -1,6 +1,6 @@
 # GreenPatch Co-op — Telemetry Pipeline Design (Class Example)
 
-> **For instructors:** Parallel classroom scenario for `ai-eng-data-pipeline-design`. Same spine (current state, ETL purpose, data flow diagram, update/dedup strategy, idempotency, execution log, Prefect mapping), different domain. Students still follow the full monorepo brief in the project root `README.md`.
+> **For instructors:** Parallel classroom scenario for `ai-eng-milestone-data-pipeline-design`. Same spine (current state, ETL purpose, data flow diagram, update/dedup strategy, idempotency, execution log, Prefect mapping), different domain. Students still follow the full monorepo brief in the project root `README.md`.
 
 _Estas instrucciones también están disponibles en [español](./README.es.md)._
 
@@ -14,11 +14,11 @@ In one session, draft a **mini `data/PIPELINE_DESIGN.md`** — no code.
 
 ### Scope note
 
-| Graded project (`ai-eng-data-pipeline-design`) | This class example                       |
-| ---------------------------------------------- | ---------------------------------------- |
-| Company CONTEXT + inventory monorepo           | Fictional GreenPatch CONTEXT (below)     |
-| Full CTO brief + Prefect mapping               | Same section headings, smaller narrative |
-| Commit to student monorepo                     | Local markdown only                      |
+| Graded project (`ai-eng-milestone-data-pipeline-design`) | This class example                       |
+| -------------------------------------------------------- | ---------------------------------------- |
+| Company CONTEXT + inventory monorepo                     | Fictional GreenPatch CONTEXT (below)     |
+| Full CTO brief + Prefect mapping                         | Same section headings, smaller narrative |
+| Commit to student monorepo                               | Local markdown only                      |
 
 ---
 

@@ -1,4 +1,4 @@
-# Company's Data Pipeline Design
+# Milestone 6 — Company's Data Pipeline Design (Part 1 of 3)
 
 <!-- hide -->
 
@@ -18,6 +18,12 @@ _Estas instrucciones están [disponibles en español](./README.es.md)._
 ## 🎯 The Challenge
 
 > 📌 You are building on **your own fork** of the company's **[monorepo](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo)** selected at the beginning of the course — not on a new repository.
+
+This project is **Part 1 of Milestone 6 — Telemetry and Data Pipelines**, which is completed in three stages:
+
+- **Part 1 (this README):** you design the pipeline in `data/pipelines/PIPELINE_DESIGN.md`.
+- **Part 2:** you build the base pipeline with Prefect — flows, tasks, resilience, idempotency, and backend endpoints.
+- **Part 3:** you refactor into subflows, add unit tests, and complete the Docker deployment with a schedule.
 
 Over the past weeks you captured telemetry events, stored them in a database, and generated basic reports with Pandas. Your tech lead now wants something more: a data pipeline that is robust, auditable, and that your team can run confidently in production.
 

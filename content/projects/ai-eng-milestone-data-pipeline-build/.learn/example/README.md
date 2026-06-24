@@ -1,6 +1,6 @@
 # GreenPatch Co-op — Resilient Telemetry Pipeline (Class Example)
 
-> **For instructors:** Parallel classroom scenario for `ai-eng-data-pipeline-build`. Same spine (Prefect flows/tasks, retries, caching, idempotency, deployment, API endpoints), different domain. Students still follow the full monorepo brief in the project root `README.md`.
+> **For instructors:** Parallel classroom scenario for `ai-eng-milestone-data-pipeline-build`. Same spine (Prefect flows/tasks, retries, caching, idempotency, deployment, API endpoints), different domain. Students still follow the full monorepo brief in the project root `README.md`.
 
 _Estas instrucciones también están disponibles en [español](./README.es.md)._
 
@@ -14,11 +14,11 @@ Starting spec: the mini design below replaces `PIPELINE_DESIGN.md`.
 
 ### Scope note
 
-| Graded project (`ai-eng-data-pipeline-build`) | This class example                   |
-| --------------------------------------------- | ------------------------------------ |
-| Company CONTEXT + inventory monorepo          | Fictional GreenPatch CONTEXT (below) |
-| Full CTO ticket + Docker deployment           | Same phases, smaller dataset         |
-| Commit to student monorepo fork               | Local demo only                      |
+| Graded project (`ai-eng-milestone-data-pipeline-build`) | This class example                   |
+| ------------------------------------------------------- | ------------------------------------ |
+| Company CONTEXT + inventory monorepo                    | Fictional GreenPatch CONTEXT (below) |
+| Full CTO ticket + Docker deployment                     | Same phases, smaller dataset         |
+| Commit to student monorepo fork                         | Local demo only                      |
 
 ---
 

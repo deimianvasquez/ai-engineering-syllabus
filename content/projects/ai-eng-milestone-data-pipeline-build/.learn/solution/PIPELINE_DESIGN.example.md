@@ -1,6 +1,6 @@
 # Pipeline Design Document — Company Inventory Telemetry (Reference Excerpt)
 
-> Instructor/evaluator reference only. Student deliverable: `data/PIPELINE_DESIGN.md` in the company monorepo.
+> Instructor/evaluator reference only. Student deliverable: `data/pipelines/PIPELINE_DESIGN.md` in the company monorepo.
 
 ## Current State
 

@@ -1,8 +1,8 @@
-# Company's Data Pipeline Design — Reference Solution
+# Milestone 6 — Company's Data Pipeline Design (Part 1 of 3) — Reference Solution
 
 This reference solution defines the expected quality bar for deliverables in the student's company monorepo fork:
 
-- `data/PIPELINE_DESIGN.md`
+- `data/pipelines/PIPELINE_DESIGN.md`
 
 The deliverable is **design documentation only** — no Prefect flows, Python scripts, migrations, or runnable ETL code. Another engineer should be able to implement the pipeline from this document without follow-up questions.
 
@@ -14,7 +14,7 @@ All event names, table names, KPIs, and business constraints must come from the 
 
 ## Expected deliverable structure
 
-### `data/PIPELINE_DESIGN.md`
+### `data/pipelines/PIPELINE_DESIGN.md`
 
 A complete design should include at least:
 
@@ -158,7 +158,7 @@ Tasks should align with ETL stages in the data flow diagram — not arbitrary mi
 
 ## Evaluation checklist
 
-- [ ] `data/PIPELINE_DESIGN.md` exists; design doc only — no orchestration code.
+- [ ] `data/pipelines/PIPELINE_DESIGN.md` exists; design doc only — no orchestration code.
 - [ ] Current State documents captured events, storage, existing Pandas reports, and limitations.
 - [ ] Purpose is one sentence mentioning company business value.
 - [ ] Extraction format names real source, format, and refresh cadence.
@@ -174,4 +174,4 @@ Tasks should align with ETL stages in the data flow diagram — not arbitrary mi
 
 ## Auxiliary reference
 
-See `PIPELINE_DESIGN.example.md` in this folder for a condensed sample document illustrating tone and depth. Students should write their own design in `data/PIPELINE_DESIGN.md` — do not copy verbatim.
+See `PIPELINE_DESIGN.example.md` in this folder for a condensed sample document illustrating tone and depth. Students should write their own design in `data/pipelines/PIPELINE_DESIGN.md` — do not copy verbatim.
