@@ -1,0 +1,49 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Message Queues and Async Tasks",
+    "es": "Colas de Mensajes y Tareas Asíncronas"
+  },
+  "description": {
+    "en": "Decouple heavy API operations with Redis and Celery in your company monorepo: add Redis and Flower to Docker Compose, configure Celery with retries and exponential backoff, convert the slowest endpoint to async (202 + task_id), implement GET /tasks/{task_id}, record failed tasks in a Dead Letter Queue after max_retries, run workers as separate processes, and monitor with Flower.",
+    "es": "Desacopla operaciones pesadas de la API con Redis y Celery en el monorepo de tu empresa: añade Redis y Flower a Docker Compose, configura Celery con reintentos y backoff exponencial, convierte el endpoint más lento en asíncrono (202 + task_id), implementa GET /tasks/{task_id}, registra tareas fallidas en una Dead Letter Queue tras max_retries, ejecuta workers como procesos separados y monitorea con Flower."
+  },
+  "status": "draft",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "slug": "ai-eng-message-queue",
+  "coverImage": "command-line.svg",
+  "difficulty": "intermediate",
+  "duration": 2,
+  "technologies": [
+    "python",
+    "celery",
+    "redis",
+    "fastapi",
+    "message-queue",
+    "async-tasks",
+    "docker",
+    "flower",
+    "backend-design",
+    "architecture"
+  ],
+  "translations": [
+    "es",
+    "en"
+  ],
+  "projectType": "project",
+  "telemetry": {
+    "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3726"
+  },
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-message-queue/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-message-queue/.learn/preview.png",
+  "sharing": [
+    {
+      "en": "I just completed Message Queues and Async Tasks with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-message-queue #AIEngineering #LearnPack #4GeeksAcademy #python #celery #redis",
+      "es": "Acabo de completar Colas de Mensajes y Tareas Asíncronas con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-message-queue #AIEngineering #LearnPack #4GeeksAcademy #python #celery #redis"
+    },
+    {
+      "en": "Built and shipped: Message Queues and Async Tasks. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-message-queue #AIEngineering #LearnPack #4GeeksAcademy #python #celery #redis",
+      "es": "Construido y publicado: Colas de Mensajes y Tareas Asíncronas. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-message-queue #AIEngineering #LearnPack #4GeeksAcademy #python #celery #redis"
+    }
+  ]
+}
