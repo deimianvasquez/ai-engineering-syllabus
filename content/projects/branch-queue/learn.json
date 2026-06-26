@@ -1,0 +1,35 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Branch Queue — Tagged Service Queue",
+    "es": "Branch Queue — Cola de Servicio Etiquetada"
+  },
+  "description": {
+    "en": "Build a terminal Python tagged service queue for a bank branch: model tickets with service types (deposit, withdrawal, account management), implement issue_ticket, call_next, peek_next, list_waiting, and stats with one deque per service type, build a CLI menu, and document why per-service queues beat a single shared list and how concurrent call_next mutations should be ordered using only the Python standard library.",
+    "es": "Construye una cola de servicio etiquetada en Python para terminal en una sucursal bancaria: modela tickets con tipos de servicio (depósito, retiro, gestión de cuenta), implementa issue_ticket, call_next, peek_next, list_waiting y stats con una deque por tipo de servicio, crea un menú CLI y documenta por qué las colas por servicio superan una lista compartida y cómo ordenar mutaciones concurrentes de call_next usando solo la biblioteca estándar de Python."
+  },
+  "status": "draft",
+  "template_url": "self",
+  "slug": "branch-queue",
+  "coverImage": "command-line.svg",
+  "difficulty": "intermediate",
+  "duration": 2,
+  "technologies": ["python", "data-structures", "algorithms", "cli", "queue"],
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "telemetry": {
+    "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id="
+  },
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/branch-queue/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/branch-queue/.learn/preview.png",
+  "sharing": [
+    {
+      "en": "I just completed Branch Queue — Tagged Service Queue with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/branch-queue #AIEngineering #LearnPack #4GeeksAcademy #python #datastructures #algorithms",
+      "es": "Acabo de completar Branch Queue — Cola de Servicio Etiquetada con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/branch-queue #AIEngineering #LearnPack #4GeeksAcademy #python #datastructures #algorithms"
+    },
+    {
+      "en": "Built and shipped: Branch Queue — Tagged Service Queue. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/branch-queue #AIEngineering #LearnPack #4GeeksAcademy #python #datastructures #algorithms",
+      "es": "Construido y publicado: Branch Queue — Cola de Servicio Etiquetada. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/branch-queue #AIEngineering #LearnPack #4GeeksAcademy #python #datastructures #algorithms"
+    }
+  ]
+}
