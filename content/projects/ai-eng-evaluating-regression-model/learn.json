@@ -1,0 +1,47 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Evaluating a Regression Model",
+    "es": "Evaluación de un Modelo de Regresión"
+  },
+  "description": {
+    "en": "Formally evaluate your company's sales regression model before staging: run temporal cross-validation (≥5 folds, mean ± std), generate learning curves, compare MAE and RMSE with business justification from CONTEXT.md, write an evidence-backed diagnosis (well fitted / underfitting / overfitting), and propose a specific corrective action.",
+    "es": "Evalúa formalmente tu modelo de regresión de ventas antes de staging: ejecuta validación cruzada temporal (≥5 folds, media ± desviación estándar), genera curvas de aprendizaje, compara MAE y RMSE con justificación de negocio desde CONTEXT.md, redacta un diagnóstico respaldado por evidencia (bien ajustado / underfitting / overfitting) y propón una acción correctiva específica."
+  },
+  "status": "draft",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "slug": "ai-eng-evaluating-regression-model",
+  "coverImage": "ai-coding.svg",
+  "difficulty": "intermediate",
+  "duration": 3,
+  "technologies": [
+    "python",
+    "scikit-learn",
+    "regression",
+    "machine-learning",
+    "cross-validation",
+    "model-evaluation",
+    "data-analysis",
+    "technical-documentation"
+  ],
+  "translations": [
+    "es",
+    "en"
+  ],
+  "projectType": "project",
+  "telemetry": {
+    "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id="
+  },
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-evaluating-regression-model/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-evaluating-regression-model/.learn/preview.png",
+  "sharing": [
+    {
+      "en": "I just completed Evaluating a Regression Model with LearnPack @4GeeksAcademy. Ran temporal cross-validation, learning curves, MAE/RMSE comparison, and wrote an evidence-backed overfitting/underfitting diagnosis. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-evaluating-regression-model #AIEngineering #LearnPack #4GeeksAcademy #python #machinelearning #regression",
+      "es": "Acabo de completar Evaluación de un Modelo de Regresión con LearnPack @4GeeksAcademy. Ejecuté validación cruzada temporal, curvas de aprendizaje, comparación MAE/RMSE y redacté un diagnóstico de overfitting/underfitting respaldado por evidencia. Míralo: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-evaluating-regression-model #AIEngineering #LearnPack #4GeeksAcademy #python #machinelearning #regression"
+    },
+    {
+      "en": "Built and shipped: Evaluating a Regression Model. Learning by building with @4GeeksAcademy. TimeSeriesSplit CV, learning curves, business-justified metrics, and a specific corrective action. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-evaluating-regression-model #AIEngineering #LearnPack #4GeeksAcademy #python #modelevaluation #datascience",
+      "es": "Construido y publicado: Evaluación de un Modelo de Regresión. Aprendiendo con proyectos reales en @4GeeksAcademy. CV con TimeSeriesSplit, curvas de aprendizaje, métricas justificadas por negocio y acción correctiva específica. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-evaluating-regression-model #AIEngineering #LearnPack #4GeeksAcademy #python #modelevaluation #datascience"
+    }
+  ]
+}
