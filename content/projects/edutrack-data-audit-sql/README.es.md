@@ -51,7 +51,7 @@ Este tipo de auditoría aparece constantemente en startups. Cuanto más limpia e
 
 Este proyecto no requiere un repositorio de código — tu entregable es un archivo SQL con tus consultas y un informe en Markdown con tus hallazgos.
 
-1. Descarga el archivo `edutrack.sql` desde la plataforma.
+1. Descarga el archivo [edutrack.sql](https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/refs/heads/main/content/projects/edutrack-data-audit-sql/edutrack.sql) desde la plataforma.
 2. Inicia sesión en [Supabase](https://supabase.com) y crea un nuevo proyecto.
 3. Ve al **SQL Editor** y ejecuta el contenido completo de `edutrack.sql` para crear y poblar la base de datos.
 4. Verifica que la importación fue exitosa ejecutando `SELECT * FROM enrollments LIMIT 5;`.

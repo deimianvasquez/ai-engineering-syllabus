@@ -2,7 +2,7 @@
 
 Repository of hands-on projects for the **AI Engineering** program at 4Geeks Academy. Each folder is a standalone project with its own README, evaluation criteria, and (when applicable) `learn.json` for the platform.
 
-Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, accessibility) and Tailwind, through company milestones and collaboration, **OpenClaw agent setup and integrations**, then TypeScript and system design, React/Next.js and AI-assisted delivery, APIs, authentication, agents, performance, telemetry, and advanced milestones.
+Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, accessibility) and Tailwind, through company milestones and collaboration, **OpenClaw agent setup and integrations**, then TypeScript and system design, React/Next.js and AI-assisted delivery, APIs, authentication, agents, performance, telemetry, data pipelines, background jobs, and message queues.
 
 ---
 
@@ -151,6 +151,36 @@ Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, acce
 
 47. **[Company's Telemetry — Report](./ai-eng-telemetry-report)**  
     Pandas pipeline plus `GET /telemetry/report` with grouped metrics, 60s response cache, and actionable inventory/usage summaries.
+
+48. **[Designing a Data Pipeline: From Raw Data to Reliable Insights](./designing-data-pipeline)**  
+    Standalone ETL design exercise for Veridian Logistics: analyze nightly CSV exports with updates-as-inserts, document deduplication and idempotency, and produce `PIPELINE_DESIGN.md` — no orchestration code.
+
+49. **[Milestone 6 — Company's Data Pipeline Design (1/3)](./ai-eng-milestone-data-pipeline-design)**  
+    `Milestone 6` (design) — Document a production-ready telemetry pipeline in the company monorepo: current state, ETL flow diagram, idempotency, execution log, and Prefect mapping before writing code.
+
+50. **[Milestone 6 — Implementing a Resilient Data Pipeline (2/3)](./ai-eng-milestone-data-pipeline-build)**  
+    `Milestone 6` (build) — Implement Prefect extract-transform-load flows in the monorepo with retries, idempotent loads, scheduled Docker deployment, and pipeline status/trigger API endpoints.
+
+51. **[Milestone 6 — Company's Data Pipeline Enhancement: Subflows and Tests (3/3)](./ai-eng-milestone-data-pipeline-enhancement)**  
+    `Milestone 6` (enhancement) — Refactor the pipeline into reusable subflows, add isolated unit tests for transformation tasks, and complete the production Docker deployment with Prefect Cloud verification.
+
+52. **[Background Processes](./ai-eng-cronjobs)**  
+    Nightly telemetry export cronjob in the company monorepo: independent CLI script, `job_runs` state machine, distributed lock, idempotent CSV export, pipeline subprocess trigger, and `TARGET_DATE` override for testing.
+
+53. **[Branch Queue — Tagged Service Queue](./branch-queue)**  
+    Terminal Python queue manager for a bank branch: one deque per service type, global ticket counter, CLI menu, and design notes on per-service queues vs a shared list — stdlib only.
+
+54. **[Triage Queue — Priority Queue Manager](./triage-queue)**  
+    Terminal Python priority queue for an emergency unit: triage levels 1–3 with FIFO within level, five core operations, CLI menu, and data-structure design notes — stdlib only.
+
+55. **[Message Queues and Async Tasks](./ai-eng-message-queue)**  
+    Decouple heavy API work with Redis and Celery in the company monorepo: `202` + `task_id`, `GET /tasks/{task_id}`, retries with backoff, Dead Letter Queue, separate worker process, and Flower monitoring.
+
+56. **[Sentiment Analysis on Customer Reviews — WeLoveReviews](./existing-model-sentiment-analysis-reviews)**  
+    Integrate `prajjwal1/bert-mini` from Hugging Face to classify 500 customer reviews, compare sentiment breakdown against a 4.5-star average, validate predictions manually, and deliver a client-ready report.
+
+57. **[StreamLoop — Tuning the Churn Model](./streamloop-churn-model-tuning)**  
+    Tune a churn classifier on StreamLoop's telecom-style dataset: sklearn Pipeline with internal preprocessing, default baseline, RandomizedSearchCV → GridSearchCV on train only, business-aligned scoring, `cv_results_` stability review, and `tuning_report.md`.
 
 ---
 
