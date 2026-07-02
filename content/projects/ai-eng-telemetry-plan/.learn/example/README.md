@@ -51,7 +51,7 @@ Create in a throwaway folder or shared demo repo:
 
 ### 2. Event Envelope
 
-- [ ] Document mandatory fields: `eventId`, `timestamp` (ISO 8601), `sessionId`, `userId`, `eventName`, `schemaVersion`, `requestId`, `properties`.
+- [ ] Document mandatory fields: `eventId`, `timestamp` (ISO 8601), `sessionId`, `userId`, `event_type`, `schemaVersion`, `requestId`, `properties`.
 - [ ] State that `properties` is allowlist-only per event.
 
 ### 3. Design four events
@@ -65,7 +65,7 @@ Create in a throwaway folder or shared demo repo:
 
 For each event:
 
-- [ ] Golden-rule sentence: _"We capture `[event]` because we need to know `[hypothesis]`, which allows us to make the decision `[decision]`."_
+- [ ] Golden-rule sentence: _"We capture `[event_type]` because we need to know `[hypothesis]`, which allows us to make the decision `[decision]`."_
 - [ ] Property allowlist table (name, type, required).
 - [ ] Stream vs batch with **business urgency** justification.
 

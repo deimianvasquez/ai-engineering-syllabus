@@ -68,7 +68,7 @@ El servicio de captura en el frontend no dispara una llamada HTTP por cada event
   - Aceptar un body con la forma `{ "events": [...] }`
   - Hacer un log del número de eventos recibidos y del `event_type` de cada uno
   - Devolver `200 OK` con `{ "received": N }` donde N es el número de eventos del batch
-- [ ] Define el modelo Pydantic `TelemetryEvent` con los campos del envelope estándar de tu plan (`eventId`, `timestamp`, `sessionId`, `userId`, `event_type`, `schemaVersion`, `properties`). Este modelo será reutilizado y ampliado en la Fase 3 — defínelo bien desde ahora.
+- [ ] Define el modelo Pydantic `TelemetryEvent` con los campos del envelope estándar de tu plan (`eventId`, `timestamp`, `sessionId`, `userId`, `event_type`, `schemaVersion`, `requestId`, `properties`). Este modelo se reutilizará tal cual en la Fase 3 — defínelo bien desde ahora.
 - [ ] Lee la URL del endpoint desde la variable de entorno `TELEMETRY_ENDPOINT` en el backend, aunque de momento no la uses para redirigir tráfico. Establece el patrón desde el principio.
 
 ### Fase 2 — TelemetryService en el frontend
@@ -78,8 +78,8 @@ El servicio de captura en el frontend no dispara una llamada HTTP por cada event
   - **Batch + debounce:** enviar la cola a `NEXT_PUBLIC_TELEMETRY_ENDPOINT` cada 10 segundos o cuando la cola alcance 20 eventos, lo que ocurra primero
   - **Flush fiable:** usar `navigator.sendBeacon` en el evento `visibilitychange` para garantizar que los eventos pendientes se envíen al cerrar o cambiar de pestaña
   - **Retry con backoff:** si el envío falla, reintentar hasta 3 veces con espera exponencial antes de descartar el lote
-- [ ] El servicio debe añadir automáticamente a cada evento: `sessionId` (generado al iniciar sesión y almacenado en memoria de la sesión), `timestamp` en ISO 8601 en el momento de captura, y `schemaVersion` desde una constante compartida.
-- [ ] Expón una única función pública `track(eventType: string, properties: Record<string, unknown>): void`. Todo el tracking del backoffice pasa por esta función — nunca por `fetch` o `axios` directo.
+- [ ] El servicio debe añadir automáticamente a cada evento: `eventId` (UUID generado en el momento de captura), `sessionId` (generado al iniciar sesión y almacenado en memoria de la sesión), `userId` (de la sesión autenticada), `timestamp` en ISO 8601 en el momento de captura, `schemaVersion` desde una constante compartida, y `requestId` para correlación. Los componentes que llaman a `track()` no deben pasar estos campos manualmente.
+- [ ] Expón una única función pública `track(eventType: string, properties: Record<string, unknown>): void`. El argumento `eventType` se convierte en el campo del envelope `event_type`. Todo el tracking del backoffice pasa por esta función — nunca por `fetch` o `axios` directo.
 
 ### Fase 3 — Instrumentación del flujo de inventario
 
@@ -105,7 +105,7 @@ El servicio de captura en el frontend no dispara una llamada HTTP por cada event
 - [ ] La URL del endpoint se lee de `NEXT_PUBLIC_TELEMETRY_ENDPOINT` — no está hardcoded en el código
 - [ ] El backend declara `TELEMETRY_ENDPOINT` en su configuración de entorno para establecer el patrón desde el inicio
 - [ ] El `TelemetryService` implementa cola local, batch+debounce (10s / 20 eventos), flush con `sendBeacon` y retry con backoff
-- [ ] El servicio genera `sessionId` y `timestamp` automáticamente — el componente que llama a `track()` no los pasa manualmente
+- [ ] El servicio genera `eventId`, `sessionId`, `userId`, `timestamp`, `schemaVersion` y `requestId` automáticamente — el componente que llama a `track()` no los pasa manualmente
 - [ ] No hay llamadas directas a `fetch`/`axios` para telemetría fuera del `TelemetryService`
 - [ ] Los eventos del flujo de inventario están instrumentados respetando la allowlist de propiedades de cada evento
 - [ ] Los intentos fallidos de pedido (error de validación o stock insuficiente) se rastrean desde los bloques `catch`

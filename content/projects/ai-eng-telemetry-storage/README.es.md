@@ -45,7 +45,7 @@ El bulk insert resuelve esto: todos los eventos válidos de un batch se insertan
 
 - Solo se escribe, nunca se actualiza ni se borra — los eventos son hechos inmutables
 - Las columnas fijas (`event_type`, `timestamp`, `service`) son las que soportan las queries analíticas del día siguiente
-- La columna `tags` JSONB absorbe las propiedades específicas de cada evento sin necesidad de alterar el esquema
+- La columna `tags` JSONB almacena el objeto `properties` del envelope (solo claves de la allowlist) sin necesidad de alterar el esquema
 
 ---
 
@@ -64,16 +64,30 @@ El bulk insert resuelve esto: todos los eventos válidos de un batch se insertan
 
 - [ ] Crea la tabla `telemetry_events` en Supabase con la siguiente estructura:
 
-  | Columna      | Tipo                                   | Descripción                                   |
-  | ------------ | -------------------------------------- | --------------------------------------------- |
-  | `id`         | `uuid` PK, default `gen_random_uuid()` | Identificador único del registro              |
-  | `timestamp`  | `timestamptz` NOT NULL                 | Marca de tiempo del evento en ISO 8601        |
-  | `service`    | `text` NOT NULL                        | Origen del evento (`backoffice`, `api`)       |
-  | `event_type` | `text` NOT NULL                        | Nombre del evento en formato `entidad_acción` |
-  | `level`      | `text` default `'info'`                | Severidad: `info`, `warn`, `error`            |
-  | `value`      | `numeric` nullable                     | Valor numérico asociado al evento si aplica   |
-  | `message`    | `text` nullable                        | Descripción legible del evento                |
-  | `tags`       | `jsonb` default `'{}'`                 | Propiedades específicas del evento            |
+  | Columna      | Tipo                                   | Descripción                                             |
+  | ------------ | -------------------------------------- | ------------------------------------------------------- |
+  | `id`         | `uuid` PK, default `gen_random_uuid()` | Identificador único del registro                        |
+  | `timestamp`  | `timestamptz` NOT NULL                 | Marca de tiempo del evento en ISO 8601                  |
+  | `service`    | `text` NOT NULL                        | Origen del evento (`backoffice`, `api`)                 |
+  | `event_type` | `text` NOT NULL                        | Tipo de evento en formato `entidad_acción`              |
+  | `level`      | `text` default `'info'`                | Severidad: `info`, `warn`, `error`                      |
+  | `value`      | `numeric` nullable                     | Valor numérico asociado al evento si aplica             |
+  | `message`    | `text` nullable                        | Descripción legible del evento                          |
+  | `tags`       | `jsonb` default `'{}'`                 | `properties` del envelope (solo claves de la allowlist) |
+
+- [ ] Mapea cada `TelemetryEvent` de la API a una fila de tabla con este contrato:
+
+  | Columna DB   | Origen                                           |
+  | ------------ | ------------------------------------------------ |
+  | `timestamp`  | `event.timestamp`                                |
+  | `service`    | constante `backoffice` (o derivado del envelope) |
+  | `event_type` | `event.event_type`                               |
+  | `level`      | derivar del tipo de evento o default `info`      |
+  | `value`      | numérico opcional desde `properties` si aplica   |
+  | `message`    | resumen legible opcional                         |
+  | `tags`       | `event.properties` (solo claves de la allowlist) |
+
+  Los campos del envelope `eventId`, `sessionId`, `userId`, `schemaVersion` y `requestId` también pueden guardarse dentro de `tags` si tu plan los requiere para análisis — documenta el mapeo en `telemetry-plan.md` y aplícalo de forma consistente.
 
 - [ ] Crea los tres índices que hacen la tabla consultable a escala: sobre `timestamp`, sobre `event_type`, y un índice GIN sobre `tags` para búsquedas dentro del JSONB.
 - [ ] Confirma que la tabla no tiene lógica de UPDATE ni DELETE — los eventos de telemetría son inmutables una vez registrados.

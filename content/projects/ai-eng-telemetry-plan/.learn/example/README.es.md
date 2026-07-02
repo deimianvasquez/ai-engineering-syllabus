@@ -51,7 +51,7 @@ Crear en carpeta de demo o repo desechable:
 
 ### 2. Event Envelope
 
-- [ ] Documenta campos obligatorios: `eventId`, `timestamp` (ISO 8601), `sessionId`, `userId`, `eventName`, `schemaVersion`, `requestId`, `properties`.
+- [ ] Documenta campos obligatorios: `eventId`, `timestamp` (ISO 8601), `sessionId`, `userId`, `event_type`, `schemaVersion`, `requestId`, `properties`.
 - [ ] Indica que `properties` es solo allowlist por evento.
 
 ### 3. Diseña cuatro eventos
@@ -65,7 +65,7 @@ Crear en carpeta de demo o repo desechable:
 
 Por cada evento:
 
-- [ ] Frase de la regla de oro: _"Captamos `[evento]` porque necesitamos saber `[hipótesis]`, lo que nos permite tomar la decisión `[decisión]`."_
+- [ ] Frase de la regla de oro: _"Captamos `[event_type]` porque necesitamos saber `[hipótesis]`, lo que nos permite tomar la decisión `[decisión]`."_
 - [ ] Tabla de allowlist (nombre, tipo, obligatorio).
 - [ ] Stream vs batch con justificación de **urgencia de negocio**.
 

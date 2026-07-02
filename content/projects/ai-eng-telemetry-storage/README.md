@@ -45,7 +45,7 @@ Bulk insert solves this: all valid events in a batch are inserted in a single tr
 
 - Write-only, never updated or deleted — events are immutable facts
 - The fixed columns (`event_type`, `timestamp`, `service`) are what support the analytical queries of the next project
-- The `tags` JSONB column absorbs the event-specific properties without needing to alter the schema
+- The `tags` JSONB column stores the envelope `properties` object (allowlist keys only) without needing to alter the schema
 
 ---
 
@@ -69,11 +69,25 @@ Bulk insert solves this: all valid events in a batch are inserted in a single tr
   | `id`         | `uuid` PK, default `gen_random_uuid()` | Unique record identifier                              |
   | `timestamp`  | `timestamptz` NOT NULL                 | Event timestamp in ISO 8601                           |
   | `service`    | `text` NOT NULL                        | Event origin (`backoffice`, `api`)                    |
-  | `event_type` | `text` NOT NULL                        | Event name in `entity_action` format                  |
+  | `event_type` | `text` NOT NULL                        | Event type in `entity_action` format                  |
   | `level`      | `text` default `'info'`                | Severity: `info`, `warn`, `error`                     |
   | `value`      | `numeric` nullable                     | Numeric value associated with the event if applicable |
   | `message`    | `text` nullable                        | Human-readable description of the event               |
-  | `tags`       | `jsonb` default `'{}'`                 | Event-specific properties                             |
+  | `tags`       | `jsonb` default `'{}'`                 | Envelope `properties` (allowlist keys only)           |
+
+- [ ] Map each `TelemetryEvent` from the API to a table row using this contract:
+
+  | DB column    | Source                                           |
+  | ------------ | ------------------------------------------------ |
+  | `timestamp`  | `event.timestamp`                                |
+  | `service`    | constant `backoffice` (or derived from envelope) |
+  | `event_type` | `event.event_type`                               |
+  | `level`      | derive from event type or default `info`         |
+  | `value`      | optional numeric from `properties` if defined    |
+  | `message`    | optional human-readable summary                  |
+  | `tags`       | `event.properties` (allowlist keys only)         |
+
+  Envelope fields `eventId`, `sessionId`, `userId`, `schemaVersion`, and `requestId` may also be stored inside `tags` if your plan requires them for analytics — document the mapping in `telemetry-plan.md` and apply it consistently.
 
 - [ ] Create the three indexes that make the table queryable at scale: on `timestamp`, on `event_type`, and a GIN index on `tags` for searches inside the JSONB.
 - [ ] Confirm the table has no UPDATE or DELETE logic — telemetry events are immutable once recorded.

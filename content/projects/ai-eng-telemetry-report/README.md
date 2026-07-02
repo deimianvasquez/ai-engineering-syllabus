@@ -19,7 +19,7 @@ _Estas instrucciones están [disponibles en español](./README.es.md)._
 
 > 📌 You are building on **your own fork** of the company's **[monorepo](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo)** selected at the beginning of the course — not on a new repository.
 
-The data is there. The `telemetry_events` table has real events with timestamps, event types, and properties. But raw data is not the answer — it is the raw material. Today you transform it.
+The data is there. The `telemetry_events` table has real events with `timestamp`, `event_type`, and `tags`. But raw data is not the answer — it is the raw material. Today you transform it.
 
 The deliverable is a Python analysis pipeline and an endpoint that serves the result: the metrics for the KPIs you defined in Phase 1, calculated from the stored events, served as JSON, and ready to be consumed by any dashboard or reporting tool.
 

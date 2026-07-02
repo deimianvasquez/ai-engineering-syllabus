@@ -25,16 +25,16 @@ flowchart LR
 
 ### Column schema
 
-| Column       | Type          | Constraints                     | Purpose                                  |
-| ------------ | ------------- | ------------------------------- | ---------------------------------------- |
-| `id`         | `uuid`        | PK, default `gen_random_uuid()` | Row id                                   |
-| `timestamp`  | `timestamptz` | NOT NULL                        | Event time (from envelope)               |
-| `service`    | `text`        | NOT NULL                        | Origin: `backoffice`, `api`, etc.        |
-| `event_type` | `text`        | NOT NULL                        | `entity_action` name                     |
-| `level`      | `text`        | default `'info'`                | `info`, `warn`, `error`                  |
-| `value`      | `numeric`     | nullable                        | Optional metric                          |
-| `message`    | `text`        | nullable                        | Human-readable summary                   |
-| `tags`       | `jsonb`       | default `'{}'`                  | Event-specific properties from allowlist |
+| Column       | Type          | Constraints                     | Purpose                                |
+| ------------ | ------------- | ------------------------------- | -------------------------------------- |
+| `id`         | `uuid`        | PK, default `gen_random_uuid()` | Row id                                 |
+| `timestamp`  | `timestamptz` | NOT NULL                        | Event time (from envelope)             |
+| `service`    | `text`        | NOT NULL                        | Origin: `backoffice`, `api`, etc.      |
+| `event_type` | `text`        | NOT NULL                        | `entity_action` event type             |
+| `level`      | `text`        | default `'info'`                | `info`, `warn`, `error`                |
+| `value`      | `numeric`     | nullable                        | Optional metric                        |
+| `message`    | `text`        | nullable                        | Human-readable summary                 |
+| `tags`       | `jsonb`       | default `'{}'`                  | Envelope `properties` (allowlist only) |
 
 ### Required indexes
 
@@ -63,7 +63,7 @@ Indicative row mapping (adjust `service`/`level` rules to match student plan):
 | `message`    | optional string summary                        |
 | `tags`       | `event.properties` (allowlist keys only)       |
 
-Envelope fields like `eventId`, `sessionId`, `userId`, `schemaVersion` may live inside `tags` if the Phase 1 plan requires them for analytics — document the mapping consistently.
+Envelope fields `eventId`, `sessionId`, `userId`, `schemaVersion`, and `requestId` may also live inside `tags` if the Phase 1 plan requires them for analytics — document the mapping consistently.
 
 ---
 
@@ -149,6 +149,7 @@ curl -s -X POST "$TELEMETRY_URL/telemetry/events" \
         "userId": "user_1",
         "event_type": "outbound_order_created",
         "schemaVersion": "1.0.0",
+        "requestId": "req_demo",
         "properties": { "orderId": "o1", "productId": "p1", "quantity": 2 }
       },
       {
@@ -158,6 +159,7 @@ curl -s -X POST "$TELEMETRY_URL/telemetry/events" \
         "userId": "",
         "event_type": "",
         "schemaVersion": "",
+        "requestId": "",
         "properties": {}
       }
     ]

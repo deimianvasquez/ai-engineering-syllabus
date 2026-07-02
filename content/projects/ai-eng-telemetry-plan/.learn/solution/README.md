@@ -35,7 +35,7 @@ Valid JSON describing each event schema. Acceptable formats:
 - JSON Schema draft-07 per event, or
 - A documented custom structure with the same fields as the Markdown plan.
 
-Schemas must stay consistent with `telemetry-plan.md` (names, properties, required flags).
+Schemas must stay consistent with `telemetry-plan.md` (`event_type` values, `properties`, required flags).
 
 ---
 
@@ -43,16 +43,16 @@ Schemas must stay consistent with `telemetry-plan.md` (names, properties, requir
 
 Every event in the plan should share this envelope:
 
-| Field                   | Type              | Required | Notes                                               |
-| ----------------------- | ----------------- | -------- | --------------------------------------------------- |
-| `eventId`               | string (UUID)     | yes      | Idempotency and deduplication                       |
-| `timestamp`             | string (ISO 8601) | yes      | UTC recommended                                     |
-| `sessionId`             | string            | yes      | Browser or API session                              |
-| `userId`                | string            | yes      | Authenticated operator; hash if PII policy requires |
-| `eventName`             | string            | yes      | `entity_action` taxonomy                            |
-| `schemaVersion`         | string            | yes      | e.g. `1.0.0`                                        |
-| `requestId` / `traceId` | string            | yes      | Correlates frontend, API, logs                      |
-| `properties`            | object            | yes      | Event-specific payload (allowlist only)             |
+| Field           | Type              | Required | Notes                                               |
+| --------------- | ----------------- | -------- | --------------------------------------------------- |
+| `eventId`       | string (UUID)     | yes      | Idempotency and deduplication                       |
+| `timestamp`     | string (ISO 8601) | yes      | UTC recommended                                     |
+| `sessionId`     | string            | yes      | Browser or API session                              |
+| `userId`        | string            | yes      | Authenticated operator; hash if PII policy requires |
+| `event_type`    | string            | yes      | `entity_action` taxonomy                            |
+| `schemaVersion` | string            | yes      | e.g. `1.0.0`                                        |
+| `requestId`     | string            | yes      | Correlates frontend, API, logs                      |
+| `properties`    | object            | yes      | Event-specific payload (allowlist only)             |
 
 ---
 
@@ -119,7 +119,7 @@ If the hypothesis or decision is missing, the event should not appear in the pla
         "timestamp",
         "sessionId",
         "userId",
-        "eventName",
+        "event_type",
         "schemaVersion",
         "requestId",
         "properties"
@@ -129,7 +129,7 @@ If the hypothesis or decision is missing, the event should not appear in the pla
         "timestamp": { "type": "string", "format": "date-time" },
         "sessionId": { "type": "string" },
         "userId": { "type": "string" },
-        "eventName": { "type": "string", "pattern": "^[a-z]+_[a-z_]+$" },
+        "event_type": { "type": "string", "pattern": "^[a-z]+_[a-z_]+$" },
         "schemaVersion": { "type": "string" },
         "requestId": { "type": "string" },
         "properties": { "type": "object" }
@@ -141,7 +141,7 @@ If the hypothesis or decision is missing, the event should not appear in the pla
         { "$ref": "#/definitions/eventEnvelope" },
         {
           "properties": {
-            "eventName": { "const": "outbound_order_created" },
+            "event_type": { "const": "outbound_order_created" },
             "properties": {
               "type": "object",
               "required": ["orderId", "productId", "quantity"],
@@ -177,7 +177,7 @@ A passing plan typically designs at least:
 | `login_failed`               | Auth       | Security / UX friction    |
 | `section_viewed`             | Navigation | Backoffice usage          |
 
-Names and properties must match the student's CONTEXT entities, not this table verbatim.
+Names and `properties` must match the student's CONTEXT entities, not this table verbatim.
 
 ---
 

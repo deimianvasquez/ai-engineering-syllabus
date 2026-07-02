@@ -48,7 +48,7 @@ _These instructions are also available in [English](./README.md)._
 ## Verificar juntos
 
 - [ ] `SELECT count(*) FROM telemetry_events` sube tras actividad en mostrador
-- [ ] JSONB `tags` contiene propiedades del préstamo (`loanId`, `bookId`)
+- [ ] JSONB `tags` contiene `properties` del envelope desde la allowlist (`loanId`, `bookId`)
 - [ ] Batch mixto: `stored + rejected === received`
 - [ ] `git diff` del frontend vacío
 

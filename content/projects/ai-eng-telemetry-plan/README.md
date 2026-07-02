@@ -27,12 +27,12 @@ The management team has filed an RFI with the technology team: they want to know
 
 Telemetry is not generated just to have data: it is generated to answer business questions that cannot be answered today. The difference between a useful telemetry system and one that nobody maintains is whether each event exists for a reason.
 
-**The golden rule:** if you cannot complete this sentence, the event does not exist — _"We capture `[event_name]` because we need to know `[hypothesis]`, which allows us to make the decision `[concrete decision]`."_
+**The golden rule:** if you cannot complete this sentence, the event does not exist — _"We capture `[event_type]` because we need to know `[hypothesis]`, which allows us to make the decision `[concrete decision]`."_
 
 Two concepts you will need to apply today:
 
 - **Batch vs. stream:** Does the business need to see this data within seconds (stream), or is it sufficient to process it in periodic batches (batch)? The answer determines the technical design of the pipeline you will build in the following days.
-- **Event Envelope:** the standard structure every event must follow — a unique identifier (`eventId`), ISO 8601 timestamp (`timestamp`), session/user identifiers (`sessionId`, `userId`), the event name using a consistent taxonomy (`entity_action`, e.g. `order_submitted`), schema version (`schemaVersion`), a correlation identifier (`requestId`/`traceId` to join frontend–backend–logs), and the event-specific properties. A well-designed envelope today prevents duplicates, makes debugging easier, and keeps the pipeline robust.
+- **Event Envelope:** the standard structure every event must follow — a unique identifier (`eventId`), ISO 8601 timestamp (`timestamp`), session/user identifiers (`sessionId`, `userId`), event type using a consistent taxonomy (`event_type` in `entity_action` format, e.g. `order_submitted`), schema version (`schemaVersion`), a correlation identifier (`requestId` to join frontend–backend–logs), and event-specific payload (`properties`). A well-designed envelope today prevents duplicates, makes debugging easier, and keeps the pipeline robust.
 
 ---
 
@@ -66,16 +66,16 @@ There is no new server to spin up today. The deliverable is design documentation
 - [ ] Identify the **3 main KPIs** of your company from your `CONTEXT-company.md`. For each KPI, answer: what data makes it up? Where is that data generated in the system?
 - [ ] Map the **inventory management flow** in your application: from when an authenticated user accesses the system to when they complete an inbound or outbound order. Identify at least **5 instrumentation points** in that flow — including direct stock modification attempts (which the system rejects), failed validations, and minimum threshold activations.
 - [ ] Explore other backoffice sections that can also provide valuable data: authentication (login attempts, expired sessions, credential failures), navigation (which sections operators visit and how often), and any flow a user might abandon before completing. Document at least **2 additional opportunities** outside the inventory module.
-- [ ] For each instrumentation point, complete the sentence: _"We capture `[event]` because we need to know `[hypothesis]`, which allows us to make the decision `[decision]`."_ If you cannot complete it, discard the point.
+- [ ] For each instrumentation point, complete the sentence: _"We capture `[event_type]` because we need to know `[hypothesis]`, which allows us to make the decision `[decision]`."_ If you cannot complete it, discard the point.
 
 ⚠️ **IMPORTANT:** The KPIs, entities, and identifiers in your plan must match exactly what your CONTEXT.md specifies. A generic implementation that ignores your company's context will not be accepted.
 
 ### Phase 2 — Event Envelope Design
 
-- [ ] Define the **standard Event Envelope** your company will use: the mandatory fields every event must include (`eventId`, `timestamp` in ISO 8601, `sessionId`, `userId`, event name, `schemaVersion`, `requestId`/`traceId` for correlation, and event-specific properties).
-- [ ] Design the complete schema for **at least 5 events** derived from the flow mapped in Phase 1. Each event must be named following the `entity_action` taxonomy with consistent verbs (e.g. `inbound_order_created`, `stock_threshold_triggered`, `direct_stock_edit_rejected`, `session_expired`).
+- [ ] Define the **standard Event Envelope** your company will use: the mandatory fields every event must include (`eventId`, `timestamp` in ISO 8601, `sessionId`, `userId`, `event_type`, `schemaVersion`, `requestId` for correlation, and `properties` for event-specific payload).
+- [ ] Design the complete schema for **at least 5 events** derived from the flow mapped in Phase 1. Each `event_type` must follow the `entity_action` taxonomy with consistent verbs (e.g. `inbound_order_created`, `stock_threshold_triggered`, `direct_stock_edit_rejected`, `session_expired`).
 - [ ] For each event, define a **property allowlist**: an explicit list of the permitted keys for that event. Nothing outside the allowlist should be included — this prevents accidental data leakage.
-- [ ] For each event, specify: name, description, properties (name, type, required/optional, description), and whether it contains sensitive data or PII — in which case document how it is anonymised or sanitised before the event is emitted.
+- [ ] For each event, specify: `event_type`, description, `properties` (name, type, required/optional, description), and whether it contains sensitive data or PII — in which case document how it is anonymised or sanitised before the event is emitted.
 - [ ] Export the schemas to the `event-schemas.json` file with a validatable structure (you may use JSON Schema draft-07 or a documented custom structure).
 
 ### Phase 3 — Delivery Strategy
@@ -90,7 +90,7 @@ There is no new server to spin up today. The deliverable is design documentation
 
 - [ ] The 3 KPIs identified are representative of the assigned company's business and are justified with data from `CONTEXT-company.md`
 - [ ] Every event has a hypothesis and a business decision that justifies it — no "just in case" events
-- [ ] The Event Envelope is consistent across all events and contains at least: `eventId`, `timestamp` (ISO 8601), `sessionId`, `userId`, event name in `entity_action` format, `schemaVersion`, and `requestId`/`traceId`
+- [ ] The Event Envelope is consistent across all events and contains at least: `eventId`, `timestamp` (ISO 8601), `sessionId`, `userId`, `event_type` in `entity_action` format, `schemaVersion`, `requestId`, and `properties`
 - [ ] Every event has a documented **property allowlist** — only explicitly permitted keys
 - [ ] The `event-schemas.json` file is valid and the schemas are consistent with the Markdown plan
 - [ ] The stream/batch decision is justified by business urgency, not technical preference

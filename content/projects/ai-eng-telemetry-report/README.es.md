@@ -19,7 +19,7 @@ _These instructions are [available in English](./README.md)._
 
 > 📌 Estás construyendo sobre **tu copia** del **[monorepo](https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo)** de la empresa seleccionada al inicio del curso — no en un repositorio nuevo.
 
-Los datos están ahí. La tabla `telemetry_events` tiene eventos reales con timestamps, tipos de evento y propiedades. Pero los datos crudos no son la respuesta — son la materia prima. Hoy los transformas.
+Los datos están ahí. La tabla `telemetry_events` tiene eventos reales con `timestamp`, `event_type` y `tags`. Pero los datos crudos no son la respuesta — son la materia prima. Hoy los transformas.
 
 El entregable es un pipeline de análisis en Python y un endpoint que sirve el resultado: las métricas de los KPIs que definiste en la Fase 1, calculadas desde los eventos almacenados, servidas como JSON y listas para ser consumidas por cualquier dashboard o herramienta de reporte.
 

@@ -48,7 +48,7 @@ _Estas instrucciones también están disponibles en [español](./README.es.md)._
 ## Verify together
 
 - [ ] `SELECT count(*) FROM telemetry_events` increases after desk activity
-- [ ] `tags` JSONB contains checkout properties (`loanId`, `bookId`)
+- [ ] `tags` JSONB contains envelope `properties` from allowlist (`loanId`, `bookId`)
 - [ ] Mixed batch: `stored + rejected === received`
 - [ ] Frontend git diff empty
 

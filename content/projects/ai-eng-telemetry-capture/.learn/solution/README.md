@@ -2,7 +2,7 @@
 
 This reference solution defines the expected quality bar for Phase 2 implementation in the student's company monorepo fork. Deliverables span the FastAPI backend stub and the backoffice `TelemetryService` plus instrumentation hooks.
 
-Event names and property allowlists must match the student's approved `docs/telemetry/event-schemas.json` from Phase 1 — this document uses indicative examples only.
+`event_type` values and property allowlists must match the student's approved `docs/telemetry/event-schemas.json` from Phase 1 — this document uses indicative examples only.
 
 ---
 
@@ -51,7 +51,7 @@ flowchart LR
 ### `POST /telemetry/events`
 
 - Accepts body: `{ "events": TelemetryEvent[] }`
-- Logs received count and each `event_type` (or `eventName` per student plan — be consistent with Phase 1)
+- Logs received count and each `event_type`
 - Returns `200` with `{ "received": <number of events in batch> }`
 - Does **not** persist to database (Phase 3)
 
@@ -67,6 +67,7 @@ Minimum envelope fields (align with student's Phase 1 plan):
 | `userId`        | string            | Authenticated user id              |
 | `event_type`    | string            | Taxonomy from plan                 |
 | `schemaVersion` | string            | e.g. `1.0.0`                       |
+| `requestId`     | string            | Correlation id for frontend/API    |
 | `properties`    | object            | Event-specific allowlist keys only |
 
 ### Environment variable
@@ -87,6 +88,7 @@ Minimum envelope fields (align with student's Phase 1 plan):
       "userId": "user_42",
       "event_type": "outbound_order_created",
       "schemaVersion": "1.0.0",
+      "requestId": "req_abc123",
       "properties": {
         "orderId": "ord_99",
         "productId": "prod_7",
@@ -113,15 +115,14 @@ Single module owns all network I/O for telemetry.
 
 ### Responsibilities
 
-| Mechanism            | Spec                                                                                               |
-| -------------------- | -------------------------------------------------------------------------------------------------- |
-| Local queue          | In-memory array of pending events                                                                  |
-| Batch + debounce     | Flush every **10 seconds** OR when queue reaches **20 events** (whichever first)                   |
-| Auto-enrichment      | Add `sessionId`, `timestamp` (capture time, ISO 8601), `schemaVersion` — callers do not pass these |
-| `userId` / `eventId` | Generated or injected by service (not scattered in components)                                     |
-| Reliable flush       | `visibilitychange` → `navigator.sendBeacon` for pending batch                                      |
-| Retry                | Up to **3** attempts with exponential backoff; then discard batch                                  |
-| Public API           | `track(eventType: string, properties: Record<string, unknown>): void` only                         |
+| Mechanism        | Spec                                                                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Local queue      | In-memory array of pending events                                                                                                    |
+| Batch + debounce | Flush every **10 seconds** OR when queue reaches **20 events** (whichever first)                                                     |
+| Auto-enrichment  | Add `eventId`, `sessionId`, `userId`, `timestamp` (capture time, ISO 8601), `schemaVersion`, `requestId` — callers do not pass these |
+| Reliable flush   | `visibilitychange` → `navigator.sendBeacon` for pending batch                                                                        |
+| Retry            | Up to **3** attempts with exponential backoff; then discard batch                                                                    |
+| Public API       | `track(eventType: string, properties: Record<string, unknown>): void` only — `eventType` becomes envelope `event_type`               |
 
 ### Endpoint configuration
 
@@ -197,7 +198,7 @@ A complete submission should demonstrate:
 
 - Hardcoded telemetry URL instead of `NEXT_PUBLIC_TELEMETRY_ENDPOINT`
 - Per-event HTTP calls instead of queue + batch
-- Components passing `timestamp` or `sessionId` manually
+- Components passing `timestamp`, `sessionId`, `eventId`, `userId`, or `requestId` manually
 - Extra properties outside `event-schemas.json` allowlist
 - PII in `properties` (email, name, password)
 - Direct `fetch` in inventory components bypassing `track()`
@@ -210,7 +211,7 @@ A complete submission should demonstrate:
 - [ ] `POST /telemetry/events` stub with `TelemetryEvent` model and `{ "received": N }`
 - [ ] `TELEMETRY_ENDPOINT` / `NEXT_PUBLIC_TELEMETRY_ENDPOINT` env pattern established
 - [ ] Queue + 10s/20 batch + `sendBeacon` + retry with backoff
-- [ ] Single `track()` entry point; auto `sessionId` + `timestamp`
+- [ ] Single `track()` entry point; auto `eventId`, `sessionId`, `userId`, `timestamp`, `schemaVersion`, `requestId`
 - [ ] Inventory events instrumented with allowlist-only properties
 - [ ] No PII in emitted events
 - [ ] Network evidence of batched payloads with 200 responses
@@ -220,6 +221,6 @@ A complete submission should demonstrate:
 
 ## Reviewer notes
 
-- Event names may differ per company CONTEXT — grade against the student's Phase 1 schemas, not this table verbatim.
+- `event_type` values may differ per company CONTEXT — grade against the student's Phase 1 schemas, not this table verbatim.
 - Stub intentionally skips persistence; do not penalize missing Supabase writes.
 - Auth instrumentation is bonus unless cohort rubric marks it required.

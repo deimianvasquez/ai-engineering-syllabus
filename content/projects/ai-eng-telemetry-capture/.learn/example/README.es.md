@@ -36,7 +36,7 @@ En una sesión: receptor stub + servicio de captura en frontend + instrumentar *
 ### 1. Stub FastAPI (`library-api`)
 
 - [ ] `POST /telemetry/events` acepta `{ "events": [...] }`
-- [ ] Modelo Pydantic con `eventId`, `timestamp`, `sessionId`, `userId`, `event_type`, `schemaVersion`, `properties`
+- [ ] Modelo Pydantic con `eventId`, `timestamp`, `sessionId`, `userId`, `event_type`, `schemaVersion`, `requestId`, `properties`
 - [ ] Log de cantidad + `event_type`; devuelve `{ "received": N }`
 - [ ] Lee `TELEMETRY_ENDPOINT` del env (puede no usarse aún)
 
@@ -44,7 +44,7 @@ En una sesión: receptor stub + servicio de captura en frontend + instrumentar *
 
 - [ ] Cola en memoria; flush cada **5s** o **10 eventos**
 - [ ] `track(eventType, properties)` — única API pública
-- [ ] Añade automáticamente `sessionId`, `timestamp`, `schemaVersion`
+- [ ] Añade automáticamente `eventId`, `sessionId`, `userId`, `timestamp`, `schemaVersion`, `requestId`
 - [ ] `visibilitychange` → `sendBeacon`
 - [ ] 3 reintentos con backoff exponencial, luego descartar lote
 - [ ] URL desde `NEXT_PUBLIC_TELEMETRY_ENDPOINT`
