@@ -27,6 +27,7 @@ SLUG_IMAGE_OVERRIDES = {
     "ai-eng-telemetry-storage": IMAGE_MAP["ai-coding"],
     "ai-eng-telemetry-report": IMAGE_MAP["workflow"],
     "ai-eng-telemetry-capture": IMAGE_MAP["ai-web-development"],
+    "ai-eng-milestone-rag-knowledge-base": IMAGE_MAP["ai-communication"],
     "ai-eng-user-authentication-flows": IMAGE_MAP["ai-web-development"],
     "ai-eng-user-authentication-restore": IMAGE_MAP["ai-web-development"],
     "ai-eng-application-caching": IMAGE_MAP["ai-coding"],
