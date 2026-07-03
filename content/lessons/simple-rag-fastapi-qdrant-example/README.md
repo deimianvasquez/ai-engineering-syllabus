@@ -1,4 +1,4 @@
-# How to build a RAG from scratch with Python and Qdrant
+# Example: RAG from scratch with Python and Qdrant
 
 <!-- hide -->
 
