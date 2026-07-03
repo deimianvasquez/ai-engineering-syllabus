@@ -185,6 +185,12 @@ Los proyectos siguen un orden pedagógico: desde fundamentos web (HTML, CSS, SEO
 58. **[Hito 7 — RAG y Base de Conocimiento](./ai-eng-milestone-rag-knowledge-base)**  
     `Hito 7` — RAG modular en el monorepo: fragmenta e indexa documentos del CONTEXT en Qdrant (`setup`, `embed`), recupera con umbral de similitud, genera respuestas con voz comercial (`query`), expone `POST /knowledge/query` vía FastAPI, UI mínima de consulta y tests unitarios — sin LangChain; nunca devolver hits vectoriales crudos.
 
+59. **[Agente de Soporte con LangGraph — Parte 1: Migración y Flujo del Agente](./ai-eng-langgraph-agent-base)**  
+    `Parte 1 de 2` — Envuelve el RAG del Hito 7 en un LangGraph compilado con estado mínimo, nodos de responsabilidad única, aristas condicionales, checkpointing, traces consultables, evals en `tests/pipelines/` y `POST /agent/query` — reutiliza `data/pipelines/` sin duplicar.
+
+60. **[Agente de Soporte con LangGraph — Parte 2: Herramientas Fuera del RAG](./ai-eng-langgraph-agent-tools)**  
+    `Parte 2 de 2` — Extiende el grafo de la Parte 1 con tools externas tipadas: consulta de tickets contra tu API real del gestor de incidentes (timeout + fallback honesto), consulta opcional de inventario, enrutamiento automático RAG vs tool, traces extendidos y ≥2 evals nuevos de enrutamiento en `tests/pipelines/` — sin datos operativos simulados.
+
 ---
 
 Cada proyecto tiene instrucciones detalladas en su carpeta (`README.md` y, si existe, `README.es.md`). Para empezar, abre la carpeta del proyecto y sigue el README.

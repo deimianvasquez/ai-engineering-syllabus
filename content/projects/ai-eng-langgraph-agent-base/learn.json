@@ -1,0 +1,44 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "Support Agent with LangGraph — Part 1 of 2: Migration and Agent Flow",
+    "es": "Agente de Soporte con LangGraph — Parte 1 de 2: Migración y Flujo del Agente"
+  },
+  "description": {
+    "en": "Migrate your Milestone 7 RAG into an explicit LangGraph agent in the company monorepo: minimal typed state, single-responsibility nodes (receive, retrieve, query) reusing data/pipelines/, conditional edges, compiled graph with checkpointing, queryable traces per run, ≥3 evals in tests/pipelines/, and a thin POST /agent/query FastAPI endpoint — answers stay grounded in CONTEXT-company.md.",
+    "es": "Migra tu RAG del Hito 7 a un agente LangGraph explícito en el monorepo: estado tipado mínimo, nodos de responsabilidad única (recibir, retrieve, query) reutilizando data/pipelines/, aristas condicionales, grafo compilado con checkpointing, traces consultables por corrida, ≥3 evals en tests/pipelines/ y endpoint FastAPI delgado POST /agent/query — respuestas ancladas en CONTEXT-empresa.md."
+  },
+  "status": "draft",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "slug": "ai-eng-langgraph-agent-base",
+  "coverImage": "ai-coding.svg",
+  "difficulty": "intermediate",
+  "duration": 3,
+  "technologies": [
+    "python",
+    "fastapi",
+    "langgraph",
+    "rag",
+    "llm",
+    "agents",
+    "backend-design",
+    "testing"
+  ],
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "telemetry": {
+    "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id="
+  },
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-langgraph-agent-base/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-langgraph-agent-base/.learn/preview.png",
+  "sharing": [
+    {
+      "en": "I just completed Support Agent with LangGraph — Part 1 of 2: Migration and Agent Flow with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-langgraph-agent-base #AIEngineering #LearnPack #4GeeksAcademy #python #fastapi #langgraph",
+      "es": "Acabo de completar Agente de Soporte con LangGraph — Parte 1 de 2: Migración y Flujo del Agente con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-langgraph-agent-base #AIEngineering #LearnPack #4GeeksAcademy #python #fastapi #langgraph"
+    },
+    {
+      "en": "Built and shipped: Support Agent with LangGraph — Part 1 of 2: Migration and Agent Flow. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-langgraph-agent-base #AIEngineering #LearnPack #4GeeksAcademy #python #fastapi #langgraph",
+      "es": "Construido y publicado: Agente de Soporte con LangGraph — Parte 1 de 2: Migración y Flujo del Agente. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-langgraph-agent-base #AIEngineering #LearnPack #4GeeksAcademy #python #fastapi #langgraph"
+    }
+  ]
+}

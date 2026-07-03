@@ -185,6 +185,12 @@ Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, acce
 58. **[Milestone 7 — RAG & Knowledge Base](./ai-eng-milestone-rag-knowledge-base)**  
     `Milestone 7` — Modular RAG in the company monorepo: chunk and index CONTEXT documents in Qdrant (`setup`, `embed`), retrieve with similarity threshold, generate salesperson-voice answers (`query`), expose `POST /knowledge/query` via FastAPI, minimal query UI, and unit tests — no LangChain; never return raw vector hits.
 
+59. **[Support Agent with LangGraph — Part 1: Migration and Agent Flow](./ai-eng-langgraph-agent-base)**  
+    `Part 1 of 2` — Wrap Milestone 7 RAG in a compiled LangGraph with minimal state, single-responsibility nodes, conditional edges, checkpointing, queryable traces, evals in `tests/pipelines/`, and `POST /agent/query` — reuse `data/pipelines/` without duplication.
+
+60. **[Support Agent with LangGraph — Part 2: Tools Outside the RAG](./ai-eng-langgraph-agent-tools)**  
+    `Part 2 of 2` — Extend the Part 1 graph with typed external tools: incident ticket lookup against your real incident manager API (timeout + honest fallback), optional inventory lookup, automatic RAG vs tool routing, extended traces, and ≥2 new routing evals in `tests/pipelines/` — no simulated operational data.
+
 ---
 
 Each project has detailed instructions in its folder (`README.md` and, if present, `README.es.md`). To get started, open the project folder and follow the README.
