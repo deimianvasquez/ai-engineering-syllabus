@@ -191,6 +191,9 @@ Projects follow a pedagogical order: from web fundamentals (HTML, CSS, SEO, acce
 60. **[Support Agent with LangGraph — Part 2: Tools Outside the RAG](./ai-eng-langgraph-agent-tools)**  
     `Part 2 of 2` — Extend the Part 1 graph with typed external tools: incident ticket lookup against your real incident manager API (timeout + honest fallback), optional inventory lookup, automatic RAG vs tool routing, extended traces, and ≥2 new routing evals in `tests/pipelines/` — no simulated operational data.
 
+61. **[MCP Server: Connecting Your Agent to the Company's Tools](./ai-eng-mcp-company-tools)**  
+    Expose Incidents Manager and read-only inventory as an authenticated FastMCP server (API Key, least privilege, discovery schemas, invocation logs), validate with an MCP client, and migrate the LangGraph support agent to consume incidents through MCP instead of direct HTTP tools.
+
 ---
 
 Each project has detailed instructions in its folder (`README.md` and, if present, `README.es.md`). To get started, open the project folder and follow the README.

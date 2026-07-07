@@ -191,6 +191,9 @@ Los proyectos siguen un orden pedagógico: desde fundamentos web (HTML, CSS, SEO
 60. **[Agente de Soporte con LangGraph — Parte 2: Herramientas Fuera del RAG](./ai-eng-langgraph-agent-tools)**  
     `Parte 2 de 2` — Extiende el grafo de la Parte 1 con tools externas tipadas: consulta de tickets contra tu API real del gestor de incidentes (timeout + fallback honesto), consulta opcional de inventario, enrutamiento automático RAG vs tool, traces extendidos y ≥2 evals nuevos de enrutamiento en `tests/pipelines/` — sin datos operativos simulados.
 
+61. **[Servidor MCP: Conectando tu Agente con las Herramientas de la Empresa](./ai-eng-mcp-company-tools)**  
+    Expón el Incidents Manager y el inventario de solo lectura como un servidor FastMCP autenticado (API Key, mínimo privilegio, esquemas de discovery, logs de invocación), valídalo con un cliente MCP y migra el agente LangGraph para consumir incidentes vía MCP en lugar de tools HTTP directas.
+
 ---
 
 Cada proyecto tiene instrucciones detalladas en su carpeta (`README.md` y, si existe, `README.es.md`). Para empezar, abre la carpeta del proyecto y sigue el README.

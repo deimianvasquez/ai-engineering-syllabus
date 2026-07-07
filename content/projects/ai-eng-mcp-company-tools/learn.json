@@ -1,0 +1,44 @@
+{
+  "gitpod": true,
+  "title": {
+    "en": "MCP Server: Connecting Your Agent to the Company's Tools",
+    "es": "Servidor MCP: Conectando tu Agente con las Herramientas de la Empresa"
+  },
+  "description": {
+    "en": "Expose your company's Incidents Manager and read-only inventory as an authenticated FastMCP server (API Key, least privilege, discovery schemas, invocation logs), validate with an MCP client, and migrate your LangGraph support agent to consume incidents through the MCP client instead of direct HTTP tools.",
+    "es": "Expón el Incidents Manager y el inventario de solo lectura de tu compañía como un servidor FastMCP autenticado (API Key, mínimo privilegio, esquemas de discovery, logs de invocación), valídalo con un cliente MCP y migra tu agente LangGraph para consumir incidentes vía cliente MCP en lugar de tools HTTP directas."
+  },
+  "status": "draft",
+  "template_url": "https://github.com/4GeeksAcademy/ai-engineering-company-project-monorepo",
+  "slug": "ai-eng-mcp-company-tools",
+  "difficulty": "intermediate",
+  "duration": 2,
+  "technologies": [
+    "python",
+    "fastmcp",
+    "mcp",
+    "fastapi",
+    "langgraph",
+    "agents",
+    "api-security",
+    "backend-design"
+  ],
+  "coverImage": "ai-coding.svg",
+  "translations": ["es", "en"],
+  "projectType": "project",
+  "telemetry": {
+    "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id="
+  },
+  "solution": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/ai-eng-mcp-company-tools/.learn/solution/README.md",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/ai-engineering-syllabus/main/content/projects/ai-eng-mcp-company-tools/.learn/preview.png",
+  "sharing": [
+    {
+      "en": "I just completed MCP Server: Connecting Your Agent to the Company's Tools with LearnPack @4GeeksAcademy. Check it out: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-mcp-company-tools #AIEngineering #LearnPack #4GeeksAcademy #python #fastmcp #mcp",
+      "es": "Acabo de completar Servidor MCP: Conectando tu Agente con las Herramientas de la Empresa con LearnPack @4GeeksAcademy. Mira el proyecto: https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-mcp-company-tools #AIEngineering #LearnPack #4GeeksAcademy #python #fastmcp #mcp"
+    },
+    {
+      "en": "Built and shipped: MCP Server: Connecting Your Agent to the Company's Tools. Learning by building with @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-mcp-company-tools #AIEngineering #LearnPack #4GeeksAcademy #python #fastmcp #mcp",
+      "es": "Construido y publicado: Servidor MCP: Conectando tu Agente con las Herramientas de la Empresa. Aprendiendo con proyectos reales en @4GeeksAcademy. https://github.com/4GeeksAcademy/ai-engineering-syllabus/tree/main/content/projects/ai-eng-mcp-company-tools #AIEngineering #LearnPack #4GeeksAcademy #python #fastmcp #mcp"
+    }
+  ]
+}
