@@ -2,7 +2,7 @@
 
 <!-- hide -->
 
-By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](https://github.com/4GeeksAcademy/designing-a-data-pipeline/graphs/contributors) at [4Geeks Academy](https://4geeksacademy.com/)
+By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](https://github.com/4GeeksAcademy/ai-engineering-syllabus/graphs/contributors) at [4Geeks Academy](https://4geeksacademy.com/)
 
 [![build by developers](https://img.shields.io/badge/build_by-Developers-blue)](https://4geeks.com)
 [![4Geeks Academy](https://img.shields.io/twitter/follow/4geeksacademy?style=social&logo=x)](https://x.com/4geeksacademy)
@@ -45,10 +45,11 @@ Piensa con cuidado en cada decisión — las elecciones de formato, almacenamien
 
 ## 🌱 Cómo iniciar el proyecto
 
-1. Haz fork de [este repositorio](https://github.com/4GeeksAcademy/designing-a-data-pipeline) o crea tu propio repositorio de GitHub para este proyecto.
-2. Clona el repositorio en tu máquina local o ábrelo en Codespaces.
-3. Actualiza la URL remota si usas tu propio repositorio.
-4. Crea el archivo `PIPELINE_DESIGN.md` en la raíz del repositorio y empieza tu diseño ahí.
+Este proyecto no requiere un repositorio de partida — la entrega es exclusivamente un documento de diseño.
+
+1. Crea un nuevo repositorio en GitHub para este proyecto (por ejemplo, `veridian-pipeline-design`).
+2. Clónalo en tu máquina local o ábrelo en un GitHub Codespace.
+3. Crea el archivo `PIPELINE_DESIGN.md` en la raíz del repositorio y empieza tu diseño ahí.
 
 Puedes usar [este editor de Mermaid](https://waficmikati.github.io/mermaid/) para construir e incrustar tu diagrama de flujo de datos.
 

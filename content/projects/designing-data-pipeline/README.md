@@ -2,7 +2,7 @@
 
 <!-- hide -->
 
-By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](https://github.com/4GeeksAcademy/designing-a-data-pipeline/graphs/contributors) at [4Geeks Academy](https://4geeksacademy.com/)
+By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](https://github.com/4GeeksAcademy/ai-engineering-syllabus/graphs/contributors) at [4Geeks Academy](https://4geeksacademy.com/)
 
 [![build by developers](https://img.shields.io/badge/build_by-Developers-blue)](https://4geeks.com)
 [![4Geeks Academy](https://img.shields.io/twitter/follow/4geeksacademy?style=social&logo=x)](https://x.com/4geeksacademy)
@@ -45,10 +45,11 @@ Think carefully about each decision — format choices, storage choices, and fai
 
 ## 🌱 How to Start the Project
 
-1. Fork [this repository](https://github.com/4GeeksAcademy/designing-a-data-pipeline) or create your own GitHub repository for this project.
-2. Clone the repository to your local machine or open it in Codespaces.
-3. Update the remote URL if using your own repo.
-4. Create the file `PIPELINE_DESIGN.md` at the root of the repository and start your design there.
+This project does not require a starter repository — the deliverable is a design document only.
+
+1. Create a new GitHub repository for this project (for example, `veridian-pipeline-design`).
+2. Clone it locally or open it in a GitHub Codespace.
+3. Create the file `PIPELINE_DESIGN.md` at the root of the repository and start your design there.
 
 You can use [this Mermaid editor](https://waficmikati.github.io/mermaid/) to build and embed your data flow diagram.
 
@@ -103,4 +104,4 @@ Push your repository to GitHub and share the link according to your instructor's
 
 ---
 
-This and many other projects are built by students as part of the [Career Programs](https://4geeksacademy.com/compare-programs) at [4Geeks Academy](https://4geeksacademy.com). By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](https://github.com/4GeeksAcademy/designing-a-data-pipeline/graphs/contributors). Find out more about [AI Engineering](https://4geeksacademy.com/en/coding-bootcamps/ai-engineering), [Data Science & Machine Learning](https://4geeksacademy.com/en/coding-bootcamps/data-science-ml), [Cybersecurity](https://4geeksacademy.com/en/coding-bootcamps/cybersecurity) and [Full-Stack Software Developer with AI](https://4geeksacademy.com/en/coding-bootcamps/full-stack-developer).
+This and many other projects are built by students as part of the [Career Programs](https://4geeksacademy.com/compare-programs) at [4Geeks Academy](https://4geeksacademy.com). By [@marcogonzalo](https://github.com/marcogonzalo) and [other contributors](https://github.com/4GeeksAcademy/ai-engineering-syllabus/graphs/contributors). Find out more about [AI Engineering](https://4geeksacademy.com/en/coding-bootcamps/ai-engineering), [Data Science & Machine Learning](https://4geeksacademy.com/en/coding-bootcamps/data-science-ml), [Cybersecurity](https://4geeksacademy.com/en/coding-bootcamps/cybersecurity) and [Full-Stack Software Developer with AI](https://4geeksacademy.com/en/coding-bootcamps/full-stack-developer).

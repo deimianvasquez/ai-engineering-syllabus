@@ -1,40 +1,38 @@
 {
-    "slug": "designing-data-pipeline",
-    "title": {
-        "us": "Designing a Data Pipeline: From Raw Data to Reliable Insights",
-        "es": "Dise\u00f1ando un Data Pipeline: del dato crudo a los reportes confiables"
-    },
-    "description": {
-        "us": "Design an ETL pipeline architecture for Veridian Logistics: analyze nightly CSV exports with updates-as-inserts, document deduplication and idempotency strategies, specify execution logging, and produce a production-ready PIPELINE_DESIGN.md \u2014 no code implementation.",
-        "es": "Dise\u00f1a la arquitectura de un pipeline ETL para Veridian Logistics: analiza exportaciones CSV nocturnas con actualizaciones como inserts, documenta estrategias de deduplicaci\u00f3n e idempotencia, especifica el logging de ejecuci\u00f3n y produce un PIPELINE_DESIGN.md listo para producci\u00f3n \u2014 sin implementaci\u00f3n de c\u00f3digo."
-    },
-    "preview": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/designing-data-pipeline/preview.png?raw=true",
-    "difficulty": "INTERMEDIATE",
-    "duration": 3,
-    "template_url": "https://github.com/4GeeksAcademy/designing-a-data-pipeline",
-    "gitpod": true,
-    "technologies": [
-        "architecture",
-        "data-engineering",
-        "etl",
-        "backend-design",
-        "technical-documentation"
-    ],
-    "telemetry": {
-      "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3683"
-    },
-    "projectType": "tutorial",
-    "solution": {
-        "us": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/designing-data-pipeline/.learn/solution/README.md",
-        "es": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/designing-data-pipeline/.learn/solution/README.md"
-    },
-    "grading": "incremental",
-    "localhostOnly": false,
-    "delivery": {
-        "instructions": "",
-        "formats": [
-            "url"
-        ],
-        "regex": ""
-    }
+  "slug": "designing-data-pipeline",
+  "title": {
+    "us": "Designing a Data Pipeline: From Raw Data to Reliable Insights",
+    "es": "Dise\u00f1ando un Data Pipeline: del dato crudo a los reportes confiables"
+  },
+  "description": {
+    "us": "Design an ETL pipeline architecture for Veridian Logistics: analyze nightly CSV exports with updates-as-inserts, document deduplication and idempotency strategies, specify execution logging, and produce a production-ready PIPELINE_DESIGN.md \u2014 no code implementation.",
+    "es": "Dise\u00f1a la arquitectura de un pipeline ETL para Veridian Logistics: analiza exportaciones CSV nocturnas con actualizaciones como inserts, documenta estrategias de deduplicaci\u00f3n e idempotencia, especifica el logging de ejecuci\u00f3n y produce un PIPELINE_DESIGN.md listo para producci\u00f3n \u2014 sin implementaci\u00f3n de c\u00f3digo."
+  },
+  "preview": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/designing-data-pipeline/preview.png?raw=true",
+  "difficulty": "INTERMEDIATE",
+  "duration": 3,
+  "template_url": "self",
+  "gitpod": true,
+  "technologies": [
+    "architecture",
+    "data-engineering",
+    "etl",
+    "backend-design",
+    "technical-documentation"
+  ],
+  "telemetry": {
+    "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=3683"
+  },
+  "projectType": "tutorial",
+  "solution": {
+    "us": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/designing-data-pipeline/.learn/solution/README.md",
+    "es": "https://github.com/4GeeksAcademy/ai-engineering-syllabus/blob/main/content/projects/designing-data-pipeline/.learn/solution/README.md"
+  },
+  "grading": "incremental",
+  "localhostOnly": false,
+  "delivery": {
+    "instructions": "",
+    "formats": ["url"],
+    "regex": ""
+  }
 }
