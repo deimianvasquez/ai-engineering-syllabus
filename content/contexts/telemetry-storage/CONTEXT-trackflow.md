@@ -37,7 +37,7 @@ TrackFlow's peak traffic is e-commerce dispatch windows: Black Friday, holiday s
 
 After replacing the stub, verify in the Supabase table editor:
 
-- [ ] All order events have `warehouse` in `tags` (`"LA"` or `"ZGZ"`) — Thomas Harry (CEO) requires per-warehouse segmentation in every view
+- [ ] All stock entry/exit events have `warehouse` in `tags` (`"LA"` or `"ZGZ"`) — Thomas Harry (CEO) requires per-warehouse segmentation in every view
 - [ ] `stock_exit_created` rows have `exit_type` in `tags` — needed for dispatch vs. loss analysis
 - [ ] `reference` values in `tags` are client dispatch references — never recipient addresses or phone numbers
 - [ ] No row contains recipient names, delivery addresses, or phone numbers anywhere in `tags`
