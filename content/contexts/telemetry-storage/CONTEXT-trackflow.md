@@ -21,7 +21,7 @@ The `tags` JSONB column stores the event-specific properties from your allowlist
 | `user_login_failed`    | `{ "reason": "invalid_credentials" }`                                                              |
 | `session_expired`      | `{}`                                                                                               |
 
-The fixed columns (`event_type`, `timestamp`, `service`, `level`) are populated from the envelope fields. The storage layer sets `service` to `backoffice` when persisting — it is not sent in the capture envelope. The `value` column can be used for `quantity` on order events if you want it queryable without parsing JSONB — document your decision.
+The fixed columns (`event_type`, `timestamp`, `service`, `level`) are populated from the envelope fields. The storage layer sets `service` to `backoffice` when persisting — it is not sent in the capture envelope. The `value` column can be used for `quantity` on stock entry/exit events if you want it queryable without parsing JSONB — document your decision.
 
 ---
 
