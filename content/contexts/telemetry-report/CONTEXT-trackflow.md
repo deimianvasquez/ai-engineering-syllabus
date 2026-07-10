@@ -10,16 +10,17 @@
 
 These are the two KPI calculations your `analysis.py` must implement. Each maps directly to the KPIs defined in your Phase 1 plan.
 
-### Metric 1 — Dispatch volume per day by warehouse
+### Metric 1 — Stock exit volume per day by warehouse
 
-**Business question:** how many dispatch orders were created per day, segmented by warehouse?
+**Business question:** how many stock exit events (dispatches) were created per day, segmented by warehouse?
 
 **Answers the KPI:** Order fulfilment rate — volume trends reveal capacity patterns before SLA breaches occur.
 
 ```python
 # Pseudocode — implement using Pandas operations only
-def dispatch_volume_per_day_by_warehouse(start_date, end_date):
-    # Load from telemetry_events where event_type = 'dispatch_order_created'
+def stock_exit_volume_per_day_by_warehouse(start_date, end_date):
+    # Load from telemetry_events where event_type = 'stock_exit_created'
+    # and tags.exit_type = 'dispatch'
     # and timestamp between start_date and end_date
     # Convert timestamp to datetime (utc=True)
     # Extract date from timestamp
@@ -33,21 +34,21 @@ def dispatch_volume_per_day_by_warehouse(start_date, end_date):
 
 ---
 
-### Metric 2 — Dispatch failure rate per day by warehouse
+### Metric 2 — Stock exit failure rate per day by warehouse
 
-**Business question:** what proportion of dispatch attempts failed each day, per warehouse?
+**Business question:** what proportion of stock exit attempts failed each day, per warehouse?
 
 **Answers the KPI:** Order fulfilment rate — failure rate directly measures the inverse of fulfilment success.
 
 ```python
 # Pseudocode — implement using Pandas operations only
-def dispatch_failure_rate_per_day(start_date, end_date):
+def stock_exit_failure_rate_per_day(start_date, end_date):
     # Load from telemetry_events where event_type IN (
-    #   'dispatch_order_created', 'dispatch_order_failed'
+    #   'stock_exit_created', 'stock_exit_failed'
     # ) and timestamp between start_date and end_date
     # Convert timestamp to datetime (utc=True)
     # Extract date and warehouse from tags
-    # Create boolean column: is_failure = event_type == 'dispatch_order_failed'
+    # Create boolean column: is_failure = event_type == 'stock_exit_failed'
     # groupby(['date', 'warehouse']).agg(total=('id', 'count'), failures=('is_failure', 'sum'))
     # Calculate failure_rate = failures / total
     # Return as list of dicts: [{ "date": "...", "warehouse": "...", "total": N, "failures": M, "failure_rate": 0.05 }]
@@ -64,21 +65,21 @@ def dispatch_failure_rate_per_day(start_date, end_date):
 {
   "period": { "from": "2025-01-13", "to": "2025-01-20" },
   "metrics": {
-    "dispatch_volume_per_day_by_warehouse": [
-      { "date": "2025-01-13", "warehouse": "los_angeles", "count": 87 },
-      { "date": "2025-01-13", "warehouse": "zaragoza", "count": 34 }
+    "stock_exit_volume_per_day_by_warehouse": [
+      { "date": "2025-01-13", "warehouse": "LA", "count": 87 },
+      { "date": "2025-01-13", "warehouse": "ZGZ", "count": 34 }
     ],
-    "dispatch_failure_rate_per_day": [
+    "stock_exit_failure_rate_per_day": [
       {
         "date": "2025-01-13",
-        "warehouse": "los_angeles",
+        "warehouse": "LA",
         "total": 90,
         "failures": 3,
         "failure_rate": 0.033
       },
       {
         "date": "2025-01-13",
-        "warehouse": "zaragoza",
+        "warehouse": "ZGZ",
         "total": 35,
         "failures": 1,
         "failure_rate": 0.029
@@ -107,8 +108,8 @@ If you instrumented authentication events in D47, implement:
 ## Business Constraints for Your Pipeline
 
 - **`warehouse` must come from `tags`**, not from a fixed column. Use Pandas to extract it: `df['warehouse'] = df['tags'].apply(lambda x: x.get('warehouse'))` — then filter out rows where it is null before grouping.
-- **Los Angeles and Zaragoza must always be segmented separately** — Thomas Harry will never accept a global number that mixes both warehouses. If `warehouse` is missing from a row, exclude it from the metric rather than grouping it under a null value.
-- **`destination_country` for SLA analysis** can be extracted from `tags` in a third function if you implement the additional activity — load `dispatch_order_failed` with SQL (`event_type` + timestamp), extract `destination_country` in Pandas, then `df[df['destination_country'] == 'US']` before grouping.
+- **Los Angeles (`LA`) and Zaragoza (`ZGZ`) must always be segmented separately** — Thomas Harry will never accept a global number that mixes both warehouses. If `warehouse` is missing from a row, exclude it from the metric rather than grouping it under a null value.
+- **Loss exits** (`exit_type = loss`) can be extracted from `tags` in a third function if you implement the additional activity — load `stock_exit_created` with SQL, extract `exit_type` in Pandas, then filter before grouping.
 
 ---
 

@@ -12,24 +12,24 @@ La columna `tags` JSONB almacena las propiedades específicas del evento de tu a
 
 | `event_type` | Contenido de `tags` |
 |---|---|
-| `receiving_order_created` | `{ "sku_id": "...", "quantity": 200, "warehouse": "los_angeles", "client_id": "client_uuid_..." }` |
-| `dispatch_order_created` | `{ "sku_id": "...", "quantity": 15, "warehouse": "zaragoza", "destination_country": "ES" }` |
-| `dispatch_order_failed` | `{ "error_code": "INSUFFICIENT_STOCK", "sku_id": "...", "warehouse": "los_angeles", "destination_country": "US" }` |
-| `receiving_order_failed` | `{ "error_code": "UNKNOWN_CLIENT", "warehouse": "zaragoza" }` |
-| `sku_list_viewed` | `{ "warehouse": "los_angeles", "item_count": 142 }` |
-| `user_login_succeeded` | `{ "warehouse": "zaragoza" }` |
+| `stock_entry_created` | `{ "sku_id": 42, "quantity": 200, "warehouse": "LA", "reference": "PO-2025-8841" }` |
+| `stock_exit_created` | `{ "sku_id": 42, "quantity": 15, "warehouse": "ZGZ", "exit_type": "dispatch" }` |
+| `stock_exit_failed` | `{ "error_code": "INSUFFICIENT_STOCK", "sku_id": 42, "warehouse": "LA", "exit_type": "dispatch" }` |
+| `stock_entry_failed` | `{ "error_code": "INVALID_REFERENCE", "warehouse": "ZGZ" }` |
+| `sku_list_viewed` | `{ "warehouse": "LA", "item_count": 142 }` |
+| `user_login_succeeded` | `{ "warehouse": "ZGZ" }` |
 | `user_login_failed` | `{ "reason": "invalid_credentials" }` |
 | `session_expired` | `{}` |
 
-Las columnas fijas (`event_type`, `timestamp`, `service`, `level`) se populan desde los campos del envelope. La columna `value` puede usarse para `quantity` en eventos de órdenes si quieres que sea consultable sin parsear JSONB — documenta tu decisión.
+Las columnas fijas (`event_type`, `timestamp`, `service`, `level`) se populan desde los campos del envelope. La capa de almacenamiento establece `service` en `backoffice` al persistir — no se envía en el envelope de captura. La columna `value` puede usarse para `quantity` en eventos de órdenes si quieres que sea consultable sin parsear JSONB — documenta tu decisión.
 
 ---
 
 ## Bulk insert — Notas específicas de TrackFlow
 
-Los picos de tráfico de TrackFlow coinciden con las ventanas de despacho de e-commerce: Black Friday, temporada de Navidad, ventas flash de clientes de moda. Durante estos períodos, los operarios de Los Ángeles pueden generar cientos de eventos `dispatch_order_created` y `dispatch_order_failed` en poco tiempo. Tu bulk insert debe absorber estas ráfagas sin acumular transacciones.
+Los picos de tráfico de TrackFlow coinciden con las ventanas de despacho de e-commerce: Black Friday, temporada de Navidad, ventas flash de clientes de moda. Durante estos períodos, los operarios de Los Ángeles pueden generar cientos de eventos `stock_exit_created` y `stock_exit_failed` en poco tiempo. Tu bulk insert debe absorber estas ráfagas sin acumular transacciones.
 
-**Ejemplo de rechazo para TrackFlow:** llega un batch de 6 eventos. El evento 4 es un `dispatch_order_failed` sin `warehouse` en `tags` — falla la validación. Los eventos 1, 2, 3, 5 y 6 son válidos y se insertan. La respuesta es `{ "received": 6, "stored": 5, "rejected": 1 }`. Un `dispatch_order_failed` sin `warehouse` es operativamente inútil — Andrés Kim (CTO) no puede atribuir el fallo a ninguno de los dos almacenes.
+**Ejemplo de rechazo para TrackFlow:** llega un batch de 6 eventos. El evento 4 es un `stock_exit_failed` sin `warehouse` en `tags` — falla la validación. Los eventos 1, 2, 3, 5 y 6 son válidos y se insertan. La respuesta es `{ "received": 6, "stored": 5, "rejected": 1 }`. Un `stock_exit_failed` sin `warehouse` es operativamente inútil — Andrés Kim (CTO) no puede atribuir el fallo a ninguno de los dos almacenes.
 
 ---
 
@@ -37,11 +37,11 @@ Los picos de tráfico de TrackFlow coinciden con las ventanas de despacho de e-c
 
 Después de reemplazar el stub, verifica en el editor de tablas de Supabase:
 
-- [ ] Todos los eventos de órdenes tienen `warehouse` en `tags` (`los_angeles` o `zaragoza`) — Thomas Harry (CEO) exige segmentación por almacén en cada vista
-- [ ] Las filas `dispatch_order_created` tienen `destination_country` en `tags` — necesario para el análisis de SLA EE. UU. vs. España
-- [ ] Los valores de `client_id` en `tags` son UUIDs opacos — nunca nombres de marcas ni razones sociales
+- [ ] Todos los eventos de órdenes tienen `warehouse` en `tags` (`"LA"` o `"ZGZ"`) — Thomas Harry (CEO) exige segmentación por almacén en cada vista
+- [ ] Las filas `stock_exit_created` tienen `exit_type` en `tags` — necesario para el análisis de despacho vs. pérdida
+- [ ] Los valores de `reference` en `tags` son referencias de despacho del cliente — nunca direcciones ni teléfonos de destinatarios
 - [ ] Ninguna fila contiene nombres de destinatarios, direcciones de entrega ni números de teléfono en ninguna parte de `tags`
-- [ ] Las filas `dispatch_order_failed` siempre tienen `warehouse` y `destination_country` aunque falten otras propiedades
+- [ ] Las filas `stock_exit_failed` siempre tienen tanto `warehouse` como `exit_type` aunque falten otras propiedades
 
 ---
 

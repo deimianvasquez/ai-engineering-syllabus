@@ -10,47 +10,48 @@
 
 These are the two KPI calculations your `analysis.py` must implement. Each maps directly to the KPIs defined in your Phase 1 plan.
 
-### Metric 1 — Dispensing volume per day by clinic and jurisdiction
+### Metric 1 — Supply consumption volume per day by clinic and country
 
-**Business question:** how many dispensing orders were created per day, segmented by clinic and jurisdiction?
+**Business question:** how many supply consumption events were created per day, segmented by clinic and country?
 
 **Answers the KPI:** Critical supply availability rate — volume by clinic reveals which locations consume supplies fastest.
 
 ```python
 # Pseudocode — implement using Pandas operations only
-def dispensing_volume_per_day(start_date, end_date):
-    # Load from telemetry_events where event_type = 'dispensing_order_created'
+def supply_consumption_volume_per_day(start_date, end_date):
+    # Load from telemetry_events where event_type = 'supply_consumption_created'
     # and timestamp between start_date and end_date
     # Convert timestamp to datetime (utc=True)
     # Extract date from timestamp
-    # Extract clinic_id and jurisdiction from tags JSONB
-    # groupby(['date', 'clinic_id', 'jurisdiction'])['id'].count()
-    # Return as list of dicts: [{ "date": "...", "clinic_id": "...", "jurisdiction": "...", "count": N }]
+    # Extract clinic_id and country from tags JSONB
+    # groupby(['date', 'clinic_id', 'country'])['id'].count()
+    # Return as list of dicts: [{ "date": "...", "clinic_id": N, "country": "...", "count": N }]
 ```
 
-**Grouping dimension:** date + clinic_id + jurisdiction (all from `tags`).
+**Grouping dimension:** date + clinic_id + country (all from `tags`).
 **Aggregation:** `.count()` on event `id`.
 
 ---
 
-### Metric 2 — Emergency dispensing frequency per day by jurisdiction
+### Metric 2 — Clinical consumption frequency per day by country
 
-**Business question:** how many emergency dispensing events occurred per day, segmented by jurisdiction?
+**Business question:** how many clinical use consumption events occurred per day, segmented by country?
 
-**Answers the KPI:** Emergency dispensing frequency — the metric that triggers proactive stock level adjustments.
+**Answers the KPI:** Clinical consumption frequency — the metric that triggers proactive stock level adjustments.
 
 ```python
 # Pseudocode — implement using Pandas operations only
-def emergency_dispensing_per_day(start_date, end_date):
-    # Load from telemetry_events where event_type = 'emergency_dispensing_flagged'
+def clinical_consumption_per_day(start_date, end_date):
+    # Load from telemetry_events where event_type = 'supply_consumption_created'
+    # and tags.consumption_type = 'clinical_use'
     # and timestamp between start_date and end_date
     # Convert timestamp to datetime (utc=True)
-    # Extract date and jurisdiction from tags
-    # groupby(['date', 'jurisdiction'])['id'].count()
-    # Return as list of dicts: [{ "date": "...", "jurisdiction": "...", "count": N }]
+    # Extract date and country from tags
+    # groupby(['date', 'country'])['id'].count()
+    # Return as list of dicts: [{ "date": "...", "country": "...", "count": N }]
 ```
 
-**Grouping dimension:** date + jurisdiction (from `tags`).
+**Grouping dimension:** date + country (from `tags`).
 **Aggregation:** `.count()` on event `id`.
 
 ---
@@ -61,13 +62,13 @@ def emergency_dispensing_per_day(start_date, end_date):
 {
   "period": { "from": "2025-01-13", "to": "2025-01-20" },
   "metrics": {
-    "dispensing_volume_per_day": [
-      { "date": "2025-01-13", "clinic_id": "austin_main", "jurisdiction": "us", "count": 42 },
-      { "date": "2025-01-13", "clinic_id": "london_central", "jurisdiction": "uk", "count": 31 }
+    "supply_consumption_volume_per_day": [
+      { "date": "2025-01-13", "clinic_id": 1, "country": "US", "count": 42 },
+      { "date": "2025-01-13", "clinic_id": 10, "country": "UK", "count": 31 }
     ],
-    "emergency_dispensing_per_day": [
-      { "date": "2025-01-13", "jurisdiction": "us", "count": 4 },
-      { "date": "2025-01-13", "jurisdiction": "uk", "count": 2 }
+    "clinical_consumption_per_day": [
+      { "date": "2025-01-13", "country": "US", "count": 4 },
+      { "date": "2025-01-13", "country": "UK", "count": 2 }
     ]
   }
 }
@@ -79,24 +80,23 @@ def emergency_dispensing_per_day(start_date, end_date):
 
 If you instrumented authentication events in D47, implement:
 
-**Business question:** what percentage of login attempts fail each day, per jurisdiction?
+**Business question:** what percentage of login attempts fail each day, per country?
 
 ```python
 # event_type IN ('user_login_succeeded', 'user_login_failed')
-# groupby(['date', 'jurisdiction from tags'])
+# groupby(['date', 'country from tags'])
 # failure_rate = failed / (failed + succeeded)
 ```
 
-Claire Whitfield (CCO) requires this metric segmented by jurisdiction — a combined rate across US and UK is not acceptable for compliance reporting.
+Claire Whitfield (CCO) requires this metric segmented by country — a combined rate across US and UK is not acceptable for compliance reporting.
 
 ---
 
 ## Business Constraints for Your Pipeline
 
-- **`clinic_id` and `jurisdiction` must come from `tags`**, not from fixed columns. Extract both before grouping: `df['clinic_id'] = df['tags'].apply(lambda x: x.get('clinic_id'))` — filter out rows where either is null before grouping.
-- **US and UK must always be segmented separately** — Claire Whitfield (CCO) requires jurisdiction-level data for every compliance report. A combined metric that mixes both jurisdictions has no compliance value.
-- **No patient data will appear in your pipeline** — if any field in `tags` contains what appears to be a patient name, ID, or diagnosis, stop immediately, do not include it in any metric, and escalate to the tech lead. Your pipeline must only touch `supply_id`, `clinic_id`, `jurisdiction`, `clinical_context`, and `event_type`.
-- **`emergency_dispensing_flagged` rows are the most operationally critical** — if this metric returns zero for a day when you know there was clinical activity, investigate whether the event is being fired correctly before assuming the data is correct.
+- **`clinic_id` and `country` must come from `tags`**, not from fixed columns. Extract both before grouping: `df['clinic_id'] = df['tags'].apply(lambda x: x.get('clinic_id'))` — filter out rows where either is null before grouping.
+- **US and UK must always be segmented separately** — Claire Whitfield (CCO) requires country-level data for every compliance report. A combined metric that mixes both jurisdictions has no compliance value.
+- **No patient data will appear in your pipeline** — if any field in `tags` contains what appears to be a patient name, ID, or diagnosis, stop immediately, do not include it in any metric, and escalate to the tech lead. Your pipeline must only touch `supply_id`, `clinic_id`, `country`, `consumption_type`, and `event_type`.
 
 ---
 
