@@ -39,7 +39,7 @@ HealthCore's 12 clinics across two jurisdictions mean events arrive from multipl
 After replacing the stub, verify in the Supabase table editor:
 
 - [ ] All events have `country` in `tags` (`"US"` or `"UK"`) — Claire Whitfield (CCO) requires this for every compliance report
-- [ ] All order events have `clinic_id` in `tags` (integer 1–12) — Dr. Reid (Director of Clinical Operations) needs per-clinic visibility
+- [ ] All supply delivery/consumption events have `clinic_id` in `tags` (integer 1–12) — Dr. Reid (Director of Clinical Operations) needs per-clinic visibility
 - [ ] `supply_consumption_created` rows have `consumption_type` in `tags` — needed for clinical vs. waste analysis
 - [ ] **No row contains patient names, patient IDs, dates of birth, diagnoses, or any patient-linked data anywhere in `tags` or any other column** — this is a hard HIPAA/UK GDPR boundary; if any such data is present, the table must be considered compromised and the data purged
 - [ ] `userId` values stored via the envelope are opaque TinyDB UUIDs — never staff names, emails, or clinical role titles
