@@ -12,20 +12,21 @@ These are the two KPI calculations your `analysis.py` must implement. Each maps 
 
 ### Metric 1 — Daily consumption by location
 
-**Business question:** how many consumption order events were registered per day, segmented by location?
+**Business question:** how many ingredient exit events (consumption) were registered per day, segmented by location?
 
 **Answers the KPI:** Daily consumption rate by ingredient and location.
 
 ```python
 # Pseudocode — implement using Pandas operations only
 def consumption_by_location_per_day(start_date, end_date):
-    # Load from telemetry_events where event_type = 'consumption_order_created'
+    # Load from telemetry_events where event_type = 'ingredient_exit_created'
+    # and tags.reason = 'consumption'
     # and timestamp between start_date and end_date
     # Convert timestamp to datetime (utc=True)
     # Extract date from timestamp
     # Extract location_id from tags JSONB
     # groupby(['date', 'location_id'])['id'].count()
-    # Return as list of dicts: [{ "date": "...", "location_id": "...", "count": N }]
+    # Return as list of dicts: [{ "date": "...", "location_id": N, "count": N }]
 ```
 
 **Grouping dimension:** date + location_id (from `tags`).
@@ -35,7 +36,7 @@ def consumption_by_location_per_day(start_date, end_date):
 
 ### Metric 2 — Order failure rate per day
 
-**Business question:** what proportion of order attempts (supply + consumption) failed each day?
+**Business question:** what proportion of order attempts (entry + exit) failed each day?
 
 **Answers the KPI:** Stock-out frequency (indirectly — failures signal supply chain stress).
 
@@ -43,8 +44,8 @@ def consumption_by_location_per_day(start_date, end_date):
 # Pseudocode — implement using Pandas operations only
 def order_failure_rate_per_day(start_date, end_date):
     # Load from telemetry_events where event_type IN (
-    #   'consumption_order_created', 'supply_order_created',
-    #   'consumption_order_failed', 'supply_order_failed'
+    #   'ingredient_exit_created', 'ingredient_entry_created',
+    #   'ingredient_exit_failed', 'ingredient_entry_failed'
     # ) and timestamp between start_date and end_date
     # Convert timestamp to datetime (utc=True)
     # Extract date
@@ -66,8 +67,8 @@ def order_failure_rate_per_day(start_date, end_date):
   "period": { "from": "2025-01-13", "to": "2025-01-20" },
   "metrics": {
     "consumption_by_location_per_day": [
-      { "date": "2025-01-13", "location_id": "medellin_centro", "count": 12 },
-      { "date": "2025-01-13", "location_id": "miami_south", "count": 8 }
+      { "date": "2025-01-13", "location_id": 3, "count": 12 },
+      { "date": "2025-01-13", "location_id": 7, "count": 8 }
     ],
     "order_failure_rate_per_day": [
       { "date": "2025-01-13", "total": 20, "failures": 3, "failure_rate": 0.15 }
@@ -95,8 +96,8 @@ If you instrumented authentication events in D47, implement:
 ## Business Constraints for Your Pipeline
 
 - **`location_id` must come from `tags`**, not from a fixed column. Use Pandas to extract it: `df['location_id'] = df['tags'].apply(lambda x: x.get('location_id'))` — then filter out rows where it is null before grouping.
-- **Separate Colombia and Florida** in the consumption metric — Felipe needs to compare both markets. The `location_id` naming convention (`medellin_*`, `bogota_*` for Colombia; `miami_*` for Florida) is what enables this segmentation.
-- **The waste ratio KPI** (ConsumptionOrders with `reason = waste/spoilage/theft`) can be added as a third function if you implement the additional activity — load via SQL (`event_type` + timestamp), extract `reason` from `tags` in Pandas, then `df[df['reason'].isin(['waste', 'spoilage', 'theft'])]` before grouping.
+- **Separate Colombia and Florida** in the consumption metric — Felipe needs to compare both markets. Map `location_id` (1–14) to country using your location reference data.
+- **The waste ratio KPI** (IngredientExit with `reason = waste`) can be added as a third function if you implement the additional activity — load via SQL (`event_type` + timestamp), extract `reason` from `tags` in Pandas, then `df[df['reason'] == 'waste']` before grouping.
 
 ---
 

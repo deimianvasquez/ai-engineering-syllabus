@@ -10,16 +10,16 @@
 
 These are the two KPI calculations your `analysis.py` must implement. Each maps directly to the KPIs defined in your Phase 1 plan.
 
-### Metric 1 — Asset assignments per day by office
+### Metric 1 — Asset exits per day by office
 
-**Business question:** how many asset assignment events were registered per day, segmented by office?
+**Business question:** how many asset exit events were registered per day, segmented by office?
 
-**Answers the KPI:** Stock-out frequency by asset category — assignments per day reveal demand patterns that precede stock-outs.
+**Answers the KPI:** Stock-out frequency by asset category — exit volume per day reveals demand patterns that precede stock-outs.
 
 ```python
 # Pseudocode — implement using Pandas operations only
-def assignments_per_day_by_office(start_date, end_date):
-    # Load from telemetry_events where event_type = 'assignment_order_created'
+def asset_exits_per_day_by_office(start_date, end_date):
+    # Load from telemetry_events where event_type = 'asset_exit_created'
     # and timestamp between start_date and end_date
     # Convert timestamp to datetime (utc=True)
     # Extract date from timestamp
@@ -33,21 +33,21 @@ def assignments_per_day_by_office(start_date, end_date):
 
 ---
 
-### Metric 2 — Assignment failure rate per day
+### Metric 2 — Asset exit failure rate per day
 
-**Business question:** what proportion of asset assignment attempts failed each day?
+**Business question:** what proportion of asset exit attempts failed each day?
 
 **Answers the KPI:** Procurement cycle time (indirectly — failures indicate assets were not procured in time).
 
 ```python
 # Pseudocode — implement using Pandas operations only
-def assignment_failure_rate_per_day(start_date, end_date):
+def asset_exit_failure_rate_per_day(start_date, end_date):
     # Load from telemetry_events where event_type IN (
-    #   'assignment_order_created', 'assignment_order_failed'
+    #   'asset_exit_created', 'asset_exit_failed'
     # ) and timestamp between start_date and end_date
     # Convert timestamp to datetime (utc=True)
     # Extract date
-    # Create boolean column: is_failure = event_type == 'assignment_order_failed'
+    # Create boolean column: is_failure = event_type == 'asset_exit_failed'
     # groupby('date').agg(total=('id', 'count'), failures=('is_failure', 'sum'))
     # Calculate failure_rate = failures / total
     # Return as list of dicts: [{ "date": "...", "total": N, "failures": M, "failure_rate": 0.08 }]
@@ -64,11 +64,11 @@ def assignment_failure_rate_per_day(start_date, end_date):
 {
   "period": { "from": "2025-01-13", "to": "2025-01-20" },
   "metrics": {
-    "assignments_per_day_by_office": [
-      { "date": "2025-01-13", "office": "valencia", "count": 5 },
-      { "date": "2025-01-13", "office": "miami", "count": 3 }
+    "asset_exits_per_day_by_office": [
+      { "date": "2025-01-13", "office": "Valencia", "count": 5 },
+      { "date": "2025-01-13", "office": "Miami", "count": 3 }
     ],
-    "assignment_failure_rate_per_day": [
+    "asset_exit_failure_rate_per_day": [
       { "date": "2025-01-13", "total": 8, "failures": 1, "failure_rate": 0.125 }
     ]
   }
@@ -94,8 +94,8 @@ If you instrumented authentication events in D47, implement:
 ## Business Constraints for Your Pipeline
 
 - **`office` must come from `tags`**, not from a fixed column. Use Pandas to extract it: `df['office'] = df['tags'].apply(lambda x: x.get('office'))` — then filter out rows where it is null before grouping.
-- **Valencia and Miami must be segmented** in the assignments metric — Sergio needs to compare both offices. Never aggregate across both offices without a grouping dimension.
-- **Software licence assignments** (`asset_category = software_licence` in `tags`) can be isolated in a third function if you implement the additional activity — load relevant events via SQL (`event_type` + timestamp), extract `asset_category` in Pandas, then filter `df[df['asset_category'] == 'software_licence']` before grouping.
+- **Valencia and Miami must be segmented** in the exits metric — Sergio needs to compare both offices. Never aggregate across both offices without a grouping dimension.
+- **Hardware exits** (`exit_type = allocation`) can be isolated in a third function if you implement the additional activity — load relevant events via SQL (`event_type` + timestamp), extract `exit_type` in Pandas, then filter before grouping.
 
 ---
 

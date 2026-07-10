@@ -2,7 +2,7 @@
 
 ## Tu empresa
 
-**Brasaland** es una cadena de restaurantes de comida a la brasa con 14 locales en Colombia y Florida. Formas parte de **Brasaland Digital**, el equipo interno de tecnología. El backoffice lo usan a diario los gerentes de local y supervisores de operaciones para registrar órdenes de suministro de ingredientes y órdenes de consumo. Hoy instrumentas ese backoffice con los eventos que diseñaste en la Fase 1.
+**Brasaland** es una cadena de restaurantes de comida a la brasa con 14 locales en Colombia y Florida. Formas parte de **Brasaland Digital**, el equipo interno de tecnología. El backoffice lo usan a diario los gerentes de local y supervisores de operaciones para registrar entradas de ingredientes (entregas de proveedores) y salidas de ingredientes (consumo y merma). Hoy instrumentas ese backoffice con los eventos que diseñaste en la Fase 1.
 
 ---
 
@@ -20,11 +20,13 @@ class TelemetryEvent(BaseModel):
     timestamp: datetime    # ISO 8601, momento de captura
     sessionId: str         # Identificador de sesión (opaco)
     userId: str            # UUID TinyDB del usuario (nunca nombre ni email)
-    event_type: str        # Formato entidad_acción, ej: "supply_order_created"
+    event_type: str        # Formato entidad_acción, ej: "ingredient_entry_created"
     schemaVersion: str     # Ej: "1.0"
-    service: str           # "backoffice"
+    requestId: str         # ID de correlación — generado por TelemetryService por batch
     properties: dict[str, Any] = {}
 ```
+
+> **Nota:** `service` no forma parte del envelope de captura. La capa de almacenamiento de la Fase 3 establece la columna `service` al persistir (típicamente `backoffice`).
 
 ---
 
@@ -34,10 +36,10 @@ Estos son los puntos del backoffice donde deben vivir las llamadas a `track()`. 
 
 | Evento | Dónde llamar a `track()` | Notas |
 |---|---|---|
-| `supply_order_created` | Tras respuesta exitosa de la API en el formulario de creación de SupplyOrder | Incluir `ingredient_id`, `quantity`, `location_id` |
-| `consumption_order_created` | Tras respuesta exitosa de la API en el formulario de creación de ConsumptionOrder | Incluir `ingredient_id`, `quantity`, `reason`, `location_id` |
-| `consumption_order_failed` | En error de la API en el formulario de ConsumptionOrder (bloque catch) | Incluir `error_code`, `ingredient_id`, `location_id` — nunca el stack de error completo |
-| `supply_order_failed` | En error de la API en el formulario de SupplyOrder (bloque catch) | Incluir `error_code`, `location_id` |
+| `ingredient_entry_created` | Tras respuesta exitosa de la API en el formulario de creación de IngredientEntry | Incluir `ingredient_id`, `quantity`, `location_id`, `supplier_name` |
+| `ingredient_exit_created` | Tras respuesta exitosa de la API en el formulario de creación de IngredientExit | Incluir `ingredient_id`, `quantity`, `reason`, `location_id` |
+| `ingredient_exit_failed` | En error de la API en el formulario de IngredientExit (bloque catch) | Incluir `error_code`, `ingredient_id`, `location_id` — nunca el stack de error completo |
+| `ingredient_entry_failed` | En error de la API en el formulario de IngredientEntry (bloque catch) | Incluir `error_code`, `location_id` |
 | `ingredient_list_viewed` | Al montar el componente de listado de stock de ingredientes | Incluir `location_id`, `item_count` |
 
 ---
@@ -58,10 +60,10 @@ Cada llamada a `track()` para Brasaland debe incluir solo estas propiedades. Nad
 
 | Evento | Propiedades permitidas |
 |---|---|
-| `supply_order_created` | `ingredient_id`, `quantity`, `location_id`, `supplier_id` |
-| `consumption_order_created` | `ingredient_id`, `quantity`, `reason`, `location_id` |
-| `consumption_order_failed` | `error_code`, `ingredient_id`, `location_id` |
-| `supply_order_failed` | `error_code`, `location_id` |
+| `ingredient_entry_created` | `ingredient_id`, `quantity`, `location_id`, `supplier_name` |
+| `ingredient_exit_created` | `ingredient_id`, `quantity`, `reason`, `location_id` |
+| `ingredient_exit_failed` | `error_code`, `ingredient_id`, `location_id` |
+| `ingredient_entry_failed` | `error_code`, `location_id` |
 | `ingredient_list_viewed` | `location_id`, `item_count` |
 | `user_login_succeeded` | `location_id` |
 | `user_login_failed` | `reason` |
@@ -72,8 +74,8 @@ Cada llamada a `track()` para Brasaland debe incluir solo estas propiedades. Nad
 ## Restricciones de negocio para tu implementación
 
 - **La doble moneda es metadato, no telemetría:** COP/USD es una propiedad de la entidad `Ingredient` en Supabase. No incluyas valores monetarios ni importes en eventos de telemetría — son datos de negocio, no datos de uso.
-- **`location_id` es obligatorio** en todos los eventos de inventario. Sin él, Nicolás Park (CTO) no puede segmentar los datos por Colombia vs. Florida en el dashboard.
-- **`reason` en ConsumptionOrders** (`kitchen_use`, `waste`, `spoilage`, `theft`) debe incluirse en `consumption_order_created` — es lo que alimenta el KPI de ratio de merma. Nunca incluyas la palabra `theft` en un mensaje de error visible para otros usuarios; en telemetría es simplemente un valor de cadena en un campo controlado.
+- **`location_id` es obligatorio** en todos los eventos de inventario (entero 1–14). Sin él, Nicolás Park (CTO) no puede segmentar los datos por Colombia vs. Florida en el dashboard.
+- **`reason` en IngredientExit** (`consumption` o `waste`) debe incluirse en `ingredient_exit_created` — es lo que alimenta el KPI de ratio de merma.
 - **`userId` es siempre el UUID de TinyDB** — nunca el nombre ni el email del gerente.
 
 ---

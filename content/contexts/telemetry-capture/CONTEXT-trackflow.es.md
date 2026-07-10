@@ -2,7 +2,7 @@
 
 ## Tu empresa
 
-**TrackFlow** es una empresa de gestión de almacenes y entrega de última milla con operaciones en Los Ángeles (EE. UU.) y Zaragoza (España). Formas parte de **TrackFlow Tech**, el equipo interno de tecnología. El backoffice lo usan a diario los operarios de almacén y coordinadores para registrar órdenes de recepción (stock entrante) y órdenes de despacho (salida hacia clientes). Hoy instrumentas ese backoffice con los eventos que diseñaste en la Fase 1.
+**TrackFlow** es una empresa de gestión de almacenes y entrega de última milla con operaciones en Los Ángeles (EE. UU.) y Zaragoza (España). Formas parte de **TrackFlow Tech**, el equipo interno de tecnología. El backoffice lo usan a diario los operarios de almacén y coordinadores para registrar entradas de stock (recepciones de mercancía) y salidas de stock (despachos y pérdidas). Hoy instrumentas ese backoffice con los eventos que diseñaste en la Fase 1.
 
 ---
 
@@ -20,11 +20,13 @@ class TelemetryEvent(BaseModel):
     timestamp: datetime    # ISO 8601, momento de captura
     sessionId: str         # Identificador de sesión (opaco)
     userId: str            # UUID TinyDB del usuario (nunca nombre ni email)
-    event_type: str        # Formato entidad_acción, ej: "dispatch_order_created"
+    event_type: str        # Formato entidad_acción, ej: "stock_exit_created"
     schemaVersion: str     # Ej: "1.0"
-    service: str           # "backoffice"
+    requestId: str         # ID de correlación — generado por TelemetryService por batch
     properties: dict[str, Any] = {}
 ```
+
+> **Nota:** `service` no forma parte del envelope de captura. La capa de almacenamiento de la Fase 3 establece la columna `service` al persistir (típicamente `backoffice`).
 
 ---
 
@@ -34,10 +36,10 @@ Estos son los puntos del backoffice donde deben vivir las llamadas a `track()`. 
 
 | Evento | Dónde llamar a `track()` | Notas |
 |---|---|---|
-| `receiving_order_created` | Tras respuesta exitosa de la API en el formulario de creación de ReceivingOrder | Incluir `sku_id`, `quantity`, `warehouse`, `client_id` |
-| `dispatch_order_created` | Tras respuesta exitosa de la API en el formulario de creación de DispatchOrder | Incluir `sku_id`, `quantity`, `warehouse`, `destination_country` |
-| `dispatch_order_failed` | En error de la API en el formulario de DispatchOrder (bloque catch) | Incluir `error_code`, `sku_id`, `warehouse` — marcar si `destination_country` es US (sensibilidad SLA) |
-| `receiving_order_failed` | En error de la API en el formulario de ReceivingOrder (bloque catch) | Incluir `error_code`, `warehouse` |
+| `stock_entry_created` | Tras respuesta exitosa de la API en el formulario de creación de StockEntry | Incluir `sku_id`, `quantity`, `warehouse`, `reference` |
+| `stock_exit_created` | Tras respuesta exitosa de la API en el formulario de creación de StockExit | Incluir `sku_id`, `quantity`, `warehouse`, `exit_type` |
+| `stock_exit_failed` | En error de la API en el formulario de StockExit (bloque catch) | Incluir `error_code`, `sku_id`, `warehouse`, `exit_type` |
+| `stock_entry_failed` | En error de la API en el formulario de StockEntry (bloque catch) | Incluir `error_code`, `warehouse` |
 | `sku_list_viewed` | Al montar el componente de listado de stock de SKUs | Incluir `warehouse`, `item_count` |
 
 ---
@@ -58,10 +60,10 @@ Cada llamada a `track()` para TrackFlow debe incluir solo estas propiedades. Nad
 
 | Evento | Propiedades permitidas |
 |---|---|
-| `receiving_order_created` | `sku_id`, `quantity`, `warehouse`, `client_id` |
-| `dispatch_order_created` | `sku_id`, `quantity`, `warehouse`, `destination_country` |
-| `dispatch_order_failed` | `error_code`, `sku_id`, `warehouse`, `destination_country` |
-| `receiving_order_failed` | `error_code`, `warehouse` |
+| `stock_entry_created` | `sku_id`, `quantity`, `warehouse`, `reference` |
+| `stock_exit_created` | `sku_id`, `quantity`, `warehouse`, `exit_type` |
+| `stock_exit_failed` | `error_code`, `sku_id`, `warehouse`, `exit_type` |
+| `stock_entry_failed` | `error_code`, `warehouse` |
 | `sku_list_viewed` | `warehouse`, `item_count` |
 | `user_login_succeeded` | `warehouse` |
 | `user_login_failed` | `reason` |
@@ -71,11 +73,11 @@ Cada llamada a `track()` para TrackFlow debe incluir solo estas propiedades. Nad
 
 ## Restricciones de negocio para tu implementación
 
-- **`warehouse` es obligatorio** en todos los eventos de inventario (`los_angeles` / `zaragoza`). Thomas Harry (CEO) exige segmentación por almacén en toda vista del dashboard — un evento sin este campo es inútil para decisiones operativas.
-- **`client_id` debe ser un identificador opaco** — nunca el nombre de la marca. TrackFlow gestiona inventario para varias marcas cliente y los eventos de telemetría nunca deben exponer los datos de un cliente en un contexto visible para otro.
-- **`dispatch_order_failed` en Los Ángeles en horas pico** es tu evento de mayor urgencia — alimenta el KPI de tasa de cumplimiento y tiene implicaciones contractuales de SLA. Asegúrate de que `warehouse` y `destination_country` estén siempre presentes en los eventos de fallo, incluso si otras propiedades faltan.
+- **`warehouse` es obligatorio** en todos los eventos de inventario (`"LA"` / `"ZGZ"`). Thomas Harry (CEO) exige segmentación por almacén en toda vista del dashboard — un evento sin este campo es inútil para decisiones operativas.
+- **`exit_type` en StockExit** debe ser `dispatch` o `loss` — inclúyelo en `stock_exit_created` y en eventos de fallo.
+- **`reference` en StockEntry** es la referencia de despacho del cliente — inclúyela en eventos de entrada exitosos cuando esté disponible en la respuesta de la API.
 - **`userId` es siempre el UUID de TinyDB** del operario que realiza la acción — nunca su nombre ni email.
-- **Sin datos del cliente final en telemetría:** los eventos de despacho registran la acción del operario, no la del destinatario. Nunca incluyas nombre, dirección ni teléfono del destinatario en ninguna propiedad de telemetría.
+- **Sin datos del cliente final en telemetría:** los eventos de salida de stock registran la acción del operario, no la del destinatario. Nunca incluyas nombre, dirección ni teléfono del destinatario en ninguna propiedad de telemetría.
 
 ---
 

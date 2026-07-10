@@ -12,20 +12,21 @@ Estos son los dos cálculos de KPI que debe implementar tu `analysis.py`. Cada u
 
 ### Métrica 1 — Consumo diario por local
 
-**Pregunta de negocio:** ¿cuántos eventos de orden de consumo se registraron por día, segmentados por local?
+**Pregunta de negocio:** ¿cuántos eventos de salida de ingredientes (consumo) se registraron por día, segmentados por local?
 
 **Responde el KPI:** Tasa de consumo diario por ingrediente y local.
 
 ```python
 # Pseudocódigo — implementar solo con operaciones de Pandas
 def consumption_by_location_per_day(start_date, end_date):
-    # Cargar desde telemetry_events donde event_type = 'consumption_order_created'
+    # Cargar desde telemetry_events donde event_type = 'ingredient_exit_created'
+    # y tags.reason = 'consumption'
     # y timestamp entre start_date y end_date
     # Convertir timestamp a datetime (utc=True)
     # Extraer fecha del timestamp
     # Extraer location_id del JSONB de tags
     # groupby(['date', 'location_id'])['id'].count()
-    # Devolver como lista de dicts: [{ "date": "...", "location_id": "...", "count": N }]
+    # Devolver como lista de dicts: [{ "date": "...", "location_id": N, "count": N }]
 ```
 
 **Dimensión de agrupamiento:** fecha + location_id (de `tags`).
@@ -35,7 +36,7 @@ def consumption_by_location_per_day(start_date, end_date):
 
 ### Métrica 2 — Tasa de fallos de órdenes por día
 
-**Pregunta de negocio:** ¿qué proporción de intentos de orden (suministro + consumo) fallaron cada día?
+**Pregunta de negocio:** ¿qué proporción de intentos de orden (entrada + salida) fallaron cada día?
 
 **Responde el KPI:** Frecuencia de stock agotado (indirectamente — los fallos señalan estrés en la cadena de suministro).
 
@@ -43,8 +44,8 @@ def consumption_by_location_per_day(start_date, end_date):
 # Pseudocódigo — implementar solo con operaciones de Pandas
 def order_failure_rate_per_day(start_date, end_date):
     # Cargar desde telemetry_events donde event_type IN (
-    #   'consumption_order_created', 'supply_order_created',
-    #   'consumption_order_failed', 'supply_order_failed'
+    #   'ingredient_exit_created', 'ingredient_entry_created',
+    #   'ingredient_exit_failed', 'ingredient_entry_failed'
     # ) y timestamp entre start_date y end_date
     # Convertir timestamp a datetime (utc=True)
     # Extraer fecha
@@ -66,8 +67,8 @@ def order_failure_rate_per_day(start_date, end_date):
   "period": { "from": "2025-01-13", "to": "2025-01-20" },
   "metrics": {
     "consumption_by_location_per_day": [
-      { "date": "2025-01-13", "location_id": "medellin_centro", "count": 12 },
-      { "date": "2025-01-13", "location_id": "miami_south", "count": 8 }
+      { "date": "2025-01-13", "location_id": 3, "count": 12 },
+      { "date": "2025-01-13", "location_id": 7, "count": 8 }
     ],
     "order_failure_rate_per_day": [
       { "date": "2025-01-13", "total": 20, "failures": 3, "failure_rate": 0.15 }
@@ -95,8 +96,8 @@ Si instrumentaste los eventos de autenticación en D47, implementa:
 ## Restricciones de negocio para tu pipeline
 
 - **`location_id` debe venir de `tags`**, no de una columna fija. Extráelo con Pandas: `df['location_id'] = df['tags'].apply(lambda x: x.get('location_id'))` — luego filtra las filas donde sea nulo antes de agrupar.
-- **Colombia y Florida deben estar siempre segmentadas** en la métrica de consumo — Felipe necesita comparar ambos mercados. La convención de nomenclatura de `location_id` (`medellin_*`, `bogota_*` para Colombia; `miami_*` para Florida) es lo que permite esa segmentación.
-- **El KPI de ratio de merma** (ConsumptionOrders con `reason = waste/spoilage/theft`) puede añadirse como tercera función si implementas la actividad adicional — carga con SQL (`event_type` + timestamp), extrae `reason` de `tags` en Pandas, luego `df[df['reason'].isin(['waste', 'spoilage', 'theft'])]` antes de agrupar.
+- **Colombia y Florida deben estar siempre segmentadas** en la métrica de consumo — Felipe necesita comparar ambos mercados. Mapea `location_id` (1–14) a país usando tus datos de referencia de ubicaciones.
+- **El KPI de ratio de merma** (IngredientExit con `reason = waste`) puede añadirse como tercera función si implementas la actividad adicional — carga con SQL (`event_type` + timestamp), extrae `reason` de `tags` en Pandas, luego `df[df['reason'] == 'waste']` antes de agrupar.
 
 ---
 
