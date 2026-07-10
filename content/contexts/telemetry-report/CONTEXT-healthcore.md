@@ -95,7 +95,7 @@ Claire Whitfield (CCO) requires this metric segmented by country — a combined 
 ## Business Constraints for Your Pipeline
 
 - **`clinic_id` and `country` must come from `tags`**, not from fixed columns. Extract both before grouping: `df['clinic_id'] = df['tags'].apply(lambda x: x.get('clinic_id'))` — filter out rows where either is null before grouping.
-- **US and UK must always be segmented separately** — Claire Whitfield (CCO) requires country-level data for every compliance report. A combined metric that mixes both jurisdictions has no compliance value.
+- **US and UK must always be segmented separately** — Claire Whitfield (CCO) requires country-level data for every compliance report. A combined metric that mixes both countries has no compliance value.
 - **No patient data will appear in your pipeline** — if any field in `tags` contains what appears to be a patient name, ID, or diagnosis, stop immediately, do not include it in any metric, and escalate to the tech lead. Your pipeline must only touch `supply_id`, `clinic_id`, `country`, `consumption_type`, and `event_type`.
 
 ---
