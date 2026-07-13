@@ -35,6 +35,143 @@ A data pipeline is not simply a script that moves data from one place to another
 
 These three attributes are what your design document must demonstrate you have thought through deeply.
 
+### Build the pipeline around a business goal
+
+A data pipeline is not infrastructure for its own sake. It exists to achieve a **specific business goal** — a decision the company needs to make, or a metric it needs to track reliably over time.
+
+Before you design extraction, transformation, or load stages, ask: _what question must this pipeline answer, and who will act on the answer?_ Vague goals produce vague pipelines. Concrete goals shape every design choice — which events to extract, how often to run the flow, what grain to aggregate at, and what "done" looks like for each run.
+
+**Examples of specific goals:**
+
+- Understand **user behavior in the backoffice** (which flows are used, where operators drop off) to **increase conversion or sales rate**.
+- Measure **consumption frequency** and **inbound replenishment patterns** to **anticipate stock shortages** and prioritize restocking.
+
+You already defined this direction in earlier milestones. Your **telemetry plan** identified the company's main KPIs; your **telemetry report** turned those KPIs into calculable metrics from stored events. Your pipeline design must **carry that thread forward**: the pipeline should reliably produce the data those KPIs need — at the right freshness, granularity, and audit trail — not merely move rows between tables.
+
+When you write the pipeline purpose in Phase 2, tie it directly to at least one KPI from your monorepo. If a stage in your design does not support a KPI or a concrete operational decision, question whether it belongs in v1.
+
+### Questions to help you design the pipeline
+
+Before writing `PIPELINE_DESIGN.md`, answer in writing — even as a draft — how you would handle each case in **your** monorepo.
+
+#### Idempotency
+
+1. **Duplicates at the source** — How do you prevent counting the same action twice in `telemetry_events` and KPI aggregates? Which envelope field is your dedup key, and at which layer?
+
+   <details>
+   <summary>See example and hint</summary>
+
+   An operator confirms `outbound_order_submitted` twice within 300 ms; two rows arrive with the same `eventId` but different receive timestamps.
+
+   **Hint:** upsert on `eventId` at ingest.
+
+   </details>
+
+2. **Re-run after failure** — If the pipeline dies during load with partial data inserted, what happens when you re-run it? How do you guarantee the same outcome as a clean run?
+
+   <details>
+   <summary>See example and hint</summary>
+
+   The 02:00 run loaded 847 of 1,412 rows into `reporting.daily_outbound_metrics` and failed on a Supabase timeout.
+
+   **Hint:** upsert by daily partition key.
+
+   </details>
+
+3. **Late events** — How do you recompute a published daily KPI when a delayed event arrives, without inflating metrics or losing audit trail?
+
+   <details>
+   <summary>See example and hint</summary>
+
+   At 23:50 a `checkout_validation_failed` is stored with a noon `timestamp`; that day's aggregate is already on the dashboard.
+
+   **Hint:** recompute window; log invalidating run.
+
+   </details>
+
+#### Observability
+
+4. **Silence vs. true absence** — How do you tell zero activity from failed capture or a pipeline that never ran? What minimum signals would you record?
+
+   <details>
+   <summary>See example and hint</summary>
+
+   Between 14:00 and 15:00 there are no `login_failed` or `order_submitted` events, but the warehouse kept operating normally.
+
+   **Hint:** heartbeat plus silence alert.
+
+   </details>
+
+5. **Collection traceability** — What traces reconstruct the path event → dashboard and detect gaps, bursts, or interval drift?
+
+   <details>
+   <summary>See example and hint</summary>
+
+   A KPI spikes at 09:00 and flatlines at 09:15 — real demand or a batch that processed two windows at once?
+
+   **Hint:** correlate `requestId` and `run_id`.
+
+   </details>
+
+6. **Growth vs. data loss** — If event volume swings day to day, how do you know the app is growing vs. losing or duplicating measurements?
+
+   <details>
+   <summary>See example and hint</summary>
+
+   Mondays: 12,000 events; Sundays: 800 — operator shifts or intermittent `POST /telemetry` failures?
+
+   **Hint:** compare events to active sessions.
+
+   </details>
+
+#### Recoverability
+
+7. **Database outage** — Where do you resume if the connection drops mid-pipeline? What checkpoint do you persist?
+
+   <details>
+   <summary>See example and hint</summary>
+
+   Pandas finished grouping by `product_id`, but Supabase dropped on `INSERT` into the reporting table.
+
+   **Hint:** phase checkpoint in `pipeline_runs`.
+
+   </details>
+
+8. **Frontend buffer** — Does buffering offline events in the browser make sense? What risks does it introduce, and which layer should own them?
+
+   <details>
+   <summary>See example and hint</summary>
+
+   An operator loses WiFi for 20 minutes; the browser stores 45 events in `localStorage` and sends them in one batch on reconnect.
+
+   **Hint:** client buffer; server-side dedup.
+
+   </details>
+
+9. **Transmission retry** — How do you design retries on `POST /telemetry` without breaking idempotency? What server response means "already stored" vs. "retry"?
+
+   <details>
+   <summary>See example and hint</summary>
+
+   The client gets a timeout, retries, but the server already persisted the event on the slow first request.
+
+   **Hint:** `Idempotency-Key`; return 200 if exists.
+
+   </details>
+
+#### Cross-cutting
+
+10. **Concurrent runs** — What do you observe, how do you avoid load race conditions, and how do you recover when cron and a manual trigger from `services/` overlap?
+
+    <details>
+    <summary>See example and hint</summary>
+
+    The scheduled flow starts at 02:00; at 02:05 someone clicks "Run pipeline now" in the operations backoffice.
+
+    **Hint:** window lock; unique `run_id`.
+
+    </details>
+
 ---
 
 ## 🌱 How to Start

@@ -35,6 +35,143 @@ Un pipeline de datos no es simplemente un script que mueve información de un si
 
 Estos tres atributos son los que tu documento de diseño debe demostrar que has pensado en profundidad.
 
+### Construye el pipeline en torno a un objetivo de negocio
+
+Un pipeline de datos no existe por sí mismo. Existe para lograr un **objetivo de negocio concreto**: una decisión que la empresa debe tomar, o una métrica que debe seguir de forma fiable en el tiempo.
+
+Antes de diseñar extracción, transformación o carga, pregúntate: _¿qué pregunta debe responder este pipeline y quién actuará con la respuesta?_ Objetivos vagos producen pipelines vagos. Objetivos concretos definen cada decisión de diseño: qué eventos extraer, con qué frecuencia ejecutar el flujo, a qué granularidad agregar y qué significa "terminado" en cada ejecución.
+
+**Ejemplos de objetivos específicos:**
+
+- Entender el **comportamiento del usuario en el backoffice** (qué flujos usa, dónde abandonan los operadores) para **aumentar la tasa de conversión o ventas**.
+- Medir la **frecuencia de consumo** y los **patrones de reposición entrante** para **anticipar roturas de stock** y priorizar el reabastecimiento.
+
+Ya definiste esta dirección en hitos anteriores. Tu **plan de telemetría** identificó los KPIs principales de la empresa; tu **informe de telemetría** los convirtió en métricas calculables a partir de eventos almacenados. El diseño del pipeline debe **continuar ese hilo**: debe producir de forma fiable los datos que esos KPIs necesitan — con la frescura, granularidad y trazabilidad adecuadas — no solo mover filas entre tablas.
+
+Cuando escribas el propósito del pipeline en la Fase 2, vincúlalo directamente con al menos un KPI de tu monorepo. Si una etapa del diseño no apoya un KPI ni una decisión operativa concreta, cuestiona si debe estar en la v1.
+
+### Preguntas que te ayudan a diseñar el pipeline
+
+Antes de escribir `PIPELINE_DESIGN.md`, responde por escrito — aunque sea en borrador — cómo abordarías cada caso en **tu** monorepo.
+
+#### Idempotencia
+
+1. **Duplicados en origen** — ¿Cómo evitas contar dos veces la misma acción en `telemetry_events` y en los agregados de KPI? ¿Qué campo del envelope usas como clave y en qué capa deduplicas?
+
+   <details>
+   <summary>Ver ejemplo y pista</summary>
+
+   Un operador confirma `outbound_order_submitted` dos veces en 300 ms; llegan dos filas con el mismo `eventId` pero distinto timestamp de recepción.
+
+   **Pista:** upsert por `eventId` en ingestión.
+
+   </details>
+
+2. **Re-ejecución tras fallo** — Si el pipeline muere en la fase de carga con datos parcialmente insertados, ¿qué pasa al relanzarlo? ¿Cómo garantizas el mismo resultado que en una ejecución limpia?
+
+   <details>
+   <summary>Ver ejemplo y pista</summary>
+
+   El run de las 02:00 cargó 847 de 1.412 filas en `reporting.daily_outbound_metrics` y falló por timeout de Supabase.
+
+   **Pista:** upsert por clave de partición diaria.
+
+   </details>
+
+3. **Eventos tardíos** — ¿Cómo recomputas un KPI diario ya publicado cuando llega un evento retrasado, sin inflar métricas ni perder trazabilidad?
+
+   <details>
+   <summary>Ver ejemplo y pista</summary>
+
+   A las 23:50 se registra un `checkout_validation_failed` con `timestamp` del mediodía; el agregado del día ya está en el dashboard.
+
+   **Pista:** recomputar ventana; registrar run invalidante.
+
+   </details>
+
+#### Observabilidad
+
+4. **Silencio vs. ausencia real** — ¿Cómo distingues "cero actividad" de "captura caída" o "pipeline que no corrió"? ¿Qué señales mínimas registrarías?
+
+   <details>
+   <summary>Ver ejemplo y pista</summary>
+
+   Entre 14:00 y 15:00 no hay `login_failed` ni `order_submitted`, pero el almacén siguió operando con normalidad.
+
+   **Pista:** heartbeat más alerta por silencio.
+
+   </details>
+
+5. **Trazabilidad de recolección** — ¿Qué trazas reconstruyen el camino evento → dashboard y detectan huecos, ráfagas o desfases en los intervalos?
+
+   <details>
+   <summary>Ver ejemplo y pista</summary>
+
+   Un KPI pica a las 09:00 y queda plano a las 09:15; no está claro si fue demanda real o un batch que procesó dos ventanas juntas.
+
+   **Pista:** correlacionar `requestId` y `run_id`.
+
+   </details>
+
+6. **Crecimiento vs. pérdida de datos** — Si el volumen de eventos varía mucho entre días, ¿cómo sabes si la app crece o si hay mediciones perdidas o duplicadas?
+
+   <details>
+   <summary>Ver ejemplo y pista</summary>
+
+   Lunes: 12.000 eventos; domingo: 800 — ¿turnos de operadores o fallos intermitentes en `POST /telemetry`?
+
+   **Pista:** contrastar eventos con sesiones activas.
+
+   </details>
+
+#### Recuperabilidad
+
+7. **Caída de base de datos** — ¿Desde qué fase retomas si la conexión cae a mitad del pipeline? ¿Qué checkpoint persistes?
+
+   <details>
+   <summary>Ver ejemplo y pista</summary>
+
+   Pandas terminó de agrupar por `product_id`, pero Supabase cayó al hacer `INSERT` en la tabla de reporting.
+
+   **Pista:** checkpoint de fase en `pipeline_runs`.
+
+   </details>
+
+8. **Buffer en el frontend** — ¿Tiene sentido acumular eventos offline en el navegador? ¿Qué riesgos introduce y qué capa debe resolverlos?
+
+   <details>
+   <summary>Ver ejemplo y pista</summary>
+
+   Un operador pierde WiFi 20 minutos; el navegador guarda 45 eventos en `localStorage` y los envía al reconectar en un solo lote.
+
+   **Pista:** buffer cliente; dedup en servidor.
+
+   </details>
+
+9. **Retry de transmisión** — ¿Cómo diseñas reintentos en `POST /telemetry` sin romper idempotencia? ¿Qué respuesta del servidor confirma "ya guardado" vs. "reintenta"?
+
+   <details>
+   <summary>Ver ejemplo y pista</summary>
+
+   El cliente recibe timeout, reintenta, pero el servidor ya persistió el evento en la petición lenta original.
+
+   **Pista:** `Idempotency-Key`; devolver 200 si existe.
+
+   </details>
+
+#### Cruce de principios
+
+10. **Ejecuciones simultáneas** — ¿Qué observas, cómo evitas condiciones de carrera y cómo recuperas si el cron y un trigger manual desde `services/` corren a la vez?
+
+    <details>
+    <summary>Ver ejemplo y pista</summary>
+
+    A las 02:00 arranca el flow programado y a las 02:05 alguien pulsa "Run pipeline now" en el backoffice de operaciones.
+
+    **Pista:** lock por ventana; `run_id` único.
+
+    </details>
+
 ---
 
 ## 🌱 Cómo Empezar
